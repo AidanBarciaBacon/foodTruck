@@ -254,9 +254,10 @@ itself is plain plastic and can be reprinted or repainted without touching the e
 - **Bottom centre:** a cut-out 30 wide x 6 tall, where the ribbon folds back to the rear face (a relaxed U, about
   1.5 mm radius, so the whole fold stays inside the 5.5 mm bend zone). The rim is broken here. The fold bottoms out at
   about z = 36.3, over the free space between the wheel wells (x = 65 to 164).
-- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its short side along the truck so it
-  clears the battery. The ribbon's 24 mm length puts the socket about 9 mm above the cut-out, facing the plate, with
-  no slack: its exact place is set with the real part in hand.
+- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, on standoffs so its socket (which
+  faces the plate) has room, its short side along the truck so it clears the battery. The ribbon's 24 mm length
+  puts the socket about 9 to 11 mm above the cut-out with no slack: its exact place is set with the real part in
+  hand. If the real adapter is as wide as drawn, move the battery 2 mm forward so its pocket has a proper wall.
 - **Rear face, towards the rear of the truck:** the main board on 4 mm standoffs (so it passes over the rear
   U-channel's 2 mm back wall), its USB-C port facing the rear wall and lining up with the charging slot. It overhangs
   the plate's rear end by 3.6 mm; its rear standoffs sit at about x = 12.
@@ -276,7 +277,7 @@ itself is plain plastic and can be reprinted or repainted without touching the e
 | Chassis | 229 x 127 x 27 | floor, four wheel wells, bumpers; prints flat |
 | Body shell | 229 x 127 x 116.6 | four walls, window, cab, charging slot, U-channels, magnet posts; fits the P1S bed in one piece, or as flat walls |
 | Roof lid | 229 x 127 x 2.4 plus the 1.5 lip and four magnet bosses | vents and an A/C box on top are extra height |
-| Sled backboard | 179 x 115 x 3 plus rim, standoffs, clips and battery pocket | prints flat, rear face down |
+| Sled backboard | 179 x 115 x 3 plus standoffs, clips and battery pocket | prints flat, front face down, so the face the glass lies on is smooth; the rim is its own 1 mm frame, printed flat and glued on |
 | Wheels | 32 dia x 12, four | pegged or glued; they do not turn |
 | Awning, counter, details | free | |
 

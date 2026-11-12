@@ -262,7 +262,7 @@
 <text x="886" y="238" font-size="15" font-weight="600" fill="#1F2933">Sled backboard</text>
 <text x="886" y="257" font-size="13" fill="#1F2933">179 x 115 x 3 mm</text>
 <text x="886" y="274" font-size="13" fill="#5F6B7A">plus rim, standoffs, clips and battery</text>
-<text x="886" y="291" font-size="13" fill="#5F6B7A">pocket; prints flat, rear face down</text>
+<text x="886" y="291" font-size="13" fill="#5F6B7A">pocket; prints front face down, rim glued on</text>
 <circle cx="862" cy="317" r="12" fill="#1F2933"/><text x="862" y="322" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">3</text>
 <text x="886" y="322" font-size="15" font-weight="600" fill="#1F2933">Body shell</text>
 <text x="886" y="341" font-size="13" fill="#1F2933">229 x 127 x 116.6 mm</text>

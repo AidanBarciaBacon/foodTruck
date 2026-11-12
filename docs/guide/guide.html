@@ -24,6 +24,8 @@
   ol.steps { list-style: none; margin: 8pt 0 0; padding: 0; }
   ol.steps > li { counter-increment: step; position: relative; padding: 7pt 0 7pt 62pt; border-top: 0.75pt solid #bbb; break-inside: avoid; }
   ol.steps > li:last-child { border-bottom: 0.75pt solid #bbb; }
+  ol.steps > li:has(table) { break-inside: auto; }
+  ol.steps > li > strong:first-child { break-after: avoid; }
   ol.steps > li::before { content: counter(step); position: absolute; left: 24pt; top: 6pt; width: 30pt; font-size: 15pt; font-weight: 700; text-align: left; }
   ol.steps > li::after { content: ""; position: absolute; left: 0; top: 8.5pt; width: 13pt; height: 13pt; border: 1.5pt solid #111; border-radius: 2pt; }
   ol.steps > li > strong:first-child { display: block; font-size: 11.5pt; margin-bottom: 2pt; }
@@ -324,13 +326,13 @@
     </li>
     <li><strong>Model the sled</strong> (Drawing 6). A flat plate, 179 x 115 x 3 mm.
       <ul>
-        <li><b>Front face:</b> a rim all round the glass, 1 mm high, 1.5 mm wide, 0.3 mm clear of the glass. Break the rim at the ribbon.</li>
+        <li><b>Front face:</b> flat. Model the rim as its own part: a frame 1 mm thick and 1.5 mm wide that goes all round the glass, 0.3 mm clear of it, with a 30 mm break at the ribbon. It only locates the glass.</li>
         <li><b>Bottom centre:</b> a cut-out 30 x 6 mm for the ribbon to fold back through.</li>
         <li><b>Each end:</b> 2.5 mm of bare plate outside the rim. These slide in the truck's channels.</li>
-        <li><b>Back face:</b> 4 mm standoffs and printed clips for the main board, with its USB-C port at the plate's rear end; a place for the adapter board at bottom centre; a pocket and a soft strap for the battery with 1 mm clear all round.</li>
+        <li><b>Back face:</b> 4 mm standoffs and printed clips for the main board, with its USB-C port at the plate's rear end; standoffs for the adapter board at bottom centre, so its socket has room; a pocket and a soft strap for the battery with 1 mm clear all round.</li>
       </ul>
     </li>
-    <li><strong>Print the sled</strong> flat, rear face down, in PETG or PLA. Also print a simple stand so it can sit upright on the bench without resting on the ribbon.</li>
+    <li><strong>Print the sled</strong> flat with its <b>front face down</b>, so the face the glass lies on comes out smooth, in PETG or PLA. Print the rim frame flat too and superglue it to the front face. Also print a simple stand so the sled can sit upright on the bench without resting on the ribbon.</li>
     <li><strong>Mount the electronics on the sled.</strong> Two strips of thin double-sided tape on the plate, then lay the glass inside the rim and press only at its edges, lightly. Fold the ribbon back through the cut-out in one relaxed U and plug it into the adapter. Clip the boards on. Battery in its pocket. It should work exactly as it did loose on the bench: press reset and check.
       <div class="warn"><b>Never clamp or press the glass,</b> and never stand the sled on its ribbon.</div>
     </li>
