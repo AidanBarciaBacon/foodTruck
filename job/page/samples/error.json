@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "date": "2026-11-12",
+  "weekday": "Thursday",
+  "dateLabel": "Thursday, Nov 12",
+  "generatedAt": "2026-11-12T06:31:04-08:00",
+  "updatedLabel": "Updated 6:31 AM",
+  "state": "error",
+  "market": null,
+  "trucks": [],
+  "next": null,
+  "error": "The feed answered 503",
+  "pageUrl": "example.com/trucks"
+}

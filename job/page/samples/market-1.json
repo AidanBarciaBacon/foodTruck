@@ -1,0 +1,25 @@
+{
+  "v": 1,
+  "date": "2026-11-12",
+  "weekday": "Thursday",
+  "dateLabel": "Thursday, Nov 12",
+  "generatedAt": "2026-11-12T06:31:04-08:00",
+  "updatedLabel": "Updated 6:31 AM",
+  "state": "market",
+  "market": {
+    "name": "Off the Grid: Levi’s Plaza",
+    "hoursLabel": "11:00 AM – 2:00 PM"
+  },
+  "trucks": [
+    {
+      "name": "Big City Halal",
+      "food": "Halal"
+    }
+  ],
+  "next": {
+    "date": "2026-11-16",
+    "label": "Monday, Nov 16"
+  },
+  "error": null,
+  "pageUrl": "example.com/trucks"
+}

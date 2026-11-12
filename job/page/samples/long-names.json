@@ -1,0 +1,37 @@
+{
+  "v": 1,
+  "date": "2026-09-30",
+  "weekday": "Wednesday",
+  "dateLabel": "Wednesday, Sep 30",
+  "generatedAt": "2026-09-30T06:31:04-07:00",
+  "updatedLabel": "Updated 6:31 AM",
+  "state": "market",
+  "market": {
+    "name": "Off the Grid: Levi’s Plaza",
+    "hoursLabel": "11:00 AM – 2:00 PM"
+  },
+  "trucks": [
+    {
+      "name": "The Original Award-Winning Smokehouse Barbecue & Southern Comfort Kitchen",
+      "food": "Slow-smoked brisket, pulled pork, ribs, mac and cheese and collard greens"
+    },
+    {
+      "name": "Grandma Wilhelmina’s Dumplings",
+      "food": "Dumplings"
+    },
+    {
+      "name": "Taco Comet",
+      "food": "Street tacos, burritos, quesadillas, nachos, tortas, aguas frescas and churros"
+    },
+    {
+      "name": "Donaudampfschifffahrtsgesellschaftskapitänsküche",
+      "food": ""
+    }
+  ],
+  "next": {
+    "date": "2026-10-01",
+    "label": "Thursday, Oct 1"
+  },
+  "error": null,
+  "pageUrl": "example.com/trucks"
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Today’s trucks</title>
+  <link rel="stylesheet" href="page.css">
+  <script src="page.js"></script>
+</head>
+<body>
+  <!--
+    Hard edges, used only with ?screen=1 (see page.css). Text and curves are normally drawn with soft edges: pixels
+    that are a blend of two colours. This makes each such pixel fully the shape's colour or not there at all, so the
+    picture the renderer photographs holds the six colours and nothing between them.
+  -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="hard-edges" x="-5%" y="-50%" width="110%" height="200%" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0 1"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
+  <!-- The 800 x 480 screen. Six flat colours only: see docs/software/CONTRACT.md, "The page". -->
+  <div class="stage" id="stage">
+    <div class="header">
+      <div class="title fit" id="title">TODAY’S TRUCKS</div>
+      <div class="date-panel">
+        <!-- The yellow panel with its slanted edge: an inline shape, like the awning. -->
+        <svg class="date-bg" width="312" height="96" viewBox="0 0 312 96" aria-hidden="true">
+          <polygon points="24,0 312,0 312,96 0,96"/>
+        </svg>
+        <div class="date fit" id="date"></div>
+      </div>
+    </div>
+
+    <!-- Awning: red and white stripes 32 px wide, scalloped edge outlined in black (inline shapes, not an image). -->
+    <svg class="awning" width="800" height="32" viewBox="0 96 800 32" aria-hidden="true">
+      <path class="awning-red" d="M0,96 h32 v12 a16,16 0 0 1 -32,0 z M64,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M128,96 h32 v12 a16,16 0 0 1 -32,0 z M192,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M256,96 h32 v12 a16,16 0 0 1 -32,0 z M320,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M384,96 h32 v12 a16,16 0 0 1 -32,0 z M448,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M512,96 h32 v12 a16,16 0 0 1 -32,0 z M576,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M640,96 h32 v12 a16,16 0 0 1 -32,0 z M704,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M768,96 h32 v12 a16,16 0 0 1 -32,0 z"/>
+      <path class="awning-edge" d="M0,108 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0"/>
+    </svg>
+
+    <!-- Filled by page.js: the truck rows, or the "no market" or "couldn't read" card. -->
+    <div class="body" id="body"></div>
+
+    <!-- Footer. Nothing is drawn right of x = 728: the truck stamps its battery mark at x 744 to 784, y 452 to 472. -->
+    <div class="footer">
+      <div class="updated fit" id="updated"></div>
+      <div class="url fit" id="url"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+/*
+  The picture on the truck's screen: a fixed 800 x 480 design in the screen's six colours, as flat fills.
+  The colours are the table in docs/software/CONTRACT.md ("today.bin"). Nothing else may be used: no gradients,
+  no shadows, no opacity, no images, no web fonts. Rules are 3 px or thicker and always one of the six.
+*/
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --yellow: #F5D000;
+  --red: #D0021B;
+  --blue: #1F4FD8;
+  --green: #1E8E3E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* On a phone or laptop: the stage is centred on a black page and scaled to fit by page.js. */
+html,
+body {
+  height: 100%;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.stage {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 800px;
+  height: 480px;
+  margin: -240px 0 0 -400px;
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  background: var(--white);
+  color: var(--black);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ?screen=1: exactly 800 x 480 at the top-left, no margin, no scrollbars. This is what the renderer photographs. */
+html.screen,
+html.screen body {
+  width: 800px;
+  height: 480px;
+  background: var(--white);
+}
+
+html.screen .stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  transform: none;
+}
+
+/*
+  Hard edges for the screen's picture. A soft edge is a row of pixels blended from two colours, and a blend is not
+  one of the six: snapped to the nearest colour afterwards, the grey between black and white lands on GREEN, and the
+  blend of black and yellow does too. So with ?screen=1 every piece of text and every slanted or curved shape goes
+  through the #hard-edges filter in index.html, which leaves each pixel fully drawn or not drawn. On a phone or laptop
+  the edges stay soft, which reads better there.
+*/
+.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+html.screen .fit,
+html.screen .date-bg polygon,
+html.screen .awning path {
+  filter: url(#hard-edges);
+}
+
+/* Every piece of text is one line: page.js shrinks it to fit, and past its floor it is cut here. */
+.fit {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* While page.js measures, the ellipsis is off so the full width of the text is what gets measured. */
+.measuring .fit {
+  text-overflow: clip;
+}
+
+/* ---------- Header: black band, yellow date panel with a slanted left edge ---------- */
+
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 800px;
+  height: 96px;
+  background: var(--black);
+}
+
+.title {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 444px;
+  height: 96px;
+  line-height: 96px;
+  font-size: 48px;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.date-panel {
+  position: absolute;
+  left: 488px;
+  top: 0;
+  width: 312px;
+  height: 96px;
+  padding: 0 20px 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  fill: var(--yellow);
+}
+
+.date {
+  position: relative; /* above the yellow shape */
+  max-width: 100%;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+/* ---------- Awning ---------- */
+
+.awning {
+  position: absolute;
+  left: 0;
+  top: 96px;
+  display: block;
+}
+
+.awning-red {
+  fill: var(--red);
+}
+
+.awning-edge {
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 3px;
+}
+
+/* ---------- Body: y 128 to 432 ---------- */
+
+.body {
+  position: absolute;
+  left: 0;
+  top: 128px;
+  width: 800px;
+  height: 304px;
+}
+
+.list {
+  height: 100%;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* One truck. page.js sets the height (a whole number of pixels) and the font sizes for the number of rows. */
+.row {
+  flex: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 24px;
+  align-content: center;
+  align-items: center;
+}
+
+.row + .row {
+  border-top: 3px solid var(--black);
+}
+
+.text {
+  min-width: 0;
+}
+
+.name {
+  line-height: 1.15;
+}
+
+.food {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hours {
+  max-width: 340px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.hours-text {
+  line-height: 1.2;
+}
+
+.c0 { background: var(--red); }
+.c1 { background: var(--blue); }
+.c2 { background: var(--green); }
+
+/* One or two trucks: the name has the whole width; the food and the hours share the line under it. */
+.layout-wide .row {
+  grid-template-areas: "name name" "food hours";
+  row-gap: 6px;
+}
+
+.layout-wide .text {
+  display: contents;
+}
+
+.layout-wide .name {
+  grid-area: name;
+}
+
+.layout-wide .food {
+  grid-area: food;
+}
+
+.layout-wide .hours {
+  grid-area: hours;
+  justify-self: end;
+}
+
+/* Five or six rows: the name and the food sit on one line. The name takes what it needs; the food gets the rest. */
+.layout-line .text {
+  display: flex;
+  align-items: baseline;
+}
+
+.layout-line .name {
+  flex: none;
+  max-width: 100%;
+}
+
+.layout-line .food {
+  flex: 1 1 0;
+  margin-left: 16px;
+}
+
+/* ---------- Whole-screen cards: no market today, and the truck list could not be read ---------- */
+
+.card {
+  position: absolute;
+  left: 32px;
+  top: 24px;
+  width: 736px;
+  height: 260px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card .fit {
+  max-width: 100%;
+}
+
+.card-big {
+  line-height: 1.12;
+}
+
+.card-bar {
+  flex: none;
+  width: 160px;
+}
+
+.card-none .card-bar {
+  height: 12px;
+  margin-top: 14px;
+  background: var(--red);
+}
+
+.card-back {
+  max-width: 100%;
+  margin-top: 26px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.card-back .fit {
+  line-height: 1.2;
+}
+
+.card-error {
+  background: var(--yellow);
+}
+
+.card-error .card-bar {
+  height: 8px;
+  margin: 18px 0 14px;
+  background: var(--black);
+}
+
+.card-small {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ---------- Footer: black band. The battery corner (x 744 to 784, y 452 to 472) stays empty ---------- */
+
+.footer {
+  position: absolute;
+  left: 0;
+  top: 432px;
+  width: 800px;
+  height: 48px;
+  padding: 0 72px 0 32px; /* the web address ends at x = 728, left of the battery corner */
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  background: var(--black);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.updated {
+  flex: 0 1 auto;
+  max-width: 320px;
+  color: var(--white);
+}
+
+.url {
+  flex: 1 1 0;
+  text-align: right;
+  color: var(--yellow);
+}
