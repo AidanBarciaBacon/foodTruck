@@ -1,0 +1,292 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#1F2933">
+  <title>The morning job, step by step</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1F2933"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="750" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700">The morning job, step by step</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">At about 6:30 AM each weekday, five steps turn the public truck page into three small files.</text>
+
+  <!-- Where it runs -->
+  <text x="196" y="116" font-size="13" fill="#5F6B7A">Where it runs: GitHub Actions, GitHub's service that runs code on a schedule (free)</text>
+  <line x1="700" y1="112" x2="1160" y2="112" stroke="#B8C0CC" stroke-width="1.25"/>
+
+  <!-- Input: the public truck page (not ours) -->
+  <rect x="41" y="174" width="129" height="180" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="70" y="190" width="70" height="52" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <line x1="70" y1="202" x2="140" y2="202" stroke="#1F2933" stroke-width="1.5"/>
+    <circle cx="77" cy="196" r="1.75" fill="#5F6B7A"/>
+    <circle cx="83" cy="196" r="1.75" fill="#5F6B7A"/>
+    <circle cx="89" cy="196" r="1.75" fill="#5F6B7A"/>
+    <line x1="79" y1="213" x2="131" y2="213" stroke="#5F6B7A" stroke-width="2.5"/>
+    <line x1="79" y1="222" x2="120" y2="222" stroke="#B8C0CC" stroke-width="2.5"/>
+    <line x1="79" y1="231" x2="126" y2="231" stroke="#B8C0CC" stroke-width="2.5"/>
+  </g>
+  <text font-size="15" font-weight="700" text-anchor="middle">
+    <tspan x="105" y="270">The public</tspan>
+    <tspan x="105" y="289">truck page</tspan>
+  </text>
+  <text font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <tspan x="105" y="312">someone else's</tspan>
+    <tspan x="105" y="329">website</tspan>
+  </text>
+
+  <!-- Arrows between steps -->
+  <g stroke="#1F2933" stroke-width="2">
+    <line x1="172" y1="264" x2="194" y2="264" marker-end="url(#arrow)"/>
+    <line x1="370" y1="264" x2="392" y2="264" marker-end="url(#arrow)"/>
+    <line x1="568" y1="264" x2="590" y2="264" marker-end="url(#arrow)"/>
+    <line x1="766" y1="264" x2="788" y2="264" marker-end="url(#arrow)"/>
+    <line x1="964" y1="264" x2="986" y2="264" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Step 1 -->
+  <rect x="196" y="126" width="172" height="278" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <circle cx="220" cy="150" r="12" fill="#6741D9"/>
+  <text x="220" y="155" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">1</text>
+  <text x="240" y="155" font-size="15" font-weight="700">Fetch and pick</text>
+  <text font-size="13">
+    <tspan x="210" y="184">Read the public page</tspan>
+    <tspan x="210" y="201">and pick out today's</tspan>
+    <tspan x="210" y="218">trucks: name, food</tspan>
+    <tspan x="210" y="235">type, hours.</tspan>
+  </text>
+  <line x1="210" y1="248" x2="354" y2="248" stroke="#B8C0CC" stroke-width="1.25"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="236" y="262" width="92" height="80" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <circle cx="250" cy="282" r="3" fill="#1F2933"/>
+    <line x1="260" y1="282" x2="286" y2="282" stroke="#1F2933" stroke-width="4"/>
+    <line x1="294" y1="282" x2="303" y2="282" stroke="#5F6B7A" stroke-width="3"/>
+    <line x1="310" y1="282" x2="317" y2="282" stroke="#5F6B7A" stroke-width="3"/>
+    <circle cx="250" cy="302" r="3" fill="#1F2933"/>
+    <line x1="260" y1="302" x2="280" y2="302" stroke="#1F2933" stroke-width="4"/>
+    <line x1="294" y1="302" x2="303" y2="302" stroke="#5F6B7A" stroke-width="3"/>
+    <line x1="310" y1="302" x2="317" y2="302" stroke="#5F6B7A" stroke-width="3"/>
+    <circle cx="250" cy="322" r="3" fill="#1F2933"/>
+    <line x1="260" y1="322" x2="284" y2="322" stroke="#1F2933" stroke-width="4"/>
+    <line x1="294" y1="322" x2="303" y2="322" stroke="#5F6B7A" stroke-width="3"/>
+    <line x1="310" y1="322" x2="317" y2="322" stroke="#5F6B7A" stroke-width="3"/>
+  </g>
+  <text font-size="13" text-anchor="middle">
+    <tspan x="282" y="368" font-weight="700">today.json</tspan>
+    <tspan x="282" y="385" fill="#5F6B7A">a short list of trucks</tspan>
+  </text>
+
+  <!-- Step 2 -->
+  <rect x="394" y="126" width="172" height="278" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <circle cx="418" cy="150" r="12" fill="#6741D9"/>
+  <text x="418" y="155" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">2</text>
+  <text x="438" y="155" font-size="15" font-weight="700">Build the page</text>
+  <text font-size="13">
+    <tspan x="408" y="184">Build our own web</tspan>
+    <tspan x="408" y="201">page from that list,</tspan>
+    <tspan x="408" y="218">laid out to fit the</tspan>
+    <tspan x="408" y="235">screen.</tspan>
+  </text>
+  <line x1="408" y1="248" x2="552" y2="248" stroke="#B8C0CC" stroke-width="1.25"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="420" y="258" width="120" height="88" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <line x1="420" y1="270" x2="540" y2="270" stroke="#1F2933" stroke-width="1.5"/>
+    <circle cx="427" cy="264" r="1.75" fill="#5F6B7A"/>
+    <circle cx="433" cy="264" r="1.75" fill="#5F6B7A"/>
+    <circle cx="439" cy="264" r="1.75" fill="#5F6B7A"/>
+    <rect x="430" y="278" width="100" height="60" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.5"/>
+    <line x1="438" y1="289" x2="488" y2="289" stroke="#1F2933" stroke-width="4"/>
+    <line x1="436" y1="297" x2="524" y2="297" stroke="#B8C0CC" stroke-width="1.25"/>
+    <line x1="438" y1="307" x2="478" y2="307" stroke="#1F2933" stroke-width="3"/>
+    <line x1="500" y1="307" x2="522" y2="307" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="438" y1="318" x2="486" y2="318" stroke="#1F2933" stroke-width="3"/>
+    <line x1="500" y1="318" x2="522" y2="318" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="438" y1="329" x2="470" y2="329" stroke="#1F2933" stroke-width="3"/>
+    <line x1="500" y1="329" x2="522" y2="329" stroke="#5F6B7A" stroke-width="2"/>
+  </g>
+  <text font-size="13" text-anchor="middle">
+    <tspan x="480" y="368" font-weight="700">our web page</tspan>
+    <tspan x="480" y="385" fill="#5F6B7A">laid out at 800 x 480</tspan>
+  </text>
+
+  <!-- Step 3 -->
+  <rect x="592" y="126" width="172" height="278" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <circle cx="616" cy="150" r="12" fill="#6741D9"/>
+  <text x="616" y="155" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">3</text>
+  <text x="636" y="155" font-size="15" font-weight="700">Screenshot</text>
+  <text font-size="13">
+    <tspan x="606" y="184">A headless browser</tspan>
+    <tspan x="606" y="201">(one with no window)</tspan>
+    <tspan x="606" y="218">opens the page and</tspan>
+    <tspan x="606" y="235">takes a picture of it.</tspan>
+  </text>
+  <line x1="606" y1="248" x2="750" y2="248" stroke="#B8C0CC" stroke-width="1.25"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="628" y="272" width="100" height="60" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <line x1="636" y1="283" x2="686" y2="283" stroke="#1F2933" stroke-width="4"/>
+    <line x1="634" y1="291" x2="722" y2="291" stroke="#B8C0CC" stroke-width="1.25"/>
+    <line x1="636" y1="301" x2="676" y2="301" stroke="#1F2933" stroke-width="3"/>
+    <line x1="698" y1="301" x2="720" y2="301" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="636" y1="312" x2="684" y2="312" stroke="#1F2933" stroke-width="3"/>
+    <line x1="698" y1="312" x2="720" y2="312" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="636" y1="323" x2="668" y2="323" stroke="#1F2933" stroke-width="3"/>
+    <line x1="698" y1="323" x2="720" y2="323" stroke="#5F6B7A" stroke-width="2"/>
+    <g fill="none" stroke="#5F6B7A" stroke-width="2">
+      <path d="M620,276 L620,264 L632,264"/>
+      <path d="M724,264 L736,264 L736,276"/>
+      <path d="M620,328 L620,340 L632,340"/>
+      <path d="M724,340 L736,340 L736,328"/>
+    </g>
+  </g>
+  <text font-size="13" text-anchor="middle">
+    <tspan x="678" y="368" font-weight="700">a screenshot</tspan>
+    <tspan x="678" y="385" fill="#5F6B7A">exactly 800 x 480</tspan>
+  </text>
+
+  <!-- Step 4 -->
+  <rect x="790" y="126" width="172" height="278" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <circle cx="814" cy="150" r="12" fill="#6741D9"/>
+  <text x="814" y="155" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">4</text>
+  <text x="834" y="155" font-size="15" font-weight="700">Six colours</text>
+  <text font-size="13">
+    <tspan x="804" y="184">Change every pixel</tspan>
+    <tspan x="804" y="201">to one of the six</tspan>
+    <tspan x="804" y="218">colours the screen</tspan>
+    <tspan x="804" y="235">can show.</tspan>
+  </text>
+  <line x1="804" y1="248" x2="948" y2="248" stroke="#B8C0CC" stroke-width="1.25"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="846" y="256" width="60" height="34" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <line x1="852" y1="263" x2="882" y2="263" stroke="#1F2933" stroke-width="3"/>
+    <line x1="852" y1="272" x2="876" y2="272" stroke="#1F2933" stroke-width="2.5"/>
+    <line x1="888" y1="272" x2="900" y2="272" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="852" y1="281" x2="880" y2="281" stroke="#1F2933" stroke-width="2.5"/>
+    <line x1="888" y1="281" x2="900" y2="281" stroke="#5F6B7A" stroke-width="2"/>
+  </g>
+  <!-- The screen's six colours, hex values from SPEC section 4 -->
+  <g stroke="#1F2933" stroke-width="1">
+    <rect x="812" y="298" width="12" height="12" fill="#000000"/>
+    <rect x="886" y="298" width="12" height="12" fill="#FFFFFF"/>
+    <rect x="812" y="315" width="12" height="12" fill="#D0021B"/>
+    <rect x="886" y="315" width="12" height="12" fill="#F5D000"/>
+    <rect x="812" y="332" width="12" height="12" fill="#1F4FD8"/>
+    <rect x="886" y="332" width="12" height="12" fill="#1E8E3E"/>
+  </g>
+  <g font-size="13">
+    <text x="830" y="309">black</text>
+    <text x="904" y="309">white</text>
+    <text x="830" y="326">red</text>
+    <text x="904" y="326">yellow</text>
+    <text x="830" y="343">blue</text>
+    <text x="904" y="343">green</text>
+  </g>
+  <text font-size="13" text-anchor="middle">
+    <tspan x="876" y="368" font-weight="700">the same picture</tspan>
+    <tspan x="876" y="385" fill="#5F6B7A">in six flat colours</tspan>
+  </text>
+
+  <!-- Step 5 -->
+  <rect x="988" y="126" width="171" height="278" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <circle cx="1012" cy="150" r="12" fill="#6741D9"/>
+  <text x="1012" y="155" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">5</text>
+  <text x="1032" y="155" font-size="15" font-weight="700">Publish</text>
+  <text font-size="13">
+    <tspan x="1002" y="184">Put three files at a</tspan>
+    <tspan x="1002" y="201">fixed web address,</tspan>
+    <tspan x="1002" y="218">for people and for</tspan>
+    <tspan x="1002" y="235">the truck.</tspan>
+  </text>
+  <line x1="1002" y1="248" x2="1146" y2="248" stroke="#B8C0CC" stroke-width="1.25"/>
+  <g fill="#FFFBF2" stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+    <path d="M1013,276 L1037,276 L1047,286 L1047,322 L1013,322 Z"/>
+    <path d="M1037,276 L1037,286 L1047,286" fill="none"/>
+    <path d="M1057,276 L1081,276 L1091,286 L1091,322 L1057,322 Z"/>
+    <path d="M1081,276 L1081,286 L1091,286" fill="none"/>
+    <path d="M1101,276 L1125,276 L1135,286 L1135,322 L1101,322 Z"/>
+    <path d="M1125,276 L1125,286 L1135,286" fill="none"/>
+  </g>
+  <text font-size="13" text-anchor="middle">
+    <tspan x="1074" y="368" font-weight="700">three small files</tspan>
+    <tspan x="1074" y="385" fill="#5F6B7A">named below</tspan>
+  </text>
+
+  <line x1="1074" y1="406" x2="1074" y2="433" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Where the files live -->
+  <rect x="41" y="436" width="1118" height="142" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <text x="56" y="460" font-size="15"><tspan font-weight="700">Where the files live:</tspan> GitHub Pages, GitHub's free web hosting, at a fixed web address</text>
+
+  <!-- today.png -->
+  <rect x="56" y="472" width="348" height="94" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <g fill="#FFFBF2" stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+    <path d="M72,486 L96,486 L106,496 L106,532 L72,532 Z"/>
+    <path d="M96,486 L96,496 L106,496" fill="none"/>
+  </g>
+  <text x="122" y="496" font-size="15" font-weight="700">today.png</text>
+  <text font-size="13" fill="#5F6B7A">
+    <tspan x="122" y="517">The picture as an ordinary image,</tspan>
+    <tspan x="122" y="534">to look at in any browser.</tspan>
+  </text>
+
+  <!-- today.bin -->
+  <rect x="426" y="472" width="348" height="94" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <g fill="#FFFBF2" stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+    <path d="M442,486 L466,486 L476,496 L476,532 L442,532 Z"/>
+    <path d="M466,486 L466,496 L476,496" fill="none"/>
+  </g>
+  <text x="492" y="496" font-size="15" font-weight="700">today.bin</text>
+  <text font-size="13" fill="#5F6B7A">
+    <tspan x="492" y="517">The same picture packed for the screen:</tspan>
+    <tspan x="492" y="534">4 bits per pixel, 192,000 bytes.</tspan>
+  </text>
+
+  <!-- status.json -->
+  <rect x="796" y="472" width="348" height="94" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <g fill="#FFFBF2" stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+    <path d="M812,486 L836,486 L846,496 L846,532 L812,532 Z"/>
+    <path d="M836,486 L836,496 L846,496" fill="none"/>
+  </g>
+  <text x="862" y="496" font-size="15" font-weight="700">status.json</text>
+  <text font-size="13" fill="#5F6B7A">
+    <tspan x="862" y="517">Tiny. A fingerprint of the picture, and</tspan>
+    <tspan x="862" y="534">how many seconds the truck should</tspan>
+    <tspan x="862" y="551">sleep before it checks again.</tspan>
+  </text>
+
+  <!-- Who reads each file -->
+  <line x1="88" y1="568" x2="88" y2="617" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="68" y="622" width="40" height="72" rx="7" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <rect x="74" y="631" width="28" height="48" rx="2" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.5"/>
+    <line x1="79" y1="641" x2="97" y2="641" stroke="#1F2933" stroke-width="3"/>
+    <line x1="79" y1="652" x2="94" y2="652" stroke="#5F6B7A" stroke-width="2.5"/>
+    <line x1="79" y1="661" x2="97" y2="661" stroke="#5F6B7A" stroke-width="2.5"/>
+    <line x1="79" y1="670" x2="90" y2="670" stroke="#5F6B7A" stroke-width="2.5"/>
+  </g>
+  <circle cx="88" cy="687" r="2" fill="#5F6B7A"/>
+  <text x="124" y="648" font-size="15" font-weight="700">People</text>
+  <text font-size="13" fill="#5F6B7A">
+    <tspan x="124" y="669">any browser, on a</tspan>
+    <tspan x="124" y="686">phone or laptop</tspan>
+  </text>
+
+  <path d="M970,568 L970,672 L849,672" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M600,568 L600,672 L721,672" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+
+  <text x="984" y="614" font-size="13" font-weight="700" fill="#E8590C">First, each time it wakes:</text>
+  <text x="984" y="631" font-size="13">the truck reads status.json.</text>
+  <text x="586" y="614" font-size="13" font-weight="700" fill="#E8590C" text-anchor="end">Then, only if the picture changed:</text>
+  <text x="586" y="631" font-size="13" text-anchor="end">the truck downloads today.bin.</text>
+
+  <text x="785" y="626" font-size="15" font-weight="700" text-anchor="middle">The truck</text>
+  <g stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+    <rect x="725" y="640" width="90" height="46" rx="4" fill="#FFE8CC"/>
+    <path d="M815,656 L826,656 Q831,656 833,661 L839,675 Q845,677 845,682 L845,686 L815,686 Z" fill="#FFE8CC"/>
+  </g>
+  <rect x="733" y="648" width="62" height="28" fill="#E7F5FF" stroke="#1971C2" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="747" cy="688" r="9" fill="#1F2933"/>
+  <circle cx="747" cy="688" r="3.5" fill="#B8C0CC"/>
+  <circle cx="827" cy="688" r="9" fill="#1F2933"/>
+  <circle cx="827" cy="688" r="3.5" fill="#B8C0CC"/>
+</svg>

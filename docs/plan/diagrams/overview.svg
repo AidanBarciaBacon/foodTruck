@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" fill="#1F2933">
+  <title>How it works, end to end</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1F2933"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="750" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700">How it works, end to end</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Each weekday morning, today's food trucks travel from someone else's website to the screen on your desk.</text>
+
+  <!-- Where each part lives -->
+  <text x="40" y="122" font-size="13" fill="#5F6B7A">On the internet</text>
+  <line x1="142" y1="118" x2="674" y2="118" stroke="#B8C0CC" stroke-width="1.25"/>
+  <text x="718" y="122" font-size="13" fill="#5F6B7A">In the office</text>
+  <line x1="802" y1="118" x2="1160" y2="118" stroke="#B8C0CC" stroke-width="1.25"/>
+
+  <!-- 1. The public truck page (not ours) -->
+  <rect x="41" y="140" width="159" height="180" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="88" y="156" width="64" height="48" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <line x1="88" y1="168" x2="152" y2="168" stroke="#1F2933" stroke-width="1.5"/>
+    <circle cx="95" cy="162" r="1.75" fill="#5F6B7A"/>
+    <circle cx="101" cy="162" r="1.75" fill="#5F6B7A"/>
+    <circle cx="107" cy="162" r="1.75" fill="#5F6B7A"/>
+    <line x1="96" y1="178" x2="144" y2="178" stroke="#5F6B7A" stroke-width="2.5"/>
+    <line x1="96" y1="187" x2="134" y2="187" stroke="#B8C0CC" stroke-width="2.5"/>
+    <line x1="96" y1="195" x2="140" y2="195" stroke="#B8C0CC" stroke-width="2.5"/>
+  </g>
+  <text x="120" y="234" font-size="15" font-weight="700" text-anchor="middle">Public truck page</text>
+  <text font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <tspan x="120" y="256">Someone else's</tspan>
+    <tspan x="120" y="273">website that lists</tspan>
+    <tspan x="120" y="290">the trucks</tspan>
+  </text>
+
+  <line x1="203" y1="230" x2="241" y2="230" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2. The morning job -->
+  <rect x="244" y="140" width="190" height="180" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M313,204 A14,14 0 0 1 315,176 A21,21 0 0 1 353,170 A17,17 0 0 1 366,204 Z" fill="#FFFBF2" stroke="#6741D9" stroke-width="2"/>
+    <circle cx="339" cy="187" r="10" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <path d="M339,181 L339,187 L344,190" fill="none" stroke="#1F2933" stroke-width="1.5"/>
+  </g>
+  <text x="339" y="234" font-size="15" font-weight="700" text-anchor="middle">Morning job</text>
+  <text font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <tspan x="339" y="256">In the cloud, at about</tspan>
+    <tspan x="339" y="273">6:30 AM each weekday.</tspan>
+    <tspan x="339" y="290">Makes today's picture.</tspan>
+  </text>
+
+  <line x1="437" y1="230" x2="475" y2="230" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 3. Our own web page -->
+  <rect x="478" y="140" width="196" height="180" rx="6" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="538" y="154" width="76" height="52" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <line x1="538" y1="166" x2="614" y2="166" stroke="#1F2933" stroke-width="1.5"/>
+    <circle cx="545" cy="160" r="1.75" fill="#5F6B7A"/>
+    <circle cx="551" cy="160" r="1.75" fill="#5F6B7A"/>
+    <circle cx="557" cy="160" r="1.75" fill="#5F6B7A"/>
+    <rect x="551" y="172" width="50" height="30" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.5"/>
+    <line x1="556" y1="179" x2="582" y2="179" stroke="#1F2933" stroke-width="3"/>
+    <line x1="556" y1="187" x2="576" y2="187" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="556" y1="192" x2="586" y2="192" stroke="#5F6B7A" stroke-width="2"/>
+    <line x1="556" y1="197" x2="572" y2="197" stroke="#5F6B7A" stroke-width="2"/>
+  </g>
+  <text x="576" y="234" font-size="15" font-weight="700" text-anchor="middle">Our own web page</text>
+  <text font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <tspan x="576" y="256">Today's trucks as a page</tspan>
+    <tspan x="576" y="273">and a picture, at one</tspan>
+    <tspan x="576" y="290">fixed web address</tspan>
+  </text>
+
+  <line x1="677" y1="230" x2="715" y2="230" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 4. Office Wi-Fi (not ours) -->
+  <rect x="718" y="140" width="120" height="180" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <g fill="none" stroke="#1F2933" stroke-width="2.5" stroke-linecap="round">
+    <path d="M769.5,191.5 A12,12 0 0 1 786.5,191.5"/>
+    <path d="M762.4,184.4 A22,22 0 0 1 793.6,184.4"/>
+    <path d="M755.4,177.4 A32,32 0 0 1 800.6,177.4"/>
+  </g>
+  <circle cx="778" cy="200" r="3.5" fill="#1F2933"/>
+  <text x="778" y="234" font-size="15" font-weight="700" text-anchor="middle">Office Wi-Fi</text>
+  <text font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <tspan x="778" y="256">The truck joins</tspan>
+    <tspan x="778" y="273">it for a moment</tspan>
+    <tspan x="778" y="290">each morning</tspan>
+  </text>
+
+  <line x1="841" y1="230" x2="879" y2="230" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 5. The truck on the desk -->
+  <line x1="866" y1="317" x2="1159" y2="317" stroke="#B8C0CC" stroke-width="1.5"/>
+  <g stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+    <rect x="950" y="133" width="44" height="9" fill="#FFD8A8"/>
+    <rect x="886" y="142" width="214" height="150" rx="8" fill="#FFE8CC"/>
+    <path d="M1100,180 L1123,180 Q1135,180 1140,193 L1150,226 Q1158,230 1158,241 L1158,292 L1100,292 Z" fill="#FFE8CC"/>
+    <path d="M1108,190 L1122,190 Q1128,190 1130,196 L1139,224 L1108,224 Z" fill="#FFFBF2"/>
+    <rect x="1148" y="252" width="8" height="12" rx="2" fill="#FFFBF2" stroke-width="1.5"/>
+    <path d="M898,148 L1080,148 L1088,160 L890,160 Z" fill="#FFD8A8"/>
+  </g>
+  <rect x="904" y="166" width="170" height="102" fill="#E7F5FF" stroke="#1971C2" stroke-width="2" stroke-linejoin="round"/>
+  <text x="913" y="185" font-size="13" font-weight="700">TODAY'S TRUCKS</text>
+  <line x1="913" y1="192" x2="1065" y2="192" stroke="#1971C2" stroke-width="1.5"/>
+  <g stroke-linecap="round">
+    <line x1="915" y1="208" x2="988" y2="208" stroke="#1F2933" stroke-width="5"/>
+    <line x1="1030" y1="208" x2="1063" y2="208" stroke="#5F6B7A" stroke-width="3"/>
+    <line x1="915" y1="228" x2="1004" y2="228" stroke="#1F2933" stroke-width="5"/>
+    <line x1="1030" y1="228" x2="1063" y2="228" stroke="#5F6B7A" stroke-width="3"/>
+    <line x1="915" y1="248" x2="972" y2="248" stroke="#1F2933" stroke-width="5"/>
+    <line x1="1030" y1="248" x2="1063" y2="248" stroke="#5F6B7A" stroke-width="3"/>
+  </g>
+  <circle cx="940" cy="296" r="20" fill="#1F2933"/>
+  <circle cx="940" cy="296" r="8" fill="#B8C0CC"/>
+  <circle cx="1114" cy="296" r="20" fill="#1F2933"/>
+  <circle cx="1114" cy="296" r="8" fill="#B8C0CC"/>
+
+  <text x="1021" y="345" font-size="15" font-weight="700" text-anchor="middle">The truck on the desk</text>
+  <text font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <tspan x="1021" y="366">Wakes at about 7:00 AM, joins Wi-Fi,</tspan>
+    <tspan x="1021" y="383">gets the picture, redraws its screen,</tspan>
+    <tspan x="1021" y="400">then sleeps again.</tspan>
+  </text>
+  <text x="886" y="431" font-size="13" fill="#5F6B7A">Inside:</text>
+  <rect x="936" y="419" width="20" height="14" rx="2" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2"/>
+  <text x="962" y="431" font-size="13">board</text>
+  <rect x="1008" y="419" width="20" height="14" rx="2" fill="#FFF3BF" stroke="#E67700" stroke-width="2"/>
+  <text x="1034" y="431" font-size="13">battery</text>
+  <rect x="1090" y="419" width="20" height="14" rx="2" fill="#E7F5FF" stroke="#1971C2" stroke-width="2"/>
+  <text x="1116" y="431" font-size="13">screen</text>
+
+  <!-- Side branch: people open the same page -->
+  <line x1="526" y1="323" x2="526" y2="362" stroke="#1F2933" stroke-width="2" marker-end="url(#arrow)"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <rect x="500" y="366" width="52" height="96" rx="8" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+    <rect x="507" y="376" width="38" height="68" rx="2" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.5"/>
+    <line x1="513" y1="388" x2="537" y2="388" stroke="#1F2933" stroke-width="3"/>
+    <line x1="513" y1="402" x2="533" y2="402" stroke="#5F6B7A" stroke-width="2.5"/>
+    <line x1="513" y1="414" x2="538" y2="414" stroke="#5F6B7A" stroke-width="2.5"/>
+    <line x1="513" y1="426" x2="529" y2="426" stroke="#5F6B7A" stroke-width="2.5"/>
+  </g>
+  <circle cx="526" cy="453" r="2.5" fill="#5F6B7A"/>
+  <text x="570" y="398" font-size="15" font-weight="700">People too</text>
+  <text font-size="13" fill="#5F6B7A">
+    <tspan x="570" y="420">Anyone can open the same page</tspan>
+    <tspan x="570" y="437">on a phone or laptop.</tspan>
+  </text>
+
+  <!-- Who is awake when -->
+  <text x="40" y="506" font-size="15" font-weight="700">Who is awake when, on a working day</text>
+  <text x="1160" y="506" font-size="13" fill="#5F6B7A" text-anchor="end">Blank means off or asleep. The two marks are drawn wider than true so they show.</text>
+
+  <text x="40" y="541" font-size="15">Morning job</text>
+  <rect x="220" y="522" width="939" height="28" rx="4" fill="#FFFBF2" stroke="#B8C0CC" stroke-width="1.25"/>
+  <rect x="472.5" y="522" width="5" height="28" fill="#6741D9"/>
+  <text x="488" y="541" font-size="13">About 6:30 AM: on for a few minutes, then off</text>
+
+  <text x="40" y="579" font-size="15">The truck's board</text>
+  <rect x="220" y="560" width="939" height="28" rx="4" fill="#FFFBF2" stroke="#B8C0CC" stroke-width="1.25"/>
+  <rect x="491.7" y="560" width="5" height="28" fill="#2F9E44"/>
+  <text x="507" y="579" font-size="13">About 7:00 AM: awake about 40 seconds to get the picture and redraw, then asleep</text>
+
+  <text x="40" y="617" font-size="15">The screen</text>
+  <rect x="220" y="598" width="939" height="28" rx="4" fill="#E7F5FF" stroke="#1971C2" stroke-width="2"/>
+  <text x="690" y="617" font-size="13" text-anchor="middle">Holds its picture all day and all night with no power (it only needs power to change it)</text>
+
+  <g stroke="#5F6B7A" stroke-width="1.25">
+    <line x1="220" y1="631" x2="220" y2="638"/>
+    <line x1="455" y1="631" x2="455" y2="638"/>
+    <line x1="690" y1="631" x2="690" y2="638"/>
+    <line x1="925" y1="631" x2="925" y2="638"/>
+    <line x1="1159" y1="631" x2="1159" y2="638"/>
+  </g>
+  <g font-size="13" fill="#5F6B7A">
+    <text x="220" y="655">midnight</text>
+    <text x="455" y="655" text-anchor="middle">6 AM</text>
+    <text x="690" y="655" text-anchor="middle">noon</text>
+    <text x="925" y="655" text-anchor="middle">6 PM</text>
+    <text x="1160" y="655" text-anchor="end">midnight</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="40" y="688" width="20" height="14" rx="2" fill="#F3F0FF" stroke="#6741D9" stroke-width="2"/>
+  <text x="68" y="700" font-size="13">Ours, in the cloud</text>
+  <rect x="204" y="688" width="20" height="14" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <text x="232" y="700" font-size="13">Not ours</text>
+  <rect x="310" y="688" width="20" height="14" rx="2" fill="#FFE8CC" stroke="#1F2933" stroke-width="2"/>
+  <text x="338" y="700" font-size="13">The 3D-printed truck</text>
+</svg>
