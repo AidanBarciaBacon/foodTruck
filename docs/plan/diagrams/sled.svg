@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" stroke-linejoin="round">
+<rect x="0" y="0" width="1200" height="900" fill="#FFFBF2"/>
+<text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">The electronics sled: front and back</text>
+<text x="40" y="84" font-size="15" fill="#5F6B7A">The one removable plate that carries the screen, the boards and the battery. Drawn to scale: 2.5 px = 1 mm.</text>
+<defs>
+<marker id="dim" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="#5F6B7A"/></marker>
+<pattern id="hatch" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F6B7A" stroke-width="1"/></pattern>
+</defs>
+<!--
+  Two orthographic views of the sled, hand-placed by arithmetic from docs/plan/SPEC.md section 9. Scale 2.5 px per mm.
+  The plate spans truck x = 9.1 to 185.1 and z = 36 to 148.5.
+  Front view:  X = 92 + 2.5 (x - 9.1)      Y = 300 + 2.5 (148.5 - z)
+  Back view:   X = 592 + 2.5 (185.1 - x)   Y = 300 + 2.5 (148.5 - z)   (mirrored left to right)
+-->
+
+<!-- FRONT FACE. x = 9.1 (truck rear) at the left edge, z = 148.5 at the top; 2.5 px per mm -->
+<text x="92" y="126" font-size="15" font-weight="700" fill="#1F2933">Front face: the side that looks out of the window</text>
+<text x="92" y="148" font-size="13" fill="#5F6B7A">truck's rear this end</text>
+<text x="532" y="148" font-size="13" fill="#5F6B7A" text-anchor="end">truck's front this end</text>
+
+<!-- backboard 176 x 112.5, with the 30 x 6 cut-out in its bottom edge -->
+<path d="M92,300 L532,300 L532,581.25 L349.5,581.25 L349.5,566.25 L274.5,566.25 L274.5,581.25 L92,581.25 Z" fill="#FFD8A8" stroke="#1F2933" stroke-width="2"/>
+
+<!-- the 2.5 mm strip at each end that slides in the U-channels -->
+<rect x="92" y="300" width="6.25" height="281.25" fill="url(#hatch)"/>
+<rect x="525.75" y="300" width="6.25" height="281.25" fill="url(#hatch)"/>
+<path d="M92,300 L532,300 L532,581.25 L349.5,581.25 L349.5,566.25 L274.5,566.25 L274.5,581.25 L92,581.25 Z" fill="none" stroke="#1F2933" stroke-width="2"/>
+
+<!-- ribbon: 25.5 wide, leaves the glass at x = 84.2 to 109.7 and hangs about 2 mm in its U-turn -->
+<rect x="279.75" y="580" width="63.75" height="5" fill="#E7F5FF" stroke="#1F2933" stroke-width="1.5"/>
+
+<!-- glass 170.2 x 111.2 (x 12.0 to 182.2, z 36.5 to 147.7), flat on the plate; the 2.9 mm of plate beyond each short end carries a 1 mm rim -->
+<rect x="99.25" y="302" width="425.5" height="278" fill="#E7F5FF" stroke="#1F2933" stroke-width="1.5"/>
+
+<!-- picture area 160 x 96 (x 17.1 to 177.1, z 47 to 143) -->
+<rect x="112" y="313.75" width="400" height="240" fill="#E7F5FF" stroke="#1971C2" stroke-width="2"/>
+
+<!-- behind the glass: the cut-out and the two tape strips -->
+<path d="M274.5,580 L274.5,566.25 L349.5,566.25 L349.5,580" fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="124.25" y="361.25" width="320" height="30" fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="284.25" y="381.25" font-size="13" fill="#5F6B7A" text-anchor="middle">strip of thin double-sided tape, behind the glass</text>
+<rect x="124.25" y="476.25" width="320" height="30" fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="284.25" y="496.25" font-size="13" fill="#5F6B7A" text-anchor="middle">second strip of tape</text>
+
+<!-- labels on the glass -->
+<text x="284" y="424" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">Picture area</text>
+<text x="150" y="342" font-size="13" fill="#1F2933">border above the picture: 4.7 mm (0.19 in)</text>
+<path d="M145,337 L130,307.88" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="130" cy="307.88" r="3" fill="#5F6B7A"/>
+<text x="150" y="457" font-size="13" fill="#1F2933">border each side: 5.1 mm (0.20 in)</text>
+<path d="M145,452.5 L105.63,452.5" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="105.63" cy="452.5" r="3" fill="#5F6B7A"/>
+<text x="150" y="536" font-size="13" fill="#1F2933">border below the picture: 10.5 mm (0.41 in)</text>
+<path d="M145,540 L130,566.88" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="130" cy="566.88" r="3" fill="#5F6B7A"/>
+
+<!-- dimensions -->
+<line x1="112" y1="310.75" x2="112" y2="242" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="512" y1="310.75" x2="512" y2="242" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M312,246 L112,246" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M312,246 L512,246" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<rect x="209.65" y="225" width="204.69" height="17" fill="#FFFBF2"/><text x="312" y="238" text-anchor="middle" font-size="14" fill="#1F2933"><tspan font-size="13" fill="#5F6B7A">picture area </tspan><tspan font-weight="600">160 mm (6.30 in)</tspan></text>
+<line x1="99.25" y1="297" x2="99.25" y2="214" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="524.75" y1="297" x2="524.75" y2="214" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M312,218 L99.25,218" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M312,218 L524.75,218" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<rect x="222.74" y="197" width="178.52" height="17" fill="#FFFBF2"/><text x="312" y="210" text-anchor="middle" font-size="14" fill="#1F2933"><tspan font-size="13" fill="#5F6B7A">glass </tspan><tspan font-weight="600">170.2 mm (6.70 in)</tspan></text>
+<line x1="92" y1="297" x2="92" y2="186" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="532" y1="297" x2="532" y2="186" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M312,190 L92,190" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M312,190 L532,190" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<rect x="213.75" y="169" width="196.51" height="17" fill="#FFFBF2"/><text x="312" y="182" text-anchor="middle" font-size="14" fill="#1F2933"><tspan font-size="13" fill="#5F6B7A">backboard </tspan><tspan font-weight="600">176 mm (6.93 in)</tspan></text>
+<line x1="89" y1="300" x2="62" y2="300" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="89" y1="581.25" x2="62" y2="581.25" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M66,440.63 L66,300" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M66,440.63 L66,581.25" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<g transform="rotate(-90 66 440.63)"><rect x="-38.89" y="419.63" width="209.78" height="17" fill="#FFFBF2"/><text x="66" y="432.63" text-anchor="middle" font-size="14" fill="#1F2933"><tspan font-size="13" fill="#5F6B7A">backboard </tspan><tspan font-weight="600">112.5 mm (4.43 in)</tspan></text></g>
+<line x1="535" y1="302" x2="562" y2="302" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="535" y1="580" x2="562" y2="580" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M558,441 L558,302" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M558,441 L558,580" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<g transform="rotate(-90 558 441)"><rect x="468.74" y="420" width="178.52" height="17" fill="#FFFBF2"/><text x="558" y="433" text-anchor="middle" font-size="14" fill="#1F2933"><tspan font-size="13" fill="#5F6B7A">glass </tspan><tspan font-weight="600">111.2 mm (4.38 in)</tspan></text></g>
+<path d="M490,433.75 L490,313.75" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M490,433.75 L490,553.75" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<g transform="rotate(-90 490 433.75)"><rect x="392.19" y="412.75" width="195.62" height="17" fill="#E7F5FF"/><text x="490" y="425.75" text-anchor="middle" font-size="14" fill="#1F2933"><tspan font-size="13" fill="#5F6B7A">picture area </tspan><tspan font-weight="600">96 mm (3.78 in)</tspan></text></g>
+
+<!-- labels under the front view -->
+<path d="M528.38,600 L528.38,568.75" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="528.38" cy="568.75" r="3" fill="#5F6B7A"/>
+<text x="600" y="615" font-size="13" fill="#1F2933" text-anchor="end">End rims, 1 mm high:</text>
+<text x="600" y="631" font-size="13" fill="#1F2933" text-anchor="end">they locate the glass</text>
+<path d="M420,645 L420,566.88" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="420" cy="566.88" r="3" fill="#5F6B7A"/>
+<text x="330" y="659" font-size="13" fill="#1F2933">Glass, 0.91 mm thick, lies on the flat face,</text>
+<text x="330" y="675" font-size="13" fill="#1F2933">held by the tape only: nothing clamps it.</text>
+<text x="330" y="691" font-size="13" fill="#1F2933">No rim along the top or bottom.</text>
+<path d="M311.63,712 L311.63,582.5" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="311.63" cy="582.5" r="3" fill="#5F6B7A"/>
+<text x="110" y="726" font-size="13" fill="#1F2933">Ribbon cable: 25.5 mm (1.00 in) wide, starting 72.2 mm (2.84 in) from the</text>
+<text x="110" y="742" font-size="13" fill="#1F2933">glass's left edge. It folds back through the cut-out (dashed) to the back.</text>
+
+<!-- BACK FACE, mirrored left to right. x = 185.1 (truck front) at the left edge, x = 9.1 at the right -->
+<text x="592" y="126" font-size="15" font-weight="700" fill="#1F2933">Back face: seen from behind, so the truck's rear is on the right</text>
+<text x="592" y="148" font-size="13" fill="#5F6B7A">truck's front this end</text>
+<text x="1044.75" y="148" font-size="13" fill="#5F6B7A" text-anchor="end">truck's rear this end</text>
+<path d="M592,300 L1032,300 L1032,581.25 L849.5,581.25 L849.5,566.25 L774.5,566.25 L774.5,581.25 L592,581.25 Z" fill="#FFD8A8" stroke="#1F2933" stroke-width="2"/>
+<rect x="592" y="300" width="6.25" height="281.25" fill="url(#hatch)"/>
+<rect x="1025.75" y="300" width="6.25" height="281.25" fill="url(#hatch)"/>
+<path d="M592,300 L1032,300 L1032,581.25 L849.5,581.25 L849.5,566.25 L774.5,566.25 L774.5,581.25 L592,581.25 Z" fill="none" stroke="#1F2933" stroke-width="2"/>
+
+<!-- battery 50 x 60 x 7.3 at x 115 to 175, z 40 to 90; pocket 1 mm clear all round; soft strap -->
+<rect x="614.75" y="443.75" width="155" height="130" fill="#FFD8A8" stroke="#1F2933" stroke-width="1.5"/>
+<rect x="617.25" y="446.25" width="150" height="125" fill="#FFF3BF" stroke="#E67700" stroke-width="2"/>
+<rect x="629.75" y="438.75" width="20" height="140" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.5"/>
+<text x="708.5" y="505" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">Battery</text>
+<text x="708.5" y="524" font-size="13" fill="#1F2933" text-anchor="middle">50 x 60 x 7.3 mm</text>
+
+<!-- adapter board, drawn 47 x 32 (the passive adapter): x 81.1 to 113.1, z 43 to 90 -->
+<rect x="772" y="446.25" width="80" height="117.5" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2"/>
+
+<!-- its row of eight pins -->
+<rect x="784.78" y="449.75" width="54.45" height="7" fill="#FFFBF2" stroke="#2F9E44" stroke-width="1.25"/>
+<circle cx="789.78" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="796.13" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="802.48" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="808.83" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="815.18" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="821.53" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="827.88" cy="453.25" r="1.3" fill="#1F2933"/>
+<circle cx="834.23" cy="453.25" r="1.3" fill="#1F2933"/>
+<text x="812" y="492" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">Adapter</text>
+<text x="812" y="510" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">board</text>
+<text x="812" y="543" font-size="13" fill="#1F2933" text-anchor="middle">socket</text>
+
+<!-- ribbon coming up through the cut-out into the socket (socket z 44 to 49) -->
+<rect x="780.5" y="555" width="63.75" height="30" fill="#E7F5FF" stroke="#1F2933" stroke-width="1.5"/>
+<rect x="778.25" y="548.75" width="68.25" height="10" fill="#FFFBF2" stroke="#2F9E44" stroke-width="1.5"/>
+
+<!-- main board 25.4 x 60 (route B): x 4 to 64, z 54.8 to 80.2; it overhangs the plate edge at x = 9.1 -->
+<rect x="894.75" y="470.75" width="150" height="63.5" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2"/>
+<rect x="909.5" y="474.5" width="71.5" height="6" fill="#FFFBF2" stroke="#2F9E44" stroke-width="1.25"/>
+<circle cx="913.5" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="919.85" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="926.2" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="932.55" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="938.9" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="945.25" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="951.6" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="957.95" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="964.3" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="970.65" cy="477.5" r="1.2" fill="#1F2933"/>
+<circle cx="977" cy="477.5" r="1.2" fill="#1F2933"/>
+<rect x="909.5" y="524.5" width="96.9" height="6" fill="#FFFBF2" stroke="#2F9E44" stroke-width="1.25"/>
+<circle cx="913.5" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="919.85" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="926.2" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="932.55" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="938.9" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="945.25" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="951.6" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="957.95" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="964.3" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="970.65" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="977" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="983.35" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="989.7" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="996.05" cy="527.5" r="1.2" fill="#1F2933"/>
+<circle cx="1002.4" cy="527.5" r="1.2" fill="#1F2933"/>
+
+<!-- USB-C port at the rear end, battery plug -->
+<rect x="1027.25" y="491.25" width="17.5" height="22.5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+<rect x="994.75" y="473.75" width="15" height="15" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+<text x="949.75" y="499" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">Main board</text>
+<text x="949.75" y="516" font-size="13" fill="#1F2933" text-anchor="middle">25.4 x 60 mm</text>
+
+<!-- 3 mm standoffs with their screws -->
+<circle cx="779.5" cy="453.75" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="779.5" cy="453.75" r="1.8" fill="#1F2933"/>
+<circle cx="844.5" cy="453.75" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="844.5" cy="453.75" r="1.8" fill="#1F2933"/>
+<circle cx="779.5" cy="538.75" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="779.5" cy="538.75" r="1.8" fill="#1F2933"/>
+<circle cx="844.5" cy="538.75" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="844.5" cy="538.75" r="1.8" fill="#1F2933"/>
+<circle cx="901" cy="477.5" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="901" cy="477.5" r="1.8" fill="#1F2933"/>
+<circle cx="901" cy="527.5" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="901" cy="527.5" r="1.8" fill="#1F2933"/>
+<circle cx="1020.5" cy="477.5" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="1020.5" cy="477.5" r="1.8" fill="#1F2933"/>
+<circle cx="1020.5" cy="527.5" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="1020.5" cy="527.5" r="1.8" fill="#1F2933"/>
+
+<!-- eight-wire cable, one bundle, adapter pins to main-board pins -->
+<path d="M812,449.75 V430 Q812,422 820,422 H926.75 Q934.75,422 934.75,430 V475.5" fill="none" stroke="#1F2933" stroke-width="9"/>
+<path d="M812,449.75 V430 Q812,422 820,422 H926.75 Q934.75,422 934.75,430 V475.5" fill="none" stroke="#FFFBF2" stroke-width="6"/>
+
+<!-- battery lead, two wires, battery to the battery plug -->
+<path d="M754.75,450.25 V408 Q754.75,400 762.75,400 H994.25 Q1002.25,400 1002.25,408 V476.75" fill="none" stroke="#1F2933" stroke-width="5"/>
+<path d="M754.75,450.25 V408 Q754.75,400 762.75,400 H994.25 Q1002.25,400 1002.25,408 V476.75" fill="none" stroke="#FFFBF2" stroke-width="2"/>
+
+<!-- labels above the back view -->
+<path d="M595.13,196 L595.13,316" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="595.13" cy="316" r="3" fill="#5F6B7A"/>
+<text x="589" y="172" font-size="13" fill="#1F2933">Hatched: the 2.5 mm strip at each end slides in the</text>
+<text x="589" y="188" font-size="13" fill="#1F2933">truck's U-channels. Keep it clear.</text>
+<path d="M639.75,240 L639.75,451.25" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="639.75" cy="451.25" r="3" fill="#5F6B7A"/>
+<text x="633.75" y="216" font-size="13" fill="#1F2933">Printed pocket and soft strap: 1 mm clear all round so</text>
+<text x="633.75" y="232" font-size="13" fill="#1F2933">the battery can swell. Never clamped, never near a screw.</text>
+<path d="M817.25,280 L817.25,397.5" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="817.25" cy="397.5" r="3" fill="#5F6B7A"/>
+<text x="811.25" y="272" font-size="13" fill="#1F2933">Battery lead: two wires to the main board's battery plug</text>
+
+<!-- USB-C port and the way to the charging slot -->
+<path d="M1056,474 L1037.25,496.25" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="1037.25" cy="496.25" r="3" fill="#5F6B7A"/>
+<text x="1060" y="476" font-size="15" fill="#1F2933">USB-C port</text>
+<line x1="1049.75" y1="502.5" x2="1100" y2="502.5" stroke="#E8590C" stroke-width="2"/>
+<path d="M1110,502.5 L1099,507.5 L1099,497.5 Z" fill="#E8590C"/>
+<text x="1054" y="528" font-size="15" fill="#E8590C">to the</text>
+<text x="1054" y="546" font-size="15" fill="#E8590C">charging slot</text>
+<text x="1054" y="564" font-size="15" fill="#E8590C">in the rear wall</text>
+
+<!-- cut-out dimensions: 30 wide, 6 tall -->
+<line x1="774.5" y1="584.25" x2="774.5" y2="616" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="849.5" y1="584.25" x2="849.5" y2="616" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M812,612 L774.5,612" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M812,612 L849.5,612" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<line x1="774.5" y1="612" x2="652" y2="612" stroke="#5F6B7A" stroke-width="1.25"/>
+<rect x="654" y="591" width="121.2" height="17" fill="#FFFBF2"/>
+<text x="714.6" y="604" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">30 mm (1.18 in)</text>
+<text x="812" y="603" font-size="13" fill="#1F2933" text-anchor="middle">ribbon</text>
+<line x1="852.5" y1="566.25" x2="864.5" y2="566.25" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M860.5,546.25 L860.5,566.25" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M860.5,638 L860.5,581.25" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<text x="854.5" y="640" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">6 mm (0.24 in)</text>
+
+<!-- how far the main board overhangs the plate: 9.1 - 4 = 5.1 -->
+<line x1="1032" y1="584.25" x2="1032" y2="616" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="1044.75" y1="537.25" x2="1044.75" y2="616" stroke="#5F6B7A" stroke-width="1.25"/>
+<path d="M908,612 L1032,612" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<path d="M1072.75,612 L1044.75,612" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#dim)"/>
+<rect x="910" y="591" width="125.4" height="17" fill="#FFFBF2"/>
+<text x="972.7" y="604" font-size="14" font-weight="600" fill="#E8590C" text-anchor="middle">5.1 mm (0.20 in)</text>
+<text x="908" y="634" font-size="13" fill="#E8590C">The main board overhangs the plate's</text>
+<text x="908" y="650" font-size="13" fill="#E8590C">rear edge to reach the rear wall.</text>
+
+<!-- eight-wire cable label -->
+<path d="M885.75,668 L885.75,422" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="885.75" cy="422" r="3" fill="#5F6B7A"/>
+<text x="789.75" y="684" font-size="13" fill="#1F2933">Eight-wire cable from the adapter to</text>
+<text x="789.75" y="700" font-size="13" fill="#1F2933">the main board, kept as one tidy bundle</text>
+
+<!-- legend -->
+<rect x="40" y="770" width="18" height="12" fill="#FFD8A8" stroke="#1F2933" stroke-width="1.25"/><text x="66" y="780" font-size="13" fill="#1F2933">printed plate (the backboard)</text>
+<rect x="40" y="790" width="18" height="12" fill="#E7F5FF" stroke="#1971C2" stroke-width="1.5"/><text x="66" y="800" font-size="13" fill="#1F2933">screen glass; blue line: picture area</text>
+<rect x="40" y="810" width="18" height="12" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.5"/><text x="66" y="820" font-size="13" fill="#1F2933">electronics board</text>
+<rect x="40" y="830" width="18" height="12" fill="#FFF3BF" stroke="#E67700" stroke-width="1.5"/><text x="66" y="840" font-size="13" fill="#1F2933">battery</text>
+<rect x="292" y="770" width="18" height="12" fill="#FFD8A8"/><rect x="292" y="770" width="18" height="12" fill="url(#hatch)" stroke="#1F2933" stroke-width="1.25"/><text x="318" y="780" font-size="13" fill="#1F2933">slides in a U-channel: keep clear</text>
+<circle cx="301" cy="796" r="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/><circle cx="301" cy="796" r="1.8" fill="#1F2933"/><text x="318" y="800" font-size="13" fill="#1F2933">3 mm standoff (a spacer post)</text>
+<line x1="292" y1="816" x2="310" y2="816" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="6 5"/><text x="318" y="820" font-size="13" fill="#1F2933">hidden behind the glass</text>
+
+<!-- notes -->
+<text x="560" y="774" font-size="13" fill="#1F2933">Built and tested on the bench as one working unit; it drops into the truck from the top.</text>
+<text x="560" y="792" font-size="13" fill="#1F2933">On the bench, lay it face up or sit it in a printed stand. Never stand it on the ribbon.</text>
+<text x="560" y="810" font-size="13" fill="#1F2933">Board positions are route B's. Routes A and C use smaller boards in the same places.</text>
+<text x="560" y="828" font-size="13" fill="#1F2933">The adapter is drawn at 47 x 32 mm, the passive adapter's size. Measure the one you have.</text>
+<text x="560" y="846" font-size="13" fill="#C92A2A">Before the battery's first plug-in, check that its red wire meets the board's + mark.</text>
+</svg>
