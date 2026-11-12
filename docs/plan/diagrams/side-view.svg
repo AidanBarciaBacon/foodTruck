@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="1200" height="900" fill="#FFFBF2"/>
+  <defs>
+    <!-- the one arrowhead every dimension line uses -->
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0 0 L9 3.5 L0 7 Z" fill="#5F6B7A"/>
+    </marker>
+  </defs>
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Side view: where the screen sits</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">The serving side seen square-on, truck facing right. Dashed outlines are the screen parts hidden behind the wall.</text>
+
+  <!-- ============================================================
+       THE TRUCK, drawn in millimetres straight from SPEC.md section 9.
+       This group turns mm into px: px = 224 + 3.6 * x, py = 727.2 - 3.6 * z
+       (x from the rear face, z up from the desk). Stroke widths are px / 3.6.
+       ============================================================ -->
+  <g transform="translate(224 727.2) scale(3.6 -3.6)" stroke-linejoin="round" stroke-linecap="butt" fill="none">
+    <!-- body: z 9 to 152, x 0 to 229; step-van nose (roof ends at x 224, windscreen foot at 229, 98: styling only) -->
+    <path d="M0 9 V152 H224 L229 98 V9 Z" fill="#FFE8CC" stroke="#1F2933" stroke-width="0.556"/>
+    <!-- wheel wells on this side: x 27 to 65 and 164 to 202, z 9 to 36 -->
+    <path d="M27 9 V36 H65 V9" stroke="#1F2933" stroke-width="0.417"/>
+    <path d="M164 9 V36 H202 V9" stroke="#1F2933" stroke-width="0.417"/>
+    <!-- roof lid joint z = 149.6 (ends where it meets the raked nose) -->
+    <line x1="0" y1="149.6" x2="224.22" y2="149.6" stroke="#1F2933" stroke-width="0.417"/>
+    <!-- cab from x = 185: seam, door, door window, windscreen edge (styling only, not dimensioned) -->
+    <line x1="185" y1="36" x2="185" y2="149.6" stroke="#1F2933" stroke-width="0.347"/>
+    <rect x="190" y="40" width="29" height="94" stroke="#1F2933" stroke-width="0.417"/>
+    <path d="M193.5 98 V130 H213 L216 98 Z" fill="#FFFBF2" stroke="#1F2933" stroke-width="0.417"/>
+    <line x1="194" y1="90" x2="199" y2="90" stroke="#1F2933" stroke-width="0.556"/>
+    <path d="M224.56 146 L228.81 100 H226.81 L222.56 146 Z" fill="#FFFBF2" stroke="#1F2933" stroke-width="0.347"/>
+    <!-- sled backboard, hidden: x 9.1 to 185.1, z 36 to 148.5 -->
+    <rect x="9.1" y="36" width="176" height="112.5" stroke="#B8C0CC" stroke-width="0.417" stroke-dasharray="1.667 1.389"/>
+    <!-- screen glass, hidden behind the wall: x 12.0 to 182.2, z 36.5 to 147.7 -->
+    <rect x="12" y="36.5" width="170.2" height="111.2" stroke="#1971C2" stroke-width="0.417" stroke-dasharray="1.667 1.389"/>
+    <!-- belt line z = 36: chassis below, body shell above (drawn over the backboard's bottom edge, which stands on it) -->
+    <line x1="0" y1="36" x2="229" y2="36" stroke="#1F2933" stroke-width="0.417"/>
+    <!-- ribbon cable at the glass's bottom edge: x 84.2 to 109.7, leaves at z = 36.5, folds back about 2 mm lower -->
+    <rect x="84.2" y="34.5" width="25.5" height="2" fill="#E7F5FF" stroke="#1971C2" stroke-width="0.347"/>
+    <!-- window opening in the wall: x 16.6 to 177.6, z 46.5 to 143.5 (161 x 97) -->
+    <rect x="16.6" y="46.5" width="161" height="97" fill="#E7F5FF" stroke="#E8590C" stroke-width="0.556"/>
+    <!-- picture area: x 17.1 to 177.1, z 47.0 to 143.0 (160 x 96) -->
+    <rect x="17.1" y="47" width="160" height="96" stroke="#1971C2" stroke-width="0.278"/>
+    <!-- wheels: 32 diameter, axles at z = 16, centres at x = 46 and x = 183 -->
+    <circle cx="46" cy="16" r="16" fill="#FFD8A8" stroke="#1F2933" stroke-width="0.556"/>
+    <circle cx="183" cy="16" r="16" fill="#FFD8A8" stroke="#1F2933" stroke-width="0.556"/>
+    <circle cx="46" cy="16" r="4" stroke="#1F2933" stroke-width="0.347"/>
+    <circle cx="183" cy="16" r="4" stroke="#1F2933" stroke-width="0.347"/>
+  </g>
+
+  <!-- the desk (z = 0) -->
+  <line x1="150" y1="727.2" x2="1160" y2="727.2" stroke="#5F6B7A" stroke-width="1.5"/>
+  <text x="1158" y="720.2" font-size="13" text-anchor="end" fill="#5F6B7A">Desk</text>
+
+  <!-- ============ dimensions (px; every one is the spec number through the formulas above) ============ -->
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <!-- extension lines, stopping 3 px short of the part -->
+    <line x1="224" y1="177" x2="224" y2="145"/>
+    <line x1="283.76" y1="207.6" x2="283.76" y2="145"/>
+    <line x1="863.36" y1="207.6" x2="863.36" y2="145"/>
+    <line x1="1048.4" y1="371.4" x2="1048.4" y2="145"/>
+    <line x1="267.2" y1="192.48" x2="267.2" y2="117"/>
+    <line x1="879.92" y1="192.48" x2="879.92" y2="117"/>
+    <line x1="264.2" y1="195.48" x2="189" y2="195.48"/>
+    <line x1="264.2" y1="595.8" x2="189" y2="595.8"/>
+    <line x1="221" y1="180" x2="155" y2="180"/>
+    <line x1="280.76" y1="210.6" x2="155" y2="210.6"/>
+    <line x1="280.76" y1="559.8" x2="155" y2="559.8"/>
+    <line x1="221" y1="694.8" x2="155" y2="694.8"/>
+    <line x1="1051.4" y1="597.6" x2="1081.4" y2="597.6"/>
+    <line x1="1033.4" y1="180" x2="1117.4" y2="180"/>
+    <line x1="332" y1="672.6" x2="332" y2="758.2"/>
+    <line x1="447.2" y1="672.6" x2="447.2" y2="758.2"/>
+    <line x1="224" y1="697.8" x2="224" y2="790.2"/>
+    <line x1="1048.4" y1="697.8" x2="1048.4" y2="790.2"/>
+
+    <!-- along the top: wall behind the window, the window, wall in front of it (16.6 + 161 + 51.4 = 229) -->
+    <line x1="253.88" y1="150" x2="224" y2="150" marker-end="url(#arrow)"/>
+    <line x1="253.88" y1="150" x2="283.76" y2="150" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="88.87" y="142" width="129.13" height="17" fill="#FFFBF2"/><text x="214" y="155" font-size="14" font-weight="600" text-anchor="end" fill="#1F2933">16.6 mm (0.65 in)</text></g>
+    <line x1="573.56" y1="150" x2="283.76" y2="150" marker-end="url(#arrow)"/>
+    <line x1="573.56" y1="150" x2="863.36" y2="150" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="482.32" y="131" width="182.49" height="17" fill="#FFFBF2"/><text x="573.56" y="144" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">Window 161 mm (6.34 in)</text></g>
+    <line x1="955.88" y1="150" x2="863.36" y2="150" marker-end="url(#arrow)"/>
+    <line x1="955.88" y1="150" x2="1048.4" y2="150" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="891.32" y="131" width="129.13" height="17" fill="#FFFBF2"/><text x="955.88" y="144" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">51.4 mm (2.02 in)</text></g>
+    <!-- the glass, 170.2 wide -->
+    <line x1="573.56" y1="122" x2="267.2" y2="122" marker-end="url(#arrow)"/>
+    <line x1="573.56" y1="122" x2="879.92" y2="122" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="483.42" y="103" width="180.28" height="17" fill="#FFFBF2"/><text x="573.56" y="116" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">Glass 170.2 mm (6.70 in)</text></g>
+
+    <!-- up the rear: clearance, wall under the window, the window, wall over it (9 + 37.5 + 97 + 8.5 = 152) -->
+    <line x1="160" y1="711" x2="160" y2="694.8" marker-end="url(#arrow)"/>
+    <line x1="160" y1="711" x2="160" y2="727.2" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="47.07" y="703" width="106.93" height="17" fill="#FFFBF2"/><text x="150" y="716" font-size="14" font-weight="600" text-anchor="end" fill="#1F2933">9 mm (0.35 in)</text></g>
+    <line x1="160" y1="627.3" x2="160" y2="559.8" marker-end="url(#arrow)"/>
+    <line x1="160" y1="627.3" x2="160" y2="694.8" marker-end="url(#arrow)"/>
+    <g transform="translate(153 627.3) rotate(-90)" stroke="none"><rect x="-64.56" y="-13" width="129.13" height="17" fill="#FFFBF2"/><text x="0" y="0" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">37.5 mm (1.48 in)</text></g>
+    <line x1="160" y1="385.2" x2="160" y2="210.6" marker-end="url(#arrow)"/>
+    <line x1="160" y1="385.2" x2="160" y2="559.8" marker-end="url(#arrow)"/>
+    <g transform="translate(153 385.2) rotate(-90)" stroke="none"><rect x="-86.69" y="-13" width="173.37" height="17" fill="#FFFBF2"/><text x="0" y="0" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">Window 97 mm (3.82 in)</text></g>
+    <line x1="160" y1="195.3" x2="160" y2="180" marker-end="url(#arrow)"/>
+    <line x1="160" y1="195.3" x2="160" y2="210.6" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="33.99" y="187.3" width="120.01" height="17" fill="#FFFBF2"/><text x="150" y="200.3" font-size="14" font-weight="600" text-anchor="end" fill="#1F2933">8.5 mm (0.33 in)</text></g>
+    <!-- the glass, 111.2 tall -->
+    <line x1="194" y1="395.64" x2="194" y2="195.48" marker-end="url(#arrow)"/>
+    <line x1="194" y1="395.64" x2="194" y2="595.8" marker-end="url(#arrow)"/>
+    <g transform="translate(187 395.64) rotate(-90)" stroke="none"><rect x="-90.14" y="-13" width="180.28" height="17" fill="#FFFBF2"/><text x="0" y="0" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">Glass 111.2 mm (4.38 in)</text></g>
+
+    <!-- at the nose: belt line height, overall height -->
+    <line x1="1076.4" y1="662.4" x2="1076.4" y2="597.6" marker-end="url(#arrow)"/>
+    <line x1="1076.4" y1="662.4" x2="1076.4" y2="727.2" marker-end="url(#arrow)"/>
+    <g transform="translate(1069.4 662.4) rotate(-90)" stroke="none"><rect x="-58.02" y="-13" width="116.05" height="17" fill="#FFFBF2"/><text x="0" y="0" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">36 mm (1.42 in)</text></g>
+    <line x1="1112.4" y1="453.6" x2="1112.4" y2="180" marker-end="url(#arrow)"/>
+    <line x1="1112.4" y1="453.6" x2="1112.4" y2="727.2" marker-end="url(#arrow)"/>
+    <g transform="translate(1105.4 453.6) rotate(-90)" stroke="none"><rect x="-58.02" y="-13" width="116.05" height="17" fill="#FFFBF2"/><text x="0" y="0" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">152 mm (6.0 in)</text></g>
+
+    <!-- under the desk line: wheel diameter, overall length -->
+    <line x1="389.6" y1="753.2" x2="332" y2="753.2" marker-end="url(#arrow)"/>
+    <line x1="389.6" y1="753.2" x2="447.2" y2="753.2" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="331.58" y="734.2" width="116.05" height="17" fill="#FFFBF2"/><text x="389.6" y="747.2" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">32 mm (1.26 in)</text></g>
+    <line x1="636.2" y1="785.2" x2="224" y2="785.2" marker-end="url(#arrow)"/>
+    <line x1="636.2" y1="785.2" x2="1048.4" y2="785.2" marker-end="url(#arrow)"/>
+    <g stroke="none"><rect x="578.18" y="766.2" width="116.05" height="17" fill="#FFFBF2"/><text x="636.2" y="779.2" font-size="14" font-weight="600" text-anchor="middle" fill="#1F2933">229 mm (9.0 in)</text></g>
+  </g>
+
+  <!-- ============ labels ============ -->
+  <text x="573.56" y="381.2" font-size="15" font-weight="600" text-anchor="middle" fill="#1F2933">Picture area, 160 x 96 mm</text>
+  <text x="573.56" y="401.2" font-size="13" text-anchor="middle" fill="#5F6B7A">0.5 mm inside the window edge all round</text>
+
+  <text x="965.6" y="170" font-size="13" text-anchor="middle" fill="#1F2933">Roof lid joint, z = 149.6</text>
+  <polyline points="965.6,174 965.6,188.64" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="965.6" cy="188.64" r="3" fill="#5F6B7A"/>
+  <text x="960.56" y="225" font-size="13" text-anchor="middle" fill="#1F2933">Cab, from x = 185</text>
+
+  <text x="476" y="625.6" font-size="13" fill="#1F2933">Ribbon cable (the screen's flat cable) leaves</text>
+  <text x="476" y="642.6" font-size="13" fill="#1F2933">the bottom edge of the glass here and folds back.</text>
+  <polyline points="573.2,613.6 573.2,599.76" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="573.2" cy="599.76" r="3" fill="#5F6B7A"/>
+  <text x="476" y="667.6" font-size="13" fill="#5F6B7A">Belt line, z = 36: chassis below it,</text>
+  <text x="476" y="684.6" font-size="13" fill="#5F6B7A">body shell above. The sled stands on it.</text>
+
+  <text x="1040.4" y="758.2" font-size="13" text-anchor="end" fill="#1F2933">Wheel well, 38 long: its top is the belt line</text>
+  <polyline points="945.8,745.2 945.8,622.8" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="945.8" cy="622.8" r="3" fill="#5F6B7A"/>
+
+  <!-- ============ legend, scale note, the accent note ============ -->
+  <rect x="40" y="801" width="26" height="13" fill="#FFE8CC" stroke="#1F2933" stroke-width="1.5"/>
+  <text x="76" y="812" font-size="13" fill="#1F2933">Printed truck body, seen from outside</text>
+  <rect x="40" y="820" width="26" height="13" fill="#E7F5FF" stroke="#E8590C" stroke-width="2"/>
+  <text x="76" y="831" font-size="13" fill="#1F2933">Window opening cut in the wall</text>
+  <line x1="40" y1="846" x2="66" y2="846" stroke="#1971C2" stroke-width="1"/>
+  <text x="76" y="850" font-size="13" fill="#1F2933">Picture area, seen through the window</text>
+  <line x1="350" y1="808" x2="376" y2="808" stroke="#1971C2" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="386" y="812" font-size="13" fill="#1F2933">Screen glass, hidden behind the wall</text>
+  <line x1="350" y1="827" x2="376" y2="827" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="386" y="831" font-size="13" fill="#1F2933">Sled backboard, hidden behind the glass</text>
+  <text x="350" y="850" font-size="13" fill="#5F6B7A">Drawn to scale: 3.6 px = 1 mm</text>
+
+  <line x1="676" y1="799" x2="676" y2="854" stroke="#E8590C" stroke-width="3"/>
+  <text x="688" y="812" font-size="13" font-weight="600" fill="#E8590C">Why the height is tight: the glass is 111.2 mm tall and stands upright.</text>
+  <text x="688" y="831" font-size="13" fill="#E8590C">Wheels go under it, the roof over it. 152 mm with 32 mm wheels leaves</text>
+  <text x="688" y="850" font-size="13" fill="#E8590C">about 2 mm spare. A truck 155 mm tall (6.1 in) would be more forgiving.</text>
+</svg>
