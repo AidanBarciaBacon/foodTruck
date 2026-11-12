@@ -1,0 +1,17 @@
+{
+  "name": "foodtruck-job",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The morning job: today's food trucks as a six-colour picture for the truck's screen",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "test": "node --test",
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.17.0"
+  }
+}

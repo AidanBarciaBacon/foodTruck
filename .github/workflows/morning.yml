@@ -1,0 +1,108 @@
+# Builds today's picture at about 6:30 AM in Los Angeles and publishes dist/ to GitHub Pages.
+#
+# Before the first run: Pages must be enabled for the repository (Settings, Pages, Source: GitHub Actions),
+# which on a free account needs the repository to be public.
+#
+# Optional: a repository variable PAGE_URL (Settings, Secrets and variables, Actions, Variables), the address
+# printed on the picture.
+#
+# GitHub switches a schedule off after 60 days with no activity in the repository, and says so by email: switch it
+# back on from the Actions tab, or the truck keeps yesterday's picture.
+
+name: Morning picture
+
+on:
+  workflow_dispatch:
+  schedule:
+    # A schedule is in UTC and knows no daylight saving, so there is one line for each half of the year. The gate
+    # job lets through only the one that was set for 6:30 AM in Los Angeles; the other run stops there.
+    - cron: "30 14 * * *" # 6:30 AM Pacific Standard Time (winter)
+    - cron: "30 13 * * *" # 6:30 AM Pacific Daylight Time (summer)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    name: Is it 6:30 AM in Los Angeles?
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    outputs:
+      go: ${{ steps.gate.outputs.go }}
+    steps:
+      - name: Stop unless this run was set for 6 AM Pacific (a manual run always goes on)
+        id: gate
+        shell: bash
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          go=true
+          if [ "$EVENT" = "schedule" ]; then
+            # The Pacific hour this run was set for: the hour in its schedule line, moved by today's offset
+            # (-0800 in winter, -0700 in summer). Not the hour on the clock, so a run GitHub starts late still counts.
+            utc_hour=$(echo "$SCHEDULE" | cut -d' ' -f2)
+            offset=$(TZ=America/Los_Angeles date +%z)
+            pacific_hour=$(( 10#$utc_hour - 10#${offset:1:2} ))
+            echo "Schedule \"$SCHEDULE\" is ${pacific_hour}:30 in Los Angeles today (UTC${offset})."
+            if [ "$pacific_hour" -ne 6 ]; then go=false; fi
+          fi
+          if [ "$go" = true ]; then echo "Going on."; else echo "Not the 6:30 AM run: nothing to do."; fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Build the picture
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CHROME_PATH: /usr/bin/google-chrome
+      # If Chrome ever refuses to start here for want of a sandbox, add: CHROME_NO_SANDBOX: "1"
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: job/package-lock.json
+
+      - name: Install
+        working-directory: job
+        run: npm ci
+
+      - name: Test
+        working-directory: job
+        run: npm test
+
+      - name: Build the picture
+        working-directory: job
+        env:
+          PAGE_URL: ${{ vars.PAGE_URL }}
+        run: node build.mjs
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    name: Publish to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
