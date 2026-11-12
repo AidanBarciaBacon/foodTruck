@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 900" width="100%"
+     font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>What the screen shows</title>
+  <desc>A mock-up of the 800 x 480 six-colour e-paper screen on a normal day, with its parts labelled, the six
+  colours it can show, and thumbnails of its other states. Truck names, hours and the web address are made up.</desc>
+
+  <defs>
+    <!--
+      Everything inside these groups is the SCREEN, drawn in real screen pixels (800 x 480) and scaled down where it
+      is used. It uses only the six screen colours from SPEC section 4, as flat fills:
+      black #000000, white #FFFFFF, red #D0021B, yellow #F5D000, blue #1F4FD8, green #1E8E3E.
+    -->
+
+    <!-- The parts every state shares: header band, awning, footer. The date text is added per state. -->
+    <g id="chrome">
+      <rect width="800" height="480" fill="#FFFFFF"/>
+      <!-- header -->
+      <rect width="800" height="96" fill="#000000"/>
+      <text x="30" y="65" font-size="48" font-weight="800" letter-spacing="1" fill="#FFFFFF">TODAY’S TRUCKS</text>
+      <polygon points="512,0 800,0 800,96 488,96" fill="#F5D000"/>
+      <!-- awning: red and white stripes, 32 px each, with a scalloped edge outlined in black -->
+      <path fill="#D0021B" d="M0,96 h32 v12 a16,16 0 0 1 -32,0 z M64,96 h32 v12 a16,16 0 0 1 -32,0 z M128,96 h32 v12
+        a16,16 0 0 1 -32,0 z M192,96 h32 v12 a16,16 0 0 1 -32,0 z M256,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M320,96 h32 v12 a16,16 0 0 1 -32,0 z M384,96 h32 v12 a16,16 0 0 1 -32,0 z M448,96 h32 v12
+        a16,16 0 0 1 -32,0 z M512,96 h32 v12 a16,16 0 0 1 -32,0 z M576,96 h32 v12 a16,16 0 0 1 -32,0 z
+        M640,96 h32 v12 a16,16 0 0 1 -32,0 z M704,96 h32 v12 a16,16 0 0 1 -32,0 z M768,96 h32 v12
+        a16,16 0 0 1 -32,0 z"/>
+      <path fill="none" stroke="#000000" stroke-width="3" d="M0,108 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0
+        a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0 a16,16 0 0 0 32,0"/>
+      <!-- footer -->
+      <rect y="432" width="800" height="48" fill="#000000"/>
+      <text x="32" y="464" font-size="22" font-weight="700" fill="#FFFFFF">Updated 7:02 AM</text>
+      <rect x="232" y="446" width="36" height="20" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+      <rect x="270" y="451" width="5" height="10" fill="#FFFFFF"/>
+      <rect x="237" y="451" width="7" height="10" fill="#FFFFFF"/>
+      <rect x="246.500" y="451" width="7" height="10" fill="#FFFFFF"/>
+      <rect x="256" y="451" width="7" height="10" fill="#FFFFFF"/>
+      <text x="768" y="464" text-anchor="end" font-size="22" font-weight="700" fill="#F5D000">example.com/trucks</text>
+    </g>
+
+    <!-- Three truck rows (made-up trucks). -->
+    <g id="rows">
+      <text x="32" y="184" font-size="46" font-weight="800" fill="#000000">Taco Comet</text>
+      <text x="32" y="218" font-size="24" font-weight="600" fill="#000000">Street tacos and burritos</text>
+      <rect x="484" y="160" width="284" height="54" fill="#D0021B"/>
+      <text x="626" y="196" text-anchor="middle" font-size="26" font-weight="700" fill="#FFFFFF">11:00 AM – 2:00 PM</text>
+
+      <rect x="32" y="235" width="736" height="2" fill="#000000"/>
+      <text x="32" y="282" font-size="46" font-weight="800" fill="#000000">Noodle Lantern</text>
+      <text x="32" y="316" font-size="24" font-weight="600" fill="#000000">Hand-pulled noodles</text>
+      <rect x="484" y="258" width="284" height="54" fill="#1F4FD8"/>
+      <text x="626" y="294" text-anchor="middle" font-size="26" font-weight="700" fill="#FFFFFF">11:30 AM – 1:30 PM</text>
+
+      <rect x="32" y="333" width="736" height="2" fill="#000000"/>
+      <text x="32" y="380" font-size="46" font-weight="800" fill="#000000">Melt Wagon</text>
+      <text x="32" y="414" font-size="24" font-weight="600" fill="#000000">Grilled cheese and soup</text>
+      <rect x="484" y="356" width="284" height="54" fill="#1E8E3E"/>
+      <text x="626" y="392" text-anchor="middle" font-size="26" font-weight="700" fill="#FFFFFF">10:30 AM – 2:30 PM</text>
+    </g>
+
+    <!-- The normal state: a weekday with trucks. -->
+    <g id="normal">
+      <use xlink:href="#chrome"/>
+      <text x="652" y="59" text-anchor="middle" font-size="30" font-weight="800" fill="#000000">Thursday, Nov 12</text>
+      <use xlink:href="#rows"/>
+    </g>
+
+    <!-- State: no trucks today. -->
+    <g id="state-none">
+      <use xlink:href="#chrome"/>
+      <text x="652" y="59" text-anchor="middle" font-size="30" font-weight="800" fill="#000000">Thursday, Nov 12</text>
+      <text x="400" y="296" text-anchor="middle" font-size="80" font-weight="800" fill="#000000">No trucks today</text>
+      <rect x="320" y="328" width="160" height="12" fill="#D0021B"/>
+    </g>
+
+    <!-- State: weekend card, Monday's trucks known. -->
+    <g id="state-weekend-known">
+      <use xlink:href="#chrome"/>
+      <text x="652" y="59" text-anchor="middle" font-size="30" font-weight="800" fill="#000000">Saturday, Nov 14</text>
+      <rect x="32" y="156" width="320" height="256" fill="#1F4FD8"/>
+      <text x="192" y="270" text-anchor="middle" font-size="72" font-weight="800" fill="#FFFFFF">Back</text>
+      <text x="192" y="352" text-anchor="middle" font-size="72" font-weight="800" fill="#FFFFFF">Monday</text>
+      <rect x="388" y="196" width="24" height="24" fill="#D0021B"/>
+      <text x="428" y="224" font-size="42" font-weight="800" fill="#000000">Taco Comet</text>
+      <rect x="388" y="272" width="24" height="24" fill="#F5D000"/>
+      <text x="428" y="300" font-size="42" font-weight="800" fill="#000000">Noodle Lantern</text>
+      <rect x="388" y="348" width="24" height="24" fill="#1E8E3E"/>
+      <text x="428" y="376" font-size="42" font-weight="800" fill="#000000">Melt Wagon</text>
+    </g>
+
+    <!-- State: weekend card, Monday's trucks not known. -->
+    <g id="state-weekend">
+      <use xlink:href="#chrome"/>
+      <text x="652" y="59" text-anchor="middle" font-size="30" font-weight="800" fill="#000000">Saturday, Nov 14</text>
+      <rect x="32" y="160" width="736" height="248" fill="#1F4FD8"/>
+      <text x="400" y="316" text-anchor="middle" font-size="96" font-weight="800" fill="#FFFFFF">Back Monday</text>
+    </g>
+
+    <!-- State: battery low. The normal screen with a "Charge me" badge in a corner. -->
+    <g id="state-low">
+      <use xlink:href="#normal"/>
+      <rect x="436" y="410" width="364" height="70" fill="#FFFFFF"/>
+      <rect x="440" y="414" width="360" height="66" fill="#D0021B"/>
+      <rect x="462" y="434" width="44" height="26" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+      <rect x="508" y="441" width="6" height="12" fill="#FFFFFF"/>
+      <rect x="468" y="440" width="8" height="14" fill="#FFFFFF"/>
+      <text x="532" y="461" font-size="40" font-weight="800" fill="#FFFFFF">CHARGE ME</text>
+    </g>
+  </defs>
+
+  <!-- paper -->
+  <rect width="1200" height="900" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">What the screen shows</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">A normal weekday, then the other states. The truck names, hours and web address here are made up.</text>
+
+  <!-- ===== The main mock-up: 800 x 480 screen pixels drawn 700 x 420 (true 5:3) ===== -->
+  <g transform="translate(250,116) scale(0.875)">
+    <use xlink:href="#normal"/>
+  </g>
+  <rect x="249" y="115" width="702" height="422" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- size note under the mock-up -->
+  <text x="600" y="564" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2933">800 x 480 pixels, 160 x 96 mm</text>
+
+  <!-- ===== Annotations, left column (right-aligned to x = 226) ===== -->
+  <g fill="none" stroke="#5F6B7A" stroke-width="1.25">
+    <line x1="234" y1="158" x2="262" y2="158"/>
+    <line x1="234" y1="263" x2="266" y2="263"/>
+    <line x1="234" y1="300" x2="266" y2="300"/>
+    <line x1="234" y1="451" x2="266" y2="451"/>
+    <line x1="234" y1="515" x2="262" y2="515"/>
+    <!-- right column -->
+    <line x1="912" y1="280" x2="966" y2="280"/>
+    <line x1="936" y1="515" x2="966" y2="515"/>
+  </g>
+  <g fill="#5F6B7A" stroke="#FFFBF2" stroke-width="1.5">
+    <circle cx="262" cy="158" r="3.750"/>
+    <circle cx="266" cy="263" r="3.750"/>
+    <circle cx="266" cy="300" r="3.750"/>
+    <circle cx="266" cy="451" r="3.750"/>
+    <circle cx="262" cy="515" r="3.750"/>
+    <circle cx="912" cy="280" r="3.750"/>
+    <circle cx="936" cy="515" r="3.750"/>
+  </g>
+
+  <g text-anchor="end" fill="#1F2933" font-size="15" font-weight="600">
+    <text x="226" y="163">Header</text>
+    <text x="226" y="268">Truck name, large</text>
+    <text x="226" y="305">Food type</text>
+    <text x="226" y="456">One row per truck</text>
+    <text x="226" y="520">Footer</text>
+  </g>
+  <g text-anchor="end" fill="#5F6B7A" font-size="13">
+    <text x="226" y="181">“TODAY’S TRUCKS”</text>
+    <text x="226" y="199">and the date</text>
+    <text x="226" y="474">up to four trucks</text>
+    <text x="226" y="538">when it last updated,</text>
+    <text x="226" y="556">and a small battery mark</text>
+  </g>
+
+  <!-- ===== Annotations, right column (left-aligned to x = 974) ===== -->
+  <g fill="#1F2933" font-size="15" font-weight="600">
+    <text x="974" y="285">Hours</text>
+    <text x="974" y="520">Web address</text>
+    <text x="974" y="336">Six flat colours only</text>
+  </g>
+  <g fill="#5F6B7A" font-size="13">
+    <text x="974" y="538">of the page</text>
+    <text x="974" y="354">photos and gradients</text>
+    <text x="974" y="372">turn grainy</text>
+    <text x="974" y="476">The real screen is duller.</text>
+  </g>
+
+  <!-- swatch strip: the six screen colours -->
+  <g stroke="#1F2933" stroke-width="1">
+    <rect x="974.500" y="388.500" width="18" height="18" fill="#000000"/>
+    <rect x="974.500" y="412.500" width="18" height="18" fill="#FFFFFF"/>
+    <rect x="974.500" y="436.500" width="18" height="18" fill="#D0021B"/>
+    <rect x="1068.500" y="388.500" width="18" height="18" fill="#F5D000"/>
+    <rect x="1068.500" y="412.500" width="18" height="18" fill="#1F4FD8"/>
+    <rect x="1068.500" y="436.500" width="18" height="18" fill="#1E8E3E"/>
+  </g>
+  <g fill="#1F2933" font-size="13">
+    <text x="1000" y="402">black</text>
+    <text x="1000" y="426">white</text>
+    <text x="1000" y="450">red</text>
+    <text x="1094" y="402">yellow</text>
+    <text x="1094" y="426">blue</text>
+    <text x="1094" y="450">green</text>
+  </g>
+
+  <!-- ===== The other states: four thumbnails, 250 x 150 each (true 5:3) ===== -->
+  <text x="40" y="612" font-size="15" font-weight="700" fill="#1F2933">The other states</text>
+
+  <g transform="translate(40,626) scale(0.3125)"><use xlink:href="#state-none"/></g>
+  <g transform="translate(330,626) scale(0.3125)"><use xlink:href="#state-weekend-known"/></g>
+  <g transform="translate(620,626) scale(0.3125)"><use xlink:href="#state-weekend"/></g>
+  <g transform="translate(910,626) scale(0.3125)"><use xlink:href="#state-low"/></g>
+  <g fill="none" stroke="#1F2933" stroke-width="1.5" stroke-linejoin="round">
+    <rect x="39.250" y="625.250" width="251.500" height="151.500"/>
+    <rect x="329.250" y="625.250" width="251.500" height="151.500"/>
+    <rect x="619.250" y="625.250" width="251.500" height="151.500"/>
+    <rect x="909.250" y="625.250" width="251.500" height="151.500"/>
+  </g>
+
+  <g fill="#1F2933" font-size="15" font-weight="600">
+    <text x="40" y="802">No trucks today</text>
+    <text x="330" y="802">Weekend, Monday’s trucks known</text>
+    <text x="620" y="802">Weekend, Monday not known yet</text>
+    <text x="910" y="802">Battery low</text>
+  </g>
+  <g fill="#5F6B7A" font-size="13">
+    <text x="40" y="820">a weekday with nothing on the list</text>
+    <text x="330" y="820">“Back Monday” and Monday’s trucks</text>
+    <text x="620" y="820">“Back Monday” alone</text>
+    <text x="910" y="820">the normal screen, with a “Charge me”</text>
+    <text x="910" y="838">badge in a corner</text>
+  </g>
+</svg>
