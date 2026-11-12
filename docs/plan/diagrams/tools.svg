@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%"
+     font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>Tools: what to buy, what to print</title>
+  <desc>The fourteen things to buy, in two groups with their prices and totals; the bench helpers and parts to print on the Bambu Lab P1S instead of buying; and the small hardware and consumables to buy.</desc>
+
+  <rect x="0" y="0" width="1200" height="900" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Tools: what to buy, what to print</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Fourteen things to buy, the things the printer makes instead, and the small hardware. Prices are rough, in US dollars.</text>
+
+  <!-- the line between the two halves -->
+  <path d="M755,108 V722" stroke="#B8C0CC" stroke-width="1.5"/>
+
+  <!-- =====================================================================
+       LEFT HALF: BUY
+       Two columns 350 wide (x = 40 and 390), rows 64 tall.
+       Each cell: pictogram centred 48 in from the cell's left edge (drawn round 0,0, at most 64 wide and 52 tall),
+       name and why from 92 in, price right-aligned 338 in.
+       ===================================================================== -->
+  <text x="40" y="124" font-size="20" font-weight="700" fill="#1F2933">Buy<tspan dx="12" font-size="13" font-weight="400" fill="#5F6B7A">no good printed substitute</tspan></text>
+
+  <!-- ===== group 1: for soldering. Row centres y = 200, 264, 328 ===== -->
+  <rect x="40" y="136" width="700" height="230" rx="6" fill="none" stroke="#B8C0CC" stroke-width="1.5"/>
+  <text x="54" y="159" font-size="15" font-weight="700" fill="#1F2933">For soldering (routes B and C)</text>
+  <text x="726" y="159" font-size="15" fill="#5F6B7A" text-anchor="end">6 items, total <tspan font-weight="700" fill="#1F2933">$61</tspan></text>
+  <path d="M52,232 H728 M52,296 H728 M390,172 V360" stroke="#B8C0CC" stroke-width="1"/>
+
+  <g stroke="#1F2933" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <!-- soldering iron: handle, collar, barrel, tip, lead -->
+    <g transform="translate(88,200) rotate(30)">
+      <path d="M-28,0 C-38,0 -40,-10 -33,-15"/>
+      <rect x="-28" y="-7" width="32" height="14" rx="5" fill="#5F6B7A"/>
+      <rect x="4" y="-5" width="6" height="10" fill="#FFFBF2"/>
+      <rect x="10" y="-3" width="16" height="6" fill="#B8C0CC"/>
+      <path d="M26,-3 L34,-1.5 L34,1.5 L26,3 Z" fill="#B8C0CC"/>
+    </g>
+
+    <!-- its power: a USB-C charger with two prongs, and a lead ending in a USB-C plug -->
+    <g transform="translate(438,200)">
+      <path d="M-22,-7 H-31 M-22,7 H-31" stroke-width="3"/>
+      <path d="M4,6 C16,6 8,-12 20,-12" stroke-width="3"/>
+      <rect x="-22" y="-16" width="26" height="32" rx="4" fill="#FFFBF2"/>
+      <rect x="-4" y="2" width="5" height="8" rx="2.5" fill="#B8C0CC" stroke-width="1.5"/>
+      <rect x="20" y="-18" width="12" height="12" rx="3" fill="#5F6B7A"/>
+      <rect x="23" y="-6" width="6" height="8" rx="3" fill="#B8C0CC" stroke-width="1.5"/>
+    </g>
+
+    <!-- metal stand: a heavy base and a wire coil the iron slides into -->
+    <g transform="translate(88,264)">
+      <rect x="-28" y="14" width="56" height="8" rx="2" fill="#B8C0CC"/>
+      <path d="M-14,14 V5"/>
+      <g transform="translate(2,-5) rotate(-38)">
+        <ellipse cx="-18" cy="0" rx="4" ry="9"/>
+        <ellipse cx="-9" cy="0" rx="4" ry="9"/>
+        <ellipse cx="0" cy="0" rx="4" ry="9"/>
+        <ellipse cx="9" cy="0" rx="4" ry="9"/>
+        <ellipse cx="18" cy="0" rx="4" ry="9"/>
+      </g>
+    </g>
+
+    <!-- solder spool: two flanges, the wound wire, a loose end -->
+    <g transform="translate(438,264)">
+      <path d="M12,10 C24,10 20,-6 30,-8"/>
+      <rect x="-12" y="-16" width="24" height="32" fill="#B8C0CC"/>
+      <path d="M-12,-8 H12 M-12,0 H12 M-12,8 H12" stroke-width="1.5"/>
+      <rect x="-18" y="-22" width="36" height="6" rx="2" fill="#FFFBF2"/>
+      <rect x="-18" y="16" width="36" height="6" rx="2" fill="#FFFBF2"/>
+    </g>
+
+    <!-- brass wool pot: a pot with a tangle of wool on top -->
+    <g transform="translate(88,330)">
+      <path d="M-17,0 C-21,-14 -8,-20 -4,-10 C-3,-22 11,-22 9,-10 C13,-20 23,-12 17,0 Z" fill="#FFFBF2"/>
+      <path d="M-11,-5 q3,-6 7,0 M1,-7 q3,-6 7,0 M-5,-13 q3,-5 6,0 M9,-3 q2,-4 5,-1" stroke-width="1.5"/>
+      <path d="M-21,0 H21 L17,22 H-17 Z" fill="#B8C0CC"/>
+    </g>
+
+    <!-- practice kit: a small circuit board with rows of holes and two parts -->
+    <g transform="translate(438,328)">
+      <rect x="-28" y="-18" width="56" height="36" rx="2" fill="#D3F9D8" stroke="#2F9E44"/>
+      <g fill="#FFFBF2" stroke="#2F9E44" stroke-width="1.5">
+        <circle cx="-20" cy="-10" r="2.25"/><circle cx="-12" cy="-10" r="2.25"/><circle cx="-4" cy="-10" r="2.25"/>
+        <circle cx="4" cy="-10" r="2.25"/><circle cx="12" cy="-10" r="2.25"/><circle cx="20" cy="-10" r="2.25"/>
+        <circle cx="-20" cy="10" r="2.25"/><circle cx="-12" cy="10" r="2.25"/><circle cx="-4" cy="10" r="2.25"/>
+        <circle cx="4" cy="10" r="2.25"/><circle cx="12" cy="10" r="2.25"/><circle cx="20" cy="10" r="2.25"/>
+      </g>
+      <path d="M-22,0 H-16 M0,0 H6" stroke-width="1.5"/>
+      <rect x="-16" y="-3.5" width="16" height="7" rx="2" fill="#FFFBF2" stroke-width="1.5"/>
+      <circle cx="15" cy="0" r="4.5" fill="#FFFBF2" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <g font-size="13" fill="#5F6B7A">
+    <text x="132" y="197" font-size="15" font-weight="700" fill="#1F2933">Pinecil V2 soldering iron</text>
+    <text x="132" y="214">comes with a tip</text>
+    <text x="378" y="197" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$26</text>
+
+    <text x="482" y="188" font-size="15" font-weight="700" fill="#1F2933">Power for the iron</text>
+    <text x="482" y="205">a 60 W or bigger USB-C laptop charger</text>
+    <text x="482" y="221">(you may own one), a silicone USB-C lead</text>
+    <text x="728" y="188" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$4</text>
+
+    <text x="132" y="252" font-size="15" font-weight="700" fill="#1F2933">Stand for the iron</text>
+    <text x="132" y="269">or print one that holds the hot end</text>
+    <text x="132" y="285">in a steel bearing</text>
+    <text x="378" y="252" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$2</text>
+
+    <text x="482" y="261" font-size="15" font-weight="700" fill="#1F2933">Solder</text>
+    <text x="482" y="278">0.8 mm rosin core</text>
+    <text x="728" y="261" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$8</text>
+
+    <text x="132" y="333" font-size="15" font-weight="700" fill="#1F2933">Brass wool tip cleaner</text>
+    <text x="378" y="333" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$11</text>
+
+    <text x="482" y="316" font-size="15" font-weight="700" fill="#1F2933">Practice kit</text>
+    <text x="482" y="333">through-hole soldering: ten joints</text>
+    <text x="482" y="349">before the real board</text>
+    <text x="728" y="316" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$10</text>
+  </g>
+
+  <!-- ===== group 2: for everything. Row centres y = 442, 506, 570, 634 ===== -->
+  <rect x="40" y="378" width="700" height="294" rx="6" fill="none" stroke="#B8C0CC" stroke-width="1.5"/>
+  <text x="54" y="401" font-size="15" font-weight="700" fill="#1F2933">For everything</text>
+  <text x="726" y="401" font-size="15" fill="#5F6B7A" text-anchor="end">8 items, total <tspan font-weight="700" fill="#1F2933">$84 to $100</tspan></text>
+  <path d="M52,474 H728 M52,538 H728 M52,602 H728 M390,414 V666" stroke="#B8C0CC" stroke-width="1"/>
+
+  <g stroke="#1F2933" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <!-- flush cutters: two handles, a pivot, short jaws -->
+    <g transform="translate(88,442)">
+      <path d="M4,3 C-8,6 -20,10 -30,17" stroke-width="9"/>
+      <path d="M4,3 C-8,6 -20,10 -30,17" stroke="#5F6B7A" stroke-width="5"/>
+      <path d="M4,-3 C-8,-6 -20,-10 -30,-17" stroke-width="9"/>
+      <path d="M4,-3 C-8,-6 -20,-10 -30,-17" stroke="#5F6B7A" stroke-width="5"/>
+      <path d="M2,-8 L16,-9 L30,-1 L8,-1 Z" fill="#B8C0CC"/>
+      <path d="M2,8 L16,9 L30,1 L8,1 Z" fill="#B8C0CC"/>
+      <circle cx="7" cy="0" r="3.5" fill="#FFFBF2"/>
+    </g>
+
+    <!-- fine tweezers: two thin arms joined at the back, open at the points -->
+    <g transform="translate(438,442) rotate(-25)">
+      <path d="M-33,-3.5 L32,-8.5 L34,-6 L-14,0 L34,6 L32,8.5 L-33,3.5 Z" fill="#B8C0CC"/>
+      <path d="M-27,-3.5 V3.5 M-22,-3.5 V3.5" stroke-width="1.5"/>
+    </g>
+
+    <!-- calipers: a ruled beam, a fixed jaw, a sliding jaw -->
+    <g transform="translate(88,502)">
+      <rect x="-32" y="-10" width="64" height="9" fill="#B8C0CC"/>
+      <path d="M-20,-10 v4 M-14,-10 v2.5 M-8,-10 v4 M16,-10 v2.5 M22,-10 v4 M28,-10 v2.5" stroke-width="1.25"/>
+      <path d="M-32,-1 L-32,10 L-25,22 L-25,-1 Z" fill="#B8C0CC"/>
+      <path d="M-11,3 L-11,22 L-4,10 L-4,3 Z" fill="#B8C0CC"/>
+      <rect x="-11" y="-13" width="22" height="16" rx="2" fill="#FFFBF2"/>
+      <circle cx="0" cy="-5" r="2.5" stroke-width="1.5"/>
+    </g>
+
+    <!-- multimeter: a display, a dial, two sockets, one probe -->
+    <g transform="translate(438,506)">
+      <path d="M-1,20 C6,30 22,24 22,10"/>
+      <path d="M22,10 V-10" stroke-width="3.5"/>
+      <path d="M22,-10 V-20" stroke-width="1.5"/>
+      <rect x="-24" y="-24" width="34" height="48" rx="5" fill="#FFFBF2"/>
+      <rect x="-19" y="-19" width="24" height="11" rx="1.5" fill="#B8C0CC" stroke-width="1.5"/>
+      <circle cx="-7" cy="4" r="8" fill="#FFFBF2"/>
+      <path d="M-7,4 L-2.5,-1.5"/>
+      <circle cx="-13" cy="18" r="2" fill="#1F2933" stroke="none"/>
+      <circle cx="-1" cy="18" r="2" fill="#1F2933" stroke="none"/>
+    </g>
+
+    <!-- screwdrivers: two sizes -->
+    <g transform="translate(88,570)">
+      <g transform="rotate(-14)">
+        <rect x="-16" y="-25" width="12" height="24" rx="4.5" fill="#5F6B7A"/>
+        <rect x="-11.5" y="-1" width="3" height="20" fill="#B8C0CC" stroke-width="1.5"/>
+        <path d="M-12.5,19 h5 l-1,5 h-3 Z" fill="#B8C0CC" stroke-width="1.5"/>
+      </g>
+      <g transform="rotate(14)">
+        <rect x="6" y="-21" width="10" height="19" rx="4" fill="#5F6B7A"/>
+        <rect x="9.75" y="-2" width="2.5" height="18" fill="#B8C0CC" stroke-width="1.5"/>
+        <path d="M9,16 h4 l-1,4.5 h-2 Z" fill="#B8C0CC" stroke-width="1.5"/>
+      </g>
+    </g>
+
+    <!-- craft knife: a round handle, a collar, a pointed blade -->
+    <g transform="translate(438,570) rotate(-35)">
+      <rect x="-32" y="-4" width="40" height="8" rx="3" fill="#B8C0CC"/>
+      <rect x="8" y="-5" width="8" height="10" rx="1.5" fill="#5F6B7A"/>
+      <path d="M16,-4 L35,-4 L23,4 L16,4 Z" fill="#FFFBF2"/>
+    </g>
+
+    <!-- safety glasses: two lenses, a bridge, the arms -->
+    <g transform="translate(88,634)">
+      <path d="M-30,-9 H-5 C-3,-9 -2.5,-7.5 -2.5,-5 V1 C-2.5,8 -8,11 -16,11 C-25,11 -30,7 -30,-1 Z" fill="#FFFBF2"/>
+      <path d="M30,-9 H5 C3,-9 2.5,-7.5 2.5,-5 V1 C2.5,8 8,11 16,11 C25,11 30,7 30,-1 Z" fill="#FFFBF2"/>
+      <path d="M-2.5,-4 Q0,-8 2.5,-4"/>
+      <path d="M-30,-7 L-34,-14 M30,-7 L34,-14"/>
+    </g>
+
+    <!-- USB-C data lead: two small rounded plugs and the cable between them -->
+    <g transform="translate(438,634)">
+      <path d="M6,-10 C-20,-10 20,10 -6,10" stroke-width="3"/>
+      <rect x="22" y="-14" width="11" height="8" rx="4" fill="#B8C0CC"/>
+      <rect x="6" y="-17" width="16" height="14" rx="3" fill="#5F6B7A"/>
+      <rect x="-33" y="6" width="11" height="8" rx="4" fill="#B8C0CC"/>
+      <rect x="-22" y="3" width="16" height="14" rx="3" fill="#5F6B7A"/>
+    </g>
+  </g>
+
+  <g font-size="13" fill="#5F6B7A">
+    <text x="132" y="430" font-size="15" font-weight="700" fill="#1F2933">Flush cutters</text>
+    <text x="132" y="447">trimming pins, wires</text>
+    <text x="132" y="463">and print supports</text>
+    <text x="378" y="430" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$7</text>
+
+    <text x="482" y="439" font-size="15" font-weight="700" fill="#1F2933">Fine tweezers</text>
+    <text x="482" y="456">the ribbon latch, small screws</text>
+    <text x="728" y="439" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$4</text>
+
+    <text x="132" y="494" font-size="15" font-weight="700" fill="#1F2933">Digital calipers</text>
+    <text x="132" y="511">150 mm; measuring the real parts</text>
+    <text x="132" y="527">before modelling (phase 5)</text>
+    <text x="378" y="494" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$20 to $36</text>
+
+    <text x="482" y="494" font-size="15" font-weight="700" fill="#1F2933">Multimeter</text>
+    <text x="482" y="511">with a microamp (µA) range; battery</text>
+    <text x="482" y="527">polarity, sleep-current check (phase 4)</text>
+    <text x="728" y="494" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$25</text>
+
+    <text x="132" y="575" font-size="15" font-weight="700" fill="#1F2933">Small screwdriver set</text>
+    <text x="378" y="575" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$10</text>
+
+    <text x="482" y="558" font-size="15" font-weight="700" fill="#1F2933">Craft knife</text>
+    <text x="482" y="575">the low-power pad cut;</text>
+    <text x="482" y="591">cleaning prints</text>
+    <text x="728" y="558" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$5</text>
+
+    <text x="132" y="631" font-size="15" font-weight="700" fill="#1F2933">Safety glasses</text>
+    <text x="132" y="648">soldering and cutting</text>
+    <text x="378" y="631" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$5</text>
+
+    <text x="482" y="631" font-size="15" font-weight="700" fill="#1F2933">USB-C lead that carries data</text>
+    <text x="482" y="648">loading the program</text>
+    <text x="728" y="631" font-size="14" font-weight="600" fill="#1F2933" text-anchor="end">$8</text>
+  </g>
+
+  <!-- the sum of both groups -->
+  <rect x="40" y="684" width="700" height="38" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <text x="54" y="708" font-size="15" font-weight="700" fill="#1F2933">All fourteen<tspan dx="12" font-size="13" font-weight="400" fill="#5F6B7A">the range is the calipers, $20 to $36</tspan></text>
+  <text x="726" y="710" font-size="20" font-weight="700" fill="#1F2933" text-anchor="end">$145 to $161</text>
+
+  <!-- =====================================================================
+       RIGHT HALF: PRINT ON THE P1S
+       Nine rows; pictogram centred at x = 814, text from x = 858.
+       Row centres y = 176, 238, 294, 358, 444, 516, 572, 628, 684.
+       ===================================================================== -->
+  <text x="770" y="124" font-size="20" font-weight="700" fill="#1F2933">Print on the P1S<tspan dx="12" font-size="13" font-weight="400" fill="#5F6B7A">instead of buying</tspan></text>
+  <rect x="770" y="136" width="390" height="586" rx="6" fill="none" stroke="#B8C0CC" stroke-width="1.5"/>
+  <path d="M782,207 H1148 M782,269 H1148 M782,319 H1148 M782,397 H1148 M782,491 H1148 M782,541 H1148 M782,603 H1148 M782,653 H1148" stroke="#B8C0CC" stroke-width="1"/>
+
+  <g stroke="#1F2933" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <!-- board holder: a base, a fixed jaw, a sliding jaw, a board gripped by its edges -->
+    <g transform="translate(814,174)">
+      <rect x="-19" y="-9" width="38" height="5" fill="#D3F9D8" stroke="#2F9E44"/>
+      <rect x="-30" y="12" width="60" height="9" rx="2" fill="#FFE8CC"/>
+      <rect x="-28" y="-14" width="9" height="26" fill="#FFE8CC"/>
+      <rect x="19" y="-14" width="9" height="26" fill="#FFD8A8"/>
+    </g>
+
+    <!-- header-pin jig: a block with a row of holes, a strip of pins standing in it -->
+    <g transform="translate(814,238)">
+      <g fill="#B8C0CC" stroke-width="1.25">
+        <rect x="-22.5" y="-20" width="3" height="22"/><rect x="-15.5" y="-20" width="3" height="22"/>
+        <rect x="-8.5" y="-20" width="3" height="22"/><rect x="-1.5" y="-20" width="3" height="22"/>
+        <rect x="5.5" y="-20" width="3" height="22"/><rect x="12.5" y="-20" width="3" height="22"/>
+        <rect x="19.5" y="-20" width="3" height="22"/>
+      </g>
+      <rect x="-26" y="-5" width="52" height="7" fill="#5F6B7A"/>
+      <rect x="-30" y="2" width="60" height="18" rx="2" fill="#FFE8CC"/>
+      <path d="M-21,3 V12 M-14,3 V12 M-7,3 V12 M0,3 V12 M7,3 V12 M14,3 V12 M21,3 V12" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="3 2.5" stroke-linecap="butt"/>
+    </g>
+
+    <!-- solder spool holder: a cradle, an axle, the spool on it -->
+    <g transform="translate(814,294)">
+      <path d="M-31,-7 H31"/>
+      <rect x="-11" y="-16" width="22" height="18" fill="#B8C0CC"/>
+      <path d="M-4,-16 V2 M3,-16 V2" stroke-width="1.5"/>
+      <rect x="-16" y="-21" width="5" height="28" rx="1.5" fill="#FFFBF2"/>
+      <rect x="11" y="-21" width="5" height="28" rx="1.5" fill="#FFFBF2"/>
+      <path d="M-28,20 V-12 H-21 V12 H21 V-12 H28 V20 Z" fill="#FFE8CC"/>
+    </g>
+
+    <!-- printed stand for the iron: a base, a post, a steel bearing where the hot end rests -->
+    <g transform="translate(814,358)">
+      <path d="M-9,18 L-6,-6 H6 L9,18 Z" fill="#FFE8CC"/>
+      <rect x="-28" y="18" width="56" height="8" rx="2" fill="#FFE8CC"/>
+      <circle cx="0" cy="-13" r="13" fill="#B8C0CC"/>
+      <circle cx="0" cy="-13" r="6" fill="#FFFBF2"/>
+    </g>
+
+    <!-- fume fan housing: a printed square frame round a bought fan -->
+    <g transform="translate(814,444)">
+      <rect x="-25" y="-25" width="50" height="50" rx="4" fill="#FFE8CC"/>
+      <circle cx="0" cy="0" r="20" fill="#FFFBF2"/>
+      <g fill="#B8C0CC" stroke-width="1.5">
+        <path d="M0,-5 C6,-8 10,-13 7,-17.5 C1,-16 -3,-11 -3.5,-4 Z"/>
+        <path d="M0,-5 C6,-8 10,-13 7,-17.5 C1,-16 -3,-11 -3.5,-4 Z" transform="rotate(90)"/>
+        <path d="M0,-5 C6,-8 10,-13 7,-17.5 C1,-16 -3,-11 -3.5,-4 Z" transform="rotate(180)"/>
+        <path d="M0,-5 C6,-8 10,-13 7,-17.5 C1,-16 -3,-11 -3.5,-4 Z" transform="rotate(270)"/>
+      </g>
+      <circle cx="0" cy="0" r="5" fill="#B8C0CC"/>
+    </g>
+
+    <!-- tray: seen from above, with compartments and a few screws in it -->
+    <g transform="translate(814,516)">
+      <rect x="-30" y="-18" width="60" height="36" rx="4" fill="#FFE8CC"/>
+      <path d="M-8,-18 V18 M12,-18 V18 M-8,0 H12"/>
+      <g fill="#B8C0CC" stroke-width="1.25">
+        <circle cx="-21" cy="-7" r="3"/><circle cx="-17" cy="8" r="3"/><circle cx="21" cy="3" r="3"/>
+        <circle cx="2" cy="-9" r="3"/>
+      </g>
+    </g>
+
+    <!-- clips: two printed hooks holding a board down on the sled -->
+    <g transform="translate(814,572)">
+      <rect x="-30" y="8" width="60" height="9" fill="#FFD8A8"/>
+      <rect x="-19" y="1" width="38" height="7" fill="#D3F9D8" stroke="#2F9E44"/>
+      <path d="M-28,8 V-9 H-13 V-3 H-21 V8 Z" fill="#FFE8CC"/>
+      <path d="M28,8 V-9 H13 V-3 H21 V8 Z" fill="#FFE8CC"/>
+    </g>
+
+    <!-- bench stand: a base and a prop, the sled leaning on it -->
+    <g transform="translate(814,628)">
+      <path d="M0,13 L14,-18 L20,-18 L20,13 Z" fill="#FFE8CC"/>
+      <path d="M-3,12 L11.4,-19.9 L5.9,-22.4 L-8.5,9.5 Z" fill="#FFD8A8"/>
+      <rect x="-28" y="13" width="56" height="8" rx="2" fill="#FFE8CC"/>
+      <rect x="-15" y="6" width="6" height="7" fill="#FFE8CC"/>
+    </g>
+
+    <!-- the truck: body, awning over the serving window, wheels -->
+    <g transform="translate(814,684)">
+      <rect x="-31" y="-22" width="62" height="35" rx="3" fill="#FFE8CC"/>
+      <rect x="-25" y="-10" width="34" height="16" fill="#FFFBF2" stroke-width="1.5"/>
+      <path d="M-26,-16 H10 L13,-10 H-29 Z" fill="#FFD8A8" stroke-width="1.5"/>
+      <path d="M17,-22 V13" stroke-width="1.5"/>
+      <rect x="20" y="-14" width="7" height="10" fill="#FFFBF2" stroke-width="1.5"/>
+      <circle cx="-17" cy="15" r="7" fill="#FFD8A8"/>
+      <circle cx="17" cy="15" r="7" fill="#FFD8A8"/>
+    </g>
+  </g>
+
+  <g font-size="13" fill="#5F6B7A">
+    <text x="858" y="164" font-size="15" font-weight="700" fill="#1F2933">Board holder</text>
+    <text x="858" y="181">a small vise for circuit boards</text>
+    <text x="858" y="197" fill="#1F2933">replaces “helping hands”</text>
+
+    <text x="858" y="226" font-size="15" font-weight="700" fill="#1F2933">Header-pin jig</text>
+    <text x="858" y="243">holds 2.54 mm pins square while you solder</text>
+    <text x="858" y="259" fill="#1F2933">replaces a breadboard</text>
+
+    <text x="858" y="299" font-size="15" font-weight="700" fill="#1F2933">Solder spool holder</text>
+
+    <text x="858" y="338" font-size="15" font-weight="700" fill="#1F2933">Stand for the iron</text>
+    <text x="858" y="355">needs one steel 608 bearing where the</text>
+    <text x="858" y="371">hot end rests</text>
+    <text x="858" y="387" fill="#1F2933">replaces the bought stand</text>
+
+    <text x="858" y="416" font-size="15" font-weight="700" fill="#1F2933">Fume fan housing</text>
+    <text x="858" y="433">takes a bought 80 mm fan and a carbon filter</text>
+    <text x="858" y="449">sheet; for this few joints an open window</text>
+    <text x="858" y="465">and a desk fan do the job</text>
+    <text x="858" y="481" fill="#1F2933">replaces a bought fume extractor</text>
+
+    <text x="858" y="521" font-size="15" font-weight="700" fill="#1F2933">Trays for small parts and screws</text>
+
+    <text x="858" y="560" font-size="15" font-weight="700" fill="#1F2933">Clips for the sled</text>
+    <text x="858" y="577">they hold the boards on the sled</text>
+    <text x="858" y="593" fill="#1F2933">replaces screws</text>
+
+    <text x="858" y="633" font-size="15" font-weight="700" fill="#1F2933">Bench stand for the sled</text>
+
+    <text x="858" y="672" font-size="15" font-weight="700" fill="#1F2933">The sled, the test slice, the truck</text>
+    <text x="858" y="689">the sled's standoffs and battery pocket;</text>
+    <text x="858" y="705">the truck's wheels, awning and details</text>
+  </g>
+  <!-- the fan housing is optional -->
+  <rect x="1000" y="402" width="68" height="20" rx="10" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.25"/>
+  <text x="1034" y="416.5" font-size="13" fill="#5F6B7A" text-anchor="middle">optional</text>
+
+  <!-- the one accent note, across both halves -->
+  <rect x="40" y="734" width="1120" height="34" rx="6" fill="#FFFBF2" stroke="#E8590C" stroke-width="2"/>
+  <text x="600" y="756" font-size="15" font-weight="700" fill="#E8590C" text-anchor="middle">Nothing printed goes near the hot iron: its hot end rests on metal, the bought stand or the printed stand's steel bearing.</text>
+
+  <!-- =====================================================================
+       BOTTOM STRIP: hardware and consumables
+       ===================================================================== -->
+  <text x="40" y="798" font-size="15" font-weight="700" fill="#1F2933">Also buy: hardware and consumables</text>
+  <text x="1160" y="798" font-size="13" fill="#5F6B7A" text-anchor="end">The screws cut their own thread in printed 2.1 mm holes, so no threaded inserts are needed.</text>
+
+  <g fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5">
+    <rect x="40" y="812" width="189" height="30" rx="6"/>
+    <rect x="235.5" y="812" width="253" height="30" rx="6"/>
+    <rect x="495" y="812" width="153" height="30" rx="6"/>
+    <rect x="654.5" y="812" width="113" height="30" rx="6"/>
+    <rect x="774" y="812" width="172" height="30" rx="6"/>
+    <rect x="952.5" y="812" width="117" height="30" rx="6"/>
+    <rect x="1076" y="812" width="84" height="30" rx="6"/>
+  </g>
+  <g font-size="13" fill="#1F2933" text-anchor="middle">
+    <text x="134.5" y="831.5">Eight magnets, 6 mm x 3 mm</text>
+    <text x="362" y="831.5">M2.5 x 6 screws, or printed clips instead</text>
+    <text x="571.5" y="831.5">Thin double-sided tape</text>
+    <text x="711" y="831.5">1 mm foam tape</text>
+    <text x="860" y="831.5">Superglue for the magnets</text>
+    <text x="1011" y="831.5">Isopropyl alcohol</text>
+    <text x="1118" y="831.5">A soft cloth</text>
+  </g>
+</svg>

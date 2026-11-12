@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 750" width="100%"
+     font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>Printing the truck in colour with the AMS</title>
+  <desc>Where to put colour in a multi-filament print: in the first layers of a wall printed flat and face down, or changed by height on an upright part, never running up a standing wall; and which filament to use.</desc>
+
+  <defs>
+    <!-- the one arrowhead every dimension line uses -->
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0 0 L9 3.5 L0 7 Z" fill="#5F6B7A"/>
+    </marker>
+    <marker id="arrow-accent" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#E8590C"/>
+    </marker>
+    <g id="tick">
+      <circle r="10" fill="#2F9E44"/>
+      <path d="M-5,0 L-1.5,4 L5,-4" fill="none" stroke="#FFFBF2" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="cross">
+      <circle r="10" fill="#C92A2A"/>
+      <path d="M-4,-4 L4,4 M4,-4 L-4,4" fill="none" stroke="#FFFBF2" stroke-width="2.25" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="750" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Printing the truck in colour with the AMS</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Print the colour in, don't paint: up to four colours in one print. Put it where the printer changes filament least.</text>
+
+  <!-- =====================================================================
+       (a) A LONG SIDE WALL, FLAT AND FACE DOWN: a cut through it, layers drawn thick.
+       Bed top at y = 366. Nine layers of 16 px: y = 222 to 366. The first three (y = 318 to 366) carry the colour.
+       The wall is x = 100 to 620 with the window opening at x = 260 to 460. The cut crosses one stroke of the
+       lettering, the window and the stripe, in that order.
+       ===================================================================== -->
+  <use xlink:href="#tick" x="50" y="121"/>
+  <text x="68" y="126" font-size="15" font-weight="700" fill="#1F2933">Print the two long side walls flat, face down, as their own parts</text>
+  <text x="1160" y="126" font-size="13" fill="#5F6B7A" text-anchor="end">Schematic layer drawings, not to scale: the layers are drawn far thicker than real.</text>
+
+  <!-- the bed -->
+  <rect x="60" y="366" width="600" height="12" fill="#B8C0CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- the wall, in its main colour -->
+  <rect x="100" y="222" width="160" height="144" fill="#FFE8CC"/>
+  <rect x="460" y="222" width="160" height="144" fill="#FFE8CC"/>
+  <!-- one stroke of the lettering, inlaid in the first three layers -->
+  <rect x="162" y="318" width="36" height="48" fill="#E8590C"/>
+  <!-- the stripe, inlaid in the first three layers -->
+  <rect x="505" y="318" width="70" height="48" fill="#1971C2"/>
+  <!-- layer lines -->
+  <path d="M100,238 H260 M100,254 H260 M100,270 H260 M100,286 H260 M100,302 H260 M100,318 H260 M100,334 H260 M100,350 H260
+           M460,238 H620 M460,254 H620 M460,270 H620 M460,286 H620 M460,302 H620 M460,318 H620 M460,334 H620 M460,350 H620"
+        stroke="#1F2933" stroke-width="1.25" fill="none"/>
+  <!-- outlines -->
+  <rect x="100" y="222" width="160" height="144" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="460" y="222" width="160" height="144" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- the window opening -->
+  <text x="360" y="290" font-size="13" fill="#5F6B7A" text-anchor="middle">the window:</text>
+  <text x="360" y="306" font-size="13" fill="#5F6B7A" text-anchor="middle">just a hole</text>
+  <path d="M360,212 V262" stroke="#5F6B7A" stroke-width="1.25" fill="none"/>
+  <circle cx="360" cy="262" r="3" fill="#5F6B7A"/>
+  <!-- what the two inlays are -->
+  <path d="M180,342 H268 M540,342 H452" stroke="#5F6B7A" stroke-width="1.25" fill="none"/>
+  <circle cx="180" cy="342" r="3" fill="#1F2933"/>
+  <circle cx="540" cy="342" r="3" fill="#FFFBF2"/>
+  <text x="272" y="346.5" font-size="13" fill="#1F2933">lettering</text>
+  <text x="448" y="346.5" font-size="13" fill="#1F2933" text-anchor="end">stripe</text>
+  <text x="360" y="168" font-size="15" fill="#1F2933" text-anchor="middle">flattest wall for the screen; no bridge over the window</text>
+  <text x="360" y="187" font-size="13" fill="#5F6B7A" text-anchor="middle">(standing up, the top of the window would be a 161 mm bridge,</text>
+  <text x="360" y="203" font-size="13" fill="#5F6B7A" text-anchor="middle">and would need support material from the AMS under it)</text>
+
+  <!-- the two brackets on the right -->
+  <path d="M628,223 H636 V316 H628" fill="none" stroke="#5F6B7A" stroke-width="1.25"/>
+  <text x="648" y="295" font-size="15" fill="#1F2933">the rest of the wall is one colour</text>
+  <path d="M628,320 H636 V362 H628" fill="none" stroke="#E8590C" stroke-width="2" stroke-linejoin="round"/>
+  <text x="648" y="348" font-size="15" font-weight="700" fill="#E8590C">colour changes only in these layers: little waste</text>
+
+  <!-- under the bed -->
+  <text x="60" y="400" font-size="13" fill="#5F6B7A">Printer bed. The wall's outside face lies on it, so lettering and stripes in the first two or three layers come out crisp.</text>
+
+  <!-- the same wall seen from outside, with the line of the cut -->
+  <text x="700" y="150" font-size="13" fill="#5F6B7A">The wall's outside face. The drawing on the left is a cut</text>
+  <text x="700" y="166" font-size="13" fill="#5F6B7A">along the dashed line, laid face down.</text>
+  <rect x="700" y="184" width="180" height="70" fill="#FFE8CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <g fill="#E8590C">
+    <rect x="727" y="191" width="9" height="8"/><rect x="740" y="191" width="5" height="8"/>
+    <rect x="749" y="191" width="11" height="8"/><rect x="764" y="191" width="7" height="8"/>
+    <rect x="775" y="191" width="10" height="8"/><rect x="789" y="191" width="5" height="8"/>
+    <rect x="798" y="191" width="11" height="8"/><rect x="813" y="191" width="8" height="8"/>
+    <rect x="825" y="191" width="5" height="8"/><rect x="834" y="191" width="10" height="8"/>
+  </g>
+  <rect x="727" y="205" width="126" height="32" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5" stroke-linejoin="round"/>
+  <rect x="701" y="242" width="178" height="6" fill="#1971C2"/>
+  <path d="M780,178 V262" stroke="#5F6B7A" stroke-width="1.5" stroke-dasharray="6 5" fill="none"/>
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M839,195 H900"/>
+    <path d="M845,221 H900"/>
+    <path d="M870,245 H900"/>
+  </g>
+  <g fill="#5F6B7A">
+    <circle cx="839" cy="195" r="3"/>
+    <circle cx="845" cy="221" r="3"/>
+    <circle cx="870" cy="245" r="3"/>
+  </g>
+  <g font-size="13" fill="#1F2933">
+    <text x="906" y="199.5">lettering, a second colour</text>
+    <text x="906" y="225.5">window</text>
+    <text x="906" y="249.5">stripe, a third colour</text>
+  </g>
+
+  <path d="M40,424 H1160 M410,440 V682 M810,440 V682" stroke="#B8C0CC" stroke-width="1" fill="none"/>
+
+  <!-- =====================================================================
+       (b) THE CONTRAST: a wall printed standing up, a stripe running up it.
+       Thirteen layers of 13 px: y = 495 to 664. Wall x = 80 to 190.
+       ===================================================================== -->
+  <use xlink:href="#cross" x="50" y="455"/>
+  <text x="68" y="460" font-size="15" font-weight="700" fill="#1F2933">Colour running up a standing wall</text>
+
+  <rect x="64" y="664" width="142" height="12" fill="#B8C0CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="80" y="495" width="110" height="169" fill="#FFE8CC"/>
+  <rect x="124" y="495" width="22" height="169" fill="#E8590C"/>
+  <path d="M80,508 H190 M80,521 H190 M80,534 H190 M80,547 H190 M80,560 H190 M80,573 H190 M80,586 H190 M80,599 H190 M80,612 H190 M80,625 H190 M80,638 H190 M80,651 H190"
+        stroke="#1F2933" stroke-width="1.25" fill="none"/>
+  <rect x="80" y="495" width="110" height="169" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <!-- one mark for each layer's swap -->
+  <g fill="#C92A2A">
+    <path d="M205,498 L197,501.5 L205,505 Z"/><path d="M205,511 L197,514.5 L205,518 Z"/>
+    <path d="M205,524 L197,527.5 L205,531 Z"/><path d="M205,537 L197,540.5 L205,544 Z"/>
+    <path d="M205,550 L197,553.5 L205,557 Z"/><path d="M205,563 L197,566.5 L205,570 Z"/>
+    <path d="M205,576 L197,579.5 L205,583 Z"/><path d="M205,589 L197,592.5 L205,596 Z"/>
+    <path d="M205,602 L197,605.5 L205,609 Z"/><path d="M205,615 L197,618.5 L205,622 Z"/>
+    <path d="M205,628 L197,631.5 L205,635 Z"/><path d="M205,641 L197,644.5 L205,648 Z"/>
+    <path d="M205,654 L197,657.5 L205,661 Z"/>
+  </g>
+  <path d="M213,497 H220 V660 H213" fill="none" stroke="#C92A2A" stroke-width="1.5" stroke-linejoin="round"/>
+  <text x="230" y="566" font-size="15" font-weight="700" fill="#C92A2A">a swap on every layer:</text>
+  <text x="230" y="585" font-size="15" font-weight="700" fill="#C92A2A">slow and wasteful</text>
+  <text x="230" y="609" font-size="13" fill="#5F6B7A">every layer holds</text>
+  <text x="230" y="625" font-size="13" fill="#5F6B7A">both colours</text>
+
+  <!-- =====================================================================
+       (c) BY HEIGHT: an upright part whose top three layers are white.
+       Same thirteen layers. Part x = 460 to 570; the change is at y = 534.
+       ===================================================================== -->
+  <use xlink:href="#tick" x="440" y="455"/>
+  <text x="458" y="460" font-size="15" font-weight="700" fill="#1F2933">Colour changing by height</text>
+
+  <rect x="444" y="664" width="142" height="12" fill="#B8C0CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="460" y="534" width="110" height="130" fill="#FFE8CC"/>
+  <rect x="460" y="495" width="110" height="39" fill="#FFFBF2"/>
+  <path d="M460,508 H570 M460,521 H570 M460,534 H570 M460,547 H570 M460,560 H570 M460,573 H570 M460,586 H570 M460,599 H570 M460,612 H570 M460,625 H570 M460,638 H570 M460,651 H570"
+        stroke="#1F2933" stroke-width="1.25" fill="none"/>
+  <rect x="460" y="495" width="110" height="169" fill="none" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+
+  <path d="M602,534 H575" fill="none" stroke="#E8590C" stroke-width="2" marker-end="url(#arrow-accent)"/>
+  <text x="610" y="539" font-size="15" font-weight="700" fill="#E8590C">by height: one swap, free</text>
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M556,508 H602"/>
+    <path d="M556,606 H602"/>
+  </g>
+  <circle cx="556" cy="508" r="3" fill="#5F6B7A"/>
+  <circle cx="556" cy="606" r="3" fill="#5F6B7A"/>
+  <text x="610" y="512.5" font-size="13" fill="#1F2933">white roof band</text>
+  <text x="610" y="610.5" font-size="13" fill="#1F2933">coloured body</text>
+
+  <!-- =====================================================================
+       (d) WHICH FILAMENT, and the bed fact.
+       The two bars are to scale, 1 px = 1 mm: bed 256 (x = 836 to 1092), body 229 (x = 849.5 to 1078.5).
+       ===================================================================== -->
+  <text x="830" y="460" font-size="15" font-weight="700" fill="#1F2933">Which filament</text>
+
+  <text x="830" y="488" font-size="15" fill="#1F2933"><tspan font-weight="700">Truck:</tspan> matte PLA, up to four colours</text>
+  <g stroke="#1F2933" stroke-width="1.5">
+    <circle cx="1090" cy="483" r="7" fill="#FFE8CC"/>
+    <circle cx="1109" cy="483" r="7" fill="#FFFBF2"/>
+    <circle cx="1128" cy="483" r="7" fill="#E8590C"/>
+    <circle cx="1147" cy="483" r="7" fill="#1971C2"/>
+  </g>
+  <text x="830" y="507" font-size="13" fill="#5F6B7A">PETG instead if the desk gets direct sun</text>
+  <text x="830" y="535" font-size="15" fill="#1F2933"><tspan font-weight="700">Sled:</tspan> PETG or PLA, any colour</text>
+
+  <text x="830" y="574" font-size="15" font-weight="700" fill="#1F2933">The body fits the bed in one piece</text>
+
+  <!-- 229 mm body, dimensioned above -->
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M849.5,603 V625"/>
+    <path d="M1078.5,603 V625"/>
+    <path d="M964,609 H849.5" marker-end="url(#arrow)"/>
+    <path d="M964,609 H1078.5" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="911" y="599" width="106" height="20" fill="#FFFBF2"/>
+  <text x="964" y="614" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">229 mm (9.0 in)</text>
+  <rect x="849.5" y="628" width="229" height="18" fill="#FFE8CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="836" y="646" width="256" height="10" fill="#B8C0CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <text x="1102" y="641.5" font-size="13" fill="#1F2933">body</text>
+  <text x="1102" y="657.5" font-size="13" fill="#1F2933">bed</text>
+  <!-- 256 mm bed, dimensioned below -->
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M836,659 V681"/>
+    <path d="M1092,659 V681"/>
+    <path d="M964,675 H836" marker-end="url(#arrow)"/>
+    <path d="M964,675 H1092" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="908" y="665" width="112" height="20" fill="#FFFBF2"/>
+  <text x="964" y="680" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">256 mm (10.1 in)</text>
+  <text x="1160" y="706" font-size="13" fill="#5F6B7A" text-anchor="end">These two lengths are to scale, 1 px = 1 mm.</text>
+
+  <!-- ============ legend ============ -->
+  <g stroke="#1F2933" stroke-width="1.5">
+    <rect x="40" y="694" width="26" height="13" fill="#FFE8CC"/>
+    <rect x="186" y="694" width="26" height="13" fill="#FFFBF2"/>
+    <rect x="290" y="694" width="26" height="13" fill="#E8590C"/>
+    <rect x="432" y="694" width="26" height="13" fill="#1971C2"/>
+    <rect x="566" y="694" width="26" height="13" fill="#B8C0CC"/>
+  </g>
+  <g font-size="13" fill="#1F2933">
+    <text x="74" y="705">Main colour</text>
+    <text x="220" y="705">White</text>
+    <text x="324" y="705">Second colour</text>
+    <text x="466" y="705">Third colour</text>
+    <text x="600" y="705">Printer bed</text>
+  </g>
+</svg>
