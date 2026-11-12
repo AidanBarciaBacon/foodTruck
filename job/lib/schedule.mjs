@@ -102,3 +102,23 @@ export function nextWake({ now, marketDates }) {
   }
   return wakeTime(addDays(today, LOOK_AGAIN_DAYS));
 }
+
+/**
+ * The `nextWake` the morning job writes into status.json, in Unix seconds: the first wake strictly after this
+ * morning's 7:00 AM Pacific.
+ *
+ * The job runs at about 6:30 AM and the truck reads its file at 7:00 AM. `nextWake` itself would answer "today
+ * at 7:00 AM" on a market morning, which the truck would read as "now" and sleep its 10 minute minimum, over and
+ * over, all day. So the job asks from one second past 7:00 AM instead (or from `now`, when the job runs later
+ * than that), and the truck is sent on to the wake after the one it is having.
+ *
+ * @param {{ now: Date, marketDates: string[] }} input  as for `nextWake`
+ * @returns {number} an integer, after `now` and after today's 7:00 AM Pacific, and at most 14 days after that
+ */
+export function publishedWake({ now, marketDates }) {
+  if (!(now instanceof Date) || Number.isNaN(now.getTime())) {
+    throw new TypeError("publishedWake: now must be a valid Date");
+  }
+  const justAfterWake = (wakeTime(pacificDate(now)) + 1) * 1000;
+  return nextWake({ now: new Date(Math.max(now.getTime(), justAfterWake)), marketDates });
+}

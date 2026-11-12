@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { nextWake, pacificDate } from "../lib/schedule.mjs";
+import { nextWake, pacificDate, publishedWake } from "../lib/schedule.mjs";
 
 // Every time below is written in UTC, with the Pacific wall clock beside it, so the expected values do not lean
 // on the code under test. November 2026 is Pacific Standard Time: 7:00 AM is 15:00 UTC.
@@ -205,4 +205,162 @@ test("with a full calendar the truck never waits past a market morning", () => {
     const nextOpen = opens.find((open) => open > t / 1000);
     assert.ok(wake <= nextOpen, `now ${new Date(t).toISOString()}: wake ${wake} is after the market at ${nextOpen}`);
   }
+});
+
+// publishedWake: what the morning job writes into status.json. The truck reads it at 7:00 AM, so it must name
+// the wake after this morning's, never this morning's own.
+
+test("published, Monday 6:31 AM with markets Monday to Thursday: Tuesday at 7:00 AM, not this morning", () => {
+  const now = at("2026-11-09T14:31:04Z"); // Mon 6:31 AM PST
+  assert.equal(publishedWake({ now, marketDates: WEEK }), seconds("2026-11-10T15:00:00Z"));
+});
+
+test("published, Thursday 6:31 AM with the next market on Monday: Friday at 7:00 AM for the 'back on' card", () => {
+  const now = at("2026-11-12T14:31:04Z"); // Thu 6:31 AM PST
+  assert.equal(publishedWake({ now, marketDates: WEEK }), seconds("2026-11-13T15:00:00Z"));
+});
+
+test("published, Friday 6:31 AM, no market today: Monday at 7:00 AM", () => {
+  const now = at("2026-11-13T14:31:04Z"); // Fri 6:31 AM PST
+  assert.equal(publishedWake({ now, marketDates: WEEK }), seconds("2026-11-16T15:00:00Z"));
+});
+
+test("published, a late job on Monday at 7:20 AM: Tuesday at 7:00 AM", () => {
+  const now = at("2026-11-09T15:20:00Z"); // Mon 7:20 AM PST
+  assert.equal(publishedWake({ now, marketDates: WEEK }), seconds("2026-11-10T15:00:00Z"));
+});
+
+test("published, any time on a market Monday gives Tuesday at 7:00 AM", () => {
+  const tuesday = seconds("2026-11-10T15:00:00Z");
+  assert.equal(publishedWake({ now: at("2026-11-09T08:30:00Z"), marketDates: WEEK }), tuesday); // Mon 12:30 AM PST
+  assert.equal(publishedWake({ now: at("2026-11-09T15:00:00Z"), marketDates: WEEK }), tuesday); // Mon 7:00:00 AM
+  assert.equal(publishedWake({ now: at("2026-11-09T15:00:01Z"), marketDates: WEEK }), tuesday); // Mon 7:00:01 AM
+  assert.equal(publishedWake({ now: at("2026-11-10T07:59:00Z"), marketDates: WEEK }), tuesday); // Mon 11:59 PM
+});
+
+test("published, holiday gap: the last market morning sends the truck to the morning after", () => {
+  const marketDates = ["2026-12-16", "2026-12-17", "2027-01-04", "2027-01-05"];
+  const now = at("2026-12-17T14:31:00Z"); // Thu 17 Dec, 6:31 AM PST
+  assert.equal(publishedWake({ now, marketDates }), seconds("2026-12-18T15:00:00Z"));
+});
+
+test("published, holiday gap: the morning after, with the next market 17 days out, look again in seven days", () => {
+  const marketDates = ["2026-12-16", "2026-12-17", "2027-01-04", "2027-01-05"];
+  const now = at("2026-12-18T14:31:00Z"); // Fri 18 Dec, 6:31 AM PST
+  assert.equal(publishedWake({ now, marketDates }), seconds("2026-12-25T15:00:00Z"));
+});
+
+test("published, an empty list at 6:31 AM: seven days from today at 7:00 AM", () => {
+  const now = at("2026-11-12T14:31:00Z"); // Thu 6:31 AM PST
+  assert.equal(publishedWake({ now, marketDates: [] }), seconds("2026-11-19T15:00:00Z"));
+  assert.equal(publishedWake({ now }), seconds("2026-11-19T15:00:00Z"));
+});
+
+test("published, a market exactly 14 days out counts: the 14 days run from this morning's 7:00 AM", () => {
+  // nextWake at 6:31 AM calls this 14 days 29 minutes away and falls back to seven days. The truck reads the
+  // file at 7:00 AM, when it is 14 days away, so the published value is the market morning itself.
+  const marketDates = ["2026-11-28"];
+  const now = at("2026-11-14T14:31:00Z"); // Sat 14 Nov, 6:31 AM PST
+  assert.equal(nextWake({ now, marketDates }), seconds("2026-11-21T15:00:00Z"));
+  assert.equal(publishedWake({ now, marketDates }), seconds("2026-11-28T15:00:00Z"));
+});
+
+test("published, spring forward weekend (Sunday 14 March 2027)", () => {
+  const marketDates = ["2027-03-12", "2027-03-13", "2027-03-14", "2027-03-15"];
+  // Fri 12 Mar, 6:31 AM PST: Saturday at 7:00 AM PST.
+  assert.equal(publishedWake({ now: at("2027-03-12T14:31:00Z"), marketDates }), seconds("2027-03-13T15:00:00Z"));
+  // Sat 13 Mar, 6:31 AM PST: Sunday at 7:00 AM PDT, which is only 23 hours 29 minutes later.
+  assert.equal(publishedWake({ now: at("2027-03-13T14:31:00Z"), marketDates }), seconds("2027-03-14T14:00:00Z"));
+  // Sun 14 Mar, 6:31 AM PDT: Monday at 7:00 AM PDT.
+  assert.equal(publishedWake({ now: at("2027-03-14T13:31:00Z"), marketDates }), seconds("2027-03-15T14:00:00Z"));
+  // Fri 12 Mar, 6:31 AM PST with no weekend markets: Monday at 7:00 AM PDT.
+  assert.equal(
+    publishedWake({ now: at("2027-03-12T14:31:00Z"), marketDates: ["2027-03-12", "2027-03-15"] }),
+    seconds("2027-03-15T14:00:00Z"),
+  );
+});
+
+test("published, fall back weekend (Sunday 7 November 2027)", () => {
+  const marketDates = ["2027-11-05", "2027-11-06", "2027-11-07", "2027-11-08"];
+  // Fri 5 Nov, 6:31 AM PDT: Saturday at 7:00 AM PDT.
+  assert.equal(publishedWake({ now: at("2027-11-05T13:31:00Z"), marketDates }), seconds("2027-11-06T14:00:00Z"));
+  // Sat 6 Nov, 6:31 AM PDT: Sunday at 7:00 AM PST, 25 hours 29 minutes later.
+  assert.equal(publishedWake({ now: at("2027-11-06T13:31:00Z"), marketDates }), seconds("2027-11-07T15:00:00Z"));
+  // Sun 7 Nov, 6:31 AM PST: Monday at 7:00 AM PST.
+  assert.equal(publishedWake({ now: at("2027-11-07T14:31:00Z"), marketDates }), seconds("2027-11-08T15:00:00Z"));
+  // Fri 5 Nov, 6:31 AM PDT with no weekend markets: Monday at 7:00 AM PST.
+  assert.equal(
+    publishedWake({ now: at("2027-11-05T13:31:00Z"), marketDates: ["2027-11-05", "2027-11-08"] }),
+    seconds("2027-11-08T15:00:00Z"),
+  );
+});
+
+test("published, from a 6:31 AM run the wake is at least 24 h 29 min away, or 23 h 29 min across spring forward", () => {
+  const clock = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Los_Angeles",
+    hourCycle: "h23",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+  // Every day from November 2026 to the end of 2027, and three calendars: a market every day (the shortest
+  // waits there can be), markets Monday to Thursday with a winter break, and nothing published.
+  const everyDay = [];
+  const weekdays = [];
+  for (let t = Date.UTC(2026, 10, 1); t < Date.UTC(2028, 0, 15); t += DAY * 1000) {
+    const date = new Date(t);
+    const day = date.toISOString().slice(0, 10);
+    everyDay.push(day);
+    const holiday = day >= "2026-12-18" && day <= "2027-01-03";
+    if (date.getUTCDay() >= 1 && date.getUTCDay() <= 4 && !holiday) weekdays.push(day);
+  }
+  const lists = { "a market every day": everyDay, "Monday to Thursday": weekdays, "an empty list": [] };
+  const USUAL = 24 * 3600 + 29 * 60; // 6:31 AM to 7:00 AM the next day
+  const SPRING = 23 * 3600 + 29 * 60; // the same, on the 23 hour day
+  for (const [name, list] of Object.entries(lists)) {
+    let shortest = Infinity;
+    let shortestDay = null;
+    let runs = 0;
+    for (let t = Date.UTC(2026, 10, 1); t < Date.UTC(2027, 11, 31); t += DAY * 1000) {
+      // 6:31 AM Pacific is 14:31 UTC on standard time and 13:31 UTC on daylight time.
+      const now = [13, 14]
+        .map((hour) => new Date(t + (hour * 60 + 31) * 60 * 1000))
+        .find((candidate) => clock.format(candidate) === "06:31:00");
+      assert.ok(now, `a 6:31 AM on ${new Date(t).toISOString().slice(0, 10)}`);
+      const wake = publishedWake({ now, marketDates: list });
+      const wait = wake - now.getTime() / 1000;
+      const where = `${name}, now ${now.toISOString()}, wake ${wake}`;
+      assert.ok(Number.isInteger(wake), `integer: ${where}`);
+      assert.equal(clock.format(new Date(wake * 1000)), "07:00:00", `7:00 AM Pacific: ${where}`);
+      assert.ok(wait <= 14 * DAY + 29 * 60, `at most 14 days after this morning's 7:00 AM: ${where}`);
+      assert.ok(wake >= nextWake({ now, marketDates: list }), `never before nextWake: ${where}`);
+      const day = pacificDate(now);
+      assert.ok(wait >= (day === "2027-03-13" ? SPRING : USUAL), `long enough: ${where}`);
+      if (wait < shortest) [shortest, shortestDay] = [wait, day];
+      runs++;
+    }
+    assert.ok(runs > 420);
+    if (name === "a market every day") {
+      // The actual minimum: 23 hours 29 minutes (84,540 seconds), from the Saturday before the clocks go forward.
+      assert.equal(shortest, SPRING);
+      assert.equal(shortestDay, "2027-03-13");
+    }
+  }
+});
+
+test("published, once 7:00 AM has passed it is the same as nextWake", () => {
+  for (let t = Date.UTC(2026, 10, 8, 8); t < Date.UTC(2026, 10, 18, 8); t += 41 * 60 * 1000) {
+    const now = new Date(t);
+    const plain = nextWake({ now, marketDates: WEEK });
+    const published = publishedWake({ now, marketDates: WEEK });
+    const hour = Number(new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", hourCycle: "h23", hour: "2-digit" }).format(now));
+    if (hour >= 7) assert.equal(published, plain, `now ${now.toISOString()}`);
+    else assert.ok(published >= plain, `now ${now.toISOString()}`);
+    assert.ok(published > t / 1000);
+  }
+});
+
+test("published, now must be a valid Date", () => {
+  assert.throws(() => publishedWake({ now: "2026-11-12", marketDates: [] }), TypeError);
+  assert.throws(() => publishedWake({ now: new Date(NaN), marketDates: [] }), TypeError);
 });
