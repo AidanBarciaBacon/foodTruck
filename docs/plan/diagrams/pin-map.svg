@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 750" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>The eight wires: which pin goes where (routes B and C)</title>
+  <desc>The adapter board's eight pins in the middle, each with what it carries. Route B's main board on the left and route C's on the right, each wire drawn straight across to the pin it goes to. An inset shows route C's battery, slide switch and two resistors.</desc>
+
+  <defs>
+    <!-- push-on end of a jumper wire, lying flat, drawn from its left end -->
+    <rect id="m-push" x="0" y="-3" width="14" height="6" rx="1" fill="#5F6B7A" stroke="#1F2933" stroke-width="1"/>
+    <!-- solder joint -->
+    <circle id="m-solder" r="3.5" fill="#E8590C"/>
+    <!-- a resistor, standing upright, centred on the origin -->
+    <g id="resistor">
+      <rect x="-6" y="-13" width="12" height="26" rx="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+      <path d="M-6 -6H6M-6 -1H6M-6 5H6" fill="none" stroke="#5F6B7A" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="750" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">The eight wires: which pin goes where (routes B and C)</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Read straight across. Route B's main board is on the left, route C's on the right, the adapter's eight names in the middle.</text>
+
+  <!-- ============ the three boards ============ -->
+  <g fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round">
+    <rect x="40" y="112" width="235" height="360" rx="4"/>
+    <rect x="449" y="112" width="302" height="360" rx="4"/>
+    <rect x="925" y="112" width="235" height="360" rx="4"/>
+  </g>
+
+  <g font-size="15" font-weight="600" fill="#1F2933">
+    <text x="56" y="140">Route B main board</text>
+    <text x="600" y="140" text-anchor="middle">The adapter board</text>
+    <text x="941" y="140">Route C main board</text>
+  </g>
+  <g font-size="13" fill="#5F6B7A">
+    <text x="56" y="159">FireBeetle 2 ESP32-E</text>
+    <text x="600" y="159" text-anchor="middle">the eight names printed on it</text>
+    <text x="941" y="159">XIAO ESP32-S3</text>
+  </g>
+
+  <!-- "pin positions" note, inside each main board -->
+  <g font-size="13" fill="#5F6B7A">
+    <text x="56" y="300">Pin positions</text>
+    <text x="56" y="317">on your board:</text>
+    <text x="56" y="334">read the labels</text>
+    <text x="56" y="351">printed on it.</text>
+    <text x="1144" y="300" text-anchor="end">Pin positions</text>
+    <text x="1144" y="317" text-anchor="end">on your board:</text>
+    <text x="1144" y="334" text-anchor="end">read the labels</text>
+    <text x="1144" y="351" text-anchor="end">printed on it.</text>
+  </g>
+
+  <!-- what joins each side -->
+  <g font-size="13" fill="#1F2933" text-anchor="middle">
+    <text x="365" y="134">8-wire cable: each end</text>
+    <text x="365" y="151">pushes onto a pin</text>
+    <text x="838" y="134">eight thin wires,</text>
+    <text x="838" y="151">soldered at both ends</text>
+  </g>
+
+  <!-- ============ the wires, one row each: 196, 232, 268, 304, 340, 376, 412, 448 ============ -->
+  <!-- VCC: power, tinted red -->
+  <path d="M283 196H447M739 196H937" fill="none" stroke="#C92A2A" stroke-width="2.5"/>
+  <!-- GND: ground, ink -->
+  <path d="M283 232H447M739 232H937" fill="none" stroke="#1F2933" stroke-width="2.5"/>
+  <!-- the six signal wires, grey ink -->
+  <path d="M283 268H447M739 268H937 M283 304H447M739 304H937 M283 340H447M739 340H937 M283 376H447M739 376H937 M283 412H447M739 412H937 M283 448H447M739 448H937" fill="none" stroke="#5F6B7A" stroke-width="2"/>
+
+  <!-- the cable's block on the adapter (route B side) -->
+  <rect x="447" y="182" width="18" height="280" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+
+  <!-- route B: soldered header pins on the board, a push-on end on each wire -->
+  <path d="M263 196V449" fill="none" stroke="#E8590C" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 36"/>
+  <use xlink:href="#m-push" x="269" y="196"/>
+  <use xlink:href="#m-push" x="269" y="232"/>
+  <use xlink:href="#m-push" x="269" y="268"/>
+  <use xlink:href="#m-push" x="269" y="304"/>
+  <use xlink:href="#m-push" x="269" y="340"/>
+  <use xlink:href="#m-push" x="269" y="376"/>
+  <use xlink:href="#m-push" x="269" y="412"/>
+  <use xlink:href="#m-push" x="269" y="448"/>
+
+  <!-- route C: a solder joint at both ends of each wire -->
+  <path d="M739 196V449M937 196V449" fill="none" stroke="#E8590C" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 36"/>
+
+  <!-- a label on each wire, on a paper backing -->
+  <g fill="#FFFBF2">
+    <rect x="321" y="187" width="88" height="18"/>
+    <rect x="317" y="223" width="96" height="18"/>
+    <rect x="301" y="259" width="128" height="18"/>
+    <rect x="305" y="295" width="120" height="18"/>
+    <rect x="330" y="331" width="70" height="18"/>
+    <rect x="330" y="367" width="70" height="18"/>
+    <rect x="326" y="403" width="78" height="18"/>
+    <rect x="319" y="439" width="92" height="18"/>
+    <rect x="794" y="187" width="88" height="18"/>
+    <rect x="790" y="223" width="96" height="18"/>
+    <rect x="770" y="259" width="136" height="18"/>
+    <rect x="776" y="295" width="124" height="18"/>
+    <rect x="803" y="331" width="70" height="18"/>
+    <rect x="803" y="367" width="70" height="18"/>
+    <rect x="799" y="403" width="78" height="18"/>
+    <rect x="790" y="439" width="96" height="18"/>
+  </g>
+  <g font-size="13" fill="#1F2933" text-anchor="middle">
+    <text x="365" y="200.5">VCC to 3V3</text>
+    <text x="365" y="236.5">GND to GND</text>
+    <text x="365" y="272.5">DIN to 23 (MOSI)</text>
+    <text x="365" y="308.5">CLK to 18 (SCK)</text>
+    <text x="365" y="344.5">CS to 13</text>
+    <text x="365" y="380.5">DC to 22</text>
+    <text x="365" y="416.5">RST to 21</text>
+    <text x="365" y="452.5">BUSY to 14</text>
+    <text x="838" y="200.5">VCC to 3V3</text>
+    <text x="838" y="236.5">GND to GND</text>
+    <text x="838" y="272.5">DIN to D10 (MOSI)</text>
+    <text x="838" y="308.5">CLK to D8 (SCK)</text>
+    <text x="838" y="344.5">CS to D1</text>
+    <text x="838" y="380.5">DC to D3</text>
+    <text x="838" y="416.5">RST to D4</text>
+    <text x="838" y="452.5">BUSY to D5</text>
+  </g>
+
+  <!-- route B's eight pins, as SPEC names them -->
+  <g font-size="15" font-weight="600" fill="#1F2933" text-anchor="end">
+    <text x="251" y="201">3V3</text>
+    <text x="251" y="237">GND</text>
+    <text x="251" y="273">23 (MOSI)</text>
+    <text x="251" y="309">18 (SCK)</text>
+    <text x="251" y="345">13</text>
+    <text x="251" y="381">22</text>
+    <text x="251" y="417">21</text>
+    <text x="251" y="453">14</text>
+  </g>
+
+  <!-- the adapter's eight pins and what each carries -->
+  <g font-size="13" fill="#5F6B7A">
+    <text x="476" y="178">Name</text>
+    <text x="530" y="178">What it carries</text>
+  </g>
+  <g font-size="15" font-weight="600" fill="#1F2933">
+    <text x="476" y="201">VCC</text>
+    <text x="476" y="237">GND</text>
+    <text x="476" y="273">DIN</text>
+    <text x="476" y="309">CLK</text>
+    <text x="476" y="345">CS</text>
+    <text x="476" y="381">DC</text>
+    <text x="476" y="417">RST</text>
+    <text x="476" y="453">BUSY</text>
+  </g>
+  <g font-size="13" fill="#1F2933">
+    <text x="530" y="200.5">3.3 V power to the screen</text>
+    <text x="530" y="236.5">ground</text>
+    <text x="530" y="272.5">picture data</text>
+    <text x="530" y="308.5">data clock</text>
+    <text x="530" y="344.5">"listen to me" select</text>
+    <text x="530" y="380.5">data or command</text>
+    <text x="530" y="416.5">reset the screen</text>
+    <text x="530" y="452.5">screen says "still redrawing"</text>
+  </g>
+
+  <!-- route C's eight pins, as SPEC names them -->
+  <g font-size="15" font-weight="600" fill="#1F2933">
+    <text x="949" y="201">3V3</text>
+    <text x="949" y="237">GND</text>
+    <text x="949" y="273">D10 (MOSI)</text>
+    <text x="949" y="309">D8 (SCK)</text>
+    <text x="949" y="345">D1</text>
+    <text x="949" y="381">D3</text>
+    <text x="949" y="417">D4</text>
+    <text x="949" y="453">D5</text>
+  </g>
+
+  <!-- ============ notes and legend, bottom left ============ -->
+  <text x="40" y="512" font-size="15" font-weight="600" fill="#1F2933">Go by the names printed on the adapter board, not by wire colours.</text>
+  <g font-size="13" fill="#1F2933">
+    <text x="40" y="538">The pins shown on the two main boards are the firmware's planned choice</text>
+    <text x="40" y="555">and get confirmed on the bench.</text>
+    <text x="40" y="581">Pin positions on your board: read the labels printed on it. The boards here</text>
+    <text x="40" y="598">are plain outlines with a list of the eight pins, not real pin layouts.</text>
+  </g>
+
+  <text x="40" y="636" font-size="13" font-weight="600" fill="#1F2933">What the lines and marks mean</text>
+  <path d="M40 660H68" fill="none" stroke="#C92A2A" stroke-width="2.5"/>
+  <path d="M170 660H198" fill="none" stroke="#1F2933" stroke-width="2.5"/>
+  <path d="M270 660H298" fill="none" stroke="#5F6B7A" stroke-width="2"/>
+  <use xlink:href="#m-push" x="40" y="686"/>
+  <use xlink:href="#m-solder" x="230" y="686"/>
+  <g font-size="13" fill="#1F2933">
+    <text x="76" y="664.5">3.3 V power</text>
+    <text x="206" y="664.5">ground</text>
+    <text x="306" y="664.5">the six signal wires</text>
+    <text x="62" y="690.5">push-on end (route B)</text>
+    <text x="241" y="690.5">solder joint</text>
+  </g>
+
+  <!-- ============ inset: route C's extras ============ -->
+  <rect x="600" y="488" width="560" height="222" rx="6" fill="none" stroke="#B8C0CC" stroke-width="1.5"/>
+  <text x="616" y="512" font-size="15" font-weight="600" fill="#1F2933">Route C also: battery, off switch, battery-level sensing</text>
+  <g font-size="13" fill="#1F2933">
+    <text x="616" y="531">The slide switch is the off switch. The two resistors let the board read</text>
+    <text x="616" y="548">the battery level. BAT + and BAT − are small pads under the board.</text>
+  </g>
+
+  <!-- the main board's four points -->
+  <rect x="1004" y="562" width="140" height="138" rx="4" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+  <g font-size="15" font-weight="600" fill="#1F2933">
+    <text x="1028" y="589">BAT + pad</text>
+    <text x="1028" y="625">A0</text>
+    <text x="1028" y="661">GND</text>
+    <text x="1028" y="695">BAT − pad</text>
+  </g>
+  <g font-size="13" fill="#5F6B7A" text-anchor="end">
+    <text x="1134" y="643">main board</text>
+  </g>
+
+  <!-- battery + (red): through the slide switch to the BAT + pad -->
+  <path d="M704 584H742M802 584H1016" fill="none" stroke="#C92A2A" stroke-width="2.5"/>
+  <!-- battery − (ink): straight to the BAT − pad -->
+  <path d="M704 620H722V690H1016" fill="none" stroke="#1F2933" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- two 200 kΩ resistors in series from battery + to GND, midpoint to A0 -->
+  <path d="M802 584V656H1016M802 620H1016" fill="none" stroke="#5F6B7A" stroke-width="2" stroke-linejoin="round"/>
+  <use xlink:href="#resistor" x="802" y="602"/>
+  <use xlink:href="#resistor" x="802" y="638"/>
+  <text x="816" y="606.5" font-size="13" fill="#1F2933">200 kΩ</text>
+  <text x="816" y="642.5" font-size="13" fill="#1F2933">200 kΩ</text>
+  <rect x="878" y="611" width="116" height="18" fill="#FFFBF2"/>
+  <text x="936" y="624.5" text-anchor="middle" font-size="13" fill="#1F2933">midpoint to A0</text>
+
+  <!-- battery -->
+  <rect x="620" y="560" width="84" height="72" rx="6" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round"/>
+  <text x="662" y="601" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2933">Battery</text>
+  <text x="714" y="579" text-anchor="middle" font-size="15" font-weight="700" fill="#C92A2A">+</text>
+  <text x="714" y="615" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2933">−</text>
+
+  <!-- slide switch -->
+  <rect x="748" y="575" width="48" height="18" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+  <rect x="753" y="579" width="16" height="10" rx="1" fill="#5F6B7A"/>
+  <path d="M742 584H748M796 584H802" fill="none" stroke="#1F2933" stroke-width="1.5"/>
+  <text x="772" y="568" text-anchor="middle" font-size="13" fill="#1F2933">slide switch</text>
+
+  <!-- solder joints -->
+  <use xlink:href="#m-solder" x="742" y="584"/>
+  <use xlink:href="#m-solder" x="802" y="584"/>
+  <use xlink:href="#m-solder" x="802" y="620"/>
+  <use xlink:href="#m-solder" x="1016" y="584"/>
+  <use xlink:href="#m-solder" x="1016" y="620"/>
+  <use xlink:href="#m-solder" x="1016" y="656"/>
+  <use xlink:href="#m-solder" x="1016" y="690"/>
+</svg>

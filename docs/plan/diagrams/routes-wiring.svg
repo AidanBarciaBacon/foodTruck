@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 900" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>Three ways to wire it: what plugs into what</title>
+  <desc>Three rows, one per build route. Each shows the screen, its ribbon cable, the adapter (if separate), the main board, the battery and the USB-C charging lead, with every connection marked as a plug, a push-on jumper wire or a solder joint.</desc>
+
+  <defs>
+    <!-- "plugs in" mark: a plug in a round badge -->
+    <g id="m-plug">
+      <circle r="9" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+      <path d="M-2.5 -6.5V-3M2.5 -6.5V-3M0 2V6.5" fill="none" stroke="#1F2933" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="-4.5" y="-3" width="9" height="5.5" rx="1.5" fill="#1F2933"/>
+    </g>
+    <!-- "push-on jumper wire" mark: the sleeve on the wire's end, drawn from its top -->
+    <rect id="m-push" x="-3" y="0" width="6" height="14" rx="1" fill="#5F6B7A" stroke="#1F2933" stroke-width="1"/>
+    <!-- "solder joint" mark -->
+    <circle id="m-solder" r="3.5" fill="#E8590C"/>
+    <!-- the one knife cut: blade tip at the origin -->
+    <g id="m-knife">
+      <path d="M0 0L5 -11L10 -6Z" fill="#E8590C" stroke="#E8590C" stroke-width="1" stroke-linejoin="round"/>
+      <path d="M7.5 -8.5L20 -21" fill="none" stroke="#E8590C" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- the screen, 150 x 98 (170.2 x 111.2 mm glass), with its ribbon leaving the bottom edge at the centre -->
+    <g id="screen">
+      <rect x="64" y="96" width="22" height="32" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+      <path d="M69.5 99V128M75 99V128M80.5 99V128" fill="none" stroke="#B8C0CC" stroke-width="1"/>
+      <rect width="150" height="98" fill="#E7F5FF" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="4.5" y="4.1" width="141" height="84.6" fill="none" stroke="#1971C2" stroke-width="1.5"/>
+      <text x="75" y="45" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2933">Screen</text>
+      <text x="75" y="63" text-anchor="middle" font-size="13" fill="#5F6B7A">7.3 inch e-paper</text>
+    </g>
+    <!-- the battery, 90 x 78; its leads leave the left edge 35 (red) and 43 (black) below the top -->
+    <g id="battery">
+      <rect width="90" height="78" rx="6" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round"/>
+      <text x="45" y="44" text-anchor="middle" font-size="15" font-weight="600" fill="#1F2933">Battery</text>
+    </g>
+    <!-- the USB-C lead's plug, pointing right, tip at the origin -->
+    <g id="usb">
+      <rect x="-12" y="-5" width="12" height="10" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+      <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    </g>
+    <!-- a resistor, lying flat, centred on the origin -->
+    <g id="resistor">
+      <rect x="-17" y="-6" width="34" height="12" rx="5" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+      <path d="M-8 -6V6M-2 -6V6M6 -6V6" fill="none" stroke="#5F6B7A" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="900" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Three ways to wire it: what plugs into what</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Pictures, not to scale. The same screen and battery on every route; where the sockets sit on your board may differ.</text>
+
+  <!-- row dividers -->
+  <path d="M40 324H1160M40 554H1160M40 790H1160" fill="none" stroke="#B8C0CC" stroke-width="1"/>
+
+  <!-- ============ Route A: plug together ============ -->
+  <g transform="translate(0,98)">
+    <text x="40" y="28" font-size="18" font-weight="700" fill="#1F2933">Route A: plug together</text>
+    <g font-size="13" fill="#5F6B7A">
+      <text x="40" y="86">Soldering</text>
+      <text x="40" y="110">Cost</text>
+      <text x="40" y="134">Current asleep</text>
+      <text x="40" y="158">Main unknown</text>
+    </g>
+    <g font-size="13" fill="#1F2933">
+      <text x="150" y="86">none</text>
+      <text x="150" y="110">about $85</text>
+      <text x="150" y="134">not published</text>
+      <text x="150" y="158">battery life unproven</text>
+    </g>
+
+    <use xlink:href="#screen" x="360" y="10"/>
+    <text x="416" y="123" text-anchor="end" font-size="13" fill="#5F6B7A">ribbon cable</text>
+
+    <!-- the one board -->
+    <rect x="340" y="130" width="200" height="70" rx="4" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="413" y="130" width="44" height="12" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="352" y="166" font-size="15" font-weight="600" fill="#1F2933">Main board</text>
+    <text x="352" y="184" font-size="13" fill="#5F6B7A">everything on one board</text>
+    <rect x="528" y="136" width="18" height="22" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <rect x="528" y="170" width="18" height="22" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <use xlink:href="#m-plug" x="466" y="119"/>
+
+    <!-- battery and its plug -->
+    <path d="M570 143H700" fill="none" stroke="#C92A2A" stroke-width="2"/>
+    <path d="M570 151H700" fill="none" stroke="#1F2933" stroke-width="2"/>
+    <rect x="552" y="139" width="18" height="16" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <use xlink:href="#battery" x="700" y="108"/>
+    <text x="586" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#C92A2A">+</text>
+    <use xlink:href="#m-plug" x="561" y="123"/>
+
+    <!-- USB-C lead -->
+    <path d="M592 181H604Q616 181 616 193V200" fill="none" stroke="#5F6B7A" stroke-width="3" stroke-linecap="round"/>
+    <use xlink:href="#usb" transform="translate(550,181) scale(-1,1)"/>
+    <use xlink:href="#m-plug" x="641" y="181"/>
+    <text x="616" y="217" text-anchor="middle" font-size="13" fill="#1F2933">USB-C lead, to charge</text>
+
+    <!-- notes -->
+    <text x="804" y="34" font-size="15" font-weight="600" fill="#1F2933">Three plugs, no soldering</text>
+    <text x="804" y="54" font-size="13" fill="#1F2933">The screen's ribbon, the battery, the USB-C lead.</text>
+    <g font-size="13" fill="#5F6B7A">
+      <text x="804" y="88">The main board is Seeed's XIAO ePaper Display</text>
+      <text x="804" y="105">Board EE04: ribbon socket, Wi-Fi chip, battery</text>
+      <text x="804" y="122">plug, charger and power switch on one board.</text>
+      <text x="804" y="152">Check before ordering: Seeed's page does not</text>
+      <text x="804" y="169">say whether its small Wi-Fi board arrives</text>
+      <text x="804" y="186">already soldered on.</text>
+    </g>
+  </g>
+
+  <!-- ============ Route B: a little soldering ============ -->
+  <g transform="translate(0,328)">
+    <text x="40" y="28" font-size="18" font-weight="700" fill="#1F2933">Route B: a little soldering</text>
+    <rect x="40" y="40" width="112" height="22" rx="11" fill="none" stroke="#E8590C" stroke-width="1.5"/>
+    <text x="96" y="55.5" text-anchor="middle" font-size="13" font-weight="600" fill="#E8590C">recommended</text>
+    <g font-size="13" fill="#5F6B7A">
+      <text x="40" y="86">Soldering</text>
+      <text x="40" y="110">Cost</text>
+      <text x="40" y="152">Current asleep</text>
+      <text x="40" y="194">Main unknown</text>
+    </g>
+    <g font-size="13" fill="#1F2933">
+      <text x="150" y="86">two rows of header pins</text>
+      <text x="150" y="110">about $105</text>
+      <text x="150" y="128">+ $45 soldering kit</text>
+      <text x="150" y="152">11.6 µA measured</text>
+      <text x="150" y="170">(low-power pad cut)</text>
+      <text x="150" y="194">whether the adapter</text>
+      <text x="150" y="212">leaks while asleep</text>
+    </g>
+
+    <use xlink:href="#screen" x="360" y="10"/>
+    <text x="416" y="123" text-anchor="end" font-size="13" fill="#5F6B7A">ribbon cable</text>
+
+    <!-- Waveshare's adapter, with the cable's block on its right edge -->
+    <rect x="360" y="130" width="150" height="72" rx="4" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="413" y="130" width="44" height="12" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="372" y="162" font-size="15" font-weight="600" fill="#1F2933">Adapter board</text>
+    <text x="372" y="178" font-size="13" fill="#5F6B7A">Waveshare's,</text>
+    <text x="372" y="194" font-size="13" fill="#5F6B7A">in the screen set</text>
+    <use xlink:href="#m-plug" x="466" y="119"/>
+
+    <!-- main board: two rows of soldered header pins -->
+    <rect x="680" y="36" width="210" height="90" rx="4" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M700 47H831M700 115H831" fill="none" stroke="#E8590C" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 10"/>
+    <text x="702" y="76" font-size="15" font-weight="600" fill="#1F2933">Main board</text>
+    <text x="702" y="94" font-size="13" fill="#5F6B7A">FireBeetle 2 ESP32-E</text>
+    <rect x="674" y="69" width="18" height="24" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <rect x="876" y="82" width="18" height="24" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+
+    <!-- the 8-wire cable: each end pushes onto a pin of the bottom row -->
+    <path d="M512 138H696Q700 138 700 134V133 M512 146H706Q710 146 710 142V133 M512 154H716Q720 154 720 150V133 M512 162H726Q730 162 730 158V133 M512 170H736Q740 170 740 166V133 M512 178H746Q750 178 750 174V133 M512 186H756Q760 186 760 182V133 M512 194H766Q770 194 770 190V133" fill="none" stroke="#5F6B7A" stroke-width="1.75"/>
+    <rect x="494" y="133" width="18" height="66" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <use xlink:href="#m-push" x="700" y="119"/>
+    <use xlink:href="#m-push" x="710" y="119"/>
+    <use xlink:href="#m-push" x="720" y="119"/>
+    <use xlink:href="#m-push" x="730" y="119"/>
+    <use xlink:href="#m-push" x="740" y="119"/>
+    <use xlink:href="#m-push" x="750" y="119"/>
+    <use xlink:href="#m-push" x="760" y="119"/>
+    <use xlink:href="#m-push" x="770" y="119"/>
+
+    <!-- the low-power pad and its one knife cut -->
+    <rect x="856" y="57" width="7" height="12" fill="#FFFBF2" stroke="#1F2933" stroke-width="1"/>
+    <rect x="867" y="57" width="7" height="12" fill="#FFFBF2" stroke="#1F2933" stroke-width="1"/>
+    <path d="M863 63H867" fill="none" stroke="#1F2933" stroke-width="2"/>
+    <use xlink:href="#m-knife" x="865" y="60"/>
+    <text x="900" y="22" font-size="13" font-weight="600" fill="#E8590C">One knife cut on the low-power pad</text>
+    <text x="900" y="39" font-size="13" fill="#1F2933">11.6 µA asleep once cut, 520 µA if not</text>
+
+    <!-- battery and its plug -->
+    <path d="M918 90H960" fill="none" stroke="#C92A2A" stroke-width="2"/>
+    <path d="M918 98H960" fill="none" stroke="#1F2933" stroke-width="2"/>
+    <rect x="900" y="86" width="18" height="16" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <use xlink:href="#battery" x="960" y="55"/>
+    <text x="939" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#C92A2A">+</text>
+    <use xlink:href="#m-plug" x="909" y="70"/>
+
+    <!-- USB-C lead -->
+    <path d="M628 81H612Q600 81 600 69V38" fill="none" stroke="#5F6B7A" stroke-width="3" stroke-linecap="round"/>
+    <use xlink:href="#usb" x="670" y="81"/>
+    <use xlink:href="#m-plug" x="643" y="106"/>
+    <text x="600" y="26" text-anchor="middle" font-size="13" fill="#1F2933">USB-C lead, to charge</text>
+
+    <!-- notes -->
+    <path d="M805 150V122" fill="none" stroke="#5F6B7A" stroke-width="1.25"/>
+    <circle cx="805" cy="122" r="3" fill="#5F6B7A"/>
+    <text x="800" y="164" font-size="13" font-weight="600" fill="#E8590C">The only soldering:</text>
+    <text x="800" y="181" font-size="13" fill="#1F2933">two rows of header pins</text>
+    <text x="800" y="198" font-size="13" fill="#1F2933">onto the main board</text>
+    <text x="360" y="218" font-size="13" fill="#5F6B7A">The 8-wire cable comes with the adapter. Each end pushes onto one header pin (which pin: see the pin map).</text>
+  </g>
+
+  <!-- ============ Route C: solder everything ============ -->
+  <g transform="translate(0,558)">
+    <text x="40" y="28" font-size="18" font-weight="700" fill="#1F2933">Route C: solder everything</text>
+    <g font-size="13" fill="#5F6B7A">
+      <text x="40" y="86">Soldering</text>
+      <text x="40" y="128">Cost</text>
+      <text x="40" y="170">Current asleep</text>
+      <text x="40" y="194">Main unknown</text>
+    </g>
+    <g font-size="13" fill="#1F2933">
+      <text x="150" y="86">eight wires, battery leads,</text>
+      <text x="150" y="104">two resistors, a switch</text>
+      <text x="150" y="128">about $90</text>
+      <text x="150" y="146">+ $45 soldering kit</text>
+      <text x="150" y="170">12 to 13 µA measured</text>
+      <text x="150" y="194">fine soldering on</text>
+      <text x="150" y="212">small pads</text>
+    </g>
+
+    <use xlink:href="#screen" x="360" y="10"/>
+    <text x="416" y="123" text-anchor="end" font-size="13" fill="#5F6B7A">ribbon cable</text>
+
+    <!-- the passive adapter: eight solder points on its right edge -->
+    <rect x="360" y="130" width="150" height="72" rx="4" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="413" y="130" width="44" height="12" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="372" y="162" font-size="15" font-weight="600" fill="#1F2933">Adapter board</text>
+    <text x="372" y="178" font-size="13" fill="#5F6B7A">Good Display</text>
+    <text x="372" y="194" font-size="13" fill="#5F6B7A">DESPI-C73</text>
+    <use xlink:href="#m-plug" x="466" y="119"/>
+
+    <!-- main board -->
+    <rect x="690" y="40" width="190" height="88" rx="4" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+    <text x="708" y="81" font-size="15" font-weight="600" fill="#1F2933">Main board</text>
+    <text x="708" y="98" font-size="13" fill="#5F6B7A">XIAO ESP32-S3</text>
+    <rect x="684" y="70" width="18" height="24" rx="3" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="713" y="55" font-size="13" fill="#1F2933">GND</text>
+    <text x="767" y="55" font-size="13" fill="#1F2933">A0</text>
+    <!-- the two battery pads, under the board -->
+    <rect x="852" y="52" width="16" height="12" fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+    <rect x="852" y="104" width="16" height="12" fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+    <text x="844" y="62.5" text-anchor="end" font-size="13" fill="#1F2933">BAT +</text>
+    <text x="844" y="114.5" text-anchor="end" font-size="13" fill="#1F2933">BAT −</text>
+
+    <!-- eight wires, soldered at both ends -->
+    <path d="M503 138H704Q708 138 708 134V119 M503 146H714Q718 146 718 142V119 M503 154H724Q728 154 728 150V119 M503 162H734Q738 162 738 158V119 M503 170H744Q748 170 748 166V119 M503 178H754Q758 178 758 174V119 M503 186H764Q768 186 768 182V119 M503 194H774Q778 194 778 190V119" fill="none" stroke="#5F6B7A" stroke-width="1.75"/>
+    <path d="M503 138V195" fill="none" stroke="#E8590C" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 8"/>
+    <path d="M708 119H779" fill="none" stroke="#E8590C" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 10"/>
+
+    <!-- two resistors: battery + (after the switch), midpoint to A0, far end to GND -->
+    <path d="M706 50V18H908V58M760 18V50" fill="none" stroke="#5F6B7A" stroke-width="1.75" stroke-linejoin="round"/>
+    <use xlink:href="#resistor" x="733" y="18"/>
+    <use xlink:href="#resistor" x="787" y="18"/>
+    <text x="918" y="16" font-size="13" fill="#1F2933">Two 200 kΩ resistors: they let the</text>
+    <text x="918" y="33" font-size="13" fill="#1F2933">board read the battery level</text>
+
+    <!-- battery leads: red through the slide switch to BAT +, black to BAT − -->
+    <path d="M1040 102H1020V58H958M908 58H880" fill="none" stroke="#C92A2A" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M880 58H860" fill="none" stroke="#C92A2A" stroke-width="2" stroke-dasharray="4 3"/>
+    <path d="M1040 110H880" fill="none" stroke="#1F2933" stroke-width="2"/>
+    <path d="M880 110H860" fill="none" stroke="#1F2933" stroke-width="2" stroke-dasharray="4 3"/>
+    <rect x="914" y="49" width="38" height="18" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+    <rect x="919" y="53" width="14" height="10" rx="1" fill="#5F6B7A"/>
+    <path d="M908 58H914M952 58H958" fill="none" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="914" y="87" font-size="13" fill="#1F2933">slide switch</text>
+    <use xlink:href="#battery" x="1040" y="67"/>
+    <text x="990" y="53" text-anchor="middle" font-size="15" font-weight="700" fill="#C92A2A">+</text>
+
+    <!-- solder joints for the battery, switch and resistors -->
+    <use xlink:href="#m-solder" x="706" y="50"/>
+    <use xlink:href="#m-solder" x="760" y="50"/>
+    <use xlink:href="#m-solder" x="760" y="18"/>
+    <use xlink:href="#m-solder" x="908" y="58"/>
+    <use xlink:href="#m-solder" x="958" y="58"/>
+    <use xlink:href="#m-solder" x="860" y="58"/>
+    <use xlink:href="#m-solder" x="860" y="110"/>
+
+    <!-- USB-C lead -->
+    <path d="M638 82H620Q608 82 608 70V38" fill="none" stroke="#5F6B7A" stroke-width="3" stroke-linecap="round"/>
+    <use xlink:href="#usb" x="680" y="82"/>
+    <use xlink:href="#m-plug" x="653" y="107"/>
+    <text x="608" y="26" text-anchor="middle" font-size="13" fill="#1F2933">USB-C lead, to charge</text>
+
+    <!-- notes -->
+    <path d="M860 150V121" fill="none" stroke="#5F6B7A" stroke-width="1.25"/>
+    <circle cx="860" cy="121" r="3" fill="#5F6B7A"/>
+    <text x="800" y="164" font-size="13" fill="#1F2933">BAT + and BAT − are small pads under the</text>
+    <text x="800" y="181" font-size="13" fill="#1F2933">board (drawn dashed): the fiddly part.</text>
+    <text x="800" y="198" font-size="13" fill="#1F2933">The slide switch is the off switch.</text>
+    <text x="360" y="218" font-size="13" fill="#5F6B7A">Passive adapter: only the ribbon socket and eight solder points. Which wire goes where: see the pin map.</text>
+  </g>
+
+  <!-- ============ legend and the battery warning ============ -->
+  <text x="40" y="814" font-size="13" font-weight="600" fill="#1F2933">How each connection is made</text>
+  <use xlink:href="#m-plug" x="50" y="838"/>
+  <text x="66" y="842.5" font-size="13" fill="#1F2933">plugs in</text>
+  <path d="M144 826V832" fill="none" stroke="#5F6B7A" stroke-width="1.75"/>
+  <use xlink:href="#m-push" x="144" y="831"/>
+  <text x="156" y="842.5" font-size="13" fill="#1F2933">push-on jumper wire</text>
+  <use xlink:href="#m-solder" x="306" y="838"/>
+  <text x="317" y="842.5" font-size="13" fill="#1F2933">solder joint</text>
+  <use xlink:href="#m-knife" x="410" y="847"/>
+  <text x="438" y="842.5" font-size="13" fill="#1F2933">one knife cut</text>
+
+  <g font-size="13" fill="#C92A2A">
+    <text x="560" y="814" font-weight="700">Battery warning, all routes</text>
+    <text x="560" y="832">Before the first plug-in, check that the battery's red wire meets the board's + mark.</text>
+    <text x="560" y="850">Battery makers disagree on which side is +, and a reversed battery destroys the board.</text>
+  </g>
+</svg>
