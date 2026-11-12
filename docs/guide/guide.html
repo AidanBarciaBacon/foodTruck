@@ -31,7 +31,12 @@
   ol.steps > li > strong:first-child { display: block; font-size: 11.5pt; margin-bottom: 2pt; }
   ol.steps ul { margin: 3pt 0 2pt; padding-left: 14pt; }
   ol.steps ul li { margin-bottom: 2pt; }
-  .gate { margin: 9pt 0 0; padding: 7pt 10pt; border: 1.5pt solid #111; border-radius: 4pt; break-inside: avoid; }
+  ol.steps { break-after: avoid; }
+  ol.steps > li:last-child { break-after: avoid; }
+  table tr:last-child, table tr:nth-last-child(2) { break-before: avoid; }
+  ol.steps > li > .gate { margin-left: -62pt; margin-top: 12pt; }
+  ol.steps > li:last-child { border-bottom: none; }
+  .gate { break-before: avoid; margin: 9pt 0 0; padding: 7pt 10pt; border: 1.5pt solid #111; border-radius: 4pt; break-inside: avoid; }
   .gate b { text-transform: uppercase; letter-spacing: 0.8pt; font-size: 8.5pt; display: block; margin-bottom: 1pt; }
   .warn { margin: 8pt 0; padding: 7pt 10pt; border-left: 5pt solid #C2410C; background: #FFF4EC; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .note { margin: 8pt 0; padding: 7pt 10pt; border-left: 5pt solid #666; background: #F3F3F3; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -71,7 +76,7 @@
   <p class="sub">Build guide: every step, from buying the parts to the truck on your desk</p>
   <figure class="inline"><img src="diagrams/overview.svg" alt="How it works, end to end"></figure>
   <p class="cover-meta"><b>What you are building.</b> A 3D-printed food truck, 229 x 127 x 155 mm (9 x 5 x 6.1 in). Its whole serving side is a 7.3 inch colour e-paper screen that shows which trucks are at Off the Grid, Levi's Plaza today. It wakes each market morning, fetches a fresh picture over Wi-Fi, and sleeps. It should need charging about once a year.</p>
-  <p class="cover-meta"><b>Your build.</b> Route B (a little soldering) · the 7.3 inch screen · 155 mm tall · printed on a Bambu Lab P1S with AMS.<br><b>Edition 1</b>, 12 November 2026.</p>
+  <p class="cover-meta"><b>Your build.</b> Route B (a little soldering) · the 7.3 inch screen · 155 mm tall · printed on a Bambu Lab P1S with AMS.<br><b>Edition 2</b>, 12 November 2026: the software is written and the picture is live.</p>
 
   <h3>How to use this guide</h3>
   <ul class="plain">
@@ -80,7 +85,7 @@
     <li><b>The drawings are full pages</b>, turned sideways so they print large. Each step names the drawing it needs.</li>
     <li><b>Two rules of order:</b> do not model the truck before the parts are in your hands, and do not close the truck before it has run a week on the bench.</li>
   </ul>
-  <div class="note"><b>Not final in this edition.</b> The software is still being written, so three steps (marked <span class="later">next edition</span>) describe what happens without the exact command or web address. You will get a new edition with those filled in before your parts arrive. Nothing you buy or print depends on them.</div>
+  <div class="note"><b>What is proven and what is not.</b> The morning job runs every day on GitHub and publishes the picture at <span class="url">aidanbarciabacon.github.io/foodTruck</span>: open it on your phone to see today's trucks. The board's program compiles and its logic is tested, but it has never run on real hardware, because none exists yet. Part 6 is its first real test: if anything there does not behave as the step says, stop and tell me what you see.</div>
 
   <h3>The ten parts</h3>
   <table>
@@ -113,9 +118,9 @@
     </li>
     <li><strong>Write the answers here.</strong> Network name: ______________________________ &nbsp; 2.4 GHz: yes / no &nbsp; Allowed: yes / no
       <div class="note">If the answer to either is no, stop and tell me. There are ways round it (a guest network, a phone hotspot at your desk, taking it home), and it is better to choose one before the parts arrive.</div>
+      <div class="gate"><b>Check before part 2</b>The office has a 2.4 GHz network with a plain password, and the truck is allowed on it.</div>
     </li>
   </ol>
-  <div class="gate"><b>Check before part 2</b>The office has a 2.4 GHz network with a plain password, and the truck is allowed on it.</div>
 </section>
 
 <!-- ============================== PART 2 ============================== -->
@@ -172,9 +177,9 @@
     <li><strong>Order filament, if you are short.</strong> Matte PLA in the truck's colours (up to four, for the AMS); any PETG or PLA for the sled and the printed tools. If the desk gets direct sun, use PETG for the truck. The whole project uses well under one spool of each colour.</li>
     <li><strong>Add it up.</strong> About <b>$290 to $305</b> in all, before filament and shipping: $109 of electronics, $61 of soldering tools, $84 to $100 of general tools, $33 of hardware.
       <div class="warn"><b>Do not plug the battery in when it arrives.</b> Battery makers disagree about which side of the plug is +. Step 24 checks it with the multimeter first. A battery plugged in backwards destroys the board.</div>
+      <div class="gate"><b>Check before part 3</b>Everything in steps 3 to 6 is ordered.</div>
     </li>
   </ol>
-  <div class="gate"><b>Check before part 3</b>Everything in steps 3 to 6 is ordered.</div>
 </section>
 
 <figure class="drawing"><figcaption><b>Tools: what to buy, what to print.</b> The same lists as part 2 and part 3, as pictures.</figcaption><img src="diagrams/tools.svg" alt="Tools: what to buy, what to print"></figure>
@@ -196,9 +201,9 @@
       <div class="warn"><b>Nothing printed goes near the hot iron.</b> PLA softens at about 60 °C; the iron is 350 °C. The iron's hot end rests only on metal: the bought stand, or the printed stand's steel bearing.</div>
     </li>
     <li><strong>Look at two frames other people made for this exact screen.</strong> See how they hold it. to see how they hold it. Download them to look at, not to print: <span class="url">makerworld.com/en/models/1924771</span> and <span class="url">makerworld.com/en/models/1213404</span>. The second one's author warns that some screens differ from the maker's stated size. That is why part 8 starts with calipers.</li>
-    <li><strong>The software is already written.</strong> You do nothing here. The morning job that reads Off the Grid's list, the web page, the picture for the screen and the program for the board are all in the project folder (<span class="url">~/Desktop/foodTruck</span>) and on GitHub. The job has been run on a real day's trucks; the board's program compiles but has never met real hardware. Part 6 is where it does.</li>
+    <li><strong>The software is already written.</strong> You do nothing here. The morning job that reads Off the Grid's list, the web page, the picture for the screen and the program for the board are all in the project folder (<span class="url">~/Desktop/foodTruck</span>) and on GitHub. The job has been run on a real day's trucks; the board's program compiles but has never met real hardware. Part 6 is where it does.
+      <div class="gate"><b>Check before part 4</b>The parts have arrived and the helpers are printed.</div></li>
   </ol>
-  <div class="gate"><b>Check before part 4</b>The parts have arrived and the helpers are printed.</div>
 </section>
 
 <!-- ============================== PART 4 ============================== -->
@@ -216,9 +221,9 @@
       </ul>
     </li>
     <li><strong>Build the practice kit.</strong> Compare every joint with the "good and bad" row of Drawing 3 and fix the bad ones: a ball means not hot enough (reheat); a bridge between pins means drag the clean tip through it; a gap means add solder; a dull lump means it moved (reheat).</li>
-    <li><strong>Stop when you have ten joints in a row that you are happy with.</strong> Iron back in its stand, unplug it, wash your hands.</li>
+    <li><strong>Stop when you have ten joints in a row that you are happy with.</strong> Iron back in its stand, unplug it, wash your hands.
+      <div class="gate"><b>Check before part 5</b>Ten clean practice joints: small, shiny cones that hug the pin.</div></li>
   </ol>
-  <div class="gate"><b>Check before part 5</b>Ten clean practice joints: small, shiny cones that hug the pin.</div>
 </section>
 
 <figure class="drawing"><figcaption><b>Your first solder joints.</b> One joint in four beats; good and bad joints; the kit and the settings.</figcaption><img src="diagrams/soldering.svg" alt="Your first solder joints"></figure>
@@ -234,9 +239,9 @@
     <li><strong>Solder every remaining pin in both rows.</strong> Clean the tip in the brass wool every few joints. Check each joint against Drawing 3 and fix any bridges.</li>
     <li><strong>Cut the low-power pad.</strong> Hold the board with the chips facing you and the USB-C socket at the top. Find the small square light (the RGB light, labelled 5/D8). Right under it, above the long flat socket, are <b>two small bright square pads joined by a hair-thin copper trace</b>. (It is item 8 in the "Board Overview" picture on DFRobot's page for this board: search "DFR0654 wiki".) With the craft knife, cut through that thin trace between the two pads: two or three firm strokes. Then check with the multimeter on its continuity (beep) setting that the two pads no longer connect. After the cut the little RGB light only works on USB power; that is expected.
       <div class="warn"><b>This cut matters more than any other step.</b> With it, the board sleeps at about 12 µA and a charge lasts about a year or more. Without it, the board sleeps at about 520 µA and a charge lasts about four months.</div>
+      <div class="gate"><b>Check before part 6</b>Both rows of pins soldered with no bridges; the low-power pad cut and tested open.</div>
     </li>
   </ol>
-  <div class="gate"><b>Check before part 6</b>Both rows of pins soldered with no bridges; the low-power pad cut and tested open.</div>
 </section>
 
 <!-- ============================== PART 6 ============================== -->
@@ -282,9 +287,9 @@ cd firmware
       </ul>
       The set-up hotspot stays up for 5 minutes, then the board sleeps. To open it again later, hold the board's small button marked <b>27/D4</b> while you tap <b>RST</b>.
     </li>
-    <li><strong>Watch it work.</strong> The screen flashes through its colours for about 25 seconds, then shows today's trucks. Unplug the USB-C lead, plug in the battery, press the board's reset button: it should do the same again from the battery alone.</li>
+    <li><strong>Watch it work.</strong> The screen flashes through its colours for about 25 seconds, then shows today's trucks. Unplug the USB-C lead, plug in the battery, press the board's reset button: it should do the same again from the battery alone.
+      <div class="gate"><b>Check before part 7</b>The bare screen shows today's trucks, running from the battery alone.</div></li>
   </ol>
-  <div class="gate"><b>Check before part 7</b>The bare screen shows today's trucks, running from the battery alone.</div>
 </section>
 
 <figure class="drawing"><figcaption><b>What plugs into what.</b> Yours is the middle row, route B. The other two rows are the routes you did not choose.</figcaption><img src="diagrams/routes-wiring.svg" alt="Three ways to wire it"></figure>
@@ -315,9 +320,9 @@ cd firmware
       Clip the bypass back on <b>before</b> you press reset or unplug anything.
     </li>
     <li><strong>Remove the test lead</strong> and plug the battery straight into the board again.</li>
-    <li><strong>Leave it running on the bench for a week.</strong> It should redraw by itself each market morning (Monday to Thursday). Tick the mornings it was right: &nbsp; ☐ &nbsp; ☐ &nbsp; ☐ &nbsp; ☐ &nbsp; and the next week &nbsp; ☐ &nbsp; ☐ &nbsp; ☐</li>
+    <li><strong>Leave it running on the bench for a week.</strong> It should redraw by itself each market morning (Monday to Thursday). Tick the mornings it was right: &nbsp; ☐ &nbsp; ☐ &nbsp; ☐ &nbsp; ☐ &nbsp; and the next week &nbsp; ☐ &nbsp; ☐ &nbsp; ☐
+      <div class="gate"><b>Check before part 8</b>Asleep it draws under 50 µA, and it has shown the right trucks on seven market mornings.</div></li>
   </ol>
-  <div class="gate"><b>Check before part 8</b>Asleep it draws under 50 µA, and it has shown the right trucks on seven market mornings.</div>
 </section>
 
 <!-- ============================== PART 8 ============================== -->
@@ -371,9 +376,9 @@ cd firmware
     </li>
     <li><strong>Model the rest of the truck around those:</strong> the cab and windscreen (from 188 mm forward), the wheel wells, bumpers, awning, counter, lettering and stripes.</li>
     <li><strong>Plan the colour for the AMS</strong> (Drawing 12). Make the two long side walls separate flat parts that print face down, with lettering and stripes set into the first two or three layers. Join them to the rest with a tongue and groove.</li>
-    <li><strong>Print a test slice and try the sled in it:</strong> just 20 mm of the serving wall's height, with the window's bottom edge and both channels. The sled should slide down freely and the glass should sit just behind the wall without touching it. Adjust the model until it does.</li>
+    <li><strong>Print a test slice and try the sled in it:</strong> just 20 mm of the serving wall's height, with the window's bottom edge and both channels. The sled should slide down freely and the glass should sit just behind the wall without touching it. Adjust the model until it does.
+      <div class="gate"><b>Check before part 9</b>The working sled slides into the test slice, and the glass sits 0.5 mm behind the wall.</div></li>
   </ol>
-  <div class="gate"><b>Check before part 9</b>The working sled slides into the test slice, and the glass sits 0.5 mm behind the wall.</div>
 </section>
 
 <figure class="drawing"><figcaption><b>The electronics sled, front and back.</b> Step 35.</figcaption><img src="diagrams/sled.svg" alt="The electronics sled: front and back"></figure>
@@ -397,9 +402,9 @@ cd firmware
     <li><strong>Stick a strip of the 2 mm foam tape along the top edge of the sled.</strong></li>
     <li><strong>Peel the protective film off the screen.</strong> Last thing before it goes in. Hold the sled by its edges.</li>
     <li><strong>Lower the sled into the two channels</strong> until it stands on the ledge. Look through the rear slot: the USB-C port should be in the middle of it. Put the roof on.</li>
-    <li><strong>Put it on your desk and press reset once before closing</strong> (lift the lid to reach the button). It should redraw. From tomorrow it wakes by itself.</li>
+    <li><strong>Put it on your desk and press reset once before closing</strong> (lift the lid to reach the button). It should redraw. From tomorrow it wakes by itself.
+      <div class="gate"><b>Check before part 10</b>It updates by itself from inside the closed truck, on the desk where it will live.</div></li>
   </ol>
-  <div class="gate"><b>Check before part 10</b>It updates by itself from inside the closed truck, on the desk where it will live.</div>
 </section>
 
 <!-- ============================== PART 10 ============================== -->
@@ -421,7 +426,8 @@ cd firmware
   <table>
     <tr><th>What you see</th><th>What it means</th><th>What to do</th></tr>
     <tr><td>Yesterday's date and trucks</td><td>It could not get on Wi-Fi this morning. It tried three times and will try again tomorrow.</td><td>Lift the lid and press reset. If it still does not update, check the Wi-Fi password has not changed.</td></tr>
-    <tr><td>"Couldn't read the truck list today"</td><td>Off the Grid's page changed or was down. The truck itself is fine.</td><td>Tell me. Nothing to do on the truck.</td></tr>
+    <tr><td>"Couldn't read the truck list today"</td><td>Off the Grid's list changed or was down. The truck itself is fine, and it looks again tomorrow morning.</td><td>If it lasts more than a day, tell me. Nothing to do on the truck.</td></tr>
+    <tr><td>The same picture for days, with an old date</td><td>The morning job has stopped (GitHub can switch a quiet project's schedule off after two months), or the Wi-Fi changed.</td><td>Open <span class="url">aidanbarciabacon.github.io/foodTruck</span> on your phone. If it also shows the old date, tell me: the job needs switching back on. If it shows today, the truck cannot reach Wi-Fi: see the first row.</td></tr>
     <tr><td>"No market today"</td><td>Off the Grid has nothing at Levi's Plaza today. The market runs Monday to Thursday, with holiday breaks.</td><td>Nothing.</td></tr>
     <tr><td>CHARGE ME</td><td>The battery is nearly empty.</td><td>Charge it (above).</td></tr>
     <tr><td>Faint ghost of an old picture</td><td>The screen went too long without a redraw.</td><td>Press reset once or twice. If it keeps happening after weekends, tell me and the truck will redraw at weekends too.</td></tr>
@@ -435,7 +441,7 @@ cd firmware
   <h2><span class="part">Reference</span>How it works, in five drawings</h2>
   <p class="lede">You do not need these to build it. They explain what the truck and the cloud are doing, and why the battery lasts.</p>
   <ul class="plain">
-    <li><b>The morning job</b> runs in the cloud at about 6:30 AM. It reads Off the Grid's list for Levi's Plaza, lays it out as a web page, takes a picture of the page in the screen's six colours, and publishes it.</li>
+    <li><b>The morning job</b> runs on GitHub at about 6:30 AM. It reads Off the Grid's list for Levi's Plaza, lays it out as a web page, takes a picture of the page in the screen's six colours, and publishes it.</li>
     <li><b>The truck</b> wakes at about 7:00 AM, checks whether the picture changed, downloads and redraws only if it did, then sleeps. It is awake for about 40 seconds a day.</li>
     <li><b>The screen</b> holds its picture with no power at all.</li>
     <li><b>The battery</b> mostly drains by itself. The estimate is 13 to 19 months per charge; part 7 is where you confirm it.</li>

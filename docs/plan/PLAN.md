@@ -40,9 +40,9 @@ Details worth knowing:
   or a different wake time never need the truck opened or reloaded.
 - **A stale screen shows itself.** The date is printed large on every picture.
 - **The reset button means "refresh now".**
-- **Hosting is free:** the job runs on GitHub Actions and the files sit on GitHub Pages. The project's repo is
-  `github.com/AidanBarciaBacon/foodTruck`, private. Free Pages needs a public repo, so when the software is ready
-  you choose: make the repo public, or host the three small files somewhere else.
+- **Hosting is free:** the job runs on GitHub Actions and the files sit on GitHub Pages, at
+  `aidanbarciabacon.github.io/foodTruck`. The project's repo, `github.com/AidanBarciaBacon/foodTruck`, is public
+  (free Pages needs that); its commits carry GitHub's no-reply address, not your email.
 - **The truck list** comes from Off the Grid's page for Levi's Plaza.
 
 ## 3. What the screen shows
@@ -337,12 +337,12 @@ Decided on 12 November 2026:
 - The 7.3 inch screen.
 - A truck 155 mm (6.1 in) tall.
 - The truck list is Off the Grid's page for Levi's Plaza: `offthegrid.com/event/levis-plaza`.
-- A GitHub repo for the job and the page: created, private.
+- A GitHub repo for the job and the page: created, and public since the software was finished.
+- The truck list is read from Off the Grid's own data feed, one request each morning.
 - The page's design gets real work later, once the hardware runs.
 
 Still open:
 
-- **Public repo or other hosting** for the three small files, when the software is ready.
 - **Two facts nobody publishes,** each settled on the bench: the energy one redraw costs on this screen, and
   whether Waveshare's adapter draws current while asleep.
 - **Three sizes only the real parts give:** where the FireBeetle's battery socket faces, the size of Waveshare's

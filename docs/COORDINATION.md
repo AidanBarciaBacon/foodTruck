@@ -32,7 +32,7 @@ What `.claude/coord.conf` sets:
 | `CHECK_TEST` | `bt test-cache --package job` | The job's `node --test` suite, re-running only the files whose inputs changed. The firmware is not part of the check: it needs PlatformIO's toolchain and takes minutes. |
 | `SHARED_TREES` | `job`, `job/lib`, `job/test`, `firmware`, `firmware/src`, `docs/plan/diagrams` | Stage the files you changed, never these folders whole. |
 | `BUILD_PATTERNS` | empty | The job's build writes only `dist/`, which is git-ignored and cheap; no build lock. |
-| `PUBLISH_PATTERNS` | empty | The picture is published by the GitHub workflow, not from this Mac. `git push` is the supervisor's as always. |
+| `PUBLISH_PATTERNS` | `gh workflow run` | Running the morning workflow republishes the live picture, so it is the supervisor's. `git push` is too, as always. |
 | `INSTALL_PATTERNS` | empty | PlatformIO installs into `firmware/.venv` and `~/.platformio`; nothing is gated. |
 | `COORD_SIBLINGS_CONF` | empty | No reference repo. |
 | `PANE_POPUPS` | empty (the default) | A corner's question goes through the supervisor. |
@@ -43,8 +43,12 @@ What `.claude/coord.conf` sets:
   feed's host; the user chose to read it anyway, for one small request a day. Tests never touch the network (they
   use the fixture in `job/test/fixtures/`), and nobody loops over the feed while developing: one request, saved to
   a scratch file, then work from the file.
-- **The remote is `github.com/AidanBarciaBacon/foodTruck`, private.** Making it public, or enabling Pages, waits
-  for the user's word.
+- **The remote is `github.com/AidanBarciaBacon/foodTruck`, public,** and everything pushed is published. Commit
+  with the repo's configured no-reply address (never the user's own email: the history was rewritten once to
+  remove it), and put nothing private in a commit: no Wi-Fi names or passwords, no tokens, no home-folder paths.
+- **The picture is live at `aidanbarciabacon.github.io/foodTruck`**, published by `.github/workflows/morning.yml`
+  each morning. A push to `main` does not publish; the workflow does (run it by hand with `gh workflow run
+  morning.yml` after a change to the job or the page, and that is the supervisor's to do).
 - **`main` is the only branch**, and the panes commit to it in this checkout.
 - **Nothing here is proven on hardware yet.** Say "compiles" or "tested without hardware", never "works", about
   the firmware until the user has run it on the bench.
