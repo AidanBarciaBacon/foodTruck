@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 900" width="100%"
+     font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>Your first solder joints</title>
+  <desc>A primer for soldering through-hole header pins: one joint in four beats, what good and bad joints look like from the side, and the kit, iron temperatures and safety rules.</desc>
+
+  <defs>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10"
+            markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,1 L10,5 L0,9 Z" fill="#E8590C"/>
+    </marker>
+    <marker id="arrow-warn" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10"
+            markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,1 L10,5 L0,9 Z" fill="#C92A2A"/>
+    </marker>
+
+    <!-- Every cross-section is drawn from the same parts. Origin: the pin's centre line (x) and the board's top face (y).
+         Board 30 thick, hole 26 wide, pad 15 wide and 7 thick each side, pin 12 wide, plastic strip 24 thick. -->
+    <g id="board">
+      <rect x="-85" y="0" width="72" height="30" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="13" y="0" width="72" height="30" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="-28" y="-7" width="15" height="7" fill="#E67700" stroke="#1F2933" stroke-width="1.25" stroke-linejoin="round"/>
+      <rect x="13" y="-7" width="15" height="7" fill="#E67700" stroke="#1F2933" stroke-width="1.25" stroke-linejoin="round"/>
+      <rect x="-33" y="30" width="66" height="24" fill="#5F6B7A" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+    <!-- The same board with two holes, 66 apart, for the bridge. -->
+    <g id="board2">
+      <rect x="-85" y="0" width="39" height="30" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="-20" y="0" width="40" height="30" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="46" y="0" width="39" height="30" fill="#D3F9D8" stroke="#2F9E44" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="-61" y="-7" width="15" height="7" fill="#E67700" stroke="#1F2933" stroke-width="1.25" stroke-linejoin="round"/>
+      <rect x="-20" y="-7" width="15" height="7" fill="#E67700" stroke="#1F2933" stroke-width="1.25" stroke-linejoin="round"/>
+      <rect x="5" y="-7" width="15" height="7" fill="#E67700" stroke="#1F2933" stroke-width="1.25" stroke-linejoin="round"/>
+      <rect x="46" y="-7" width="15" height="7" fill="#E67700" stroke="#1F2933" stroke-width="1.25" stroke-linejoin="round"/>
+      <rect x="-66" y="30" width="66" height="24" fill="#5F6B7A" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="0" y="30" width="66" height="24" fill="#5F6B7A" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+    <path id="pin" d="M-6,-40 L-3,-44 L3,-44 L6,-40 L6,66 L-6,66 Z" fill="#B8C0CC" stroke="#1F2933" stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- A good joint: a small cone that hugs the pin, covers the pad and fills the hole. Drawn under the pin. -->
+    <g id="good">
+      <path d="M-28,-7 C-19,-12 -11,-22 -6,-33 L6,-33 C11,-22 19,-12 28,-7 L13,-7 L13,29 L-13,29 L-13,-7 Z"
+            fill="#8A94A0" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M-17.5,-10.5 Q-12,-14.5 -9,-20.5" fill="none" stroke="#FFFBF2" stroke-width="1.75" stroke-linecap="round"/>
+    </g>
+
+    <!-- The iron: a chisel tip at 45 degrees with its collar. Its corner sits where the pin meets the pad. -->
+    <g id="iron">
+      <path d="M-7.5,-8.5 L-7.5,-20 L-51.5,-64 L-63,-52.5 L-19,-8.5 Z" fill="#B8C0CC" stroke="#1F2933" stroke-width="2"
+            stroke-linejoin="round"/>
+      <path d="M-45.25,-64.75 L-62.25,-81.75 L-80.75,-63.25 L-63.75,-46.25 Z" fill="#5F6B7A" stroke="#1F2933"
+            stroke-width="2" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Solder wire, held away from the joint (its end 33 right and 45 up from where it touches). -->
+    <g id="wire-away">
+      <path d="M42.5,-55.5 L72,-95.5" stroke="#1F2933" stroke-width="6.5" stroke-linecap="round"/>
+      <path d="M42.5,-55.5 L72,-95.5" stroke="#8A94A0" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Marks -->
+    <g id="tick">
+      <circle r="10" fill="#2F9E44"/>
+      <path d="M-5,0 L-1.5,4 L5,-4" fill="none" stroke="#FFFBF2" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="cross">
+      <circle r="10" fill="#C92A2A"/>
+      <path d="M-4,-4 L4,4 M4,-4 L-4,4" fill="none" stroke="#FFFBF2" stroke-width="2.25" stroke-linecap="round"/>
+    </g>
+    <rect id="box" width="14" height="14" rx="2" fill="#FFFBF2" stroke="#1F2933" stroke-width="1.5"/>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="900" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Your first solder joints</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Soldering header pins (a row of metal pins held in a plastic strip) into a board, seen from the side and cut through one hole.</text>
+
+  <!-- ===================== Band a: one joint, four beats ===================== -->
+  <text x="40" y="124" font-size="15" fill="#1F2933"><tspan font-weight="700">One joint, four beats</tspan><tspan dx="12" font-size="13" fill="#5F6B7A">about four seconds in all</tspan></text>
+  <text x="1160" y="124" font-size="13" fill="#5F6B7A" text-anchor="end">Drawings are not to scale.</text>
+
+  <!-- Beat 1: tip touches the pad and the pin together -->
+  <g transform="translate(180,248)">
+    <use xlink:href="#board"/>
+    <use xlink:href="#pin"/>
+    <use xlink:href="#iron"/>
+    <use xlink:href="#wire-away"/>
+    <!-- labels, once, on this first drawing -->
+    <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+      <path d="M-45,-46 L-68,-26"/>
+      <path d="M0,-41 V-57"/>
+      <path d="M57.25,-75.5 H76"/>
+      <path d="M24,-3.5 L50,-22"/>
+      <path d="M26,42 H44"/>
+    </g>
+    <g fill="#5F6B7A">
+      <circle cx="-45" cy="-46" r="3"/>
+      <circle cx="0" cy="-41" r="3"/>
+      <circle cx="57.25" cy="-75.5" r="3"/>
+      <circle cx="24" cy="-3.5" r="3"/>
+      <circle cx="26" cy="42" r="3"/>
+    </g>
+    <g font-size="13" fill="#1F2933">
+      <text x="-72" y="-18" text-anchor="end">iron tip</text>
+      <text x="0" y="-62" text-anchor="middle">pin</text>
+      <text x="80" y="-71">solder wire</text>
+      <text x="54" y="-18">copper pad</text>
+      <text x="-80" y="19.5">board</text>
+      <text x="48" y="46.5">plastic strip</text>
+    </g>
+  </g>
+
+  <!-- Beat 2: count two seconds -->
+  <g transform="translate(460,248)">
+    <use xlink:href="#board"/>
+    <use xlink:href="#pin"/>
+    <use xlink:href="#iron"/>
+    <use xlink:href="#wire-away"/>
+    <g fill="none" stroke="#E8590C" stroke-width="1.5" stroke-linecap="round">
+      <path d="M17,-12 q3,-3 0,-6 q-3,-3 0,-6 q3,-3 0,-6"/>
+      <path d="M26,-12 q3,-3 0,-6 q-3,-3 0,-6 q3,-3 0,-6"/>
+    </g>
+    <text x="40" y="-15" font-size="15" font-weight="700" fill="#E8590C">one… two…</text>
+  </g>
+
+  <!-- Beat 3: feed solder into the joint, not onto the iron -->
+  <g transform="translate(740,248)">
+    <use xlink:href="#board"/>
+    <!-- the wire melts into the joint: a bead forming where the pin meets the pad, running down into the hole -->
+    <path d="M15,-20 L57,-77" stroke="#1F2933" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M15,-20 L57,-77" stroke="#8A94A0" stroke-width="3" stroke-linecap="round"/>
+    <path d="M6,-27 C17,-26 25,-17 27,-7 L13,-7 L13,29 L6,29 Z" fill="#8A94A0" stroke="#1F2933" stroke-width="2"
+          stroke-linejoin="round"/>
+    <use xlink:href="#pin"/>
+    <use xlink:href="#iron"/>
+    <path d="M60,-52 L42.5,-28.2" fill="none" stroke="#E8590C" stroke-width="2" marker-end="url(#arrow-accent)"/>
+  </g>
+
+  <!-- Beat 4: solder away first, then the iron -->
+  <g transform="translate(1020,248)">
+    <use xlink:href="#board"/>
+    <use xlink:href="#good"/>
+    <use xlink:href="#pin"/>
+    <use xlink:href="#iron" x="-22" y="-22"/>
+    <use xlink:href="#wire-away"/>
+    <path d="M22,-27.5 L34,-44" fill="none" stroke="#E8590C" stroke-width="2" marker-end="url(#arrow-accent)"/>
+    <text x="41" y="-22" font-size="13" font-weight="700" fill="#E8590C">1st</text>
+    <path d="M-36,-12 L-56.5,-32.5" fill="none" stroke="#E8590C" stroke-width="2" marker-end="url(#arrow-accent)"/>
+    <text x="-48" y="-6" font-size="13" font-weight="700" fill="#E8590C" text-anchor="end">2nd</text>
+  </g>
+
+  <!-- captions for the four beats -->
+  <g font-size="13" fill="#1F2933">
+    <g transform="translate(80,342)">
+      <circle cx="11" cy="-5" r="11" fill="#1F2933"/>
+      <text x="11" y="-0.5" font-weight="700" fill="#FFFBF2" text-anchor="middle">1</text>
+      <text x="30" y="0" font-size="15" font-weight="700">Touch</text>
+      <text x="30" y="19">The tip against the pad AND</text>
+      <text x="30" y="36">the pin, both together.</text>
+    </g>
+    <g transform="translate(360,342)">
+      <circle cx="11" cy="-5" r="11" fill="#1F2933"/>
+      <text x="11" y="-0.5" font-weight="700" fill="#FFFBF2" text-anchor="middle">2</text>
+      <text x="30" y="0" font-size="15" font-weight="700">Count two seconds</text>
+      <text x="30" y="19">The pad and the pin heat up.</text>
+    </g>
+    <g transform="translate(640,342)">
+      <circle cx="11" cy="-5" r="11" fill="#1F2933"/>
+      <text x="11" y="-0.5" font-weight="700" fill="#FFFBF2" text-anchor="middle">3</text>
+      <text x="30" y="0" font-size="15" font-weight="700">Feed the solder</text>
+      <text x="30" y="19">Into the joint, not onto the iron,</text>
+      <text x="30" y="36">until it flows into a small cone.</text>
+    </g>
+    <g transform="translate(920,342)">
+      <circle cx="11" cy="-5" r="11" fill="#1F2933"/>
+      <text x="11" y="-0.5" font-weight="700" fill="#FFFBF2" text-anchor="middle">4</text>
+      <text x="30" y="0" font-size="15" font-weight="700">Solder away, then the iron</text>
+      <text x="30" y="19">Take the solder wire off first,</text>
+      <text x="30" y="36">the iron second.</text>
+    </g>
+  </g>
+
+  <path d="M40,396 H1160" stroke="#B8C0CC" stroke-width="1"/>
+
+  <!-- ===================== Band b: good and bad ===================== -->
+  <text x="40" y="422" font-size="15" fill="#1F2933"><tspan font-weight="700">Good and bad</tspan><tspan dx="12" font-size="13" fill="#5F6B7A">what a finished joint looks like, and the fix</tspan></text>
+  <!-- colour key for the cross-sections -->
+  <g font-size="13" fill="#5F6B7A">
+    <rect x="806" y="411" width="14" height="14" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.5"/>
+    <text x="826" y="423">board</text>
+    <rect x="880" y="411" width="14" height="14" fill="#E67700" stroke="#1F2933" stroke-width="1.25"/>
+    <text x="900" y="423">copper pad</text>
+    <rect x="986" y="411" width="14" height="14" fill="#8A94A0" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="1006" y="423">solder</text>
+    <rect x="1064" y="411" width="14" height="14" fill="#B8C0CC" stroke="#1F2933" stroke-width="1.5"/>
+    <text x="1084" y="423">pin</text>
+  </g>
+
+  <!-- 1 Good -->
+  <g transform="translate(152,488)">
+    <use xlink:href="#board"/>
+    <use xlink:href="#good"/>
+    <use xlink:href="#pin"/>
+  </g>
+
+  <!-- 2 Ball sitting on the pad -->
+  <g transform="translate(376,488)">
+    <use xlink:href="#board"/>
+    <path d="M-16,-7 A20,20 0 1 1 16,-7 Z" fill="#8A94A0" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-14.8,-21.6 A15,15 0 0 1 -9.6,-30.5" fill="none" stroke="#FFFBF2" stroke-width="1.75" stroke-linecap="round"/>
+    <use xlink:href="#pin"/>
+  </g>
+
+  <!-- 3 Bridge between two pins -->
+  <g transform="translate(600,488)">
+    <use xlink:href="#board2"/>
+    <path d="M-61,-7 C-52,-12 -44,-22 -39,-33 L-27,-33 C-20,-21 20,-21 27,-33 L39,-33 C44,-22 52,-12 61,-7 L46,-7 L46,29 L20,29 L20,-7 L5,-7 Q0,-12 -5,-7 L-20,-7 L-20,29 L-46,29 L-46,-7 Z"
+          fill="#8A94A0" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-50.5,-10.5 Q-45,-14.5 -42,-20.5" fill="none" stroke="#FFFBF2" stroke-width="1.75" stroke-linecap="round"/>
+    <use xlink:href="#pin" x="-33"/>
+    <use xlink:href="#pin" x="33"/>
+  </g>
+
+  <!-- 4 Too little solder: a gap round the pin -->
+  <g transform="translate(824,488)">
+    <use xlink:href="#board"/>
+    <path d="M-27,-7 C-25,-13 -17,-13 -15,-7 Z" fill="#8A94A0" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M15,-7 C17,-13 25,-13 27,-7 Z" fill="#8A94A0" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    <use xlink:href="#pin"/>
+    <path d="M36,-34 L13.6,-11.6" fill="none" stroke="#C92A2A" stroke-width="2" marker-end="url(#arrow-warn)"/>
+    <text x="40" y="-33" font-size="13" font-weight="700" fill="#C92A2A">gap</text>
+  </g>
+
+  <!-- 5 Dull, grainy lump -->
+  <g transform="translate(1048,488)">
+    <use xlink:href="#board"/>
+    <path d="M-28,-7 C-33,-14 -23,-17 -22,-23 C-21,-31 -12,-27 -6,-35 L6,-32 C13,-34 14,-25 20,-24 C28,-22 23,-12 28,-7 L13,-7 L13,29 L-13,29 L-13,-7 Z"
+          fill="#8A94A0" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+    <g fill="#1F2933">
+      <circle cx="-22" cy="-11" r="1"/>
+      <circle cx="-17" cy="-15" r="1"/>
+      <circle cx="-18" cy="-21" r="1"/>
+      <circle cx="-13" cy="-11" r="1"/>
+      <circle cx="-12" cy="-19" r="1"/>
+      <circle cx="-13" cy="-25" r="1"/>
+      <circle cx="-9" cy="-14" r="1"/>
+      <circle cx="-9" cy="-28" r="1"/>
+      <circle cx="10" cy="-13" r="1"/>
+      <circle cx="10" cy="-21" r="1"/>
+      <circle cx="10" cy="-28" r="1"/>
+      <circle cx="14" cy="-17" r="1"/>
+      <circle cx="15" cy="-24" r="1"/>
+      <circle cx="18" cy="-12" r="1"/>
+      <circle cx="19" cy="-19" r="1"/>
+      <circle cx="22" cy="-14" r="1"/>
+    </g>
+    <use xlink:href="#pin"/>
+  </g>
+
+  <!-- captions for the five joints -->
+  <g font-size="13" fill="#1F2933">
+    <g transform="translate(60,582)">
+      <use xlink:href="#tick" x="10" y="-5"/>
+      <text x="28" y="0" font-size="15" font-weight="700">Good</text>
+      <text x="0" y="21">A small shiny cone that hugs</text>
+      <text x="0" y="38">the pin; the pad fully covered.</text>
+    </g>
+    <g transform="translate(284,582)">
+      <use xlink:href="#cross" x="10" y="-5"/>
+      <text x="28" y="0" font-size="15" font-weight="700">Ball on the pad</text>
+      <text x="0" y="21">Not hot enough: reheat.</text>
+    </g>
+    <g transform="translate(508,582)">
+      <use xlink:href="#cross" x="10" y="-5"/>
+      <text x="28" y="0" font-size="15" font-weight="700">Bridge to the next pin</text>
+      <text x="0" y="21">Drag the clean tip through it.</text>
+    </g>
+    <g transform="translate(732,582)">
+      <use xlink:href="#cross" x="10" y="-5"/>
+      <text x="28" y="0" font-size="15" font-weight="700">Gap round the pin</text>
+      <text x="0" y="21">Too little solder: add more.</text>
+    </g>
+    <g transform="translate(956,582)">
+      <use xlink:href="#cross" x="10" y="-5"/>
+      <text x="28" y="0" font-size="15" font-weight="700">Dull, grainy lump</text>
+      <text x="0" y="21">Moved while cooling: reheat.</text>
+    </g>
+  </g>
+
+  <path d="M40,636 H1160" stroke="#B8C0CC" stroke-width="1"/>
+
+  <!-- ===================== Band c: kit and settings ===================== -->
+  <text x="40" y="662" font-size="15" fill="#1F2933"><tspan font-weight="700">Kit and settings</tspan><tspan dx="12" font-size="13" fill="#5F6B7A">tick off the kit as you get it</tspan></text>
+
+  <!-- the kit: three columns at x = 40, 283, 526; rows at y = 698, 756, 814 -->
+  <g font-size="13" fill="#5F6B7A">
+    <use xlink:href="#box" x="40" y="686"/>
+    <text x="64" y="698" font-size="15" fill="#1F2933">Temperature-controlled iron</text>
+    <text x="64" y="715">a Pinecil (about $26) or any</text>
+    <text x="64" y="731">60 W adjustable iron</text>
+
+    <use xlink:href="#box" x="283" y="686"/>
+    <text x="307" y="698" font-size="15" fill="#1F2933">Small chisel tip</text>
+    <text x="307" y="715">for the iron</text>
+
+    <use xlink:href="#box" x="526" y="686"/>
+    <text x="550" y="698" font-size="15" fill="#1F2933">0.8 mm rosin-core solder</text>
+
+    <use xlink:href="#box" x="40" y="744"/>
+    <text x="64" y="756" font-size="15" fill="#1F2933">Brass wool</text>
+    <text x="64" y="773">to clean the tip</text>
+
+    <use xlink:href="#box" x="283" y="744"/>
+    <text x="307" y="756" font-size="15" fill="#1F2933">Helping hands or blu-tack</text>
+    <text x="307" y="773">to hold the work</text>
+
+    <use xlink:href="#box" x="526" y="744"/>
+    <text x="550" y="756" font-size="15" fill="#1F2933">Silicone mat</text>
+
+    <use xlink:href="#box" x="40" y="802"/>
+    <text x="64" y="814" font-size="15" fill="#1F2933">Safety glasses</text>
+
+    <use xlink:href="#box" x="283" y="802"/>
+    <text x="307" y="814" font-size="15" fill="#1F2933">Flush cutters</text>
+
+    <use xlink:href="#box" x="526" y="802"/>
+    <text x="550" y="814" font-size="15" fill="#1F2933">Practice kit</text>
+    <text x="550" y="831">through-hole parts, about $10;</text>
+    <text x="550" y="847">use it before the real board</text>
+  </g>
+
+  <!-- iron temperature -->
+  <text x="800" y="698" font-size="13" fill="#5F6B7A">Set the iron to</text>
+  <rect x="800" y="708" width="172" height="52" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <text x="886" y="729" font-size="13" fill="#5F6B7A" text-anchor="middle">leaded solder</text>
+  <text x="886" y="749" font-size="15" font-weight="700" fill="#1F2933" text-anchor="middle">350 °C (660 °F)</text>
+  <rect x="988" y="708" width="172" height="52" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"/>
+  <text x="1074" y="729" font-size="13" fill="#5F6B7A" text-anchor="middle">lead-free solder</text>
+  <text x="1074" y="749" font-size="15" font-weight="700" fill="#1F2933" text-anchor="middle">370 °C (700 °F)</text>
+
+  <!-- safety -->
+  <rect x="800" y="774" width="360" height="84" rx="6" fill="#FFFBF2" stroke="#C92A2A" stroke-width="2"/>
+  <text x="814" y="795" font-size="15" font-weight="700" fill="#C92A2A">Safety</text>
+  <g font-size="13" fill="#1F2933">
+    <text x="814" y="814">The iron is 350 °C: always back in its stand.</text>
+    <text x="814" y="831">Ventilate. Wash your hands after.</text>
+    <text x="814" y="848" font-weight="700">Never solder with the battery plugged in.</text>
+  </g>
+</svg>

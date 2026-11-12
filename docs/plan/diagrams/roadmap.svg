@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 750" width="100%"
+     font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>The build, in order</title>
+  <desc>Eight phases of the build as a left-to-right road on two rows, with the gate that must be true before each next phase, who does each phase, and the two rules of order.</desc>
+
+  <defs>
+    <!-- Flow arrowhead: the tip sits 5 px past the end of its line, so lines stop 5 px short of their target. -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10"
+            markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,1 L10,5 L0,9 Z" fill="#1F2933"/>
+    </marker>
+    <marker id="arrow-grey" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10"
+            markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,1 L10,5 L0,9 Z" fill="#5F6B7A"/>
+    </marker>
+
+    <!-- A gate: a diamond with a check mark, centred on 0,0. -->
+    <g id="gate">
+      <path d="M0,-14 L14,0 L0,14 L-14,0 Z" fill="#FFFBF2" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M-6,0 L-2,5 L6,-5" fill="none" stroke="#1F2933" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round"/>
+    </g>
+
+    <!-- A phase box, 220 x 140, drawn from its top-left corner. -->
+    <rect id="phase" width="220" height="140" rx="6" fill="#FFFBF2" stroke="#1F2933" stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- Owner tags, drawn from their top-left corner. Same colour for the same owner everywhere. -->
+    <g id="tag-builder">
+      <rect width="72" height="22" rx="11" fill="#FFD8A8" stroke="#1F2933" stroke-width="1.5"/>
+      <text x="36" y="15.5" font-size="13" font-weight="600" fill="#1F2933" text-anchor="middle">Builder</text>
+    </g>
+    <g id="tag-crew">
+      <rect width="56" height="22" rx="11" fill="#F3F0FF" stroke="#6741D9" stroke-width="1.5"/>
+      <text x="28" y="15.5" font-size="13" font-weight="600" fill="#1F2933" text-anchor="middle">Crew</text>
+    </g>
+    <g id="tag-both">
+      <rect width="56" height="22" rx="11" fill="#FFD8A8"/>
+      <path d="M28,0 H45 A11,11 0 0 1 45,22 H28 Z" fill="#F3F0FF"/>
+      <rect width="56" height="22" rx="11" fill="none" stroke="#1F2933" stroke-width="1.5"/>
+      <text x="28" y="15.5" font-size="13" font-weight="600" fill="#1F2933" text-anchor="middle">Both</text>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="750" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">The build, in order</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Eight phases. Each one ends at a gate: something that must be true before the next phase starts.</text>
+
+  <!-- ============ The wait lane: parts ship while the software is written ============ -->
+  <path d="M300,232 V128 H335" fill="none" stroke="#5F6B7A" stroke-width="1.5" stroke-dasharray="6 5"
+        marker-end="url(#arrow-grey)"/>
+  <rect x="340" y="104" width="220" height="48" rx="6" fill="#FFFBF2" stroke="#5F6B7A" stroke-width="1.5"
+        stroke-dasharray="6 5"/>
+  <text x="450" y="125" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">Meanwhile, the parts ship</text>
+  <text x="450" y="143" font-size="13" fill="#5F6B7A" text-anchor="middle">1 to 2 weeks</text>
+  <path d="M560,128 H750 V171" fill="none" stroke="#5F6B7A" stroke-width="1.5" stroke-dasharray="6 5"
+        marker-end="url(#arrow-grey)"/>
+  <rect x="611" y="117" width="88" height="22" fill="#FFFBF2"/>
+  <text x="655" y="132.5" font-size="13" fill="#5F6B7A" text-anchor="middle">parts arrive</text>
+
+  <!-- ============ Row 1: phases 0 to 3 ============ -->
+  <!-- arrows and gates between the boxes (boxes at x = 40, 340, 640, 940; gates at x = 300, 600, 900) -->
+  <g stroke="#1F2933" stroke-width="2" fill="none">
+    <path d="M260,246 H286"/>
+    <path d="M314,246 H335" marker-end="url(#arrow)"/>
+    <path d="M560,246 H586"/>
+    <path d="M614,246 H635" marker-end="url(#arrow)"/>
+    <path d="M860,246 H886"/>
+    <path d="M914,246 H935" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- gate words, under each gate, on a leader -->
+  <g stroke="#5F6B7A" stroke-width="1.25">
+    <path d="M300,260 V325"/>
+    <path d="M600,260 V325"/>
+    <path d="M900,260 V325"/>
+  </g>
+  <g fill="#5F6B7A">
+    <circle cx="300" cy="260" r="3"/>
+    <circle cx="600" cy="260" r="3"/>
+    <circle cx="900" cy="260" r="3"/>
+  </g>
+  <use xlink:href="#gate" x="300" y="246"/>
+  <use xlink:href="#gate" x="600" y="246"/>
+  <use xlink:href="#gate" x="900" y="246"/>
+  <g font-size="13" fill="#1F2933" text-anchor="middle">
+    <text x="300" y="341">Parts ordered</text>
+    <text x="600" y="341">Today's trucks show on the web;</text>
+    <text x="600" y="358">the builder approves the look</text>
+    <text x="900" y="341">Ten clean practice joints</text>
+  </g>
+
+  <!-- Phase 0 -->
+  <g transform="translate(40,176)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">0</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Decide and order</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">Pick the route, send the truck</text>
+      <text x="14" y="80">page's link, order parts</text>
+    </g>
+    <use xlink:href="#tag-builder" x="14" y="110"/>
+  </g>
+
+  <!-- Phase 1 -->
+  <g transform="translate(340,176)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">1</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Software</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">Morning job, web page,</text>
+      <text x="14" y="80">renderer, firmware, all tested</text>
+      <text x="14" y="98">without hardware</text>
+    </g>
+    <use xlink:href="#tag-crew" x="14" y="110"/>
+  </g>
+
+  <!-- Phase 2 -->
+  <g transform="translate(640,176)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">2</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Learn to solder</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">A practice kit first, then the</text>
+      <text x="14" y="80">real joints (routes B and C)</text>
+    </g>
+    <use xlink:href="#tag-builder" x="14" y="110"/>
+  </g>
+
+  <!-- Phase 3 -->
+  <g transform="translate(940,176)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">3</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Bench build</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">Screen, board and battery</text>
+      <text x="14" y="80">wired on the desk, firmware</text>
+      <text x="14" y="98">flashed</text>
+    </g>
+    <use xlink:href="#tag-both" x="14" y="110"/>
+  </g>
+
+  <!-- ============ The road wraps: phase 3 down and back to the left, through its gate ============ -->
+  <path d="M1050,316 V386 Q1050,396 1040,396 H160 Q150,396 150,406 V415" fill="none" stroke="#1F2933"
+        stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <use xlink:href="#gate" x="600" y="396"/>
+  <rect x="620" y="385" width="364" height="22" fill="#FFFBF2"/>
+  <text x="626" y="400.5" font-size="13" fill="#1F2933">The bare screen shows today's trucks from the battery alone</text>
+
+  <!-- ============ Row 2: phases 4 to 7 ============ -->
+  <g stroke="#1F2933" stroke-width="2" fill="none">
+    <path d="M260,490 H286"/>
+    <path d="M314,490 H335" marker-end="url(#arrow)"/>
+    <path d="M560,490 H586"/>
+    <path d="M614,490 H635" marker-end="url(#arrow)"/>
+    <path d="M860,490 H886"/>
+    <path d="M914,490 H935" marker-end="url(#arrow)"/>
+    <path d="M1050,560 V577" marker-end="url(#arrow)"/>
+  </g>
+
+  <g stroke="#5F6B7A" stroke-width="1.25">
+    <path d="M300,504 V569"/>
+    <path d="M600,504 V569"/>
+    <path d="M900,504 V569"/>
+  </g>
+  <g fill="#5F6B7A">
+    <circle cx="300" cy="504" r="3"/>
+    <circle cx="600" cy="504" r="3"/>
+    <circle cx="900" cy="504" r="3"/>
+  </g>
+  <use xlink:href="#gate" x="300" y="490"/>
+  <use xlink:href="#gate" x="600" y="490"/>
+  <use xlink:href="#gate" x="900" y="490"/>
+  <g font-size="13" fill="#1F2933" text-anchor="middle">
+    <text x="300" y="585">The drain matches the estimate</text>
+    <text x="300" y="602">(or we know why not)</text>
+    <text x="600" y="585">A test print of just the window</text>
+    <text x="600" y="602">wall fits the screen</text>
+    <text x="900" y="585">It updates from inside</text>
+    <text x="900" y="602">the closed truck</text>
+  </g>
+
+  <!-- the last gate: done -->
+  <use xlink:href="#gate" x="1050" y="596"/>
+  <text x="1072" y="601.5" font-size="15" font-weight="700" fill="#1F2933">Done</text>
+
+  <!-- Phase 4 -->
+  <g transform="translate(40,420)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">4</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Power check</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">A week on the bench; the truck</text>
+      <text x="14" y="80">reports its battery voltage</text>
+      <text x="14" y="98">each morning</text>
+    </g>
+    <use xlink:href="#tag-both" x="14" y="110"/>
+  </g>
+
+  <!-- Phase 5 -->
+  <g transform="translate(340,420)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">5</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Model</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">Measure the real parts with</text>
+      <text x="14" y="80">calipers; model the sled, then</text>
+      <text x="14" y="98">the truck around it</text>
+    </g>
+    <use xlink:href="#tag-builder" x="14" y="110"/>
+  </g>
+
+  <!-- Phase 6 -->
+  <g transform="translate(640,420)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">6</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Print and assemble</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">Print, paint, fit the sled,</text>
+      <text x="14" y="80">close the roof</text>
+    </g>
+    <use xlink:href="#tag-builder" x="14" y="110"/>
+  </g>
+
+  <!-- Phase 7 -->
+  <g transform="translate(940,420)">
+    <use xlink:href="#phase"/>
+    <circle cx="26" cy="27" r="13" fill="#1F2933"/>
+    <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">7</text>
+    <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Live with it</text>
+    <g font-size="13" fill="#1F2933">
+      <text x="14" y="62">Two weeks on the desk; tune</text>
+      <text x="14" y="80">the layout and the wake time</text>
+    </g>
+    <use xlink:href="#tag-both" x="14" y="110"/>
+  </g>
+
+  <!-- ============ The two rules of order (accent call-outs) ============ -->
+  <path d="M450,632 V560" stroke="#E8590C" stroke-width="1.25" fill="none"/>
+  <circle cx="450" cy="560" r="3" fill="#E8590C"/>
+  <rect x="315" y="632" width="270" height="74" rx="6" fill="#FFFBF2" stroke="#E8590C" stroke-width="2"/>
+  <text x="450" y="656" font-size="15" font-weight="700" fill="#E8590C" text-anchor="middle">Don't model before the parts</text>
+  <text x="450" y="675" font-size="15" font-weight="700" fill="#E8590C" text-anchor="middle">are in your hands</text>
+  <text x="450" y="694" font-size="13" fill="#5F6B7A" text-anchor="middle">Measure the real screen.</text>
+
+  <path d="M750,632 V560" stroke="#E8590C" stroke-width="1.25" fill="none"/>
+  <circle cx="750" cy="560" r="3" fill="#E8590C"/>
+  <rect x="615" y="632" width="270" height="74" rx="6" fill="#FFFBF2" stroke="#E8590C" stroke-width="2"/>
+  <text x="750" y="656" font-size="15" font-weight="700" fill="#E8590C" text-anchor="middle">Don't close the truck before</text>
+  <text x="750" y="675" font-size="15" font-weight="700" fill="#E8590C" text-anchor="middle">it has run a week on the bench</text>
+  <text x="750" y="694" font-size="13" fill="#5F6B7A" text-anchor="middle">That week is phase 4, the power check.</text>
+
+  <!-- ============ Legend ============ -->
+  <text x="40" y="646" font-size="13" fill="#5F6B7A">Who does it</text>
+  <use xlink:href="#tag-builder" x="40" y="656"/>
+  <use xlink:href="#tag-crew" x="122" y="656"/>
+  <use xlink:href="#tag-both" x="188" y="656"/>
+  <g transform="translate(51,700) scale(0.7)">
+    <use xlink:href="#gate"/>
+  </g>
+  <text x="68" y="704.5" font-size="13" fill="#5F6B7A">Gate: true before the next phase</text>
+</svg>
