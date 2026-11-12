@@ -81,10 +81,15 @@ All three use the same screen, the same truck and the same software.
 
 | | Route A: plug together | Route B: a little soldering (recommended) | Route C: solder everything |
 |---|---|---|---|
-| For | No soldering at all | Learning to solder on easy joints | Smallest, cheapest, most hand work |
-| Parts | See section 10 | See section 10 | See section 10 |
+| For | No soldering at all | Learning to solder on easy joints | Smallest and neatest, most hand work |
+| Main board | Seeed XIAO ePaper Display Board EE04 (the ribbon plugs straight in) | DFRobot FireBeetle 2 ESP32-E | Seeed XIAO ESP32-S3 |
+| Screen adapter | built into the board | Waveshare's, with its 8-wire cable | Good Display DESPI-C73, passive |
+| Soldering | none | two rows of header pins | eight wires, battery leads, two resistors, a switch |
+| Asleep, whole board | not published | 11.6 µA measured (pad cut) | 12 to 13 µA measured |
+| Cost | about $85 | about $105 + $45 soldering kit | about $90 + $45 soldering kit |
+| Main unknown | battery life unproven | whether the adapter leaks while asleep | fine soldering on small pads |
 
-(Section 10 holds the parts for each route.)
+Section 10 holds the full parts list for each route.
 
 ## 7. Battery and how long a charge lasts
 
@@ -123,11 +128,174 @@ check that the office network has a 2.4 GHz band.
 
 ## 9. The truck (mechanical)
 
-See the mechanical section added below once the panel's drawing is confirmed.
+These are target numbers for the model, worked out from the screen's datasheet drawing. The builder measures the real
+parts before modelling (phase 5) and the real parts win.
+
+**Axes for every drawing.** x runs along the truck from the rear face (x = 0) to the front (x = 229). y runs across
+it from the serving-side outer face (y = 0) to the far side (y = 127). z runs up from the desk (z = 0) to the roof top
+(z = 152). The truck faces right in a side view, so the side we see is the kerb side, where a real truck serves.
+
+**Envelope.** 229 long x 127 wide x 152 tall mm (9.0 x 5.0 x 6.0 in). Walls, floor and roof 2.4 mm thick.
+
+**Why it is tight in height.** The screen's glass is 111.2 mm tall and stands upright in the side wall. Under it go
+the wheels; over it goes the roof. 152 mm works with 32 mm wheels and leaves about 2 mm spare. A truck 155 mm tall
+(6.1 in) would be more forgiving.
+
+### The screen panel, as mounted (landscape, ribbon cable at the bottom)
+
+| | mm |
+|---|---|
+| Glass outline | 170.2 wide x 111.2 tall x 0.91 thick |
+| Picture area | 160.0 x 96.0 |
+| Dead border, top | 4.7 |
+| Dead border, bottom (the ribbon edge) | 10.5 |
+| Dead border, left and right | 5.1 each |
+| Ribbon cable | leaves the bottom edge at its centre; 25.5 wide, 24 long, 50 contacts; may only bend in the 5.5 mm next to the glass |
+| Glue bump where the ribbon joins the glass | up to 1.2 high, on the back |
+| Weight | 34.5 g |
+| Handling | never press on the glass; keep out of direct sun; works from 0 to 50 °C |
+
+### Where things are (x, y, z in mm)
+
+| Thing | x | y | z |
+|---|---|---|---|
+| Body underside (ground clearance 9) | 0 to 229 | 0 to 127 | 9 |
+| Chassis zone (floor, wheel wells) | 0 to 229 | 0 to 127 | 9 to 36 |
+| Wheels, four: 32 diameter x 12 wide, cosmetic, axle at z = 16 | centres at 46 (rear) and 183 (front) | 0 to 12 and 115 to 127 | 0 to 32 |
+| Wheel wells, four: 38 long x 14 deep, open to the outside | 27 to 65 and 164 to 202 | 0 to 14 and 113 to 127 | 9 to 36 (top surface at 36) |
+| Body shell walls | 0 to 229 | 0 to 127 | 36 to 149.6 |
+| Roof lid (lifts off; four magnet pairs, 6 dia x 3) | 0 to 229 | 0 to 127 | 149.6 to 152 |
+| Cab (windscreen, driver's door) | 185 to 229 | | |
+| Serving wall, inner face | | 2.4 | |
+| Air gap between wall and glass | | 2.4 to 2.9 | |
+| Screen glass | 12.0 to 182.2 | 2.9 to 3.8 | 36.5 to 147.7 |
+| Picture area | 17.1 to 177.1 | | 47.0 to 143.0 |
+| Window opening in the wall: 161 x 97, edges chamfered 45° opening outward | 16.6 to 177.6 | 0 to 2.4 | 46.5 to 143.5 |
+| Sled backboard: 176 x 112.5 x 3 plate | 9.1 to 185.1 | 3.8 to 6.8 | 36 to 148.5 |
+| Ribbon cable, at the glass edge | 84.2 to 109.7 | | folds back under the glass at z = 36.5 |
+| Electronics on the back of the sled (keep-out depth) | 4 to 185 | 6.8 to 37 | 36 to 148.5 |
+| Empty cavity beyond | 2.4 to 226.6 | 37 to 124.6 | 11.4 to 149.6 |
+| Charging hole in the rear wall: 13 x 7.5 slot for a USB-C plug | 0 to 2.4 | centre 13 | centre 68 |
+
+Left over round the window on the outside: 8.5 mm of wall above it (room for an awning), 37.5 mm below it (the lower
+body, with the wheel arches), 16.6 mm behind it and 51.4 mm in front of it (the cab).
+
+### The electronics sled
+
+Everything electrical lives on one removable printed plate, the **sled**. It is built and tested on the bench as a
+complete working unit before any truck exists, then drops into the truck from the top with the roof off. The truck
+itself is plain plastic and can be reprinted or repainted without touching the electronics.
+
+- **Front face:** the screen glass lies in a pocket 1 mm deep (170.7 x 111.7, so 0.25 mm clear all round), held by
+  two strips of thin double-sided tape on its back. Nothing clamps the glass.
+- **Bottom centre:** a cut-out 30 wide x 6 tall, where the ribbon folds back to the rear face (a relaxed U, about
+  2 mm radius, inside the 5.5 mm bend zone). It hangs into the free space between the wheel wells (x = 65 to 164).
+- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its socket within 10 mm of the cut-out.
+- **Rear face, towards the rear of the truck:** the main board on 3 mm standoffs, its USB-C port facing the rear wall
+  and lining up with the charging hole (x = 4 to 64, z = 55 to 80 for the 25.4 x 60 board of route B).
+- **Rear face, towards the front:** the battery (50 x 60 x 7.3) in a printed pocket with a soft strap, 1 mm clear all
+  round so it can swell; never clamped, never near a screw point (x = 115 to 175, z = 40 to 90).
+- **In the truck:** the sled stands on the tops of the two serving-side wheel wells (z = 36). Each end slides down a
+  vertical U-channel printed on the inside of the serving wall (channels grip 2.5 mm of the plate at x = 9.1 and
+  x = 185.1), which sets the glass 0.5 mm behind the wall without touching it. The roof lid holds it down.
+- **On the bench:** lay the sled face up or sit it in a printed stand; never stand it on the ribbon.
+
+### Printed parts
+
+| Part | Size (mm) | Notes |
+|---|---|---|
+| Chassis | 229 x 127 x 27 | floor, four wheel wells, bumpers; prints flat |
+| Body shell | 229 x 127 x 113.6 | four walls, window, cab, charging hole; open top and bottom, or one piece with the chassis |
+| Roof lid | 229 x 127 x 2.4 plus a 1.5 lip | four magnet pockets; vents and an A/C box on top are extra height |
+| Sled backboard | 176 x 112.5 x 3 plus standoffs and battery pocket | prints flat, face down |
+| Wheels | 32 dia x 12, four | pegged or glued; they do not turn |
+| Awning, counter, details | free | |
+
+Printing notes for the modeller:
+- **Bed size.** The body is 229 mm long. It fits a 250 mm or 256 mm bed; on a 220 mm bed, split it at the cab seam
+  (x = 185).
+- **The window's top edge** is a 161 mm bridge if the body prints upright. Either print with supports in the window,
+  or print the serving wall as its own flat part (best flatness for the screen), or lay the body on its far side.
+- **Test first.** Before the full print, print a 20 mm deep slice of the serving wall with the window and the two
+  channels, and try the sled in it.
+
+Other hardware: eight magnets 6 dia x 3; M2.5 x 6 screws for the boards; thin double-sided tape; a strip of 1 mm
+foam tape.
 
 ## 10. Parts per route
 
-See the parts section added below once the driver boards are confirmed.
+All three use the same screen (section 5), the same sled and truck, the same battery and the same software.
+Prices are approximate, November 2026; Waveshare's own site could not be read, so its prices are from resellers.
+
+### Route A: plug together, no soldering
+
+| Part | What it is | About |
+|---|---|---|
+| Bare 7.3 inch Spectra 6 panel (Waveshare 7.3inch e-Paper (E), raw panel) | the screen | $60 |
+| Seeed Studio XIAO ePaper Display Board EE04 | one small board with everything: the socket the screen's ribbon plugs straight into, the Wi-Fi chip (a XIAO ESP32-S3 Plus, included), a battery plug, a charger and a power switch; reads the battery level itself | $9.90 |
+| 2500 mAh LiPo with 2 mm JST plug | the battery | $15 |
+
+Three plugs: ribbon into board, battery into board, USB-C to charge. Total about **$85**.
+Unknowns: Seeed publishes no sleep current for this board (it says "typically 3 months", without saying how often it
+redraws), so battery life is unproven until the bench check. Seeed's page does not say whether the small Wi-Fi board
+arrives already soldered on: check before ordering. The board's size is not published; its USB-C port may not reach
+the rear wall, in which case charge with the roof off or add a short USB-C extension lead.
+
+Also possible, not recommended: a finished unit, the Seeed reTerminal E1002 ($99: the same screen, a 2000 mAh battery
+and the board in a metal case 176 x 120 x 17 mm). It needs a truck about 160 mm tall, there is no report of it being
+opened, and no measured battery life at one redraw a day.
+
+### Route B: a little soldering (recommended)
+
+| Part | What it is | About |
+|---|---|---|
+| Waveshare 7.3inch e-Paper HAT (E) set | the screen, its small adapter board, and a cable with eight loose plug ends | $80 |
+| DFRobot FireBeetle 2 ESP32-E | the main board: Wi-Fi chip, battery plug, charger, USB-C; 25.4 x 60 mm; sleeps at 11.6 µA once its low-power pad is cut (520 µA if not) | $8.90 |
+| 2500 mAh LiPo with 2 mm JST plug (Adafruit #328) | the battery | $14.95 |
+| Soldering kit (section 12) | iron, solder, practice kit and the rest | $45 |
+
+The soldering: two rows of header pins onto the FireBeetle (plain through-hole joints, the classic first job). Then
+the cable's eight ends push onto the pins, and the battery plugs in. One cut with a craft knife opens the low-power
+pad. Total about **$105 plus the soldering kit**.
+Unknown: whether the Waveshare adapter itself draws current while asleep (later versions carry a voltage shifter).
+The bench check finds out; the fix, if needed, is a passive adapter (Good Display DESPI-C73, 47 x 32 mm).
+
+### Route C: solder everything
+
+| Part | What it is | About |
+|---|---|---|
+| Bare 7.3 inch Spectra 6 panel | the screen | $60 |
+| Good Display DESPI-C73 | passive adapter, ribbon socket to eight solder points; 47 x 32 mm | price not listed |
+| Seeed XIAO ESP32-S3 | thumbnail-sized main board, 21 x 17.8 mm, with charger; measured asleep at 12 to 13 µA | $7.49 |
+| 2000 to 2500 mAh LiPo | the battery, its two leads soldered to pads under the board | $12.50 to $15 |
+| Two 200 kΩ resistors, a slide switch, thin wire | battery-level sensing and an off switch | $5 |
+| Soldering kit (section 12) | | $45 |
+
+The soldering: eight wires point to point between adapter and board, the battery leads onto two small pads (the
+fiddly part), two resistors and a switch. Total about **$90 plus the soldering kit**. Smallest and neatest; a good
+second build once route B's joints feel easy.
+
+### The eight wires (routes B and C)
+
+Go by the names printed on the adapter board, not by wire colours. The pins on the main board are the firmware's
+planned choice and get confirmed on the bench.
+
+| Adapter pin | Carries | Route B: FireBeetle 2 ESP32-E pin | Route C: XIAO ESP32-S3 pin |
+|---|---|---|---|
+| VCC | 3.3 V power to the screen | 3V3 | 3V3 |
+| GND | ground | GND | GND |
+| DIN | picture data | 23 (MOSI) | D10 (MOSI) |
+| CLK | data clock | 18 (SCK) | D8 (SCK) |
+| CS | "listen to me" select | 13 | D1 |
+| DC | data or command | 22 | D3 |
+| RST | reset the screen | 21 | D4 |
+| BUSY | screen says "still redrawing" | 14 | D5 |
+
+Route C also: battery + and − to the BAT pads under the XIAO (through the slide switch on +), and the two 200 kΩ
+resistors in series from battery + to GND with their midpoint to pin A0, so the board can read the battery level.
+
+**Battery plug warning (all routes):** before the first plug-in, check that the battery's red wire meets the board's
++ mark. Battery makers disagree on which side is +, and a reversed battery destroys the board.
 
 ## 11. The build, in order
 
