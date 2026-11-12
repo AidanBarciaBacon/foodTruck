@@ -286,7 +286,8 @@ describe("build", () => {
     assert.equal(told.status.bytes, 192000);
     assert.equal(told.warned.length, 1);
     assert.match(told.warned[0], /Warning: the truck list could not be read \(the feed answered 503\)/);
-    assert.deepEqual(told.calls.at(-1), ["nextWake", { now: NOW, marketDates: [] }]);
+    // After a feed error the truck is told to look again tomorrow morning, not in a week.
+    assert.deepEqual(told.calls.at(-1), ["nextWake", { now: NOW, marketDates: ["2026-11-13"] }]);
 
     // Even if loadToday throws, which the contract says it does not.
     const thrown = await run({

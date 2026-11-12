@@ -8,7 +8,7 @@ here first, then in the code. `docs/plan/SPEC.md` sections 2, 2a, 3 and 4 say wh
 ## Layout
 
 ```
-job/                      the morning job (Node 20+, ES modules, no build step)
+job/                      the morning job (Node 22.12+, ES modules, no build step)
   package.json            scripts: test, build      (owned by the renderer part)
   build.mjs               runs the whole job, writes dist/
   lib/trucks.mjs          truck data
@@ -23,8 +23,8 @@ firmware/                 PlatformIO project for the FireBeetle 2 ESP32-E
 .github/workflows/        the schedule
 ```
 
-Runtime dependencies are kept to two: `puppeteer-core` (drives the Chrome already on the machine) and `pngjs`.
-Tests use `node --test` only.
+The one runtime dependency is `puppeteer-core` (it drives the Chrome already on the machine); PNGs are read and
+written with small routines on `node:zlib`. Tests use `node --test` only.
 
 ## The published files (in `dist/`, all at one base address)
 
@@ -73,7 +73,7 @@ Tests use `node --test` only.
   "hash": "9f2c4a7d1b3e5f60",
   "bytes": 192000,
   "generatedAt": 1794493864,
-  "nextWake": 1794841200
+  "nextWake": 1794582000
 }
 ```
 
@@ -113,7 +113,13 @@ The truck wakes only when the picture would change:
    the morning after, to show the "back on ..." card.
 
 The morning job runs every day at about 6:30 AM Pacific. `nextWake` is always after "now" and never more than
-14 days away (if the feed publishes nothing in the next 14 days, wake in 7 days and look again).
+14 days away (if the feed publishes nothing in the next 14 days, wake in 7 days and look again). When the feed
+could not be read, the truck is told to look again at 7:00 AM tomorrow.
+
+**What the job publishes** is the first wake strictly after this morning's 7:00 AM (`publishedWake`), because the
+truck that reads the file made at 6:31 is the one waking at 7:00: it must be sent to its next wake, not to "now".
+So Monday's file says Tuesday 7:00 AM, Thursday's says Friday 7:00 AM (the "back Monday" card), Friday's says
+Monday 7:00 AM.
 
 ## The page
 
@@ -125,6 +131,9 @@ The morning job runs every day at about 6:30 AM Pacific. `nextWake` is always af
 - **The battery corner.** The footer is solid black across the rectangle **x 744 to 784, y 452 to 472** (40 x 20
   pixels) and the page draws nothing there. The truck stamps its battery mark into it.
 - Up to four trucks at full size; five or six shrink to fit; beyond six the last row reads "+N more".
+- **Colours that must not touch.** Yellow on blue, red on blue and red on green blend through dull greys at their
+  edges, which snap to stray black or white pixels. Put black or white between those pairs. Text is black or white,
+  on any of the six.
 - The layout follows `docs/plan/diagrams/screen-layout.svg`. It only has to be correct and readable for now: the
   user has said the design gets real work later, once the hardware runs.
 
@@ -139,6 +148,7 @@ export async function loadToday({ now = new Date(), fetchImpl = fetch, days = 14
 
 // job/lib/schedule.mjs
 export function nextWake({ now, marketDates });                        // -> Unix seconds, by the rules above
+export function publishedWake({ now, marketDates });                   // -> Unix seconds: what status.json carries (the wake after this morning's)
 
 // job/lib/quantise.mjs
 export const PALETTE;                                                  // [{ name, code, rgb: [r, g, b] }, ...] the table above

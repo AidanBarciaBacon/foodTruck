@@ -18,26 +18,33 @@ the plan and, later, the software (the morning job, the web page, the renderer, 
   it is shown.
 - `bash docs/plan/build-review.sh` builds the plan's Review Desk page (it prints the send line).
 
-**State at install (2026-11-12): no code yet.** There is no source, no `package.json` and no git remote. So
-`.claude/coord.conf` sets nothing yet, each for a plain reason:
+- `job/` is the morning job (Node 22.12+): it reads Off the Grid's feed and writes the page, the six-colour
+  picture and `status.json` into `dist/`. `docs/software/CONTRACT.md` is what the job, the page and the firmware
+  agree on: change it there first. `cd job && npm ci && npm test`, and `node job/build.mjs` runs it for real.
+- `firmware/` is the truck's program (PlatformIO, FireBeetle 2 ESP32-E). `firmware/README.md` says how to build it.
+- `docs/guide/` is the printable step-by-step guide; `bash docs/guide/build-pdf.sh` prints it to the Desktop.
+
+What `.claude/coord.conf` sets:
 
 | Setting | Value | Why |
 |---|---|---|
-| `CHECK_TYPECHECK`, `CHECK_TEST` | empty | No code and no test runner. `coord.sh check` passes without running anything, so a green check means nothing here yet. |
-| `CHECK_PATH_PREPEND` | empty | No tools directory. |
-| `SHARED_TREES` | empty | No source trees. `git add <repo root>` is refused all the same; stage explicit paths. |
-| `BUILD_PATTERNS` | empty | No build, so no build lock. |
-| `PUBLISH_PATTERNS` | empty | Nothing to publish beyond `git push`, and there is no remote to push to. |
-| `INSTALL_PATTERNS` | empty | The project installs nothing on this Mac. |
-| `COORD_SIBLINGS_CONF` | empty | No reference repo is read from here yet. |
+| `CHECK_TYPECHECK` | empty | The job is plain JavaScript; there is nothing to typecheck. |
+| `CHECK_TEST` | `bt test-cache --package job` | The job's `node --test` suite, re-running only the files whose inputs changed. The firmware is not part of the check: it needs PlatformIO's toolchain and takes minutes. |
+| `SHARED_TREES` | `job`, `job/lib`, `job/test`, `firmware`, `firmware/src`, `docs/plan/diagrams` | Stage the files you changed, never these folders whole. |
+| `BUILD_PATTERNS` | empty | The job's build writes only `dist/`, which is git-ignored and cheap; no build lock. |
+| `PUBLISH_PATTERNS` | empty | The picture is published by the GitHub workflow, not from this Mac. `git push` is the supervisor's as always. |
+| `INSTALL_PATTERNS` | empty | PlatformIO installs into `firmware/.venv` and `~/.platformio`; nothing is gated. |
+| `COORD_SIBLINGS_CONF` | empty | No reference repo. |
 | `PANE_POPUPS` | empty (the default) | A corner's question goes through the supervisor. |
 
 ### Rules of this project's own
 
-- **Whoever scaffolds the project fills in `.claude/coord.conf` in the same commit**, and updates the table above:
-  the real typecheck and test commands, the source trees as `SHARED_TREES`, the build command as `BUILD_PATTERNS`
-  when sessions would share its output, and any reference repo it copies from as `COORD_SIBLINGS_CONF`. Until then
-  no check guards the tree: say so when reporting work as checked.
-- **There is no remote.** Creating a GitHub repo waits for the user's word (the shared rules, "Panes commit; the
-  supervisor takes work out"); until one exists, "taking work out" stops at the local commit on `main`.
+- **The feed is read once a morning, and that is all.** Off the Grid's `robots.txt` asks crawlers to stay off the
+  feed's host; the user chose to read it anyway, for one small request a day. Tests never touch the network (they
+  use the fixture in `job/test/fixtures/`), and nobody loops over the feed while developing: one request, saved to
+  a scratch file, then work from the file.
+- **The remote is `github.com/AidanBarciaBacon/foodTruck`, private.** Making it public, or enabling Pages, waits
+  for the user's word.
 - **`main` is the only branch**, and the panes commit to it in this checkout.
+- **Nothing here is proven on hardware yet.** Say "compiles" or "tested without hardware", never "works", about
+  the firmware until the user has run it on the bench.

@@ -184,6 +184,15 @@ export function errorToday(now, reason) {
 // The job
 
 const LIB_FILES = { loadToday: "trucks.mjs", nextWake: "schedule.mjs", quantise: "quantise.mjs", pack: "pack.mjs", toPng: "pack.mjs" };
+// What status.json carries is the wake AFTER this morning's (the truck reading a file made at 6:31 is the one waking
+// at 7:00: see "What the job publishes" in docs/software/CONTRACT.md), so the "nextWake" part is schedule.mjs's
+// publishedWake().
+const LIB_EXPORTS = { nextWake: "publishedWake" };
+
+/** A Date's day in America/Los_Angeles, as YYYY-MM-DD. */
+function pacificDay(date) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit" }).format(date);
+}
 
 /** The other parts' functions, by the contract's names: from `given` first, else imported from the `lib` folder. */
 async function loadParts(lib, given, names) {
@@ -195,8 +204,9 @@ async function loadParts(lib, given, names) {
     }
     const file = path.join(lib, LIB_FILES[name]);
     const module = await import(pathToFileURL(file).href);
-    if (typeof module[name] !== "function") throw new Error(`${file} does not export ${name}()`);
-    parts[name] = module[name];
+    const exported = LIB_EXPORTS[name] ?? name;
+    if (typeof module[exported] !== "function") throw new Error(`${file} does not export ${exported}()`);
+    parts[name] = module[exported];
   }
   return parts;
 }
@@ -259,6 +269,9 @@ export async function build({
   }
   today = { ...today, pageUrl: pageUrl ?? (process.env.PAGE_URL || today.pageUrl || "") };
   if (today.state === "error") {
+    // With no market dates the schedule would sleep the truck for a week under the "couldn't read" card. Look again
+    // tomorrow morning instead: the feed is usually back by then.
+    dates = [pacificDay(new Date(now.getTime() + 24 * 3600 * 1000))];
     warn(
       `Warning: the truck list could not be read (${today.error ?? "no reason given"}). ` +
         `The picture will say "Couldn't read the truck list today".`,
