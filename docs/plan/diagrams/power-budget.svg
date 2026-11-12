@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1200 750" width="100%"
+     font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+     role="img" aria-labelledby="pb-title pb-desc">
+  <title id="pb-title">Where the battery goes, and how long a charge lasts</title>
+  <desc id="pb-desc">Stacked horizontal bars of estimated battery drain in mAh per day, on 2000 mAh usable, for four
+    scenarios. Each bar is self-discharge, then sleeping, then waking and redrawing.
+    Baseline: 2.47 + 0.36 + 0.57 = 3.40 mAh per day, 588 days, 19 months.
+    If a redraw costs 2.8 mAh: 2.47 + 0.36 + 2.00 = 4.83 mAh per day, 414 days, 14 months.
+    Three redraws a day, every day: 2.47 + 0.36 + 2.40 = 5.23 mAh per day, 382 days, 13 months.
+    Low-power pad not cut: 2.47 + 12.48 + 0.57 = 15.52 mAh per day, 129 days, 4 months.
+    For scale, a Raspberry Pi with a 5 inch LCD draws about 2.7 W and runs about 12 hours on a 10,000 mAh battery.</desc>
+
+  <!-- Scale: x = 360 + 38 * (mAh per day). Bars 24 px thick, 2 px paper gap between segments. -->
+
+  <rect x="0" y="0" width="1200" height="750" fill="#FFFBF2"/>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Where the battery goes, and how long a charge lasts</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Estimated drain per day in four scenarios, on 2000 mAh usable (80% of the 2500 mAh battery). Shorter bar, longer between charges.</text>
+
+  <!-- Axis: zero line, bottom rule, ticks every 2 mAh per day -->
+  <g stroke="#B8C0CC" stroke-width="1" fill="none">
+    <line x1="359.5" y1="198" x2="359.5" y2="518"/>
+    <line x1="359.5" y1="518.5" x2="968" y2="518.5"/>
+    <line x1="360" y1="518" x2="360" y2="524"/>
+    <line x1="436" y1="518" x2="436" y2="524"/>
+    <line x1="512" y1="518" x2="512" y2="524"/>
+    <line x1="588" y1="518" x2="588" y2="524"/>
+    <line x1="664" y1="518" x2="664" y2="524"/>
+    <line x1="740" y1="518" x2="740" y2="524"/>
+    <line x1="816" y1="518" x2="816" y2="524"/>
+    <line x1="892" y1="518" x2="892" y2="524"/>
+    <line x1="968" y1="518" x2="968" y2="524"/>
+  </g>
+  <g font-size="13" fill="#5F6B7A" text-anchor="middle">
+    <text x="360" y="541">0</text>
+    <text x="436" y="541">2</text>
+    <text x="512" y="541">4</text>
+    <text x="588" y="541">6</text>
+    <text x="664" y="541">8</text>
+    <text x="740" y="541">10</text>
+    <text x="816" y="541">12</text>
+    <text x="892" y="541">14</text>
+    <text x="968" y="541">16</text>
+  </g>
+  <text x="360" y="563" font-size="13" fill="#5F6B7A">mAh used per day</text>
+
+  <!-- Row 1: baseline. 2.47 + 0.36 + 0.57 = 3.40 -->
+  <text x="40" y="219" font-size="15" font-weight="600" fill="#1F2933">Baseline</text>
+  <text x="40" y="238" font-size="13" fill="#5F6B7A">weekdays only, 0.8 mAh a redraw (est.), pad cut</text>
+  <rect x="361" y="211" width="90.86" height="22" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round">
+    <title>Baseline: the battery's own self-discharge, 2.47 mAh per day</title>
+  </rect>
+  <rect x="454.86" y="210" width="11.68" height="24" fill="#5F6B7A">
+    <title>Baseline: sleeping, 0.36 mAh per day</title>
+  </rect>
+  <path d="M468.54,210 H485.2 Q489.2,210 489.2,214 V230 Q489.2,234 485.2,234 H468.54 Z" fill="#E8590C">
+    <title>Baseline: waking and redrawing, 0.57 mAh per day (est.)</title>
+  </path>
+  <text x="499.2" y="227.5" font-size="16" font-weight="700" fill="#1F2933">19 months<tspan dx="10" font-size="13" font-weight="400" fill="#5F6B7A">3.40 mAh a day</tspan></text>
+
+  <!-- Row 1 direct labels, with leaders -->
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M406.9,217 V139.5 H415"/>
+    <path d="M460.7,217 V161.5 H469"/>
+    <path d="M478.9,217 V183.5 H487"/>
+  </g>
+  <g fill="#1F2933" stroke="#FFFBF2" stroke-width="1.5">
+    <circle cx="406.9" cy="217" r="3"/>
+    <circle cx="460.7" cy="217" r="3"/>
+    <circle cx="478.9" cy="217" r="3"/>
+  </g>
+  <text x="419" y="144" font-size="15" fill="#1F2933">The battery's own self-discharge, 3% a month: <tspan font-weight="700">2.47</tspan></text>
+  <text x="473" y="166" font-size="15" fill="#1F2933">Sleeping: <tspan font-weight="700">0.36</tspan></text>
+  <text x="491" y="188" font-size="15" fill="#1F2933">Waking and redrawing: <tspan font-weight="700">0.57</tspan> (est.)</text>
+
+  <!-- Row 1 note: point 1 -->
+  <text x="760" y="212" font-size="15" font-weight="600" fill="#1F2933">Self-discharge is the biggest drain.</text>
+  <text x="760" y="232" font-size="13" fill="#5F6B7A">The electronics barely register, so a bigger battery</text>
+  <text x="760" y="249" font-size="13" fill="#5F6B7A">buys little: its self-discharge grows with it.</text>
+
+  <!-- Row 2: a redraw costs 2.8 mAh. 2.47 + 0.36 + 2.00 = 4.83 -->
+  <text x="40" y="307" font-size="15" font-weight="600" fill="#1F2933">If a redraw costs 2.8 mAh</text>
+  <text x="40" y="326" font-size="13" fill="#5F6B7A">worst published figure, from a 13 inch screen</text>
+  <rect x="361" y="299" width="90.86" height="22" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round">
+    <title>If a redraw costs 2.8 mAh: the battery's own self-discharge, 2.47 mAh per day</title>
+  </rect>
+  <rect x="454.86" y="298" width="11.68" height="24" fill="#5F6B7A">
+    <title>If a redraw costs 2.8 mAh: sleeping, 0.36 mAh per day</title>
+  </rect>
+  <path d="M468.54,298 H539.54 Q543.54,298 543.54,302 V318 Q543.54,322 539.54,322 H468.54 Z" fill="#E8590C">
+    <title>If a redraw costs 2.8 mAh: waking and redrawing, 2.00 mAh per day</title>
+  </path>
+  <text x="506" y="291" font-size="13" font-weight="600" fill="#1F2933" text-anchor="middle">2.00</text>
+  <text x="553.54" y="315.5" font-size="16" font-weight="700" fill="#1F2933">14 months<tspan dx="10" font-size="13" font-weight="400" fill="#5F6B7A">4.83 mAh a day</tspan></text>
+
+  <!-- Row 3: three redraws a day, every day. 2.47 + 0.36 + 2.40 = 5.23 -->
+  <text x="40" y="395" font-size="15" font-weight="600" fill="#1F2933">Three redraws a day, every day</text>
+  <text x="40" y="414" font-size="13" fill="#5F6B7A">0.8 mAh each (est.)</text>
+  <rect x="361" y="387" width="90.86" height="22" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round">
+    <title>Three redraws a day: the battery's own self-discharge, 2.47 mAh per day</title>
+  </rect>
+  <rect x="454.86" y="386" width="11.68" height="24" fill="#5F6B7A">
+    <title>Three redraws a day: sleeping, 0.36 mAh per day</title>
+  </rect>
+  <path d="M468.54,386 H554.74 Q558.74,386 558.74,390 V406 Q558.74,410 554.74,410 H468.54 Z" fill="#E8590C">
+    <title>Three redraws a day: waking and redrawing, 2.40 mAh per day (est.)</title>
+  </path>
+  <text x="513.6" y="379" font-size="13" font-weight="600" fill="#1F2933" text-anchor="middle">2.40</text>
+  <text x="568.74" y="403.5" font-size="16" font-weight="700" fill="#1F2933">13 months<tspan dx="10" font-size="13" font-weight="400" fill="#5F6B7A">5.23 mAh a day</tspan></text>
+
+  <!-- Row 4: pad not cut. 2.47 + 12.48 + 0.57 = 15.52 -->
+  <text x="40" y="483" font-size="15" font-weight="600" fill="#1F2933">Low-power pad NOT cut</text>
+  <text x="40" y="502" font-size="13" fill="#5F6B7A">board left as shipped, 520 µA asleep</text>
+  <rect x="361" y="475" width="90.86" height="22" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round">
+    <title>Pad not cut: the battery's own self-discharge, 2.47 mAh per day</title>
+  </rect>
+  <rect x="454.86" y="474" width="472.24" height="24" fill="#5F6B7A">
+    <title>Pad not cut: sleeping, 12.48 mAh per day</title>
+  </rect>
+  <path d="M929.1,474 H945.76 Q949.76,474 949.76,478 V494 Q949.76,498 945.76,498 H929.1 Z" fill="#E8590C">
+    <title>Pad not cut: waking and redrawing, 0.57 mAh per day (est.)</title>
+  </path>
+  <text x="466" y="490.5" font-size="13" font-weight="600" fill="#FFFBF2">Sleeping: 12.48 (520 µA asleep, not 15 µA)</text>
+  <text x="959.76" y="491.5" font-size="16" font-weight="700" fill="#1F2933">4 months<tspan dx="10" font-size="13" font-weight="400" fill="#5F6B7A">15.52 mAh a day</tspan></text>
+
+  <!-- Row 4 call-out: point 2 -->
+  <path d="M768,427 L776,441 H760 Z" fill="#C92A2A" stroke="#C92A2A" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="767.1" y="431" width="1.8" height="5.2" fill="#FFFBF2"/>
+  <rect x="767.1" y="437.4" width="1.8" height="1.8" fill="#FFFBF2"/>
+  <text x="784" y="440" font-size="15" font-weight="600" fill="#1F2933">Cut the pad: it matters more than anything else.</text>
+  <text x="784" y="459" font-size="13" fill="#5F6B7A">Left as shipped, a charge lasts about 4 months, not 19.</text>
+
+  <!-- Legend -->
+  <rect x="41" y="587" width="12" height="12" fill="#FFF3BF" stroke="#E67700" stroke-width="2" stroke-linejoin="round"/>
+  <text x="62" y="598" font-size="13" fill="#1F2933">The battery's own self-discharge</text>
+  <rect x="280" y="586" width="14" height="14" fill="#5F6B7A"/>
+  <text x="302" y="598" font-size="13" fill="#1F2933">Sleeping</text>
+  <rect x="380" y="586" width="14" height="14" fill="#E8590C"/>
+  <text x="402" y="598" font-size="13" fill="#1F2933">Waking and redrawing</text>
+
+  <!-- Point 3: scale comparison -->
+  <text x="40" y="646" font-size="15" fill="#1F2933"><tspan font-weight="700">For scale:</tspan> a Raspberry Pi with a 5 inch LCD (about 2.7 W) would last about 12 hours on a battery four times the size (10,000 mAh).</text>
+
+  <!-- Footnote -->
+  <text x="40" y="692" font-size="13" fill="#5F6B7A">Every figure here is an estimate, to be confirmed on the bench before the truck is closed up. The redraw cost (est.) has no published measurement for this screen.</text>
+</svg>
