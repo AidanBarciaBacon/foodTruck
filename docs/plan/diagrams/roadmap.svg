@@ -178,8 +178,8 @@
   <use xlink:href="#gate" x="600" y="490"/>
   <use xlink:href="#gate" x="900" y="490"/>
   <g font-size="13" fill="#1F2933" text-anchor="middle">
-    <text x="300" y="585">The drain matches the estimate</text>
-    <text x="300" y="602">(or we know why not)</text>
+    <text x="300" y="585">Asleep it draws under 50 µA;</text>
+    <text x="300" y="602">seven correct mornings</text>
     <text x="600" y="585">A test print of just the window</text>
     <text x="600" y="602">wall fits the screen</text>
     <text x="900" y="585">It updates from inside</text>
@@ -197,9 +197,9 @@
     <text x="26" y="32" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">4</text>
     <text x="47" y="32" font-size="15" font-weight="700" fill="#1F2933">Power check</text>
     <g font-size="13" fill="#1F2933">
-      <text x="14" y="62">A week on the bench; the truck</text>
-      <text x="14" y="80">reports its battery voltage</text>
-      <text x="14" y="98">each morning</text>
+      <text x="14" y="62">Measure the sleep current with</text>
+      <text x="14" y="80">a multimeter; then a week</text>
+      <text x="14" y="98">running on the bench</text>
     </g>
     <use xlink:href="#tag-both" x="14" y="110"/>
   </g>

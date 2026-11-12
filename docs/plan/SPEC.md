@@ -16,7 +16,8 @@ turns it into a picture for the screen, and the firmware for the board.
 ## 2. How it works (the software side)
 
 1. A **public web page** somewhere lists the trucks (the builder has it; link still to come).
-2. A **morning job** runs in the cloud each weekday at about 6:30 AM (GitHub Actions on a schedule, free). It:
+2. A **morning job** runs in the cloud each weekday at about 6:30 AM, office local time, summer and winter
+   (GitHub Actions on a schedule, free). It:
    1. fetches the public page and picks out today's trucks (name, food type, hours) into `today.json`;
    2. builds **our own web page** from that, laid out for the screen: 800 x 480, six flat colours;
    3. opens that page in a headless browser and takes a screenshot at exactly 800 x 480;
@@ -34,10 +35,12 @@ The screen keeps its picture with no power. The truck is asleep for all but abou
 ## 3. What the truck does each time it wakes (firmware)
 
 1. Wake on its timer (or on the reset button: a press means "refresh now").
-2. Read the battery voltage. Under 3.45 V: draw a "Charge me" badge once, then sleep without waking again until
-   charged.
+2. Read the battery voltage. Under 3.45 V: draw the full-screen "Charge me" card once (it is stored in the truck's
+   own program, so it needs no Wi-Fi) and remember that it did. From then on it wakes once a day for a moment, with
+   no Wi-Fi, only to read the battery; once charged it carries on from step 3.
 3. Join Wi-Fi (network name + password; 2.4 GHz). Give up after 10 seconds.
-   Failed: sleep 30 minutes and try again, up to 3 times; then sleep until tomorrow morning, picture unchanged.
+   Failed: sleep 30 minutes and try again, up to 3 times; then sleep until the next working morning by its own
+   clock (it knows the weekday from its last successful wake), picture unchanged.
 4. Get the time from the internet, and note how far the truck's own clock drifted while asleep.
 5. Download `status.json` (tiny).
 6. Picture fingerprint the same as the one on screen? Then skip the redraw.
@@ -55,9 +58,14 @@ read best; photos and gradients turn grainy.
 
 - **Header:** "TODAY'S TRUCKS" and the date, e.g. "Thursday, Nov 12".
 - **Body:** up to four trucks, one row each: the name large, the food type, and the hours ("11:00 AM – 2:00 PM").
-- **Footer:** "Updated 7:02 AM", a small battery mark, and the web address of the page.
-- **Other states:** "No trucks today"; the weekend card ("Back Monday", with Monday's trucks if known); the
-  "Charge me" badge in a corner when the battery is low.
+  With five or six trucks the rows shrink to fit; beyond six, the last row reads "+2 more" (or however many).
+- **Footer:** "Updated 6:31 AM" (when the morning job made the picture), a small battery mark, and the web address
+  of the page. The battery mark is the one
+  thing the truck draws itself: it stamps a full / half / low mark into a fixed corner as the picture arrives.
+- **Other states, each a whole-screen card:** "No trucks today"; "Couldn't read the truck list today" (when the
+  public page changed or was down, so the screen never shows old trucks as today's); and "Charge me" (drawn once
+  when the battery is nearly empty; the truck then stops waking until it is charged).
+- **Weekends:** there is no weekend card. Friday's picture, with Friday's date, stays up until Monday morning.
 
 ## 5. The screen (same panel on every route)
 
@@ -72,8 +80,10 @@ read best; photos and gradients turn grainy.
 | Ribbon cable | 50-pin flat ribbon (see section 9 for which edge it leaves from) |
 | Price | about $60 to $80 with its adapter board |
 
-A smaller, more in-scale option exists: the 4 inch version of the same screen (600 x 400). The plan recommends the
-7.3 inch because it can be read from across a desk.
+A smaller, more in-scale option exists: the 4 inch version of the same screen (600 x 400 pixels; picture area
+84.6 x 56.4 mm and glass 99 x 66 mm by retailer listings, to confirm against a datasheet). Its ribbon is
+listed as the same 50-contact kind, so it should take the same boards; that is also to confirm. The plan recommends the 7.3 inch because it can be read from across a desk; if the 4 inch is chosen,
+section 9 is redrawn for it.
 
 ## 6. The three build routes
 
@@ -138,8 +148,10 @@ it from the serving-side outer face (y = 0) to the far side (y = 127). z runs up
 **Envelope.** 229 long x 127 wide x 152 tall mm (9.0 x 5.0 x 6.0 in). Walls, floor and roof 2.4 mm thick.
 
 **Why it is tight in height.** The screen's glass is 111.2 mm tall and stands upright in the side wall. Under it go
-the wheels; over it goes the roof. 152 mm works with 32 mm wheels and leaves about 2 mm spare. A truck 155 mm tall
-(6.1 in) would be more forgiving.
+the wheels; over it goes the roof. 152 mm works with 32 mm wheels, with only about 1 mm to spare above and below
+the glass. **A truck 155 mm tall (6.1 in) is recommended**: it gives room for a rim round the glass and for error.
+The numbers below are for 152 mm; the mechanical drawings are reissued once the height and the screen size are
+chosen.
 
 ### The screen panel, as mounted (landscape, ribbon cable at the bottom)
 
@@ -162,23 +174,26 @@ the wheels; over it goes the roof. 152 mm works with 32 mm wheels and leaves abo
 | Body underside (ground clearance 9) | 0 to 229 | 0 to 127 | 9 |
 | Chassis zone (floor, wheel wells) | 0 to 229 | 0 to 127 | 9 to 36 |
 | Wheels, four: 32 diameter x 12 wide, cosmetic, axle at z = 16 | centres at 46 (rear) and 183 (front) | 0 to 12 and 115 to 127 | 0 to 32 |
-| Wheel wells, four: 38 long x 14 deep, open to the outside | 27 to 65 and 164 to 202 | 0 to 14 and 113 to 127 | 9 to 36 (top surface at 36) |
+| Wheel wells, four: 38 long x 14 deep, open to the outside; 2.4 roof | 27 to 65 and 164 to 202 | 0 to 14 and 113 to 127 | open to 33.6, roof to 36 |
 | Body shell walls | 0 to 229 | 0 to 127 | 36 to 149.6 |
-| Roof lid (lifts off; four magnet pairs, 6 dia x 3) | 0 to 229 | 0 to 127 | 149.6 to 152 |
+| Roof lid (lifts off; four magnet pairs, 6 dia x 3; its 1.5 lip runs along the far side and the ends, not over the sled) | 0 to 229 | 0 to 127 | 149.6 to 152 |
+| Magnet posts, four: two in the far-side corners, one in the serving-side front corner (in the cab), one on the rear wall at about y = 40 | | | up to 149.6 |
 | Cab (windscreen, driver's door) | 185 to 229 | | |
 | Serving wall, inner face | | 2.4 | |
 | Air gap between wall and glass | | 2.4 to 2.9 | |
 | Screen glass | 12.0 to 182.2 | 2.9 to 3.8 | 36.5 to 147.7 |
 | Picture area | 17.1 to 177.1 | | 47.0 to 143.0 |
-| Window opening in the wall: 161 x 97, edges chamfered 45° opening outward | 16.6 to 177.6 | 0 to 2.4 | 46.5 to 143.5 |
+| Window opening in the wall: 161 x 97 at the inner face; the outer 1.5 mm of the wall is chamfered 45°, so it is 164 x 100 at the outer face | 16.6 to 177.6 | 0 to 2.4 | 46.5 to 143.5 |
 | Sled backboard: 176 x 112.5 x 3 plate | 9.1 to 185.1 | 3.8 to 6.8 | 36 to 148.5 |
 | Ribbon cable, at the glass edge | 84.2 to 109.7 | | folds back under the glass at z = 36.5 |
 | Electronics on the back of the sled (keep-out depth) | 4 to 185 | 6.8 to 37 | 36 to 148.5 |
-| Empty cavity beyond | 2.4 to 226.6 | 37 to 124.6 | 11.4 to 149.6 |
-| Charging hole in the rear wall: 13 x 7.5 slot for a USB-C plug | 0 to 2.4 | centre 13 | centre 68 |
+| Battery, against the sled's rear face | 115 to 175 | 6.8 to 14.1 | 40 to 90 |
+| Empty cavity beyond (the two far-side wheel wells stand in it below z = 36) | 2.4 to 226.6 | 37 to 124.6 | 11.4 to 149.6 |
+| Charging slot in the rear wall for a USB-C plug: 7.5 across, 13 tall | 0 to 2.4 | centre 13 | centre 67.5 |
 
-Left over round the window on the outside: 8.5 mm of wall above it (room for an awning), 37.5 mm below it (the lower
-body, with the wheel arches), 16.6 mm behind it and 51.4 mm in front of it (the cab).
+Left over round the 161 x 97 opening: 8.5 mm of wall above it (room for an awning), 37.5 mm below it (the lower
+body, with the wheel arches), 16.6 mm behind it and 51.4 mm in front of it (the cab). The chamfer takes 1.5 mm off
+each of those at the outer face.
 
 ### The electronics sled
 
@@ -186,13 +201,17 @@ Everything electrical lives on one removable printed plate, the **sled**. It is 
 complete working unit before any truck exists, then drops into the truck from the top with the roof off. The truck
 itself is plain plastic and can be reprinted or repainted without touching the electronics.
 
-- **Front face:** the screen glass lies in a pocket 1 mm deep (170.7 x 111.7, so 0.25 mm clear all round), held by
-  two strips of thin double-sided tape on its back. Nothing clamps the glass.
+- **Front face:** flat. The screen glass lies on it, held by two strips of thin double-sided tape on its back and
+  located by a 1 mm high rim along the plate's two short ends (the plate is 2.9 mm longer than the glass at each
+  end). There is no rim along the top or bottom at 152 mm height: the plate is only 0.5 mm taller than the glass
+  below and 0.8 mm above. Nothing clamps the glass.
 - **Bottom centre:** a cut-out 30 wide x 6 tall, where the ribbon folds back to the rear face (a relaxed U, about
   2 mm radius, inside the 5.5 mm bend zone). It hangs into the free space between the wheel wells (x = 65 to 164).
-- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its socket within 10 mm of the cut-out.
+- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its socket within 10 mm of the cut-out,
+  its short side along the truck so it clears the battery.
 - **Rear face, towards the rear of the truck:** the main board on 3 mm standoffs, its USB-C port facing the rear wall
-  and lining up with the charging hole (x = 4 to 64, z = 55 to 80 for the 25.4 x 60 board of route B).
+  and lining up with the charging slot (x = 4 to 64, z = 54.8 to 80.2 for the 25.4 x 60 board of route B; it
+  overhangs the plate's rear end by 5 mm and passes behind the rear channel).
 - **Rear face, towards the front:** the battery (50 x 60 x 7.3) in a printed pocket with a soft strap, 1 mm clear all
   round so it can swell; never clamped, never near a screw point (x = 115 to 175, z = 40 to 90).
 - **In the truck:** the sled stands on the tops of the two serving-side wheel wells (z = 36). Each end slides down a
@@ -212,8 +231,8 @@ itself is plain plastic and can be reprinted or repainted without touching the e
 | Awning, counter, details | free | |
 
 Printing notes for the modeller:
-- **Bed size.** The body is 229 mm long. It fits a 250 mm or 256 mm bed; on a 220 mm bed, split it at the cab seam
-  (x = 185).
+- **Bed size.** The body is 229 mm long. It fits a 250 mm or 256 mm bed; on a 220 mm bed, split it at about
+  x = 190, just in front of the sled's front channel.
 - **The window's top edge** is a 161 mm bridge if the body prints upright. Either print with supports in the window,
   or print the serving wall as its own flat part (best flatness for the screen), or lay the body on its far side.
 - **Test first.** Before the full print, print a 20 mm deep slice of the serving wall with the window and the two
@@ -267,8 +286,8 @@ The bench check finds out; the fix, if needed, is a passive adapter (Good Displa
 | Bare 7.3 inch Spectra 6 panel | the screen | $60 |
 | Good Display DESPI-C73 | passive adapter, ribbon socket to eight solder points; 47 x 32 mm | price not listed |
 | Seeed XIAO ESP32-S3 | thumbnail-sized main board, 21 x 17.8 mm, with charger; measured asleep at 12 to 13 µA | $7.49 |
-| 2000 to 2500 mAh LiPo | the battery, its two leads soldered to pads under the board | $12.50 to $15 |
-| Two 200 kΩ resistors, a slide switch, thin wire | battery-level sensing and an off switch | $5 |
+| 2500 mAh LiPo (the same battery) | its two leads soldered to pads under the board, through the slide switch | $14.95 |
+| Two 1 MΩ resistors, a slide switch, thin wire | battery-level sensing and an off switch | $5 |
 | Soldering kit (section 12) | | $45 |
 
 The soldering: eight wires point to point between adapter and board, the battery leads onto two small pads (the
@@ -291,8 +310,10 @@ planned choice and get confirmed on the bench.
 | RST | reset the screen | 21 | D4 |
 | BUSY | screen says "still redrawing" | 14 | D5 |
 
-Route C also: battery + and − to the BAT pads under the XIAO (through the slide switch on +), and the two 200 kΩ
+Route C also: battery + and − to the BAT pads under the XIAO (through the slide switch on +), and the two 1 MΩ
 resistors in series from battery + to GND with their midpoint to pin A0, so the board can read the battery level.
+The resistors sit on the board side of the switch, so the switch turns them off too. They add about 2 µA to the
+sleep current (3.7 V across 2 MΩ), which the 15 µA baseline already allows for.
 
 **Battery plug warning (all routes):** before the first plug-in, check that the battery's red wire meets the board's
 + mark. Battery makers disagree on which side is +, and a reversed battery destroys the board.
@@ -305,7 +326,7 @@ resistors in series from battery + to GND with their midpoint to pin A0, so the 
 | 1. Software | Morning job, web page, renderer, firmware, all tested without hardware | Crew | Today's trucks show at the web address; the builder approves the look on Review Desk |
 | 2. Learn to solder | A practice kit first, then the real joints (routes B and C) | Builder | Ten clean practice joints |
 | 3. Bench build | Screen, board and battery wired on the desk, firmware flashed | Builder + crew | The bare screen shows today's trucks from the battery alone |
-| 4. Power check | A week on the bench; the truck reports its battery voltage each morning | Both | The drain matches the estimate (or we know why not) |
+| 4. Power check | Measure the sleep current with a multimeter; then a week running on the bench | Both | Asleep it draws under 50 µA; seven correct mornings |
 | 5. Model | Measure the real parts with calipers; model the sled, then the truck around it | Builder | A test print of just the window wall fits the screen |
 | 6. Print and assemble | Print, paint, fit the sled, close the roof | Builder | It updates from inside the closed truck |
 | 7. Live with it | Two weeks on the desk; tune the layout and the wake time | Both | Done |
@@ -327,3 +348,61 @@ the truck before it has run a week on the bench**.
   reheat).
 - Safety: the iron is 350 °C, always back in its stand; ventilate; wash hands after; never solder with the battery
   plugged in.
+
+## 13. Tools and products (the builder has few tools, a Bambu Lab P1S with AMS, and would rather print than buy)
+
+The printer: Bambu Lab P1S, 256 x 256 x 256 mm bed, enclosed, with the AMS (four filaments in one print).
+So the 229 mm body prints in one piece, and colour can be printed in rather than painted.
+
+### Buy (no good printed substitute)
+
+| Tool | Why | About |
+|---|---|---|
+| Soldering iron, temperature controlled, with a small chisel tip | routes B and C | $26 to $40 |
+| A metal stand for the iron | a printed one would melt | $6 |
+| Solder, 0.8 mm rosin core | | $8 |
+| Brass wool tip cleaner | | $7 |
+| Flush cutters | trimming pins, wires and print supports | $8 |
+| Fine tweezers | the ribbon latch, small screws | $6 |
+| Digital calipers, 150 mm | measuring the real parts before modelling (phase 5) | $20 |
+| Multimeter with a microamp (µA) range | battery polarity; the sleep-current check (phase 4) | $25 |
+| Small screwdriver set | M2.5 screws | $10 |
+| Craft knife | the low-power pad cut; cleaning prints | $5 |
+| Safety glasses | soldering and cutting | $5 |
+| Through-hole soldering practice kit | ten joints before the real board | $10 |
+| A USB-C lead that carries data | loading the program | $8 |
+
+### Print instead of buying
+
+| Print | Replaces |
+|---|---|
+| Board holder (a small vise for circuit boards) | "helping hands" |
+| Header-pin jig: a block with holes 2.54 mm apart that holds the pins square while you solder | a breadboard |
+| Solder spool holder | |
+| Fume fan housing (takes a bought 120 mm computer fan and a carbon filter pad) | a bought fume extractor |
+| Tray for small parts and screws | |
+| Bench stand for the sled | |
+| The sled, its standoffs and battery pocket; the test slice; the truck, wheels, awning and details | |
+
+### Hardware and consumables to buy
+
+Eight magnets 6 mm x 3 mm; M2.5 x 6 self-tapping screws (they cut their own thread in printed 2.1 mm holes, so no
+threaded inserts are needed); thin double-sided tape; 1 mm foam tape; superglue for the magnets; isopropyl alcohol
+and a soft cloth.
+
+### Filament
+
+- Truck: matte PLA, in up to four colours through the AMS. Use PETG instead if the desk gets direct sun.
+- Sled: PETG or PLA, any colour.
+- Nothing printed goes near the hot iron.
+
+### Printing with the AMS
+
+- **Print colour in, don't paint.** Up to four colours in one print.
+- **Print the two long side walls flat, face down, as their own parts.** Lettering and stripes drawn into the first
+  two or three layers come out crisp, and the colour only changes in those layers, so it wastes little filament.
+  It also gives the flattest wall for the screen and removes the 161 mm bridge over the window.
+- Colour changes that run up a standing wall swap filament on every layer: slow and wasteful. Keep colour changes
+  horizontal (by height) or in the face-down layers.
+- If the body is printed upright in one piece instead, use the AMS for a support-interface material under the
+  window's top edge so the bridge comes out clean.

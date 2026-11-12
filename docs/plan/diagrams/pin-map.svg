@@ -217,12 +217,12 @@
   <path d="M704 584H742M802 584H1016" fill="none" stroke="#C92A2A" stroke-width="2.5"/>
   <!-- battery − (ink): straight to the BAT − pad -->
   <path d="M704 620H722V690H1016" fill="none" stroke="#1F2933" stroke-width="2.5" stroke-linejoin="round"/>
-  <!-- two 200 kΩ resistors in series from battery + to GND, midpoint to A0 -->
+  <!-- two 1 MΩ resistors in series from battery + to GND, midpoint to A0 -->
   <path d="M802 584V656H1016M802 620H1016" fill="none" stroke="#5F6B7A" stroke-width="2" stroke-linejoin="round"/>
   <use xlink:href="#resistor" x="802" y="602"/>
   <use xlink:href="#resistor" x="802" y="638"/>
-  <text x="816" y="606.5" font-size="13" fill="#1F2933">200 kΩ</text>
-  <text x="816" y="642.5" font-size="13" fill="#1F2933">200 kΩ</text>
+  <text x="816" y="606.5" font-size="13" fill="#1F2933">1 MΩ</text>
+  <text x="816" y="642.5" font-size="13" fill="#1F2933">1 MΩ</text>
   <rect x="878" y="611" width="116" height="18" fill="#FFFBF2"/>
   <text x="936" y="624.5" text-anchor="middle" font-size="13" fill="#1F2933">midpoint to A0</text>
 

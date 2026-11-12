@@ -243,7 +243,7 @@
     <path d="M706 50V18H908V58M760 18V50" fill="none" stroke="#5F6B7A" stroke-width="1.75" stroke-linejoin="round"/>
     <use xlink:href="#resistor" x="733" y="18"/>
     <use xlink:href="#resistor" x="787" y="18"/>
-    <text x="918" y="16" font-size="13" fill="#1F2933">Two 200 kΩ resistors: they let the</text>
+    <text x="918" y="16" font-size="13" fill="#1F2933">Two 1 MΩ resistors: they let the</text>
     <text x="918" y="33" font-size="13" fill="#1F2933">board read the battery level</text>
 
     <!-- battery leads: red through the slide switch to BAT +, black to BAT − -->

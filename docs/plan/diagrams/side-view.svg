@@ -156,5 +156,5 @@
   <line x1="676" y1="799" x2="676" y2="854" stroke="#E8590C" stroke-width="3"/>
   <text x="688" y="812" font-size="13" font-weight="600" fill="#E8590C">Why the height is tight: the glass is 111.2 mm tall and stands upright.</text>
   <text x="688" y="831" font-size="13" fill="#E8590C">Wheels go under it, the roof over it. 152 mm with 32 mm wheels leaves</text>
-  <text x="688" y="850" font-size="13" fill="#E8590C">about 2 mm spare. A truck 155 mm tall (6.1 in) would be more forgiving.</text>
+  <text x="688" y="850" font-size="13" fill="#E8590C">about 1 mm spare above and below. 155 mm tall (6.1 in) is recommended.</text>
 </svg>

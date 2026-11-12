@@ -85,13 +85,13 @@
 
   <!-- ===== Side branch words ===== -->
   <g fill="#1F2933" text-anchor="middle" font-size="13">
-    <text x="930" y="197" font-size="15" font-weight="600">Draw a "Charge me" badge, once</text>
-    <text x="930" y="215">then set no timer: it will not wake again</text>
-    <text x="930" y="232">until it has been charged</text>
+    <text x="930" y="197" font-size="15" font-weight="600">Draw the "Charge me" card, once</text>
+    <text x="930" y="215">then wake once a day, with no Wi-Fi,</text>
+    <text x="930" y="232">only to see if it has been charged</text>
 
     <text x="930" y="340" font-size="15" font-weight="600">No Wi-Fi: try again later</text>
     <text x="930" y="358">set the timer for 30 minutes, up to 3 times;</text>
-    <text x="930" y="375">after that, set it for tomorrow morning.</text>
+    <text x="930" y="375">after that, set it for the next working morning.</text>
     <text x="930" y="392">The picture on the screen stays as it was.</text>
   </g>
 

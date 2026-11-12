@@ -112,7 +112,7 @@
   <!-- ============ labels ============ -->
   <text x="188" y="516.4" font-size="15" text-anchor="end" fill="#1F2933">Charging hole</text>
   <text x="188" y="533.4" font-size="13" text-anchor="end" fill="#5F6B7A">in the rear wall,</text>
-  <text x="188" y="550.4" font-size="13" text-anchor="end" fill="#5F6B7A">a 13 x 7.5 slot</text>
+  <text x="188" y="550.4" font-size="13" text-anchor="end" fill="#5F6B7A">a slot 7.5 across, 13 tall</text>
   <polyline points="192,546.4 204.32,560.4" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="204.32" cy="560.4" r="3" fill="#5F6B7A"/>
 
   <text x="221.6" y="499" font-size="15" fill="#1F2933">Main board</text>
@@ -139,7 +139,7 @@
   <text x="365.6" y="192.2" font-size="13" text-anchor="middle" fill="#5F6B7A">38 x 14, one of four</text>
 
   <text x="248.6" y="224" font-size="15" fill="#1F2933">Magnet post for the roof lid, one of four (magnets 6 dia x 3)</text>
-  <text x="248.6" y="242" font-size="13" fill="#5F6B7A">The spec does not place the posts: they are shown where there is room.</text>
+  <text x="248.6" y="242" font-size="13" fill="#5F6B7A">Two in the far corners, one in the cab, one on the rear wall.</text>
   <polyline points="244.6,214 234.56,185.28" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="234.56" cy="185.28" r="3" fill="#5F6B7A"/>
 
   <text x="542" y="322" font-size="15" font-weight="600" text-anchor="middle" fill="#1F2933">Empty cavity</text>
@@ -208,7 +208,7 @@
   <text x="76" y="728" font-size="13" fill="#1F2933">Hidden edge or the edge of a zone</text>
 
   <text x="40" y="770" font-size="13" fill="#5F6B7A">Drawn to scale: 3.6 px = 1 mm. The magnified box is 8 times that.</text>
-  <text x="40" y="812" font-size="13" fill="#5F6B7A">The spec gives no thickness for the boards, the USB-C port or</text>
-  <text x="40" y="829" font-size="13" fill="#5F6B7A">the U-channels' walls, and no size for the adapter board or the</text>
-  <text x="40" y="846" font-size="13" fill="#5F6B7A">posts. Those are drawn at likely sizes: measure the real parts.</text>
+  <text x="40" y="812" font-size="13" fill="#5F6B7A">The thickness of the boards, the USB-C port and the U-channel</text>
+  <text x="40" y="829" font-size="13" fill="#5F6B7A">walls, and the size of the adapter board and the posts, are</text>
+  <text x="40" y="846" font-size="13" fill="#5F6B7A">drawn at likely sizes: measure the real parts before modelling.</text>
 </svg>
