@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>A day and a week in the truck's life</title>
+  <desc>A 24-hour bar and a 7-day strip showing that the truck sleeps almost all the time: one wake of about 40 seconds at about 7:00 AM each weekday, after the cloud's morning job at about 6:30 AM.</desc>
+  <rect x="0" y="0" width="1200" height="750" fill="#FFFBF2"/>
+
+  <defs>
+    <marker id="dim" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0.5 L9,4 L0,7.5 z" fill="#5F6B7A"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">A day and a week in the truck's life</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">It wakes once each weekday morning, fetches the day's picture, and sleeps the rest of the time.</text>
+
+  <!-- ===== One working day: 24 hours, x = 200 + 40 px per hour ===== -->
+  <text x="40" y="122" font-size="15" font-weight="600" fill="#1F2933">One working day</text>
+
+  <!-- the cloud lane -->
+  <text x="456" y="138" font-size="15" fill="#1F2933">About 6:30 AM: the cloud's morning job makes today's picture</text>
+  <text x="40" y="165" font-size="15" fill="#1F2933">The cloud</text>
+  <rect x="200" y="152" width="960" height="16" fill="#FFFBF2" stroke="#B8C0CC" stroke-width="1.5"/>
+  <rect x="456" y="147" width="8" height="26" rx="2" fill="#6741D9"/>
+
+  <!-- hour marks, shared by both lanes -->
+  <g stroke="#5F6B7A" stroke-width="1.25">
+    <path d="M200,169 V176 M440,169 V176 M680,169 V176 M920,169 V176 M1160,169 V176"/>
+    <path d="M200,200 V209 M440,200 V209 M680,200 V209 M920,200 V209 M1160,200 V209"/>
+  </g>
+  <path stroke="#B8C0CC" stroke-width="1.25" d="M240,204 V209 M280,204 V209 M320,204 V209 M360,204 V209 M400,204 V209 M480,204 V209 M520,204 V209 M560,204 V209 M600,204 V209 M640,204 V209 M720,204 V209 M760,204 V209 M800,204 V209 M840,204 V209 M880,204 V209 M960,204 V209 M1000,204 V209 M1040,204 V209 M1080,204 V209 M1120,204 V209"/>
+  <g font-size="13" fill="#5F6B7A">
+    <text x="200" y="193">12 AM</text>
+    <text x="440" y="193" text-anchor="middle">6 AM</text>
+    <text x="680" y="193" text-anchor="middle">12 PM</text>
+    <text x="920" y="193" text-anchor="middle">6 PM</text>
+    <text x="1160" y="193" text-anchor="end">12 AM</text>
+  </g>
+
+  <!-- the truck lane -->
+  <text x="40" y="235" font-size="15" fill="#1F2933">The truck</text>
+  <rect x="200" y="210" width="960" height="40" fill="#FFE8CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <text x="320" y="235" font-size="15" fill="#1F2933" text-anchor="middle">asleep</text>
+  <text x="820" y="235" font-size="15" fill="#1F2933" text-anchor="middle">asleep</text>
+
+  <!-- the wake at 7:00 AM (x = 480) and its connector down to the zoom -->
+  <line x1="480" y1="204" x2="480" y2="296" stroke="#E8590C" stroke-width="2"/>
+  <text x="466" y="279" font-size="13" fill="#5F6B7A" text-anchor="end">sliver drawn wider than true scale, so it shows</text>
+  <text x="494" y="279" font-size="15" fill="#1F2933">About 7:00 AM: the truck wakes for about 40 seconds. Zoomed in below.</text>
+
+  <!-- ===== Zoomed call-out of the wake ===== -->
+  <rect x="40" y="296" width="1120" height="166" rx="6" fill="none" stroke="#E8590C" stroke-width="2" stroke-linejoin="round"/>
+  <text x="60" y="322" font-size="15" font-weight="600" fill="#1F2933">Zoomed in: the one wake of the day</text>
+  <text x="1140" y="322" font-size="13" fill="#5F6B7A" text-anchor="end">Only the redraw and the total are timed. The other steps are drawn equal, not measured.</text>
+
+  <g stroke-width="2" stroke-linejoin="round">
+    <rect x="62" y="338" width="111" height="60" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="177" y="338" width="111" height="60" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="292" y="338" width="111" height="60" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="407" y="338" width="571" height="60" rx="6" fill="#E7F5FF" stroke="#1971C2"/>
+    <rect x="982" y="338" width="156" height="60" rx="6" fill="#FFE8CC" stroke="#1F2933"/>
+  </g>
+  <g font-size="15" fill="#1F2933" text-anchor="middle">
+    <text x="117.5" y="364">1. Join</text>
+    <text x="117.5" y="383">Wi-Fi</text>
+    <text x="232.5" y="364">2. Check</text>
+    <text x="232.5" y="383">status.json</text>
+    <text x="347.5" y="364">3. Download</text>
+    <text x="347.5" y="383">the picture</text>
+    <text x="692.5" y="364" font-weight="600">4. Redraw the screen</text>
+    <text x="692.5" y="383" font-size="13">the longest part: the screen flashes while it redraws</text>
+    <text x="1060" y="373">5. Back to sleep</text>
+  </g>
+
+  <!-- time dimensions under the strip -->
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M405,401 V421 M980,401 V447 M60,401 V447"/>
+    <line x1="652" y1="416" x2="405" y2="416" marker-end="url(#dim)"/>
+    <line x1="733" y1="416" x2="980" y2="416" marker-end="url(#dim)"/>
+    <line x1="460" y1="442" x2="60" y2="442" marker-end="url(#dim)"/>
+    <line x1="580" y1="442" x2="980" y2="442" marker-end="url(#dim)"/>
+  </g>
+  <rect x="652" y="406" width="81" height="20" fill="#FFFBF2"/>
+  <text x="692.5" y="421" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">about 25 s</text>
+  <rect x="460" y="432" width="120" height="20" fill="#FFFBF2"/>
+  <text x="520" y="447" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">about 40 s in all</text>
+
+  <!-- ===== One week: 7 days, each 960 / 7 px wide; a wake sits 7/24 of the way into its day ===== -->
+  <text x="40" y="500" font-size="15" font-weight="600" fill="#1F2933">One week</text>
+  <g font-size="15" fill="#1F2933" text-anchor="middle">
+    <text x="268.57" y="520">Monday</text>
+    <text x="405.71" y="520">Tuesday</text>
+    <text x="542.86" y="520">Wednesday</text>
+    <text x="680" y="520">Thursday</text>
+    <text x="817.14" y="520">Friday</text>
+    <text x="954.29" y="520">Saturday</text>
+    <text x="1091.43" y="520">Sunday</text>
+  </g>
+  <text x="40" y="553" font-size="15" fill="#1F2933">The truck</text>
+  <rect x="200" y="530" width="960" height="36" fill="#FFE8CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+  <path stroke="#5F6B7A" stroke-width="1.25" d="M337.14,531 V565 M474.29,531 V565 M611.43,531 V565 M748.57,531 V565 M885.71,531 V565 M1022.86,531 V565"/>
+  <g fill="#E8590C">
+    <rect x="238.5" y="531" width="3" height="34"/>
+    <rect x="375.64" y="531" width="3" height="34"/>
+    <rect x="512.79" y="531" width="3" height="34"/>
+    <rect x="649.93" y="531" width="3" height="34"/>
+    <rect x="787.07" y="531" width="3" height="34"/>
+  </g>
+  <g stroke="#5F6B7A" stroke-width="1.25" fill="none">
+    <path d="M204,571 V577 H881 V571"/>
+    <path d="M891,571 V577 H1156 V571"/>
+  </g>
+  <text x="542.5" y="597" font-size="15" fill="#1F2933" text-anchor="middle">one wake each weekday, at about 7:00 AM</text>
+  <text x="1023.5" y="597" font-size="15" fill="#1F2933" text-anchor="middle">asleep straight through to Monday</text>
+
+  <!-- ===== The point ===== -->
+  <rect x="40" y="628" width="4" height="24" fill="#E8590C"/>
+  <text x="54" y="645" font-size="15" font-weight="700" fill="#1F2933">Asleep for all but about 40 seconds of a working day, and the screen needs no power to keep its picture.</text>
+
+  <!-- ===== Legend ===== -->
+  <g font-size="13" fill="#1F2933">
+    <rect x="40" y="684" width="16" height="16" fill="#FFE8CC" stroke="#1F2933" stroke-width="1.25"/>
+    <text x="64" y="697">the truck, asleep</text>
+    <rect x="196" y="684" width="16" height="16" fill="#E8590C"/>
+    <text x="220" y="697">the truck, awake</text>
+    <rect x="346" y="684" width="16" height="16" fill="#6741D9"/>
+    <text x="370" y="697">the cloud's morning job</text>
+    <rect x="536" y="684" width="16" height="16" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.25"/>
+    <text x="560" y="697">the board working</text>
+    <rect x="694" y="684" width="16" height="16" fill="#E7F5FF" stroke="#1971C2" stroke-width="1.25"/>
+    <text x="718" y="697">the screen redrawing</text>
+  </g>
+</svg>

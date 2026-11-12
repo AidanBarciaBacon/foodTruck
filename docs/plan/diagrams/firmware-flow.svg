@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <title>What the truck does each time it wakes</title>
+  <desc>A flowchart of the firmware's eight steps: wake, check the battery, join Wi-Fi, get the time, download status.json, see whether the picture changed, download and redraw, get ready to sleep. Every path ends in deep sleep.</desc>
+  <rect x="0" y="0" width="1200" height="900" fill="#FFFBF2"/>
+
+  <defs>
+    <marker id="flow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0,0.5 L10,5 L0,9.5 z" fill="#1F2933"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">What the truck does each time it wakes</text>
+  <text x="40" y="84" font-size="15" fill="#5F6B7A">Most mornings it runs straight down the middle. Every path ends in the same deep sleep.</text>
+
+  <!-- ===== Flow arrows (drawn first, boxes sit on top) ===== -->
+  <g stroke="#1F2933" stroke-width="2" fill="none" stroke-linejoin="round">
+    <!-- main column, x = 450 -->
+    <line x1="450" y1="148" x2="450" y2="168" marker-end="url(#flow)"/>
+    <line x1="450" y1="248" x2="450" y2="268" marker-end="url(#flow)"/>
+    <line x1="450" y1="306" x2="450" y2="326" marker-end="url(#flow)"/>
+    <line x1="450" y1="394" x2="450" y2="414" marker-end="url(#flow)"/>
+    <line x1="450" y1="462" x2="450" y2="482" marker-end="url(#flow)"/>
+    <line x1="450" y1="520" x2="450" y2="540" marker-end="url(#flow)"/>
+    <line x1="450" y1="608" x2="450" y2="628" marker-end="url(#flow)"/>
+    <line x1="450" y1="704" x2="450" y2="724" marker-end="url(#flow)"/>
+    <line x1="450" y1="788" x2="450" y2="808" marker-end="url(#flow)"/>
+    <!-- battery low -->
+    <line x1="620" y1="208" x2="770" y2="208" marker-end="url(#flow)"/>
+    <polyline points="1090,208 1122,208 1122,808" marker-end="url(#flow)"/>
+    <!-- no Wi-Fi -->
+    <line x1="620" y1="360" x2="770" y2="360" marker-end="url(#flow)"/>
+    <line x1="930" y1="401" x2="930" y2="808" marker-end="url(#flow)"/>
+    <!-- picture unchanged: skip the redraw -->
+    <polyline points="620,574 740,574 740,756 670,756" marker-end="url(#flow)"/>
+  </g>
+
+  <!-- ===== Main column boxes, x 230 to 670 ===== -->
+  <g stroke-width="2" stroke-linejoin="round">
+    <rect x="230" y="100" width="440" height="48" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <polygon points="280,208 450,168 620,208 450,248" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="230" y="268" width="440" height="38" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <polygon points="280,360 450,326 620,360 450,394" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="230" y="414" width="440" height="48" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="230" y="482" width="440" height="38" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <polygon points="280,574 450,540 620,574 450,608" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="230" y="628" width="440" height="38" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <rect x="230" y="666" width="440" height="38" rx="6" fill="#E7F5FF" stroke="#1971C2"/>
+    <rect x="230" y="724" width="440" height="64" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <!-- side branches -->
+    <rect x="770" y="176" width="320" height="64" rx="6" fill="#E7F5FF" stroke="#1971C2"/>
+    <rect x="770" y="319" width="320" height="82" rx="6" fill="#D3F9D8" stroke="#2F9E44"/>
+    <!-- the one deep sleep box -->
+    <rect x="230" y="808" width="920" height="48" rx="6" fill="#FFE8CC" stroke="#1F2933"/>
+  </g>
+
+  <!-- ===== Main column words ===== -->
+  <g fill="#1F2933" text-anchor="middle" font-size="15">
+    <text x="450" y="120" font-weight="600">1. Wake up</text>
+    <text x="450" y="138" font-size="13">the timer goes off, or you press reset to refresh now</text>
+
+    <text x="450" y="203" font-weight="600">2. Read the battery.</text>
+    <text x="450" y="222">Is it under 3.45 V?</text>
+
+    <text x="450" y="292"><tspan font-weight="600">3. Join Wi-Fi</tspan><tspan font-size="13" dx="6">network name and password, 2.4 GHz</tspan></text>
+
+    <text x="450" y="365">Joined within 10 seconds?</text>
+
+    <text x="450" y="434" font-weight="600">4. Get the time from the internet</text>
+    <text x="450" y="452" font-size="13">and note how far the truck's clock drifted while asleep</text>
+
+    <text x="450" y="506"><tspan font-weight="600">5. Download status.json</tspan><tspan font-size="13" dx="6">(tiny)</tspan></text>
+
+    <text x="450" y="579" font-weight="600">6. Has the picture changed?</text>
+
+    <text x="450" y="652"><tspan font-weight="600">7. Download the picture</tspan><tspan font-size="13" dx="6">today.bin</tspan></text>
+    <text x="450" y="690"><tspan font-weight="600">then redraw the screen</tspan><tspan font-size="13" dx="6">about 25 s, it flashes</tspan></text>
+
+    <text x="450" y="744" font-weight="600">8. Get ready to sleep</text>
+    <text x="450" y="762" font-size="13">switch the screen's power off, remember the fingerprint,</text>
+    <text x="450" y="779" font-size="13">set the timer: the server's number, corrected for clock drift</text>
+
+    <text x="690" y="828" font-weight="600">Deep sleep</text>
+    <text x="690" y="846" font-size="13">the board is all but switched off, and the screen keeps its picture with no power</text>
+  </g>
+
+  <!-- ===== Side branch words ===== -->
+  <g fill="#1F2933" text-anchor="middle" font-size="13">
+    <text x="930" y="197" font-size="15" font-weight="600">Draw a "Charge me" badge, once</text>
+    <text x="930" y="215">then set no timer: it will not wake again</text>
+    <text x="930" y="232">until it has been charged</text>
+
+    <text x="930" y="340" font-size="15" font-weight="600">No Wi-Fi: try again later</text>
+    <text x="930" y="358">set the timer for 30 minutes, up to 3 times;</text>
+    <text x="930" y="375">after that, set it for tomorrow morning.</text>
+    <text x="930" y="392">The picture on the screen stays as it was.</text>
+  </g>
+
+  <!-- ===== Yes / No on the arrows ===== -->
+  <g font-size="13" font-weight="600" fill="#1F2933">
+    <rect x="677" y="198" width="36" height="20" fill="#FFFBF2"/>
+    <text x="695" y="213" text-anchor="middle">Yes</text>
+    <rect x="679" y="350" width="32" height="20" fill="#FFFBF2"/>
+    <text x="695" y="365" text-anchor="middle">No</text>
+    <rect x="664" y="564" width="32" height="20" fill="#FFFBF2"/>
+    <text x="680" y="579" text-anchor="middle">No</text>
+    <text x="462" y="263">No</text>
+    <text x="462" y="409">Yes</text>
+    <text x="462" y="623">Yes</text>
+  </g>
+  <rect x="682" y="630" width="116" height="42" fill="#FFFBF2"/>
+  <g font-size="13" fill="#1F2933" text-anchor="middle">
+    <text x="740" y="647">same fingerprint:</text>
+    <text x="740" y="664">skip the redraw</text>
+  </g>
+
+  <!-- ===== What costs the most battery (accent, used only here) ===== -->
+  <g stroke="#E8590C" stroke-width="3" fill="none" stroke-linejoin="round">
+    <path d="M222,268 H214 V662 H222"/>
+    <path d="M222,670 H214 V704 H222"/>
+  </g>
+  <g fill="#1F2933" text-anchor="end">
+    <text x="202" y="454" font-size="15" font-weight="600">Wi-Fi time</text>
+    <text x="202" y="472" font-size="13" fill="#5F6B7A">one of the two big</text>
+    <text x="202" y="489" font-size="13" fill="#5F6B7A">battery costs</text>
+    <text x="202" y="684" font-size="15" font-weight="600">The redraw</text>
+    <text x="202" y="701" font-size="13" fill="#5F6B7A">is the other</text>
+  </g>
+
+  <!-- ===== Legend ===== -->
+  <g font-size="13" fill="#1F2933">
+    <rect x="40" y="760" width="16" height="16" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.25"/>
+    <text x="64" y="773">the board does this</text>
+    <rect x="40" y="784" width="16" height="16" fill="#E7F5FF" stroke="#1971C2" stroke-width="1.25"/>
+    <text x="64" y="797">the screen redraws</text>
+    <rect x="40" y="808" width="16" height="16" fill="#FFE8CC" stroke="#1F2933" stroke-width="1.25"/>
+    <text x="64" y="821">asleep</text>
+    <rect x="40" y="838" width="16" height="4" fill="#E8590C"/>
+    <text x="64" y="845">costs the most battery</text>
+  </g>
+</svg>
