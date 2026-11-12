@@ -1,0 +1,8 @@
+.claude/coord/
+.claude/worktrees/
+node_modules/
+dist/
+firmware/.pio/
+firmware/.venv/
+firmware/include/secrets.h
+.DS_Store
