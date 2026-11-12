@@ -3,9 +3,20 @@
 One source for every figure. A drawing or a paragraph that needs a number takes it from here; if it is not here, it is
 not decided. Figures marked **(est.)** are estimates to be confirmed on the bench, and say so wherever they are shown.
 
+## 0. Decided (12 November 2026, on the plan's Review Desk page)
+
+- **Build route B:** a little soldering (FireBeetle 2 ESP32-E, Waveshare's screen set, header pins).
+- **Screen:** the 7.3 inch.
+- **Height:** 155 mm (6.1 in).
+- **The truck list:** https://offthegrid.com/event/levis-plaza (Off the Grid, Levi's Plaza).
+- **Hosting:** a GitHub repo for the morning job and the page: yes.
+- **The page's design** gets real work later, once the hardware is up and running; until then it only has to be
+  correct and readable.
+- The whole plan was approved as written.
+
 ## 1. What it is
 
-A 3D-printed model food truck for a desk, about 9 x 5 x 6 in. A colour e-paper screen fills the serving-window side
+A 3D-printed model food truck for a desk, 9 x 5 x 6.1 in. A colour e-paper screen fills the serving-window side
 and shows which food trucks are outside the office today. It runs on a rechargeable battery and is charged about once
 a year. The builder models and prints the truck, has never soldered and wants to learn.
 
@@ -15,7 +26,7 @@ turns it into a picture for the screen, and the firmware for the board.
 
 ## 2. How it works (the software side)
 
-1. A **public web page** somewhere lists the trucks (the builder has it; link still to come).
+1. A **public web page** lists the trucks: Off the Grid's page for Levi's Plaza (section 0).
 2. A **morning job** runs in the cloud each weekday at about 6:30 AM, office local time, summer and winter
    (GitHub Actions on a schedule, free). It:
    1. fetches the public page and picks out today's trucks (name, food type, hours) into `today.json`;
@@ -138,20 +149,19 @@ check that the office network has a 2.4 GHz band.
 
 ## 9. The truck (mechanical)
 
-These are target numbers for the model, worked out from the screen's datasheet drawing. The builder measures the real
-parts before modelling (phase 5) and the real parts win.
+Decided on 12 November: the 7.3 inch screen, and a truck **155 mm tall**. These are target numbers for the model,
+worked out from the screen's datasheet drawing. The builder measures the real parts before modelling (phase 5) and
+the real parts win.
 
 **Axes for every drawing.** x runs along the truck from the rear face (x = 0) to the front (x = 229). y runs across
 it from the serving-side outer face (y = 0) to the far side (y = 127). z runs up from the desk (z = 0) to the roof top
-(z = 152). The truck faces right in a side view, so the side we see is the kerb side, where a real truck serves.
+(z = 155). The truck faces right in a side view, so the side we see is the kerb side, where a real truck serves.
 
-**Envelope.** 229 long x 127 wide x 152 tall mm (9.0 x 5.0 x 6.0 in). Walls, floor and roof 2.4 mm thick.
+**Envelope.** 229 long x 127 wide x 155 tall mm (9.0 x 5.0 x 6.1 in). Walls, floor and roof 2.4 mm thick.
 
-**Why it is tight in height.** The screen's glass is 111.2 mm tall and stands upright in the side wall. Under it go
-the wheels; over it goes the roof. 152 mm works with 32 mm wheels, with only about 1 mm to spare above and below
-the glass. **A truck 155 mm tall (6.1 in) is recommended**: it gives room for a rim round the glass and for error.
-The numbers below are for 152 mm; the mechanical drawings are reissued once the height and the screen size are
-chosen.
+**Why 155.** The screen's glass is 111.2 mm tall and stands upright in the side wall, with the wheels under it and
+the roof over it. At 152 mm there was about 1 mm above and below the glass. The extra 3 mm pays for a rim all round
+the glass, a full chamfer on the window, and a stronger wall over the window.
 
 ### The screen panel, as mounted (landscape, ribbon cable at the bottom)
 
@@ -175,25 +185,37 @@ chosen.
 | Chassis zone (floor, wheel wells) | 0 to 229 | 0 to 127 | 9 to 36 |
 | Wheels, four: 32 diameter x 12 wide, cosmetic, axle at z = 16 | centres at 46 (rear) and 183 (front) | 0 to 12 and 115 to 127 | 0 to 32 |
 | Wheel wells, four: 38 long x 14 deep, open to the outside; 2.4 roof | 27 to 65 and 164 to 202 | 0 to 14 and 113 to 127 | open to 33.6, roof to 36 |
-| Body shell walls | 0 to 229 | 0 to 127 | 36 to 149.6 |
-| Roof lid (lifts off; four magnet pairs, 6 dia x 3; its 1.5 lip runs along the far side and the ends, not over the sled) | 0 to 229 | 0 to 127 | 149.6 to 152 |
-| Magnet posts, four: two in the far-side corners, one in the serving-side front corner (in the cab), one on the rear wall at about y = 40 | | | up to 149.6 |
-| Cab (windscreen, driver's door) | 185 to 229 | | |
+| Belt line: chassis below, body shell above; the sled stands on it | | | 36 |
+| Body shell walls | 0 to 229 | 0 to 127 | 36 to 152.6 |
+| Roof lid, lifts off | 0 to 229 | 0 to 127 | 152.6 to 155 |
+| Lid lip, 1.5 deep: along the far side and both ends, not over the sled; broken at the magnet posts | | | 151.1 to 152.6 |
+| Magnet posts, four, 9 square: two in the far-side corners, one in the serving-side front corner (in the cab), one on the rear wall centred at y = 42 | | | up to 151.1 |
+| Magnets, eight, 6 dia x 3: one in each post top, one above it in a 1.5 mm boss under the lid | | | post 148.1 to 151.1; lid 151.1 to 154.1 |
+| Cab (windscreen, driver's door) | 188 to 229 | | |
 | Serving wall, inner face | | 2.4 | |
 | Air gap between wall and glass | | 2.4 to 2.9 | |
-| Screen glass | 12.0 to 182.2 | 2.9 to 3.8 | 36.5 to 147.7 |
-| Picture area | 17.1 to 177.1 | | 47.0 to 143.0 |
-| Window opening in the wall: 161 x 97 at the inner face; the outer 1.5 mm of the wall is chamfered 45°, so it is 164 x 100 at the outer face | 16.6 to 177.6 | 0 to 2.4 | 46.5 to 143.5 |
-| Sled backboard: 176 x 112.5 x 3 plate | 9.1 to 185.1 | 3.8 to 6.8 | 36 to 148.5 |
-| Ribbon cable, at the glass edge | 84.2 to 109.7 | | folds back under the glass at z = 36.5 |
-| Electronics on the back of the sled (keep-out depth) | 4 to 185 | 6.8 to 37 | 36 to 148.5 |
-| Battery, against the sled's rear face | 115 to 175 | 6.8 to 14.1 | 40 to 90 |
-| Empty cavity beyond (the two far-side wheel wells stand in it below z = 36) | 2.4 to 226.6 | 37 to 124.6 | 11.4 to 149.6 |
-| Charging slot in the rear wall for a USB-C plug: 7.5 across, 13 tall | 0 to 2.4 | centre 13 | centre 67.5 |
+| Screen glass | 12.0 to 182.2 | 2.9 to 3.8 | 37.8 to 149.0 |
+| Picture area | 17.1 to 177.1 | | 48.3 to 144.3 |
+| Window opening at the wall's inner face: 161 x 97 | 16.6 to 177.6 | 2.4 | 47.8 to 144.8 |
+| Window opening at the wall's outer face: 165.8 x 101.8 (45° chamfer through the whole 2.4 mm wall) | 14.2 to 180.0 | 0 | 45.4 to 147.2 |
+| Double-sided tape between glass and plate | | 3.8 to 3.9 | |
+| Sled backboard: 179 x 115 x 3 plate | 7.6 to 186.6 | 3.9 to 6.9 | 36 to 151 |
+| Rim on the plate's front face, 1 high x 1.5 wide, all round the glass 0.3 clear (broken at the ribbon cut-out) | 10.2 to 184.0 | 2.9 to 3.9 | 36 to 150.8 |
+| Channel strips: the plate's bare ends that slide in the U-channels, 2.5 each | 7.6 to 10.1 and 184.1 to 186.6 | | |
+| U-channels on the serving wall's inner face: slot 3.4 wide, walls 2 thick | at x = 7.6 and x = 186.6 | 2.4 to 9.1 | 36 to 151 |
+| Ribbon cut-out in the plate, 30 x 6 | 82.1 to 112.1 | | 36 to 42 |
+| Ribbon cable, at the glass edge | 84.2 to 109.7 | | folds back under the glass at z = 37.8 |
+| Main board (route B: 25.4 x 60 x 1.6) on 4 mm standoffs, USB-C port facing the rear wall | 4 to 64 | 10.9 to 12.5 | 55.0 to 80.4 |
+| Charging slot in the rear wall for a USB-C plug: 7.5 across, 13 tall | 0 to 2.4 | centre 14 | centre 67.7 |
+| Battery (50 x 60 x 7.3) against the plate's rear face | 115 to 175 | 6.9 to 14.2 | 40 to 90 |
+| Adapter board (drawn 32 x 47), bottom centre, socket facing the plate about 9 mm above the cut-out | 81.1 to 113.1 | from 6.9 | 44 to 91 |
+| Electronics keep-out behind the sled | 4 to 187 | 6.9 to 38 | 36 to 151 |
+| Empty cavity beyond (the two far-side wheel wells stand in it below z = 36) | 2.4 to 226.6 | 38 to 124.6 | 11.4 to 152.6 |
+| Gap between sled top and lid, filled by a strip of 2 mm soft foam tape | | | 151 to 152.6 |
 
-Left over round the 161 x 97 opening: 8.5 mm of wall above it (room for an awning), 37.5 mm below it (the lower
-body, with the wheel arches), 16.6 mm behind it and 51.4 mm in front of it (the cab). The chamfer takes 1.5 mm off
-each of those at the outer face.
+Left over round the window: above it, 10.2 mm at the inner face (7.8 of body wall plus the 2.4 lid) and 7.8 at
+the outer face; below it, 38.8 mm at the inner face and 36.4 at the outer face; behind it 16.6 (14.2 outer); in
+front of it 51.4 (49.0 outer).
 
 ### The electronics sled
 
@@ -201,22 +223,24 @@ Everything electrical lives on one removable printed plate, the **sled**. It is 
 complete working unit before any truck exists, then drops into the truck from the top with the roof off. The truck
 itself is plain plastic and can be reprinted or repainted without touching the electronics.
 
-- **Front face:** flat. The screen glass lies on it, held by two strips of thin double-sided tape on its back and
-  located by a 1 mm high rim along the plate's two short ends (the plate is 2.9 mm longer than the glass at each
-  end). There is no rim along the top or bottom at 152 mm height: the plate is only 0.5 mm taller than the glass
-  below and 0.8 mm above. Nothing clamps the glass.
+- **Front face:** the glass lies inside a low rim (1 mm high, 1.5 mm wide, 0.3 mm clear of the glass all round),
+  held by two strips of thin double-sided tape on its back. The rim only locates it; nothing clamps the glass.
 - **Bottom centre:** a cut-out 30 wide x 6 tall, where the ribbon folds back to the rear face (a relaxed U, about
-  1.5 mm radius, so the whole fold stays inside the 5.5 mm bend zone). It hangs into the free space between the wheel wells (x = 65 to 164).
-- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its socket within 10 mm of the cut-out,
-  its short side along the truck so it clears the battery.
-- **Rear face, towards the rear of the truck:** the main board on 3 mm standoffs, its USB-C port facing the rear wall
-  and lining up with the charging slot (x = 4 to 64, z = 54.8 to 80.2 for the 25.4 x 60 board of route B; it
-  overhangs the plate's rear end by 5 mm and passes behind the rear channel).
-- **Rear face, towards the front:** the battery (50 x 60 x 7.3) in a printed pocket with a soft strap, 1 mm clear all
-  round so it can swell; never clamped, never near a screw point (x = 115 to 175, z = 40 to 90).
-- **In the truck:** the sled stands on the tops of the two serving-side wheel wells (z = 36). Each end slides down a
-  vertical U-channel printed on the inside of the serving wall (channels grip 2.5 mm of the plate at x = 9.1 and
-  x = 185.1), which sets the glass 0.5 mm behind the wall without touching it. The roof lid holds it down.
+  1.5 mm radius, so the whole fold stays inside the 5.5 mm bend zone). The rim is broken here. The fold hangs into
+  the free space between the wheel wells (x = 65 to 164).
+- **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its short side along the truck so it
+  clears the battery. The ribbon's 24 mm length puts the socket about 9 mm above the cut-out, facing the plate, with
+  no slack: its exact place is set with the real part in hand.
+- **Rear face, towards the rear of the truck:** the main board on 4 mm standoffs (so it passes over the rear
+  U-channel's 2 mm back wall), its USB-C port facing the rear wall and lining up with the charging slot. It overhangs
+  the plate's rear end by 3.6 mm; its rear standoffs sit at about x = 12.
+- **Rear face, towards the front:** the battery in a printed pocket with a soft strap, 1 mm clear all round so it
+  can swell; never clamped, never near a screw point.
+- **Boards are held by printed clips** (or M2.5 screws into 2.1 mm printed holes).
+- **In the truck:** the sled stands on the tops of the two serving-side wheel wells (z = 36). Each bare end slides
+  down a vertical U-channel printed on the inside of the serving wall, which sets the glass 0.5 mm behind the wall
+  without touching it. A strip of 2 mm soft foam tape on top of the sled fills the 1.6 mm gap under the lid, so the
+  sled cannot rattle.
 - **On the bench:** lay the sled face up or sit it in a printed stand; never stand it on the ribbon.
 
 ### Printed parts
@@ -224,22 +248,24 @@ itself is plain plastic and can be reprinted or repainted without touching the e
 | Part | Size (mm) | Notes |
 |---|---|---|
 | Chassis | 229 x 127 x 27 | floor, four wheel wells, bumpers; prints flat |
-| Body shell | 229 x 127 x 113.6 | four walls, window, cab, charging hole; open top and bottom, or one piece with the chassis |
-| Roof lid | 229 x 127 x 2.4 plus a 1.5 lip | four magnet pockets; vents and an A/C box on top are extra height |
-| Sled backboard | 176 x 112.5 x 3 plus standoffs and battery pocket | prints flat, face down |
+| Body shell | 229 x 127 x 116.6 | four walls, window, cab, charging slot, U-channels, magnet posts; fits the P1S bed in one piece, or as flat walls |
+| Roof lid | 229 x 127 x 2.4 plus the 1.5 lip and four magnet bosses | vents and an A/C box on top are extra height |
+| Sled backboard | 179 x 115 x 3 plus rim, standoffs, clips and battery pocket | prints flat, rear face down |
 | Wheels | 32 dia x 12, four | pegged or glued; they do not turn |
 | Awning, counter, details | free | |
 
 Printing notes for the modeller:
-- **Bed size.** The body is 229 mm long. It fits a 250 mm or 256 mm bed; on a 220 mm bed, split it at about
-  x = 190, just in front of the sled's front channel.
-- **The window's top edge** is a 161 mm bridge if the body prints upright. Either print with supports in the window,
-  or print the serving wall as its own flat part (best flatness for the screen), or lay the body on its far side.
+- **Bed size.** The body is 229 mm long and the P1S bed is 256 mm: it prints in one piece.
+- **The window's top edge** is a 161 mm bridge if the body prints upright. Better: print the two long side walls
+  flat, face down, as their own parts (section 13), joined to the rest with a tongue and groove and superglue.
 - **Test first.** Before the full print, print a 20 mm deep slice of the serving wall with the window and the two
   channels, and try the sled in it.
 
-Other hardware: eight magnets 6 dia x 3; M2.5 x 6 screws for the boards; thin double-sided tape; a strip of 1 mm
-foam tape.
+Other hardware: eight magnets 6 dia x 3; thin double-sided tape; a strip of 2 mm soft foam tape; superglue.
+
+Still to settle with the real parts in hand: where the FireBeetle's battery socket faces (leave room for the plug
+if it faces the rear wall); the size of Waveshare's adapter board (drawn at 47 x 32, the passive adapter's size);
+and the glass's true size (one maker of a frame for this panel warns that some differ from the datasheet).
 
 ## 10. Parts per route
 
@@ -392,7 +418,7 @@ The first six are for soldering (routes B and C): $61. The other eight are for e
 ### Hardware and consumables to buy
 
 Eight magnets 6 mm x 3 mm; M2.5 x 6 screws (they cut their own thread in printed 2.1 mm holes, so no threaded
-inserts are needed), or printed clips instead; thin double-sided tape; 1 mm foam tape; superglue for the magnets;
+inserts are needed), or printed clips instead; thin double-sided tape; 2 mm soft foam tape; superglue for the magnets;
 isopropyl alcohol and a soft cloth.
 
 ### Filament
@@ -411,26 +437,3 @@ isopropyl alcohol and a soft cloth.
   horizontal (by height) or in the face-down layers.
 - If the body is printed upright in one piece instead, use the AMS for a support-interface material under the
   window's top edge so the bridge comes out clean.
-
-## 14. Loose ends in the 152 mm layout, settled when the mechanical drawings are reissued
-
-Found while the drawings were made. None changes the design; each needs a millimetre that 155 mm provides, or a
-number the real parts will give.
-
-- The 1 mm end rims and the U-channels share the same 2.9 mm strip at each end of the plate: either the channel is
-  sized for a 4 mm thick end, or the plate grows 3 mm longer.
-- The main board overhangs the plate's rear end by 5.1 mm; its rear standoffs sit at about x = 14, and the rear
-  channel's back lip must stay under 3 mm so the board passes over it.
-- The FireBeetle's battery socket may face the rear wall: check on the real board and leave room for the plug.
-- The roof lid's lip must be notched round the magnet posts, or the posts stop 1.5 mm short.
-- The wall above the window is 6.1 mm of body plus the 2.4 mm lid: thin across a 161 mm span. 155 mm adds 3 mm.
-- The 1 mm foam tape goes on top of the sled, filling the 1.1 mm gap under the lid so the sled cannot rattle.
-- Route B's adapter board size is unknown until it arrives (drawn as 47 x 32, the passive adapter's size).
-- The window's chamfer covers only the outer 1.5 mm of the wall, so the square inner 0.9 mm can hide a sliver of the
-  picture's top row when you look down at more than about 20 degrees. With 155 mm there is room to chamfer the
-  full wall thickness.
-- The lid magnets (3 mm) are thicker than the lid (2.4 mm): give the lid a small boss under each, or use 2 mm
-  magnets in the lid.
-- The ribbon's 24 mm length puts the adapter's socket about 9 mm above the cut-out, facing the sled, with no slack:
-  the adapter's exact place is set with the real part in hand.
-- The double-sided tape needs its own 0.1 to 0.2 mm between glass and plate; the 0.5 mm air gap absorbs it.
