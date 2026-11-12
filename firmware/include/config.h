@@ -20,8 +20,7 @@
 // The truck reads <BASE_URL>status.json and <BASE_URL>today.bin.
 // ---------------------------------------------------------------------------------------------------------
 #ifndef BASE_URL
-#  define BASE_URL "https://YOUR-GITHUB-NAME.github.io/foodTruck/"
-#  define BASE_URL_IS_PLACEHOLDER 1
+#  define BASE_URL "https://aidanbarciabacon.github.io/foodTruck/"
 #endif
 
 // ---------------------------------------------------------------------------------------------------------
@@ -77,8 +76,10 @@
 // drives it high before use and low afterwards. -1: not wired to the board (then PWR, if the adapter has one,
 // must be joined to 3V3 or the screen has no power). Set to a free pin, e.g. 25, to let the truck switch the
 // screen fully off while it sleeps.
+// The build guide wires PWR to pin 25 (marked "25/D2") when the adapter has it, so 25 is the default: the truck
+// then cuts the screen's power while it sleeps. With an eight-pin adapter pin 25 is simply left unconnected.
 #ifndef PIN_EPD_PWR
-#  define PIN_EPD_PWR -1
+#  define PIN_EPD_PWR 25
 #endif
 
 #ifndef PIN_BATTERY_ADC

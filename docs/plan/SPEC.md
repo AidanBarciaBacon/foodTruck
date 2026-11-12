@@ -362,6 +362,7 @@ planned choice and get confirmed on the bench.
 | DC | data or command | 22 | D3 |
 | RST | reset the screen | 21 | D4 |
 | BUSY | screen says "still redrawing" | 14 | D5 |
+| PWR (newer adapters only) | switches the screen's power off while asleep | 25 (D2) | a spare pin |
 
 Route C also: battery + and − to the BAT pads under the XIAO (through the slide switch on +), and the two 1 MΩ
 resistors in series from battery + to GND with their midpoint to pin A0, so the board can read the battery level.

@@ -57,6 +57,7 @@
   figure.drawing figcaption b::before { content: "Drawing " counter(drawing) ".  "; }
   figure.inline { margin: 8pt 0 0; break-inside: avoid; }
   figure.inline img { display: block; width: 100%; height: auto; }
+  pre { font: 9.5pt/1.5 Menlo, Consolas, monospace; background: #F3F3F3; padding: 7pt 10pt; margin: 6pt 0; border-radius: 3pt; white-space: pre-wrap; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .cover-meta { margin: 12pt 0 0; font-size: 10pt; color: #333; }
   ul.plain { margin: 4pt 0 8pt; padding-left: 15pt; }
   ul.plain li { margin-bottom: 3pt; }
@@ -126,12 +127,11 @@
     <li><strong>Order the electronics.</strong> Tick each line as you order it.
       <table>
         <tr><th></th><th>Item</th><th>Where</th><th class="price">Price</th></tr>
-        <tr><td class="box"></td><td><b>Waveshare 7.3inch e-Paper HAT (E)</b>: the 800 x 480 six-colour screen, sold as a set with its small adapter board and an 8-wire cable. <b>Check the name ends in (E)</b>: (F) and (G) are older, different screens.<br><span class="url">waveshare.com/7.3inch-e-paper-hat-e.htm</span></td><td>Waveshare's store or Amazon</td><td class="price">about $80</td></tr>
-        <tr><td class="box"></td><td><b>DFRobot FireBeetle 2 ESP32-E</b> (part number DFR0654): the main board, with Wi-Fi, a battery plug, a charger and USB-C.<br><span class="url">dfrobot.com/product-2195.html</span></td><td>DFRobot</td><td class="price">$8.90</td></tr>
-        <tr><td class="box"></td><td><b>Male header pins, 2.54 mm</b>, two 40-pin strips, in case the board arrives without its pins. You snap them to length.</td><td>any electronics shop</td><td class="price">about $2</td></tr>
+        <tr><td class="box"></td><td><b>Waveshare 7.3inch e-Paper HAT (E)</b>: the 800 x 480 six-colour screen, sold as a set with its small adapter board and a cable with loose plug ends. <b>Check the name ends in (E)</b>: (F) and (G) are older, different screens.<br><span class="url">waveshare.com/7.3inch-e-paper-hat-e.htm</span></td><td>Waveshare's store or Amazon</td><td class="price">about $80</td></tr>
+        <tr><td class="box"></td><td><b>DFRobot FireBeetle 2 ESP32-E</b> (part number DFR0654): the main board, with Wi-Fi, a battery plug, a charger and USB-C. Its header pins come loose in the box, for you to solder. (DFR0654-F is the same board with the pins already fitted; buy the plain one if you want the soldering practice.)<br><span class="url">dfrobot.com/product-2195.html</span></td><td>DFRobot</td><td class="price">$8.90</td></tr>
         <tr><td class="box"></td><td><b>Lithium battery, 2500 mAh, 3.7 V</b>, with protection and a 2-pin JST-PH plug (Adafruit product 328).<br><span class="url">adafruit.com/product/328</span></td><td>Adafruit</td><td class="price">$14.95</td></tr>
         <tr><td class="box"></td><td><b>JST-PH 2-pin battery extension lead</b> and <b>two crocodile-clip leads</b>, for the sleep-current test in part 7.</td><td>Adafruit, or any electronics shop</td><td class="price">about $5</td></tr>
-        <tr class="total"><td></td><td>Electronics</td><td></td><td class="price">about $111</td></tr>
+        <tr class="total"><td></td><td>Electronics</td><td></td><td class="price">about $109</td></tr>
       </table>
     </li>
     <li><strong>Order the soldering tools.</strong>
@@ -170,7 +170,7 @@
       </table>
     </li>
     <li><strong>Order filament, if you are short.</strong> Matte PLA in the truck's colours (up to four, for the AMS); any PETG or PLA for the sled and the printed tools. If the desk gets direct sun, use PETG for the truck. The whole project uses well under one spool of each colour.</li>
-    <li><strong>Add it up.</strong> About <b>$290 to $305</b> in all, before filament and shipping: $111 of electronics, $61 of soldering tools, $84 to $100 of general tools, $33 of hardware.
+    <li><strong>Add it up.</strong> About <b>$290 to $305</b> in all, before filament and shipping: $109 of electronics, $61 of soldering tools, $84 to $100 of general tools, $33 of hardware.
       <div class="warn"><b>Do not plug the battery in when it arrives.</b> Battery makers disagree about which side of the plug is +. Step 24 checks it with the multimeter first. A battery plugged in backwards destroys the board.</div>
     </li>
   </ol>
@@ -196,9 +196,9 @@
       <div class="warn"><b>Nothing printed goes near the hot iron.</b> PLA softens at about 60 °C; the iron is 350 °C. The iron's hot end rests only on metal: the bought stand, or the printed stand's steel bearing.</div>
     </li>
     <li><strong>Look at two frames other people made for this exact screen.</strong> See how they hold it. to see how they hold it. Download them to look at, not to print: <span class="url">makerworld.com/en/models/1924771</span> and <span class="url">makerworld.com/en/models/1213404</span>. The second one's author warns that some screens differ from the maker's stated size. That is why part 8 starts with calipers.</li>
-    <li><strong>Meanwhile, the software gets written.</strong> You do nothing here. I build the morning job that reads Off the Grid's list, the web page, the picture for the screen, and the program for the board. When it is ready you get a new edition of this guide with the three "next edition" steps filled in.</li>
+    <li><strong>The software is already written.</strong> You do nothing here. The morning job that reads Off the Grid's list, the web page, the picture for the screen and the program for the board are all in the project folder (<span class="url">~/Desktop/foodTruck</span>) and on GitHub. The job has been run on a real day's trucks; the board's program compiles but has never met real hardware. Part 6 is where it does.</li>
   </ol>
-  <div class="gate"><b>Check before part 4</b>The parts have arrived, the helpers are printed, and you have the new edition of this guide.</div>
+  <div class="gate"><b>Check before part 4</b>The parts have arrived and the helpers are printed.</div>
 </section>
 
 <!-- ============================== PART 4 ============================== -->
@@ -229,10 +229,10 @@
   <p class="lede">The only soldering on the real parts: two rows of pins on the FireBeetle. Then one knife cut that decides the battery life.</p>
   <div class="warn"><b>The battery stays unplugged for this whole part.</b> Never solder with the battery connected.</div>
   <ol class="steps">
-    <li><strong>Fit the pins.</strong> Snap two strips of header pins to the length of the board's two rows of holes. Push the short ends up through the holes from underneath, so the <b>long ends stick out of the top face</b> (the side with the chips). The 8-wire cable will push onto those long ends. Hold pins and board square in the printed jig.</li>
+    <li><strong>Fit the pins.</strong> The board comes with loose strips of header pins. Take two that match the board's two long rows of holes (snap them to length if they are longer). Push the short ends up through the holes from underneath, so the <b>long ends stick out of the top face</b> (the side with the chips). The 8-wire cable will push onto those long ends. Hold pins and board square in the printed jig.</li>
     <li><strong>Solder one corner pin, then check.</strong> The board should sit flat on the strips. If it is tilted, reheat that joint and press the board down. Then solder the opposite corner.</li>
     <li><strong>Solder every remaining pin in both rows.</strong> Clean the tip in the brass wool every few joints. Check each joint against Drawing 3 and fix any bridges.</li>
-    <li><strong>Cut the low-power pad.</strong> <span class="later">next edition: a photo of the exact spot</span><br>The board has a small solder-jumper pad labelled for low power: two halves joined by a thin copper neck. It is marked on the board diagram on DFRobot's page for this board (search "DFR0654 wiki"). With the craft knife, cut through the neck between the two halves, two or three firm strokes, then check with the multimeter on its continuity (beep) setting that the two halves no longer connect.
+    <li><strong>Cut the low-power pad.</strong> Hold the board with the chips facing you and the USB-C socket at the top. Find the small square light (the RGB light, labelled 5/D8). Right under it, above the long flat socket, are <b>two small bright square pads joined by a hair-thin copper trace</b>. (It is item 8 in the "Board Overview" picture on DFRobot's page for this board: search "DFR0654 wiki".) With the craft knife, cut through that thin trace between the two pads: two or three firm strokes. Then check with the multimeter on its continuity (beep) setting that the two pads no longer connect. After the cut the little RGB light only works on USB power; that is expected.
       <div class="warn"><b>This cut matters more than any other step.</b> With it, the board sleeps at about 12 µA and a charge lasts about a year or more. Without it, the board sleeps at about 520 µA and a charge lasts about four months.</div>
     </li>
   </ol>
@@ -246,8 +246,8 @@
   <ol class="steps">
     <li><strong>Lay the parts out</strong> on a clean, soft surface: screen face up with its <b>protective film left on</b>, adapter board, main board, battery (unplugged), the 8-wire cable. Never press on the screen's glass or lean anything on it.</li>
     <li><strong>Plug the screen's ribbon into the adapter board.</strong> Power off and battery unplugged. Lift the little latch on the adapter's socket with a fingernail or tweezers, slide the ribbon in square and fully home with its contacts facing the way the adapter's instructions show, then press the latch closed. The ribbon may only bend in the 5 mm nearest the glass; never crease it.</li>
-    <li><strong>Plug the 8-wire cable into the adapter board.</strong></li>
-    <li><strong>Push the cable's eight loose ends onto the main board's pins.</strong> Go by the <b>names printed on the adapter board</b>, not by wire colours. Tick each as you connect it.
+    <li><strong>Plug the cable into the adapter board.</strong></li>
+    <li><strong>Push the cable's loose ends onto the main board's pins.</strong> Go by the <b>names printed on the adapter board</b>, not by wire colours. Tick each as you connect it.
       <table>
         <tr><th></th><th>Adapter pin</th><th>What it carries</th><th>Goes to the FireBeetle pin labelled</th></tr>
         <tr><td class="box"></td><td><b>VCC</b></td><td>3.3 V power to the screen</td><td><b>3V3</b></td></tr>
@@ -258,15 +258,30 @@
         <tr><td class="box"></td><td><b>DC</b></td><td>data or command</td><td><b>22</b></td></tr>
         <tr><td class="box"></td><td><b>RST</b></td><td>reset the screen</td><td><b>21</b></td></tr>
         <tr><td class="box"></td><td><b>BUSY</b></td><td>screen says "still redrawing"</td><td><b>14</b></td></tr>
+        <tr><td class="box"></td><td><b>PWR</b> (only if your adapter has it)</td><td>switches the screen's power, so it draws nothing while asleep</td><td><b>25</b> (D2)</td></tr>
       </table>
-      <div class="note">These pins are the program's planned choice. If the finished program uses different ones, the new edition of this guide says so here.</div>
+      <div class="note">These are the pins the program uses. Waveshare's newer adapters have a ninth pin, PWR; older ones have eight and no PWR, which is fine. Drawings 4 and 5 show eight.</div>
     </li>
     <li><strong>Check the battery's polarity before it ever touches the board.</strong> Multimeter on DC volts (the 20 V range or auto). Red probe on the metal contact inside the battery plug that the <b>red</b> wire goes to, black probe on the other: it should read about <b>+3.7 to +4.2 V</b>. Now look at the board's battery socket: it has a <b>+</b> and a <b>−</b> printed beside it. Hold the plug the way it will go in. The red wire must line up with the <b>+</b>.
       <div class="warn"><b>If red lines up with −, do not plug it in.</b> Tell me: the fix is to swap the two metal contacts in the plug with a pin, which takes a minute, but it must be done first.</div>
     </li>
     <li><strong>Plug in the USB-C data lead</strong> from the board to your Mac. Leave the battery unplugged for now.</li>
-    <li><strong>Load the program.</strong> <span class="later">next edition: the exact command</span><br>One command in Terminal copies the program onto the board. It takes about a minute.</li>
-    <li><strong>Give it the Wi-Fi name and password.</strong> <span class="later">next edition: exactly how</span><br>You type the network name and password from step 2 once; the board remembers them. They are stored only on the board, never on the internet.</li>
+    <li><strong>Load the program.</strong> Open Terminal on your Mac and type these lines, one at a time. The first three are needed only once; the third downloads the tools and takes a few minutes.
+      <pre>cd ~/Desktop/foodTruck
+python3 -m venv firmware/.venv
+firmware/.venv/bin/pip install platformio
+cd firmware
+.venv/bin/pio run -t upload</pre>
+      It ends with <b>SUCCESS</b>. If the upload never starts ("Connecting......" for a long time), join the board's pin <b>0/D5</b> to <b>GND</b> with a spare wire, tap the <b>RST</b> button, run the last line again, then remove the wire.
+    </li>
+    <li><strong>Give it the Wi-Fi name and password.</strong> On its first start the truck makes its own Wi-Fi hotspot called <b>FoodTruck-Setup</b>.
+      <ul>
+        <li>On your phone, join the Wi-Fi network <b>FoodTruck-Setup</b>. A set-up page opens by itself (if not, open a browser and go to <span class="url">192.168.4.1</span>).</li>
+        <li>Pick the office network from step 2, type its password, and save.</li>
+        <li>The truck leaves set-up, joins the office Wi-Fi and fetches the picture. The password is stored only on the board.</li>
+      </ul>
+      The set-up hotspot stays up for 5 minutes, then the board sleeps. To open it again later, hold the board's small button marked <b>27/D4</b> while you tap <b>RST</b>.
+    </li>
     <li><strong>Watch it work.</strong> The screen flashes through its colours for about 25 seconds, then shows today's trucks. Unplug the USB-C lead, plug in the battery, press the board's reset button: it should do the same again from the battery alone.</li>
   </ol>
   <div class="gate"><b>Check before part 7</b>The bare screen shows today's trucks, running from the battery alone.</div>
@@ -294,6 +309,7 @@
       <ul>
         <li><b>About 15 µA (anything under 50):</b> good. That is a year or more per charge.</li>
         <li><b>About 500 µA:</b> the low-power pad is not fully cut. Redo step 19.</li>
+        <li><b>About 2,000 µA (2 mA):</b> tell me. DFRobot's own page now quotes this figure for the board after the cut, although an independent measurement of the same board found 11.6 µA. If yours reads 2 mA, a charge would last about six weeks, and the fix is a different main board.</li>
         <li><b>Anything else in the hundreds or thousands:</b> stop and tell me the number. The usual cause is the screen's adapter board, and there is a known fix.</li>
       </ul>
       Clip the bypass back on <b>before</b> you press reset or unplug anything.
@@ -429,7 +445,7 @@
     <tr><th>Word</th><th>Meaning</th></tr>
     <tr><td>Sled</td><td>The printed plate that carries the screen, the two boards and the battery. It lifts out of the truck in one piece.</td></tr>
     <tr><td>Ribbon</td><td>The screen's flat, flexible cable. Fragile: one gentle bend, near the glass only.</td></tr>
-    <tr><td>Adapter board</td><td>The small board from the screen set. The ribbon plugs into it; eight wires leave it.</td></tr>
+    <tr><td>Adapter board</td><td>The small board from the screen set. The ribbon plugs into it; eight or nine wires leave it.</td></tr>
     <tr><td>Main board</td><td>The FireBeetle: Wi-Fi, charger, battery plug, USB-C.</td></tr>
     <tr><td>Header pins</td><td>Rows of metal pins in a plastic strip, soldered to the main board so wires can push on.</td></tr>
     <tr><td>Deep sleep</td><td>The board all but switched off, with only a timer running. Measured in µA.</td></tr>

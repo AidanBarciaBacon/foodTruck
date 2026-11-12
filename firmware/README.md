@@ -44,20 +44,15 @@ firmware/.venv/bin/pip install platformio
 
 That puts PlatformIO in `firmware/.venv` and nowhere else. (That folder and `firmware/.pio` are ignored by git.)
 
-### 2. Set the web address
+### 2. The web address (already set)
 
-The truck needs to know where the morning job publishes its files. Create the file `firmware/include/secrets.h`
-(it is ignored by git) with one line, using your own address, **ending with a slash**:
+The truck needs to know where the morning job publishes its files. It is built in:
+`https://aidanbarciabacon.github.io/foodTruck/` (the `BASE_URL` line near the top of `include/config.h`). Check it
+in a browser: that address followed by `status.json` should show a few lines of text.
 
-```c
-#define BASE_URL "https://YOUR-GITHUB-NAME.github.io/foodTruck/"
-```
-
-Check it in a browser first: that address followed by `status.json` should show a few lines of text.
-
-Other ways to do the same thing: change the `BASE_URL` line near the top of `include/config.h`, or pass it when
-building: `PLATFORMIO_BUILD_FLAGS='-DBASE_URL=\"https://me.github.io/foodTruck/\"' .venv/bin/pio run`.
-While it is still the placeholder, every build prints a warning saying so.
+To point a truck somewhere else, create `firmware/include/secrets.h` (ignored by git) with one line, **ending with
+a slash**, `#define BASE_URL "https://example.github.io/foodTruck/"`, or pass it when building:
+`PLATFORMIO_BUILD_FLAGS='-DBASE_URL=\"https://example.github.io/foodTruck/\"' .venv/bin/pio run`.
 
 ### 3. Build
 
@@ -146,12 +141,12 @@ All in `include/config.h`, each with a comment. Any of them can be overridden in
 
 | Setting | Default | What |
 |---|---|---|
-| `BASE_URL` | a placeholder | where the published files are |
+| `BASE_URL` | `https://aidanbarciabacon.github.io/foodTruck/` | where the published files are |
 | `DEBUG_LOG` | 0 | 1 = talk on the serial port (the `truck-debug` build sets it) |
 | `HAS_BATTERY_SENSE` | 1 | 0 = no battery reading; the battery mark and the "Charge me" card are left out of the program |
 | `ROTATE_180` | 0 | 1 = the picture is drawn the other way up (see below) |
 | `VERIFY_HASH` | 1 | 0 = do not check the picture's fingerprint |
-| `PIN_EPD_PWR` | -1 | the board pin wired to the adapter's PWR pin, if you wire one (see "The screen's power") |
+| `PIN_EPD_PWR` | 25 | the board pin wired to the adapter's PWR pin (see "The screen's power"); -1 if PWR is joined to 3V3 |
 | `BATTERY_LOW_MV` / `BATTERY_RECOVER_MV` | 3450 / 3600 | "Charge me" below the first; back to normal at the second |
 | `BATTERY_DIVIDER_X1000` | 2000 | correction for the battery reading (see "Battery") |
 
@@ -226,13 +221,14 @@ uses anyway. The plan's power budget (15 µA asleep) assumes this cut has been m
 
 ## The screen's power (the adapter's PWR pin)
 
-The plan wires eight pins. Waveshare's current example code also drives a ninth, **PWR**, high before using the
-screen and low afterwards. If your adapter board has a PWR pin:
+Waveshare's current example code drives a ninth pin, **PWR**, high before using the screen and low afterwards.
+Newer adapter boards have it; older ones have eight pins and no PWR.
 
-- simplest: join PWR to **3V3**, so the screen is always powered (it sleeps at next to nothing by itself);
-- or wire PWR to a spare board pin (25 is free) and build with `PIN_EPD_PWR=25`. The truck then switches the
-  screen's power off completely while it sleeps, which also settles the plan's open question about the adapter
-  leaking current.
+- The build guide wires PWR to the board pin marked **25/D2**, and `PIN_EPD_PWR` defaults to 25. The truck then
+  switches the screen's power off completely while it sleeps, which also settles the plan's open question about
+  the adapter leaking current.
+- With an eight-pin adapter, pin 25 is simply left unconnected; nothing else changes.
+- To keep the screen always powered instead, join PWR to **3V3** and build with `-DPIN_EPD_PWR=-1`.
 
 If the adapter has a PWR pin and it is left unconnected, the screen may simply never answer (the debug build
 says `the screen does not answer`).
