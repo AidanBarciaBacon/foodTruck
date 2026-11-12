@@ -9,9 +9,17 @@ project. This file adds only what is this project's own; where the two differ, t
 
 ## This project
 
-**State at install (2026-11-12): the repo is empty.** It holds the board's own files and nothing else: no source, no
-`package.json`, no git remote, and no commits before the one that added this section. So `.claude/coord.conf` sets
-nothing yet, each for a plain reason:
+**What this project is:** a desk-sized, 3D-printed food truck with a colour e-paper screen that shows which food
+trucks are outside the office today, battery powered. It is a hardware build the user carries out; the crew writes
+the plan and, later, the software (the morning job, the web page, the renderer, the firmware). It is not a game.
+
+- `docs/plan/PLAN.md` is the build plan; `docs/plan/SPEC.md` is the one source for every number in it and in the
+  diagrams (`docs/plan/diagrams/*.svg`, drawn to `diagrams/STYLE.md`). Change a number in SPEC first, then wherever
+  it is shown.
+- `bash docs/plan/build-review.sh` builds the plan's Review Desk page (it prints the send line).
+
+**State at install (2026-11-12): no code yet.** There is no source, no `package.json` and no git remote. So
+`.claude/coord.conf` sets nothing yet, each for a plain reason:
 
 | Setting | Value | Why |
 |---|---|---|

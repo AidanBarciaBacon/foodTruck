@@ -240,8 +240,8 @@
 <circle cx="862" cy="300" r="12" fill="#1F2933"/><text x="862" y="305" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">3</text>
 <text x="886" y="305" font-size="15" font-weight="600" fill="#1F2933">Body shell</text>
 <text x="886" y="324" font-size="13" fill="#1F2933">229 x 127 x 113.6 mm</text>
-<text x="886" y="341" font-size="13" fill="#5F6B7A">open top and bottom; on a 220 mm bed,</text>
-<text x="886" y="358" font-size="13" fill="#5F6B7A">split it at about x = 190, ahead of the sled</text>
+<text x="886" y="341" font-size="13" fill="#5F6B7A">open top and bottom; fits the P1S bed in</text>
+<text x="886" y="358" font-size="13" fill="#5F6B7A">one piece, or as flat walls (see printing)</text>
 <circle cx="862" cy="384" r="12" fill="#1F2933"/><text x="862" y="389" font-size="14" font-weight="700" fill="#FFFBF2" text-anchor="middle">4</text>
 <text x="886" y="389" font-size="15" font-weight="600" fill="#1F2933">Chassis</text>
 <text x="886" y="408" font-size="13" fill="#1F2933">229 x 127 x 27 mm</text>

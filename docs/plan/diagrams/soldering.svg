@@ -312,11 +312,11 @@
     <text x="64" y="773">to clean the tip</text>
 
     <use xlink:href="#box" x="283" y="744"/>
-    <text x="307" y="756" font-size="15" fill="#1F2933">Helping hands or blu-tack</text>
+    <text x="307" y="756" font-size="15" fill="#1F2933">Printed board holder</text>
     <text x="307" y="773">to hold the work</text>
 
     <use xlink:href="#box" x="526" y="744"/>
-    <text x="550" y="756" font-size="15" fill="#1F2933">Silicone mat</text>
+    <text x="550" y="756" font-size="15" fill="#1F2933">Heat-safe mat or tile</text>
 
     <use xlink:href="#box" x="40" y="802"/>
     <text x="64" y="814" font-size="15" fill="#1F2933">Safety glasses</text>

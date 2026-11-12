@@ -92,7 +92,7 @@ amount of soldering change.
 | Soldering | none | two rows of header pins | eight wires, battery leads, two resistors, a switch |
 | Main board | Seeed XIAO ePaper Display Board EE04 | DFRobot FireBeetle 2 ESP32-E | Seeed XIAO ESP32-S3 |
 | Asleep, whole board | not published | 11.6 µA, measured | 12 to 13 µA, measured |
-| Cost | about $85 | about $105, plus $45 of soldering kit | about $90, plus $45 of soldering kit |
+| Cost | about $85 | about $105, plus $61 of soldering tools | about $90, plus $61 of soldering tools |
 | Main unknown | battery life is unproven | whether the screen's adapter leaks while asleep | fine soldering on small pads |
 
 **I recommend route B.** You said you would love to learn to solder, and header pins are the classic first job:
@@ -144,12 +144,18 @@ truck is plain plastic: reprint it, repaint it or redesign it without touching t
 
 ![The printed parts and how they go together](diagrams/exploded.svg)
 
-Printing notes:
+Printing it on your P1S:
 
-- **Bed size.** The body is 229 mm long. It fits a 250 or 256 mm bed; on a 220 mm bed, split it just in front of
-  the sled, at the cab.
-- **The window's top edge** is a 161 mm bridge if the body prints upright. Print with supports in the window, or
-  print the serving wall as its own flat part (the flattest result for the screen), or lay the body on its far side.
+![Printing the truck in colour with the AMS](diagrams/print-colour.svg)
+
+- **It fits.** The body is 229 mm long and your bed is 256 mm, so it prints in one piece.
+- **Print the colour in; skip the paint.** The AMS gives you four colours in one print.
+- **Print the two long side walls flat, face down, as their own parts.** Lettering and stripes drawn into the first
+  two or three layers come out crisp, and the colour only changes in those layers, so little filament is wasted.
+  It also gives the flattest wall for the screen and removes the 161 mm bridge over the window. Model a tongue
+  and groove where the walls meet the rest of the body, and fix them with a few drops of superglue.
+- **Keep other colour changes horizontal.** A stripe running up a standing wall swaps filament on every layer.
+- **Material.** Matte PLA for the truck; PETG if the desk gets direct sun. PETG or PLA for the sled.
 - **Print a test slice first:** 20 mm of the serving wall with the window and the two channels. Try the sled in it
   before committing to the full print.
 - **Charging.** The main board's USB-C port lines up with a slot in the rear wall, so you charge it like a phone,
@@ -157,16 +163,16 @@ Printing notes:
 
 ## 8. Shopping list
 
-Prices are approximate for November 2026. Waveshare's own site would not load, so its prices are from resellers.
+The electronic parts. Tools are in the next section. Prices are approximate for November 2026; Waveshare's own
+site would not load, so its prices are from resellers.
 
 **Every route**
 
 | Part | About |
 |---|---|
 | 2500 mAh protected LiPo battery with a 2 mm JST plug (Adafruit #328 or similar) | $15 |
-| Eight magnets, 6 mm x 3 mm | $5 |
-| M2.5 x 6 screws, thin double-sided tape, 1 mm foam tape | $8 |
-| A basic multimeter (checks battery polarity, and measures the sleep current in phase 4) | $20 |
+| Magnets, 6 mm x 3 mm (you need eight; they come in packs of 50) | $11 |
+| Thin double-sided tape (3M 468MP or similar), 1 mm foam tape, superglue | $15 |
 
 **Route A**
 
@@ -181,7 +187,6 @@ Prices are approximate for November 2026. Waveshare's own site would not load, s
 |---|---|
 | Waveshare 7.3inch e-Paper HAT (E) set: the screen, its adapter and an 8-wire cable | $80 |
 | DFRobot FireBeetle 2 ESP32-E | $9 |
-| Soldering kit: adjustable iron (a Pinecil or any 60 W), 0.8 mm rosin-core solder, brass wool, silicone mat, helping hands, safety glasses, flush cutters, a through-hole practice kit | $45 |
 
 **Route C**
 
@@ -191,23 +196,75 @@ Prices are approximate for November 2026. Waveshare's own site would not load, s
 | Good Display DESPI-C73 adapter | price not listed |
 | Seeed XIAO ESP32-S3 | $7.50 |
 | Two 1 MΩ resistors, a slide switch, thin wire | $5 |
-| The same soldering kit | $45 |
 
 A finished unit also exists (Seeed reTerminal E1002, $99: this screen, a battery and a board in a metal case). I do
 not recommend it: its case needs a truck about 160 mm tall, and nobody has published its battery life at one
 redraw a day.
 
-## 9. Learning to solder
+## 9. Tools: what to buy, what to print
+
+You have few tools and a P1S, so this list buys only what cannot be printed.
+
+![Tools: what to buy, what to print](diagrams/tools.svg)
+
+**Buy** (prices read on 12 November 2026 unless marked)
+
+| Tool | My pick | About |
+|---|---|---|
+| Soldering iron | Pine64 Pinecil V2, from Pine64's store. Comes with a tip, but no power supply. | $26 |
+| Power for the iron | Any USB-C laptop charger of 60 W or more (a MacBook charger works), plus Pine64's silicone USB-C lead | $4 |
+| Stand for the iron | Pine64's mini stand, or print one (below) | $2 |
+| Solder | 63/37 rosin-core, 0.8 mm (0.031 in), from a name brand such as Kester; the smallest pack you can find. Lead-free alternative: SAC305 in the same size (Adafruit #734, out of stock today). | $8 to $30, not checked |
+| Brass wool tip cleaner | Hakko brass sponge (Adafruit #1172) | $11 |
+| Flush cutters | Hakko CHP-170 (Adafruit #152). Also the best tool for print supports. | $7 |
+| Fine tweezers | ESD-safe straight tweezers (Adafruit #421) | $4 |
+| Digital calipers, 150 mm | iGaging EZ Cal ($36), or a Neiko 01407A (cheaper; price not checked) | $20 to $36 |
+| Multimeter with a microamp range | Aneng AN8008: it reads down to 0.01 µA, so 15 µA shows as 15.00 | about $25, not checked |
+| Soldering practice kit | SparkFun WeevilEye (KIT-10723), through-hole | $10 |
+| Small screwdrivers, a craft knife, safety glasses, a USB-C lead that carries data | any; solder on a spare ceramic tile or a silicone mat | $28 |
+
+That is **$84 to $100 of tools on any route** (calipers, multimeter, cutters, tweezers, the small things) and
+**about $61 more for soldering** (iron, its lead and stand, solder, cleaner, practice kit). If the multimeter sounds
+dull: it is the one tool that tells you the battery will last a year before you seal the truck, and it stops you
+plugging a battery in backwards.
+
+**Print** (all free on MakerWorld; download counts show they are well used)
+
+| Print | Model | Notes |
+|---|---|---|
+| Board holder, in place of "helping hands" | [Adjustable PCB Holder Tool](https://makerworld.com/en/models/159336) by squinn, 12,800 downloads | fully printed, no hardware |
+| Header-pin jig | [Soldering Assistant V2: Modular Sliding-Pin Jig](https://makerworld.com/en/models/2836264) by ASF94, 2,000 downloads | holds 2.54 mm pins square while you solder |
+| Solder spool holder | [Soldering wire holder](https://makerworld.com/en/models/194888) by 3Deste, 9,500 downloads | |
+| Stand for the Pinecil | [Pinecil Soldering Iron Stand](https://makerworld.com/en/models/1177626) by Daniel Jovanovic, 1,300 downloads | needs one steel 608 bearing where the hot end rests; print in PETG. Or buy the $2 stand. |
+| Parts and screw trays | [Stackable Screw Tray Box system](https://makerworld.com/en/models/54727) by Meister Edel, 2,800 downloads | |
+| Fume fan (optional) | [Soldering Fume Extractor, USB-C, Filter Tray](https://makerworld.com/en/models/457455) by LTS Design, 3,300 downloads | needs an 80 mm fan, a carbon filter sheet and a little soldering: a good second project. For this few joints, an open window and a desk fan do the job. |
+| The sled, its bench stand, the test slice, the truck | yours | |
+
+Two screen frames worth downloading only to look at, since they hold this exact panel:
+[Waveshare 7.3" display frame](https://makerworld.com/en/models/1924771) by beo, and
+[WaveShare 7.3 frame](https://makerworld.com/en/models/1213404) by Delomixal, whose author warns that some panels
+differ from Waveshare's stated size. That is why phase 5 starts with calipers.
+
+**Print rather than buy, inside the truck too:**
+
+- **Clips in place of screws.** Model snap clips or pegs on the sled to hold the boards, and you need no screws at
+  all. I could not find M2.5 self-tapping screws in a small pack anyway; an assortment box of M2.5 machine screws
+  (about $8, not checked) works in 2.1 mm printed holes if you would rather screw.
+- **Standoffs, the battery pocket and its strap** are part of the sled print.
+- **Magnets cannot be printed.** Eight 6 x 3 mm discs; a 50-pack is about $11.
+- **Nothing printed goes near the hot iron.** PLA softens at about 60 °C.
+
+## 10. Learning to solder
 
 For routes B and C. Do the practice kit first; the real board comes after ten joints you are happy with.
 
 ![Your first solder joints](diagrams/soldering.svg)
 
-- **Hold the pins square** by pushing them into a breadboard, or blu-tack, before you solder the board onto them.
+- **Hold the pins square** in the printed header-pin jig before you solder the board onto them.
 - **Solder one corner pin, check the board sits flat, then do the rest.**
 - **Never solder with the battery plugged in.**
 
-## 10. The build, in order
+## 11. The build, in order
 
 ![The build, in order](diagrams/roadmap.svg)
 
@@ -252,18 +309,18 @@ Gate: sleep current under 50 µA, and seven mornings of correct pictures.
 **Phase 5. Model (you).**
 1. Measure the real screen, boards and battery with calipers.
 2. Model and print the sled. Mount the electronics on it. It should work exactly as it did loose on the bench.
-3. Model the truck around the sled, to the numbers in section 6.
+3. Model the truck around the sled, to the numbers in section 6. Print the tools from section 9 while you wait for parts.
 4. Print the test slice of the serving wall and try the sled in it.
 
 **Phase 6. Print and assemble (you).**
-1. Print the chassis, body, roof and wheels. Paint before the electronics go in.
+1. Print the chassis, body, roof and wheels, with the colour printed in.
 2. Drop the sled in, peel the screen's film, put the roof on.
 Gate: it updates from inside the closed truck, on the desk where it will live.
 
 **Phase 7. Live with it (both).** Two weeks on the desk. We tune the layout, the wake time and anything that
 annoys you.
 
-## 11. What could go wrong
+## 12. What could go wrong
 
 | Risk | What we do about it |
 |---|---|
@@ -277,10 +334,10 @@ annoys you.
 | The battery | A protected cell in a pocket with room to swell, never clamped, away from screw points. Charge it while you are around. |
 | Parts turn out different from the datasheet | You measure the real parts before modelling, and print a test slice before the full truck. |
 
-## 12. What is still open
+## 13. What is still open
 
 - **The link** to the page that lists the trucks. Everything in phase 1 starts from it.
-- **Your answers** to the questions below: the route, the screen size, your printer's bed, the height, and whether I
-  may create a GitHub repo for the job and the page.
+- **Your answers** to the questions below: the route, the screen size, the height, and whether I may create a
+  GitHub repo for the job and the page.
 - **Three facts nobody publishes,** each settled on the bench: the energy one redraw costs on this screen; route A's
   sleep current; and whether Waveshare's adapter draws current while asleep.

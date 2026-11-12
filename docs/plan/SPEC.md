@@ -96,7 +96,7 @@ All three use the same screen, the same truck and the same software.
 | Screen adapter | built into the board | Waveshare's, with its 8-wire cable | Good Display DESPI-C73, passive |
 | Soldering | none | two rows of header pins | eight wires, battery leads, two resistors, a switch |
 | Asleep, whole board | not published | 11.6 µA measured (pad cut) | 12 to 13 µA measured |
-| Cost | about $85 | about $105 + $45 soldering kit | about $90 + $45 soldering kit |
+| Cost | about $85 | about $105 + $61 soldering tools | about $90 + $61 soldering tools |
 | Main unknown | battery life unproven | whether the adapter leaks while asleep | fine soldering on small pads |
 
 Section 10 holds the full parts list for each route.
@@ -206,7 +206,7 @@ itself is plain plastic and can be reprinted or repainted without touching the e
   end). There is no rim along the top or bottom at 152 mm height: the plate is only 0.5 mm taller than the glass
   below and 0.8 mm above. Nothing clamps the glass.
 - **Bottom centre:** a cut-out 30 wide x 6 tall, where the ribbon folds back to the rear face (a relaxed U, about
-  2 mm radius, inside the 5.5 mm bend zone). It hangs into the free space between the wheel wells (x = 65 to 164).
+  1.5 mm radius, so the whole fold stays inside the 5.5 mm bend zone). It hangs into the free space between the wheel wells (x = 65 to 164).
 - **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its socket within 10 mm of the cut-out,
   its short side along the truck so it clears the battery.
 - **Rear face, towards the rear of the truck:** the main board on 3 mm standoffs, its USB-C port facing the rear wall
@@ -271,11 +271,11 @@ opened, and no measured battery life at one redraw a day.
 | Waveshare 7.3inch e-Paper HAT (E) set | the screen, its small adapter board, and a cable with eight loose plug ends | $80 |
 | DFRobot FireBeetle 2 ESP32-E | the main board: Wi-Fi chip, battery plug, charger, USB-C; 25.4 x 60 mm; sleeps at 11.6 µA once its low-power pad is cut (520 µA if not) | $8.90 |
 | 2500 mAh LiPo with 2 mm JST plug (Adafruit #328) | the battery | $14.95 |
-| Soldering kit (section 12) | iron, solder, practice kit and the rest | $45 |
+| Soldering tools (section 13) | iron, solder, practice kit and the rest | $61 |
 
 The soldering: two rows of header pins onto the FireBeetle (plain through-hole joints, the classic first job). Then
 the cable's eight ends push onto the pins, and the battery plugs in. One cut with a craft knife opens the low-power
-pad. Total about **$105 plus the soldering kit**.
+pad. Total about **$105 plus the soldering tools**.
 Unknown: whether the Waveshare adapter itself draws current while asleep (later versions carry a voltage shifter).
 The bench check finds out; the fix, if needed, is a passive adapter (Good Display DESPI-C73, 47 x 32 mm).
 
@@ -288,10 +288,10 @@ The bench check finds out; the fix, if needed, is a passive adapter (Good Displa
 | Seeed XIAO ESP32-S3 | thumbnail-sized main board, 21 x 17.8 mm, with charger; measured asleep at 12 to 13 µA | $7.49 |
 | 2500 mAh LiPo (the same battery) | its two leads soldered to pads under the board, through the slide switch | $14.95 |
 | Two 1 MΩ resistors, a slide switch, thin wire | battery-level sensing and an off switch | $5 |
-| Soldering kit (section 12) | | $45 |
+| Soldering tools (section 13) | | $61 |
 
 The soldering: eight wires point to point between adapter and board, the battery leads onto two small pads (the
-fiddly part), two resistors and a switch. Total about **$90 plus the soldering kit**. Smallest and neatest; a good
+fiddly part), two resistors and a switch. Total about **$90 plus the soldering tools**. Smallest and neatest; a good
 second build once route B's joints feel easy.
 
 ### The eight wires (routes B and C)
@@ -358,37 +358,42 @@ So the 229 mm body prints in one piece, and colour can be printed in rather than
 
 | Tool | Why | About |
 |---|---|---|
-| Soldering iron, temperature controlled, with a small chisel tip | routes B and C | $26 to $40 |
-| A metal stand for the iron | a printed one would melt | $6 |
+| Pinecil V2 soldering iron (comes with a tip) | routes B and C | $26 |
+| Its power: a 60 W or bigger USB-C laptop charger (you may own one) and a silicone USB-C lead | | $4 |
+| Stand for the iron (or print one that holds the hot end in a steel bearing) | | $2 |
 | Solder, 0.8 mm rosin core | | $8 |
-| Brass wool tip cleaner | | $7 |
-| Flush cutters | trimming pins, wires and print supports | $8 |
-| Fine tweezers | the ribbon latch, small screws | $6 |
-| Digital calipers, 150 mm | measuring the real parts before modelling (phase 5) | $20 |
-| Multimeter with a microamp (µA) range | battery polarity; the sleep-current check (phase 4) | $25 |
-| Small screwdriver set | M2.5 screws | $10 |
+| Brass wool tip cleaner | | $11 |
+| Through-hole soldering practice kit | ten joints before the real board | $10 |
+| Flush cutters | trimming pins, wires and print supports | $7 |
+| Fine tweezers | the ribbon latch, small screws | $4 |
+| Digital calipers, 150 mm | measuring the real parts before modelling (phase 5) | $20 to $36 |
+| Multimeter with a microamp (µA) range | battery polarity; the sleep-current check (phase 4) | about $25 |
+| Small screwdriver set | | $10 |
 | Craft knife | the low-power pad cut; cleaning prints | $5 |
 | Safety glasses | soldering and cutting | $5 |
-| Through-hole soldering practice kit | ten joints before the real board | $10 |
 | A USB-C lead that carries data | loading the program | $8 |
+
+The first six are for soldering (routes B and C): $61. The other eight are for everything: $84 to $100.
 
 ### Print instead of buying
 
 | Print | Replaces |
 |---|---|
 | Board holder (a small vise for circuit boards) | "helping hands" |
-| Header-pin jig: a block with holes 2.54 mm apart that holds the pins square while you solder | a breadboard |
+| Header-pin jig: holds 2.54 mm pins square while you solder | a breadboard |
 | Solder spool holder | |
-| Fume fan housing (takes a bought 120 mm computer fan and a carbon filter pad) | a bought fume extractor |
-| Tray for small parts and screws | |
+| Stand for the iron (needs one steel 608 bearing where the hot end rests) | the bought stand |
+| Fume fan housing, optional (takes a bought 80 mm fan and a carbon filter sheet; for this few joints an open window and a desk fan do the job) | a bought fume extractor |
+| Trays for small parts and screws | |
+| Clips that hold the boards on the sled | screws |
 | Bench stand for the sled | |
 | The sled, its standoffs and battery pocket; the test slice; the truck, wheels, awning and details | |
 
 ### Hardware and consumables to buy
 
-Eight magnets 6 mm x 3 mm; M2.5 x 6 self-tapping screws (they cut their own thread in printed 2.1 mm holes, so no
-threaded inserts are needed); thin double-sided tape; 1 mm foam tape; superglue for the magnets; isopropyl alcohol
-and a soft cloth.
+Eight magnets 6 mm x 3 mm; M2.5 x 6 screws (they cut their own thread in printed 2.1 mm holes, so no threaded
+inserts are needed), or printed clips instead; thin double-sided tape; 1 mm foam tape; superglue for the magnets;
+isopropyl alcohol and a soft cloth.
 
 ### Filament
 
@@ -406,3 +411,26 @@ and a soft cloth.
   horizontal (by height) or in the face-down layers.
 - If the body is printed upright in one piece instead, use the AMS for a support-interface material under the
   window's top edge so the bridge comes out clean.
+
+## 14. Loose ends in the 152 mm layout, settled when the mechanical drawings are reissued
+
+Found while the drawings were made. None changes the design; each needs a millimetre that 155 mm provides, or a
+number the real parts will give.
+
+- The 1 mm end rims and the U-channels share the same 2.9 mm strip at each end of the plate: either the channel is
+  sized for a 4 mm thick end, or the plate grows 3 mm longer.
+- The main board overhangs the plate's rear end by 5.1 mm; its rear standoffs sit at about x = 14, and the rear
+  channel's back lip must stay under 3 mm so the board passes over it.
+- The FireBeetle's battery socket may face the rear wall: check on the real board and leave room for the plug.
+- The roof lid's lip must be notched round the magnet posts, or the posts stop 1.5 mm short.
+- The wall above the window is 6.1 mm of body plus the 2.4 mm lid: thin across a 161 mm span. 155 mm adds 3 mm.
+- The 1 mm foam tape goes on top of the sled, filling the 1.1 mm gap under the lid so the sled cannot rattle.
+- Route B's adapter board size is unknown until it arrives (drawn as 47 x 32, the passive adapter's size).
+- The window's chamfer covers only the outer 1.5 mm of the wall, so the square inner 0.9 mm can hide a sliver of the
+  picture's top row when you look down at more than about 20 degrees. With 155 mm there is room to chamfer the
+  full wall thickness.
+- The lid magnets (3 mm) are thicker than the lid (2.4 mm): give the lid a small boss under each, or use 2 mm
+  magnets in the lid.
+- The ribbon's 24 mm length puts the adapter's socket about 9 mm above the cut-out, facing the sled, with no slack:
+  the adapter's exact place is set with the real part in hand.
+- The double-sided tape needs its own 0.1 to 0.2 mm between glass and plate; the 0.5 mm air gap absorbs it.

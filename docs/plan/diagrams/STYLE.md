@@ -6,7 +6,8 @@ The reader is the builder: someone who can 3D-model and print, has never soldere
 ## Canvas
 
 - `viewBox="0 0 1200 750"` (landscape). Use `0 0 1200 900` only when the drawing truly needs the height. No `width` /
-  `height` attributes in pixels: `width="100%"` so it scales.
+  `height` attributes in pixels: `width="100%"` so it scales. (`build-review.sh` gives the page's copies a pixel
+  size, since an `<img>` needs one.)
 - First element: a full-size background `<rect>` filled `#FFFBF2` (paper), so it reads on a dark or a light page.
 - Keep a 40 px margin clear on every side.
 - One title, top left at (40, 56): 26 px, weight 700, ink. One subtitle line under it at (40, 84): 15 px, grey ink.
