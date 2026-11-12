@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" font-family="-apple-system, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif">
+<rect width="1200" height="900" fill="#FFFBF2"/>
+<defs>
+  <!-- the one arrowhead every dimension line shares -->
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 z" fill="#5F6B7A"/>
+  </marker>
+</defs>
+<text x="40" y="56" font-size="26" font-weight="700" fill="#1F2933">Cross-section: a slice through the truck at the window</text>
+<text x="40" y="84" font-size="15" fill="#5F6B7A">Cut across the truck at x = 97 mm, the middle of the ribbon cable, looking towards the rear. Serving side on the left. Scale 4.5 px = 1 mm.</text>
+
+<!-- Placement: px x = 340 + 4.5 * y(mm), px y = 846 - 4.5 * z(mm). y = 0 is the serving face, z = 0 the desk. -->
+
+<!-- Desk -->
+<line x1="300" y1="846" x2="1151" y2="846" stroke="#1F2933" stroke-width="2"/>
+<text x="440" y="831" font-size="13" fill="#5F6B7A">Desk, z = 0</text>
+
+<!-- Beyond the slice (dashed): the rear wheels (y 0-12 and 115-127, z 0-32) and their wells (14 deep, cavity up to z = 33.6, 2.4 roof up to z = 36) -->
+<g fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="6 5" stroke-linejoin="round">
+  <rect x="340" y="702" width="54" height="144" rx="5"/>
+  <rect x="857.5" y="702" width="54" height="144" rx="5"/>
+  <polyline points="350.8,684 403,684 403,794.7"/>
+  <line x1="350.8" y1="694.8" x2="403" y2="694.8"/>
+  <polyline points="900.7,684 848.5,684 848.5,794.7"/>
+  <line x1="900.7" y1="694.8" x2="848.5" y2="694.8"/>
+</g>
+
+<!-- Truck body, cut: floor z 9-11.4, walls 2.4 thick, window z 46.5-143.5 at the inner face; the outer 1.5 of the wall chamfered 45 degrees, so z 45-145 outside -->
+<g fill="#FFE8CC" stroke="#1F2933" stroke-width="2" stroke-linejoin="round">
+  <polygon points="340,805.5 911.5,805.5 911.5,172.8 900.7,172.8 900.7,794.7 350.8,794.7 350.8,636.75 346.75,636.75 340,643.5"/>
+  <polygon points="340,193.5 346.75,200.25 350.8,200.25 350.8,172.8 340,172.8"/>
+
+<!-- Roof lid z 149.6-152, with its 1.5 lip on the far side only (none over the sled) -->
+  <polygon points="340,172.8 340,162 911.5,162 911.5,172.8 900.7,172.8 900.7,179.55 889.9,179.55 889.9,172.8"/>
+</g>
+
+<!-- Belt line z = 36: the seam between chassis and body shell -->
+<line x1="340" y1="684" x2="350.8" y2="684" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="900.7" y1="684" x2="911.5" y2="684" stroke="#5F6B7A" stroke-width="1.25"/>
+
+<!-- Battery 7.3 thick, z 40-90 (dashed: it sits at x 115-175, nearer the front than this slice), and the ribs of its pocket -->
+<rect x="370.6" y="670.5" width="37.35" height="9" fill="#FFD8A8" stroke="#1F2933" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="370.6" y="427.5" width="37.35" height="9" fill="#FFD8A8" stroke="#1F2933" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="370.6" y="441" width="32.85" height="225" fill="#FFF3BF" stroke="#E67700" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+<!-- Main board (beyond, x 4-64): z 54.8-80.2, on 3 mm standoffs, so y 9.8-11.4 -->
+<rect x="370.6" y="574.65" width="13.5" height="18" fill="#FFD8A8" stroke="#1F2933" stroke-width="1"/>
+<rect x="370.6" y="491.85" width="13.5" height="18" fill="#FFD8A8" stroke="#1F2933" stroke-width="1"/>
+<rect x="384.1" y="485.1" width="7.2" height="114.3" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.25" stroke-dasharray="4 3"/>
+
+<!-- Sled backboard, cut: flat plate y 3.8-6.8, z 42-148.5 here (the cut-out takes z 36-42). The glass lies on its front face -->
+<polygon points="357.1,177.75 370.6,177.75 370.6,657 357.1,657" fill="#FFD8A8" stroke="#1F2933" stroke-width="1.5" stroke-linejoin="round"/>
+
+<!-- The plate beyond the cut-out, down to z = 36 where it stands on the well tops -->
+<polyline points="357.1,657 357.1,684 370.6,684 370.6,657" fill="none" stroke="#B8C0CC" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+<!-- Screen glass, cut: y 2.9-3.8, z 36.5-147.7. Blue edge: the picture area, z 47-143 -->
+<rect x="353.05" y="181.35" width="4.05" height="500.4" fill="#E7F5FF" stroke="#1F2933" stroke-width="0.75"/>
+<line x1="353.05" y1="202.5" x2="353.05" y2="634.5" stroke="#1971C2" stroke-width="2"/>
+
+<!-- Adapter board, cut (47 x 32, short side along the truck): its socket (z 51-56) takes the ribbon; board z 50-97 -->
+<rect x="370.6" y="594" width="9" height="22.5" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.25"/>
+<rect x="379.6" y="409.5" width="7.2" height="211.5" fill="#D3F9D8" stroke="#2F9E44" stroke-width="1.5"/>
+
+<!-- Ribbon cable: leaves the glass at z = 36.5, half-turn of 1.75 radius (5.5 long), then straight up to z = 55 (24 long in all) -->
+<path d="M357.1,681.75 A7.88,7.88 0 0 0 372.85,681.75 L372.85,598.5" fill="none" stroke="#1971C2" stroke-width="1.75"/>
+
+<!-- Keep-out line at y = 37 -->
+<line x1="506.5" y1="177.75" x2="506.5" y2="684" stroke="#5F6B7A" stroke-width="1.25" stroke-dasharray="3 4"/>
+
+<!-- Magnet pair in a far-side corner post (dashed, beyond): 6 across x 3 thick each, meeting at z = 149.6 -->
+<rect x="862.9" y="159.3" width="27" height="13.5" fill="none" stroke="#5F6B7A" stroke-width="1.25" stroke-dasharray="3 2.5"/>
+<rect x="862.9" y="172.8" width="27" height="13.5" fill="none" stroke="#5F6B7A" stroke-width="1.25" stroke-dasharray="3 2.5"/>
+
+<!-- The viewer's eye and two lines of sight, to the top (z = 143) and bottom (z = 47) of the picture -->
+<g stroke="#E8590C" stroke-width="1.5" fill="none">
+  <line x1="96" y1="137" x2="353.05" y2="202.5"/>
+  <line x1="96" y1="137" x2="353.05" y2="634.5"/>
+</g>
+<path d="M58,137 Q77,120 96,137 Q77,154 58,137 z" fill="#FFFBF2" stroke="#1F2933" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="81" cy="137" r="6" fill="#1F2933"/>
+<text x="40" y="108" font-size="15" fill="#1F2933">Viewer's eye (really much farther away)</text>
+<text x="290" y="214" font-size="13" fill="#E8590C" text-anchor="end">Lines of sight</text>
+
+<!-- Dimensions -->
+<line x1="340" y1="159" x2="340" y2="113" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="911.5" y1="159" x2="911.5" y2="113" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="506.5" y1="159" x2="506.5" y2="139" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="625.75" y1="118" x2="340" y2="118" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="625.75" y1="118" x2="911.5" y2="118" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="566.51" y="100" width="118.47" height="16" fill="#FFFBF2"/><text x="625.75" y="112" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">127 mm (5.0 in)</text>
+<line x1="423.25" y1="144" x2="340" y2="144" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="423.25" y1="144" x2="506.5" y2="144" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="364.01" y="126" width="118.47" height="16" fill="#FFFBF2"/><text x="423.25" y="138" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">37 mm (1.46 in)</text>
+<text x="334" y="150" font-size="13" fill="#5F6B7A" text-anchor="end">y = 0</text>
+<text x="918.5" y="150" font-size="13" fill="#5F6B7A">y = 127</text>
+<line x1="337" y1="200.25" x2="311" y2="200.25" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="337" y1="636.75" x2="311" y2="636.75" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="337" y1="684" x2="311" y2="684" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="316" y1="418.5" x2="316" y2="200.25" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="316" y1="418.5" x2="316" y2="636.75" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="250.76" y="406.5" width="118.47" height="16" fill="#FFFBF2" transform="rotate(-90 310 418.5)"/><text x="310" y="418.5" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle" transform="rotate(-90 310 418.5)">97 mm (3.82 in)</text>
+<line x1="316" y1="765" x2="316" y2="684" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="316" y1="765" x2="316" y2="846" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="250.76" y="778" width="118.47" height="16" fill="#FFFBF2" transform="rotate(-90 310 790)"/><text x="310" y="790" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle" transform="rotate(-90 310 790)">36 mm (1.42 in)</text>
+<line x1="373.6" y1="181.35" x2="831" y2="181.35" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="373.6" y1="202.5" x2="785" y2="202.5" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="373.6" y1="634.5" x2="785" y2="634.5" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="412" y1="681.75" x2="831" y2="681.75" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="780" y1="418.5" x2="780" y2="202.5" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="780" y1="418.5" x2="780" y2="634.5" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="714.76" y="406.5" width="118.47" height="16" fill="#FFFBF2" transform="rotate(-90 774 418.5)"/><text x="774" y="418.5" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle" transform="rotate(-90 774 418.5)">96 mm (3.78 in)</text>
+<line x1="780" y1="191.93" x2="780" y2="181.35" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="780" y1="191.93" x2="780" y2="202.5" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/>
+<line x1="780" y1="658.13" x2="780" y2="634.5" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="780" y1="658.13" x2="780" y2="681.75" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/>
+<rect x="652.8" y="185" width="122.4" height="16" fill="#FFFBF2"/><text x="714" y="197" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">4.7 mm (0.19 in)</text>
+<rect x="644.28" y="651" width="131.43" height="16" fill="#FFFBF2"/><text x="710" y="663" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle">10.5 mm (0.41 in)</text>
+<line x1="826" y1="431.55" x2="826" y2="181.35" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="826" y1="431.55" x2="826" y2="681.75" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="749.77" y="419.55" width="140.46" height="16" fill="#FFFBF2" transform="rotate(-90 820 431.55)"/><text x="820" y="431.55" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle" transform="rotate(-90 820 431.55)">111.2 mm (4.38 in)</text>
+<line x1="914.5" y1="162" x2="1151" y2="162" stroke="#5F6B7A" stroke-width="1.25"/>
+<line x1="1146" y1="504" x2="1146" y2="162" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="1146" y1="504" x2="1146" y2="846" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><rect x="1080.76" y="492" width="118.47" height="16" fill="#FFFBF2" transform="rotate(-90 1140 504)"/><text x="1140" y="504" font-size="14" font-weight="600" fill="#1F2933" text-anchor="middle" transform="rotate(-90 1140 504)">152 mm (6.0 in)</text>
+<line x1="882.7" y1="480" x2="900.7" y2="480" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/><line x1="929.5" y1="480" x2="911.5" y2="480" stroke="#5F6B7A" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="936" y="485" font-size="14" fill="#1F2933" font-weight="600">2.4 mm (0.09 in)</text>
+
+<!-- Labels, left: what the viewer sees through the window -->
+<text x="290" y="250" font-size="15" fill="#1F2933" text-anchor="end">Air gap, 0.5 mm</text>
+<path d="M295,245 L351.93,245" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="351.93" cy="245" r="1.5" fill="#5F6B7A"/>
+<text x="290" y="285" font-size="15" fill="#1F2933" text-anchor="end">Screen glass</text>
+<path d="M295,280 L355.08,280" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="355.08" cy="280" r="1.5" fill="#5F6B7A"/>
+<text x="290" y="320" font-size="15" fill="#1F2933" text-anchor="end">Picture area</text>
+<path d="M295,315 L353.05,315" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="353.05" cy="315" r="1.5" fill="#5F6B7A"/>
+<text x="40" y="612" font-size="15" fill="#1F2933">Window opening, 97 mm tall inside,</text>
+<text x="40" y="631" font-size="15" fill="#1F2933">100 mm outside: the outer 1.5 mm</text>
+<text x="40" y="650" font-size="15" fill="#1F2933">of the wall is chamfered 45° so it</text>
+<text x="40" y="669" font-size="15" fill="#1F2933">shades less from above</text>
+<path d="M282,646 L343.38,640.13" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="343.38" cy="640.13" r="1.5" fill="#5F6B7A"/>
+<text x="40" y="716" font-size="15" fill="#1F2933">Serving-side wall, 2.4 mm thick</text>
+<path d="M262,711 L345.4,715.5" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="345.4" cy="715.5" r="1.5" fill="#5F6B7A"/>
+
+<!-- Labels, in the cavity: the sled and what rides on its back -->
+<text x="540" y="224" font-size="15" fill="#1F2933">Keep-out line: everything on the</text>
+<text x="540" y="243" font-size="15" fill="#1F2933">sled stays within 37 mm of the</text>
+<text x="540" y="262" font-size="15" fill="#1F2933">serving face (y = 37)</text>
+<path d="M535,229 L506.5,229" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="506.5" cy="229" r="1.5" fill="#5F6B7A"/>
+<text x="540" y="298" font-size="15" fill="#1F2933">Sled backboard, 3 mm thick:</text>
+<text x="540" y="317" font-size="15" fill="#1F2933">lifts out through the roof</text>
+<path d="M535,293 L363.85,293" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="363.85" cy="293" r="1.5" fill="#5F6B7A"/>
+<text x="540" y="345" font-size="15" fill="#E8590C">At 152 mm tall the fit above</text>
+<text x="540" y="364" font-size="15" fill="#E8590C">and below the glass is about</text>
+<text x="540" y="383" font-size="15" fill="#E8590C">1 mm. 155 mm (6.1 in) is</text>
+<text x="540" y="402" font-size="15" fill="#E8590C">recommended.</text>
+<text x="540" y="432" font-size="15" fill="#1F2933" font-weight="600">Empty cavity</text>
+<text x="540" y="450" font-size="13" fill="#5F6B7A">(nothing here but air and wires)</text>
+<text x="540" y="482" font-size="15" fill="#1F2933">Battery, 7.3 mm thick, against</text>
+<text x="540" y="501" font-size="15" fill="#1F2933">the sled in its pocket (dashed:</text>
+<text x="540" y="520" font-size="15" fill="#1F2933">nearer the front than this slice)</text>
+<path d="M535,477 L398.5,477" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="398.5" cy="477" r="1.5" fill="#5F6B7A"/>
+<text x="540" y="548" font-size="15" fill="#1F2933">Main board on 3 mm standoffs</text>
+<text x="540" y="567" font-size="15" fill="#1F2933">(beyond the slice)</text>
+<path d="M535,543 L389.5,543" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="389.5" cy="543" r="1.5" fill="#5F6B7A"/>
+<text x="540" y="596" font-size="15" fill="#1F2933">Adapter board: the ribbon</text>
+<text x="540" y="615" font-size="15" fill="#1F2933">plugs into its socket</text>
+<path d="M535,591 L383.2,591" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="383.2" cy="591" r="1.5" fill="#5F6B7A"/>
+<text x="540" y="706" font-size="15" fill="#1F2933">Ribbon cable, folded back under</text>
+<text x="540" y="725" font-size="15" fill="#1F2933">the glass through the sled's cut-out</text>
+<path d="M535,701 L365.02,690.63" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="365.02" cy="690.63" r="1.5" fill="#5F6B7A"/>
+<text x="540" y="756" font-size="15" fill="#1F2933">Wheel well (dashed): the sled</text>
+<text x="540" y="775" font-size="15" fill="#1F2933">stands on its roof, z = 36</text>
+<path d="M535,751 L403,751" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="403" cy="751" r="1.5" fill="#5F6B7A"/>
+<text x="650" y="831" font-size="15" fill="#1F2933">Floor, 2.4 mm thick</text>
+<path d="M645,826 L632,800.1" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="632" cy="800.1" r="1.5" fill="#5F6B7A"/>
+<text x="530" y="151" font-size="15" fill="#1F2933">1.1 mm clear between the sled's top and the lid</text>
+<path d="M526,147 L363.85,175.27" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="363.85" cy="175.27" r="1.5" fill="#5F6B7A"/>
+
+<!-- Labels, right -->
+<text x="945" y="195" font-size="15" fill="#1F2933">Roof lid, 2.4 mm thick,</text>
+<text x="945" y="214" font-size="15" fill="#1F2933">lifts off</text>
+<path d="M941,190 L905,167.4" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="905" cy="167.4" r="1.5" fill="#5F6B7A"/>
+<text x="945" y="250" font-size="15" fill="#1F2933">Lip under the lid,</text>
+<text x="945" y="269" font-size="15" fill="#1F2933">1.5 mm deep: far side</text>
+<text x="945" y="288" font-size="15" fill="#1F2933">only, none over the sled</text>
+<path d="M941,255 L895.3,176.18" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="895.3" cy="176.18" r="1.5" fill="#5F6B7A"/>
+<text x="945" y="330" font-size="15" fill="#1F2933">Magnet pair, one of four</text>
+<text x="945" y="349" font-size="15" fill="#1F2933">(dashed: far corner post).</text>
+<text x="945" y="368" font-size="15" fill="#1F2933">Each 6 mm across x 3 mm:</text>
+<text x="945" y="387" font-size="15" fill="#1F2933">thicker than the lid</text>
+<path d="M941,335 L876.4,179.55" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="876.4" cy="179.55" r="1.5" fill="#5F6B7A"/>
+<text x="945" y="430" font-size="15" fill="#1F2933">Far-side wall</text>
+<path d="M941,425 L906.1,425" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="906.1" cy="425" r="1.5" fill="#5F6B7A"/>
+<text x="945" y="668" font-size="15" fill="#1F2933">Belt line, z = 36:</text>
+<text x="945" y="687" font-size="15" fill="#1F2933">chassis below,</text>
+<text x="945" y="706" font-size="15" fill="#1F2933">body shell above</text>
+<path d="M941,672 L906.1,684" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="906.1" cy="684" r="1.5" fill="#5F6B7A"/>
+<text x="945" y="790" font-size="15" fill="#1F2933">Wheel, 32 mm across</text>
+<text x="945" y="809" font-size="15" fill="#1F2933">x 12 mm wide (dashed:</text>
+<text x="945" y="828" font-size="15" fill="#1F2933">beyond the slice)</text>
+<path d="M941,812 L911.5,826" fill="none" stroke="#5F6B7A" stroke-width="1.25"/><circle cx="911.5" cy="826" r="1.5" fill="#5F6B7A"/>
+
+<!-- Key and scale note -->
+<rect x="40" y="748" width="22" height="12" fill="#FFE8CC" stroke="#1F2933" stroke-width="1.5"/>
+<text x="70" y="759" font-size="13" fill="#5F6B7A">Solid colour: cut by the slice</text>
+<line x1="40" y1="776" x2="62" y2="776" stroke="#5F6B7A" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="70" y="781" font-size="13" fill="#5F6B7A">Dashed: not in the slice (beyond</text>
+<text x="70" y="797" font-size="13" fill="#5F6B7A">it, or for the battery nearer)</text>
+<text x="40" y="824" font-size="13" fill="#5F6B7A">Drawn to scale: 4.5 px = 1 mm.</text>
+<text x="40" y="840" font-size="13" fill="#5F6B7A">Sizes in mm (inches in brackets).</text>
+</svg>
