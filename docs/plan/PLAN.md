@@ -2,7 +2,7 @@
 
 ## 1. What you're building
 
-A 3D-printed food truck for your desk, 229 x 127 x 152 mm (9 x 5 x 6 in). The whole serving side is a 7.3 inch
+A 3D-printed food truck for your desk, 229 x 127 x 155 mm (9 x 5 x 6.1 in). The whole serving side is a 7.3 inch
 colour e-paper screen that shows which food trucks are outside the office today. It wakes once each weekday morning,
 fetches a fresh picture over Wi-Fi, redraws, and sleeps again. On a 2500 mAh battery that should mean charging it
 **about once a year** (an estimate, checked on the bench before the truck is closed up).
@@ -40,8 +40,10 @@ Details worth knowing:
   or a different wake time never need the truck opened or reloaded.
 - **A stale screen shows itself.** The date is printed large on every picture.
 - **The reset button means "refresh now".**
-- **Hosting is free:** the job runs on GitHub Actions and the files sit on GitHub Pages. That needs a GitHub repo
-  for this project, which I will only create on your word (it is one of the questions at the end).
+- **Hosting is free:** the job runs on GitHub Actions and the files sit on GitHub Pages. The project's repo is
+  `github.com/AidanBarciaBacon/foodTruck`, private. Free Pages needs a public repo, so when the software is ready
+  you choose: make the repo public, or host the three small files somewhere else.
+- **The truck list** comes from Off the Grid's page for Levi's Plaza.
 
 ## 3. What the screen shows
 
@@ -50,14 +52,8 @@ crisp on this screen; photos and gradients turn grainy, so the page is designed 
 
 ![What the screen shows](diagrams/screen-layout.svg)
 
-This layout is a first sketch. Once the software exists you will judge the real page on Review Desk, in the
-screen's true colours, before anything is loaded onto the truck.
-
-**Screen size is your call.** The 7.3 inch screen fills the side and reads from across a desk. The 4 inch version
-of the same screen is closer to the scale of a real serving window and leaves wall for an awning and painted detail,
-but holds less and has smaller text. The plan assumes 7.3 inch; say so at the end if you want the 4 inch.
-
-![Two screen sizes, drawn on the truck](diagrams/screen-size-options.svg)
+This layout is a first sketch, and it stays one for now. You said the page's design gets real work later, once
+the hardware is up and running; until then it only has to be correct and readable.
 
 ## 4. Battery: about a year per charge
 
@@ -95,7 +91,7 @@ amount of soldering change.
 | Cost | about $85 | about $105, plus $61 of soldering tools | about $90, plus $61 of soldering tools |
 | Main unknown | battery life is unproven | whether the screen's adapter leaks while asleep | fine soldering on small pads |
 
-**I recommend route B.** You said you would love to learn to solder, and header pins are the classic first job:
+**You chose route B.** You said you would love to learn to solder, and header pins are the classic first job:
 large, forgiving, all the same. The board has a measured, very low sleep current, so the year of battery life rests
 on something known. Route A is the fallback if soldering turns out not to be fun: it reuses the same screen and
 battery, so switching costs about $10. Route C makes a neat second build once route B's joints feel easy.
@@ -114,14 +110,13 @@ These are target numbers, worked out from the screen's datasheet drawing. Measur
 
 ![Side view: where the screen sits](diagrams/side-view.svg)
 
-**Height is the tight one.** The screen's glass is 111.2 mm tall and stands upright in the wall, with the wheels
-under it and the roof over it. 152 mm works with 32 mm wheels, but with only about 1 mm spare above and below the
-glass. **I recommend 155 mm (6.1 in).** These drawings are for 152 mm; once you pick the height and the screen size
-at the end of this page, I reissue the mechanical drawings to match.
+**The truck is 155 mm tall (6.1 in), as you chose.** The screen's glass is 111.2 mm tall and stands upright in
+the wall, with the wheels under it and the roof over it. The 3 mm over six inches pays for a rim all round the
+glass, a full chamfer on the window, and a stronger wall above it.
 
 ![Top view, roof off: what is inside](diagrams/top-view.svg)
 
-Most of the truck is empty. The electronics take a slab about 35 mm deep behind the serving wall; the rest is yours
+Most of the truck is empty. The electronics take a slab about 38 mm deep behind the serving wall; the rest is yours
 for structure, weight or nothing.
 
 ![Cross-section: a slice through the truck at the window](diagrams/cross-section.svg)
@@ -129,7 +124,8 @@ for structure, weight or nothing.
 Three rules for the window:
 
 - **The glass never touches the wall.** Leave a 0.5 mm air gap. Nothing clamps or presses the glass.
-- **Chamfer the window's edges outward**, so the wall never shades the picture when you look down at it.
+- **Chamfer the window's edges outward, through the whole wall,** so the wall never shades the picture when you
+  look down at it. That makes the opening 165.8 x 101.8 mm on the outside.
 - **The opening is 161 x 97 mm at the wall's inner face,** half a millimetre bigger all round than the picture.
 
 ![Close-up: how the screen sits behind the window](diagrams/screen-mount-detail.svg)
@@ -172,7 +168,7 @@ site would not load, so its prices are from resellers.
 |---|---|
 | 2500 mAh protected LiPo battery with a 2 mm JST plug (Adafruit #328 or similar) | $15 |
 | Magnets, 6 mm x 3 mm (you need eight; they come in packs of 50) | $11 |
-| Thin double-sided tape (3M 468MP or similar), 1 mm foam tape, superglue | $15 |
+| Thin double-sided tape (3M 468MP or similar), 2 mm soft foam tape, superglue | $15 |
 
 **Route A**
 
@@ -272,11 +268,10 @@ Two rules of order: **don't model before the parts are in your hands**, and **do
 run a week on the bench**.
 
 **Phase 0. Decide and order (you).**
-1. Answer the questions at the end of this page.
-2. Send me the link to the page that lists the trucks.
-3. Check the office Wi-Fi has a 2.4 GHz band (these boards cannot use 5 GHz), and that a home-made gadget is
+1. Done: you chose route B, the 7.3 inch screen and 155 mm, and gave the truck page's link.
+2. Check the office Wi-Fi has a 2.4 GHz band (these boards cannot use 5 GHz), and that a home-made gadget is
    allowed on it. A quick word with whoever runs the network settles both.
-4. Order the parts for your route.
+3. Order the parts for route B (section 8) and the tools (section 9).
 
 **Phase 1. Software (the crew, while your parts ship).**
 1. The job that reads the truck page and picks out today's trucks.
@@ -334,10 +329,21 @@ annoys you.
 | The battery | A protected cell in a pocket with room to swell, never clamped, away from screw points. Charge it while you are around. |
 | Parts turn out different from the datasheet | You measure the real parts before modelling, and print a test slice before the full truck. |
 
-## 13. What is still open
+## 13. What is decided, and what is still open
 
-- **The link** to the page that lists the trucks. Everything in phase 1 starts from it.
-- **Your answers** to the questions below: the route, the screen size, the height, and whether I may create a
-  GitHub repo for the job and the page.
-- **Three facts nobody publishes,** each settled on the bench: the energy one redraw costs on this screen; route A's
-  sleep current; and whether Waveshare's adapter draws current while asleep.
+Decided on 12 November 2026:
+
+- Build route B: a little soldering.
+- The 7.3 inch screen.
+- A truck 155 mm (6.1 in) tall.
+- The truck list is Off the Grid's page for Levi's Plaza: `offthegrid.com/event/levis-plaza`.
+- A GitHub repo for the job and the page: created, private.
+- The page's design gets real work later, once the hardware runs.
+
+Still open:
+
+- **Public repo or other hosting** for the three small files, when the software is ready.
+- **Two facts nobody publishes,** each settled on the bench: the energy one redraw costs on this screen, and
+  whether Waveshare's adapter draws current while asleep.
+- **Three sizes only the real parts give:** where the FireBeetle's battery socket faces, the size of Waveshare's
+  adapter board, and the glass's true size.

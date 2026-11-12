@@ -43,6 +43,32 @@ turns it into a picture for the screen, and the firmware for the board.
 
 The screen keeps its picture with no power. The truck is asleep for all but about 40 seconds of a working day.
 
+## 2a. Where the truck list comes from (checked 12 November 2026)
+
+The page `offthegrid.com/event/levis-plaza` is an empty shell filled in by JavaScript, but it reads a public JSON
+feed that needs no key, cookie or browser:
+
+- `GET https://sf-api.offthegrid.com/events?dateFrom=<ms>&dateTo=<ms>`, with the window set to today in Pacific
+  time (midnight to midnight, in epoch milliseconds; at most 3 months per request).
+- Keep the record whose `locationId` is `0016e00002o8dIXAAY` ("Off the Grid: Levi's Plaza", 1155 Battery Street,
+  San Francisco). No record means no market that day.
+- Each record has `startTime`, `endTime` (ISO 8601, Pacific) and `creators[]`: the trucks, each with `name`,
+  `primaryCuisine` and `logoURL` (sometimes empty). Hours are the market's, not each truck's.
+- The market runs **Monday to Thursday, 11:00 AM to 2:00 PM**, with breaks (no Thanksgiving; nothing from
+  18 December to 3 January). It is published about four months ahead.
+- Sample, Thursday 12 November 2026: Big City Halal (Halal), Buri Buri (Japanese), J&D's BBQ LLC (BBQ).
+
+Things to respect and to guard against:
+
+- Off the Grid's `robots.txt` asks crawlers to stay off the feed's host. One request a morning is light, but it is
+  their feed and undocumented: the user knows and decides. The fallback is a headless browser on the page itself.
+- Check `status == "success"` and that `creators` is a list; treat an error differently from an empty day (an error
+  shows "Couldn't read the truck list today", an empty day shows "No market today").
+- If the location id stops matching, look it up again with `GET /locations/levis-plaza`.
+
+So the truck wakes Monday to Thursday; on other days the screen keeps the last picture, or shows "No market
+today" when the morning job runs anyway.
+
 ## 3. What the truck does each time it wakes (firmware)
 
 1. Wake on its timer (or on the reset button: a press means "refresh now").
@@ -189,7 +215,7 @@ the glass, a full chamfer on the window, and a stronger wall over the window.
 | Body shell walls | 0 to 229 | 0 to 127 | 36 to 152.6 |
 | Roof lid, lifts off | 0 to 229 | 0 to 127 | 152.6 to 155 |
 | Lid lip, 1.5 deep: along the far side and both ends, not over the sled; broken at the magnet posts | | | 151.1 to 152.6 |
-| Magnet posts, four, 9 square: two in the far-side corners, one in the serving-side front corner (in the cab), one on the rear wall centred at y = 42 | | | up to 151.1 |
+| Magnet posts, four, 9 square: two in the far-side corners, one in the serving-side front corner (in the cab), one on the rear wall centred at y = 43 | | | up to 151.1 |
 | Magnets, eight, 6 dia x 3: one in each post top, one above it in a 1.5 mm boss under the lid | | | post 148.1 to 151.1; lid 151.1 to 154.1 |
 | Cab (windscreen, driver's door) | 188 to 229 | | |
 | Serving wall, inner face | | 2.4 | |
@@ -202,7 +228,7 @@ the glass, a full chamfer on the window, and a stronger wall over the window.
 | Sled backboard: 179 x 115 x 3 plate | 7.6 to 186.6 | 3.9 to 6.9 | 36 to 151 |
 | Rim on the plate's front face, 1 high x 1.5 wide, all round the glass 0.3 clear (broken at the ribbon cut-out) | 10.2 to 184.0 | 2.9 to 3.9 | 36 to 150.8 |
 | Channel strips: the plate's bare ends that slide in the U-channels, 2.5 each | 7.6 to 10.1 and 184.1 to 186.6 | | |
-| U-channels on the serving wall's inner face: slot 3.4 wide, walls 2 thick | at x = 7.6 and x = 186.6 | 2.4 to 9.1 | 36 to 151 |
+| U-channels on the serving wall's inner face: slot 3.4 wide (y 3.7 to 7.1), front lip 1.3, back and end walls 2; the front channel's end wall reaches x = 188.6, just inside the cab | at x = 7.6 and x = 186.6 | 2.4 to 9.1 | 36 to 151 |
 | Ribbon cut-out in the plate, 30 x 6 | 82.1 to 112.1 | | 36 to 42 |
 | Ribbon cable, at the glass edge | 84.2 to 109.7 | | folds back under the glass at z = 37.8 |
 | Main board (route B: 25.4 x 60 x 1.6) on 4 mm standoffs, USB-C port facing the rear wall | 4 to 64 | 10.9 to 12.5 | 55.0 to 80.4 |
@@ -226,8 +252,8 @@ itself is plain plastic and can be reprinted or repainted without touching the e
 - **Front face:** the glass lies inside a low rim (1 mm high, 1.5 mm wide, 0.3 mm clear of the glass all round),
   held by two strips of thin double-sided tape on its back. The rim only locates it; nothing clamps the glass.
 - **Bottom centre:** a cut-out 30 wide x 6 tall, where the ribbon folds back to the rear face (a relaxed U, about
-  1.5 mm radius, so the whole fold stays inside the 5.5 mm bend zone). The rim is broken here. The fold hangs into
-  the free space between the wheel wells (x = 65 to 164).
+  1.5 mm radius, so the whole fold stays inside the 5.5 mm bend zone). The rim is broken here. The fold bottoms out at
+  about z = 36.3, over the free space between the wheel wells (x = 65 to 164).
 - **Rear face, bottom centre:** the adapter board that the ribbon plugs into, its short side along the truck so it
   clears the battery. The ribbon's 24 mm length puts the socket about 9 mm above the cut-out, facing the plate, with
   no slack: its exact place is set with the real part in hand.

@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Desk Food Truck: Build Guide</title>
+<style>
+  @page { size: letter; margin: 0.65in 0.7in 0.75in; @bottom-center { content: "Desk Food Truck build guide  ·  page " counter(page); font: 8.5pt -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #666; } }
+  @page wide { size: letter landscape; margin: 0.45in 0.5in 0.55in; @bottom-center { content: "Desk Food Truck build guide  ·  page " counter(page); font: 8.5pt -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #666; } }
+  * { box-sizing: border-box; }
+  html { font: 10.5pt/1.42 -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #111; }
+  body { margin: 0; counter-reset: step drawing; }
+  h1 { font-size: 30pt; line-height: 1.1; margin: 0 0 6pt; letter-spacing: -0.3pt; }
+  h2 { font-size: 18pt; margin: 0 0 4pt; padding-bottom: 4pt; border-bottom: 2.5pt solid #111; break-after: avoid; }
+  h2 .part { display: block; font-size: 9pt; font-weight: 700; letter-spacing: 1.2pt; text-transform: uppercase; color: #C2410C; margin-bottom: 2pt; }
+  h3 { font-size: 12pt; margin: 14pt 0 4pt; break-after: avoid; }
+  p { margin: 0 0 7pt; }
+  .lede { font-size: 12pt; color: #333; margin-bottom: 10pt; }
+  .sub { font-size: 12.5pt; color: #333; margin: 0 0 14pt; }
+  section.part { break-before: page; }
+  a { color: inherit; text-decoration: none; }
+  .url { font-family: Menlo, Consolas, monospace; font-size: 8.5pt; color: #333; word-break: break-all; }
+
+  /* steps */
+  ol.steps { list-style: none; margin: 8pt 0 0; padding: 0; }
+  ol.steps > li { counter-increment: step; position: relative; padding: 7pt 0 7pt 62pt; border-top: 0.75pt solid #bbb; break-inside: avoid; }
+  ol.steps > li:last-child { border-bottom: 0.75pt solid #bbb; }
+  ol.steps > li::before { content: counter(step); position: absolute; left: 24pt; top: 6pt; width: 30pt; font-size: 15pt; font-weight: 700; text-align: left; }
+  ol.steps > li::after { content: ""; position: absolute; left: 0; top: 8.5pt; width: 13pt; height: 13pt; border: 1.5pt solid #111; border-radius: 2pt; }
+  ol.steps > li > strong:first-child { display: block; font-size: 11.5pt; margin-bottom: 2pt; }
+  ol.steps ul { margin: 3pt 0 2pt; padding-left: 14pt; }
+  ol.steps ul li { margin-bottom: 2pt; }
+  .gate { margin: 9pt 0 0; padding: 7pt 10pt; border: 1.5pt solid #111; border-radius: 4pt; break-inside: avoid; }
+  .gate b { text-transform: uppercase; letter-spacing: 0.8pt; font-size: 8.5pt; display: block; margin-bottom: 1pt; }
+  .warn { margin: 8pt 0; padding: 7pt 10pt; border-left: 5pt solid #C2410C; background: #FFF4EC; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .note { margin: 8pt 0; padding: 7pt 10pt; border-left: 5pt solid #666; background: #F3F3F3; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .later { display: inline-block; font-size: 8pt; font-weight: 700; letter-spacing: 0.7pt; text-transform: uppercase; border: 1pt solid #C2410C; color: #C2410C; border-radius: 3pt; padding: 0 4pt; margin-left: 4pt; vertical-align: 1pt; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.5pt; }
+  th { text-align: left; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.6pt; border-bottom: 1.5pt solid #111; padding: 3pt 6pt 3pt 0; }
+  td { border-bottom: 0.75pt solid #bbb; padding: 4.5pt 6pt 4.5pt 0; vertical-align: top; }
+  tr { break-inside: avoid; }
+  td.box { width: 18pt; padding-right: 0; }
+  td.box::before { content: ""; display: block; width: 11pt; height: 11pt; border: 1.4pt solid #111; border-radius: 2pt; margin-top: 1pt; }
+  td.price, th.price { text-align: right; white-space: nowrap; padding-right: 0; width: 62pt; }
+  td.fill { width: 90pt; border-bottom: 0.75pt solid #111; }
+  tr.total td { font-weight: 700; border-top: 1.5pt solid #111; border-bottom: none; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22pt; }
+
+  /* drawings: one landscape page each */
+  figure.drawing { page: wide; break-before: page; break-after: page; margin: 0; counter-increment: drawing; }
+  figure.drawing:last-of-type { break-after: auto; }
+  figure.drawing img { display: block; width: 100%; height: auto; max-height: 6.55in; object-fit: contain; }
+  figure.drawing figcaption { font-size: 10pt; margin-bottom: 5pt; }
+  figure.drawing figcaption b::before { content: "Drawing " counter(drawing) ".  "; }
+  figure.inline { margin: 8pt 0 0; break-inside: avoid; }
+  figure.inline img { display: block; width: 100%; height: auto; }
+  .cover-meta { margin: 12pt 0 0; font-size: 10pt; color: #333; }
+  ul.plain { margin: 4pt 0 8pt; padding-left: 15pt; }
+  ul.plain li { margin-bottom: 3pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<section>
+  <h1>Desk Food Truck</h1>
+  <p class="sub">Build guide: every step, from buying the parts to the truck on your desk</p>
+  <figure class="inline"><img src="diagrams/overview.svg" alt="How it works, end to end"></figure>
+  <p class="cover-meta"><b>What you are building.</b> A 3D-printed food truck, 229 x 127 x 155 mm (9 x 5 x 6.1 in). Its whole serving side is a 7.3 inch colour e-paper screen that shows which trucks are at Off the Grid, Levi's Plaza today. It wakes each market morning, fetches a fresh picture over Wi-Fi, and sleeps. It should need charging about once a year.</p>
+  <p class="cover-meta"><b>Your build.</b> Route B (a little soldering) · the 7.3 inch screen · 155 mm tall · printed on a Bambu Lab P1S with AMS.<br><b>Edition 1</b>, 12 November 2026.</p>
+
+  <h3>How to use this guide</h3>
+  <ul class="plain">
+    <li><b>Tick each box as you finish the step.</b> Steps are numbered straight through, 1 to 52.</li>
+    <li><b>Do the parts in order.</b> Each part ends with a check that must be true before you go on.</li>
+    <li><b>The drawings are full pages</b>, turned sideways so they print large. Each step names the drawing it needs.</li>
+    <li><b>Two rules of order:</b> do not model the truck before the parts are in your hands, and do not close the truck before it has run a week on the bench.</li>
+  </ul>
+  <div class="note"><b>Not final in this edition.</b> The software is still being written, so three steps (marked <span class="later">next edition</span>) describe what happens without the exact command or web address. You will get a new edition with those filled in before your parts arrive. Nothing you buy or print depends on them.</div>
+
+  <h3>The ten parts</h3>
+  <table>
+    <tr><th>Part</th><th>What happens</th><th>Steps</th></tr>
+    <tr><td>1. Before you buy</td><td>Check the office Wi-Fi will take the truck</td><td>1 to 2</td></tr>
+    <tr><td>2. Buy</td><td>Electronics, tools, hardware, filament</td><td>3 to 8</td></tr>
+    <tr><td>3. While the parts ship</td><td>Print your tools; the software gets written</td><td>9 to 11</td></tr>
+    <tr><td>4. Learn to solder</td><td>A practice kit, then ten good joints</td><td>12 to 15</td></tr>
+    <tr><td>5. Prepare the main board</td><td>Solder its pins; one knife cut</td><td>16 to 19</td></tr>
+    <tr><td>6. Bench build</td><td>Wire it up loose on the desk and see today's trucks</td><td>20 to 28</td></tr>
+    <tr><td>7. Power check</td><td>Measure the sleep current; run it for a week</td><td>29 to 33</td></tr>
+    <tr><td>8. Measure and model</td><td>Calipers, then the sled, then the truck</td><td>34 to 41</td></tr>
+    <tr><td>9. Print and assemble</td><td>Print in colour, fit the sled, close the roof</td><td>42 to 50</td></tr>
+    <tr><td>10. Live with it</td><td>Two weeks of tuning; charging; if something goes wrong</td><td>51 to 52</td></tr>
+  </table>
+</section>
+
+<figure class="drawing"><figcaption><b>The build, in order.</b> The ten parts of this guide follow these eight phases.</figcaption><img src="diagrams/roadmap.svg" alt="The build, in order"></figure>
+
+<!-- ============================== PART 1 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 1</span>Before you buy</h2>
+  <p class="lede">The truck's board can only join a certain kind of Wi-Fi. Find out now, before spending anything.</p>
+  <ol class="steps">
+    <li><strong>Ask whoever runs the office Wi-Fi two questions.</strong>
+      <ul>
+        <li>"Does our Wi-Fi have a <b>2.4 GHz</b> band that takes a plain network name and password?" The board cannot use 5 GHz, and it cannot click through a sign-in page.</li>
+        <li>"May I put a small home-made gadget on it? It connects for about 40 seconds each morning."</li>
+      </ul>
+    </li>
+    <li><strong>Write the answers here.</strong> Network name: ______________________________ &nbsp; 2.4 GHz: yes / no &nbsp; Allowed: yes / no
+      <div class="note">If the answer to either is no, stop and tell me. There are ways round it (a guest network, a phone hotspot at your desk, taking it home), and it is better to choose one before the parts arrive.</div>
+    </li>
+  </ol>
+  <div class="gate"><b>Check before part 2</b>The office has a 2.4 GHz network with a plain password, and the truck is allowed on it.</div>
+</section>
+
+<!-- ============================== PART 2 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 2</span>Buy</h2>
+  <p class="lede">Order the electronics first: they take longest to arrive (one to two weeks). Prices were read on 12 November 2026 unless marked "about"; treat them as a guide.</p>
+
+  <ol class="steps">
+    <li><strong>Order the electronics.</strong> Tick each line as you order it.
+      <table>
+        <tr><th></th><th>Item</th><th>Where</th><th class="price">Price</th></tr>
+        <tr><td class="box"></td><td><b>Waveshare 7.3inch e-Paper HAT (E)</b>: the 800 x 480 six-colour screen, sold as a set with its small adapter board and an 8-wire cable. <b>Check the name ends in (E)</b>: (F) and (G) are older, different screens.<br><span class="url">waveshare.com/7.3inch-e-paper-hat-e.htm</span></td><td>Waveshare's store or Amazon</td><td class="price">about $80</td></tr>
+        <tr><td class="box"></td><td><b>DFRobot FireBeetle 2 ESP32-E</b> (part number DFR0654): the main board, with Wi-Fi, a battery plug, a charger and USB-C.<br><span class="url">dfrobot.com/product-2195.html</span></td><td>DFRobot</td><td class="price">$8.90</td></tr>
+        <tr><td class="box"></td><td><b>Male header pins, 2.54 mm</b>, two 40-pin strips, in case the board arrives without its pins. You snap them to length.</td><td>any electronics shop</td><td class="price">about $2</td></tr>
+        <tr><td class="box"></td><td><b>Lithium battery, 2500 mAh, 3.7 V</b>, with protection and a 2-pin JST-PH plug (Adafruit product 328).<br><span class="url">adafruit.com/product/328</span></td><td>Adafruit</td><td class="price">$14.95</td></tr>
+        <tr><td class="box"></td><td><b>JST-PH 2-pin battery extension lead</b> and <b>two crocodile-clip leads</b>, for the sleep-current test in part 7.</td><td>Adafruit, or any electronics shop</td><td class="price">about $5</td></tr>
+        <tr class="total"><td></td><td>Electronics</td><td></td><td class="price">about $111</td></tr>
+      </table>
+    </li>
+    <li><strong>Order the soldering tools.</strong>
+      <table>
+        <tr><th></th><th>Item</th><th>Where</th><th class="price">Price</th></tr>
+        <tr><td class="box"></td><td><b>Pine64 Pinecil V2</b> soldering iron. Comes with a tip, but no power supply.<br><span class="url">pine64.com/product/pinecil-smart-mini-portable-soldering-iron</span></td><td>Pine64's store</td><td class="price">$26</td></tr>
+        <tr><td class="box"></td><td><b>Power for the iron:</b> any USB-C laptop charger of 60 W or more (a MacBook charger works), plus Pine64's silicone USB-C lead.</td><td>Pine64's store</td><td class="price">$4</td></tr>
+        <tr><td class="box"></td><td><b>Stand for the iron:</b> Pine64's mini stand. (Or print one in part 3; it needs a steel 608 bearing.)</td><td>Pine64's store</td><td class="price">$2</td></tr>
+        <tr><td class="box"></td><td><b>Solder:</b> 63/37 rosin-core, 0.8 mm (0.031 in), a name brand such as Kester, the smallest pack you can find. Lead-free alternative: SAC305 in the same size.</td><td>any electronics shop</td><td class="price">about $8</td></tr>
+        <tr><td class="box"></td><td><b>Brass wool tip cleaner</b> (Hakko brass sponge, Adafruit product 1172).</td><td>Adafruit</td><td class="price">$11</td></tr>
+        <tr><td class="box"></td><td><b>Soldering practice kit</b>, through-hole (SparkFun WeevilEye, KIT-10723).<br><span class="url">sparkfun.com/products/10723</span></td><td>SparkFun</td><td class="price">$10</td></tr>
+        <tr class="total"><td></td><td>Soldering tools</td><td></td><td class="price">about $61</td></tr>
+      </table>
+    </li>
+    <li><strong>Order the general tools.</strong> Skip any you already own.
+      <table>
+        <tr><th></th><th>Item</th><th>Where</th><th class="price">Price</th></tr>
+        <tr><td class="box"></td><td><b>Flush cutters</b> (Hakko CHP-170, Adafruit product 152). Also the best tool for print supports.</td><td>Adafruit</td><td class="price">$7</td></tr>
+        <tr><td class="box"></td><td><b>Fine tweezers</b>, ESD-safe, straight (Adafruit product 421).</td><td>Adafruit</td><td class="price">$4</td></tr>
+        <tr><td class="box"></td><td><b>Digital calipers, 150 mm</b> (iGaging EZ Cal at $36, or a Neiko 01407A for less).</td><td>Taytools, Amazon</td><td class="price">$20 to $36</td></tr>
+        <tr><td class="box"></td><td><b>Multimeter with a microamp (µA) range</b> (Aneng AN8008). It checks which way round the battery is, and measures the sleep current.</td><td>Amazon</td><td class="price">about $25</td></tr>
+        <tr><td class="box"></td><td><b>Small screwdriver set</b>, <b>craft knife</b>, <b>safety glasses</b>.</td><td>anywhere</td><td class="price">about $20</td></tr>
+        <tr><td class="box"></td><td><b>A USB-C lead that carries data</b> (many only charge), to load the program.</td><td>anywhere</td><td class="price">about $8</td></tr>
+        <tr class="total"><td></td><td>General tools</td><td></td><td class="price">$84 to $100</td></tr>
+      </table>
+    </li>
+    <li><strong>Order the hardware and consumables.</strong>
+      <table>
+        <tr><th></th><th>Item</th><th>For</th><th class="price">Price</th></tr>
+        <tr><td class="box"></td><td><b>Neodymium disc magnets, 6 mm x 3 mm.</b> You need eight; they come in packs of 50.</td><td>holding the roof on</td><td class="price">about $11</td></tr>
+        <tr><td class="box"></td><td><b>Thin double-sided tape</b> (3M 468MP, 12 mm wide, or similar).</td><td>holding the screen on the sled</td><td class="price">about $12</td></tr>
+        <tr><td class="box"></td><td><b>Soft foam tape, 2 mm thick</b>, and <b>superglue</b>.</td><td>stopping the sled rattling; the magnets</td><td class="price">about $8</td></tr>
+        <tr><td class="box"></td><td><b>One 608 bearing</b> (a skateboard bearing), only if you print the iron stand.</td><td>the printed stand</td><td class="price">about $2</td></tr>
+        <tr><td class="box"></td><td><b>A spare ceramic tile</b> or a silicone mat, to solder on.</td><td>protecting the desk</td><td class="price">a few $</td></tr>
+        <tr class="total"><td></td><td>Hardware</td><td></td><td class="price">about $33</td></tr>
+      </table>
+    </li>
+    <li><strong>Order filament, if you are short.</strong> Matte PLA in the truck's colours (up to four, for the AMS); any PETG or PLA for the sled and the printed tools. If the desk gets direct sun, use PETG for the truck. The whole project uses well under one spool of each colour.</li>
+    <li><strong>Add it up.</strong> About <b>$290 to $305</b> in all, before filament and shipping: $111 of electronics, $61 of soldering tools, $84 to $100 of general tools, $33 of hardware.
+      <div class="warn"><b>Do not plug the battery in when it arrives.</b> Battery makers disagree about which side of the plug is +. Step 24 checks it with the multimeter first. A battery plugged in backwards destroys the board.</div>
+    </li>
+  </ol>
+  <div class="gate"><b>Check before part 3</b>Everything in steps 3 to 6 is ordered.</div>
+</section>
+
+<figure class="drawing"><figcaption><b>Tools: what to buy, what to print.</b> The same lists as part 2 and part 3, as pictures.</figcaption><img src="diagrams/tools.svg" alt="Tools: what to buy, what to print"></figure>
+
+<!-- ============================== PART 3 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 3</span>While the parts ship</h2>
+  <p class="lede">A week or two of waiting. Print your tools, and read part 4.</p>
+  <ol class="steps">
+    <li><strong>Print the soldering helpers.</strong> All free on MakerWorld; search the title, or type the address.
+      <table>
+        <tr><th></th><th>Print</th><th>Model on MakerWorld</th><th>Address</th></tr>
+        <tr><td class="box"></td><td>Board holder</td><td>"Adjustable PCB Holder Tool" by squinn</td><td><span class="url">makerworld.com/en/models/159336</span></td></tr>
+        <tr><td class="box"></td><td>Header-pin jig</td><td>"Soldering Assistant V2: Modular Sliding-Pin Jig" by ASF94</td><td><span class="url">makerworld.com/en/models/2836264</span></td></tr>
+        <tr><td class="box"></td><td>Solder spool holder</td><td>"Soldering wire holder" by 3Deste</td><td><span class="url">makerworld.com/en/models/194888</span></td></tr>
+        <tr><td class="box"></td><td>Trays for small parts</td><td>"Stackable Screw Tray Box system" by Meister Edel</td><td><span class="url">makerworld.com/en/models/54727</span></td></tr>
+        <tr><td class="box"></td><td>Iron stand (optional; print in PETG; needs the 608 bearing)</td><td>"Pinecil Soldering Iron Stand" by Daniel Jovanovic</td><td><span class="url">makerworld.com/en/models/1177626</span></td></tr>
+      </table>
+      <div class="warn"><b>Nothing printed goes near the hot iron.</b> PLA softens at about 60 °C; the iron is 350 °C. The iron's hot end rests only on metal: the bought stand, or the printed stand's steel bearing.</div>
+    </li>
+    <li><strong>Look at two frames other people made for this exact screen.</strong> See how they hold it. to see how they hold it. Download them to look at, not to print: <span class="url">makerworld.com/en/models/1924771</span> and <span class="url">makerworld.com/en/models/1213404</span>. The second one's author warns that some screens differ from the maker's stated size. That is why part 8 starts with calipers.</li>
+    <li><strong>Meanwhile, the software gets written.</strong> You do nothing here. I build the morning job that reads Off the Grid's list, the web page, the picture for the screen, and the program for the board. When it is ready you get a new edition of this guide with the three "next edition" steps filled in.</li>
+  </ol>
+  <div class="gate"><b>Check before part 4</b>The parts have arrived, the helpers are printed, and you have the new edition of this guide.</div>
+</section>
+
+<!-- ============================== PART 4 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 4</span>Learn to solder</h2>
+  <p class="lede">Half an hour on a practice kit makes the real board easy. Have Drawing 3 (next page) beside you.</p>
+  <ol class="steps">
+    <li><strong>Set up.</strong> Tile or mat on the desk, a window open, safety glasses on. Iron in its stand, plugged into the laptop charger. Set it to <b>350 °C (660 °F)</b> for leaded solder, or <b>370 °C (700 °F)</b> for lead-free. When it is hot, wipe the tip in the brass wool and melt a little solder onto it so it is shiny.</li>
+    <li><strong>Make one joint, in four beats</strong> (about four seconds).
+      <ul>
+        <li><b>Touch</b> the tip to the pad and the pin together.</li>
+        <li><b>Count</b> "one, two".</li>
+        <li><b>Feed</b> solder into the joint, not onto the iron, until it flows into a small cone.</li>
+        <li><b>Solder away first, then the iron.</b></li>
+      </ul>
+    </li>
+    <li><strong>Build the practice kit.</strong> Compare every joint with the "good and bad" row of Drawing 3 and fix the bad ones: a ball means not hot enough (reheat); a bridge between pins means drag the clean tip through it; a gap means add solder; a dull lump means it moved (reheat).</li>
+    <li><strong>Stop when you have ten joints in a row that you are happy with.</strong> Iron back in its stand, unplug it, wash your hands.</li>
+  </ol>
+  <div class="gate"><b>Check before part 5</b>Ten clean practice joints: small, shiny cones that hug the pin.</div>
+</section>
+
+<figure class="drawing"><figcaption><b>Your first solder joints.</b> One joint in four beats; good and bad joints; the kit and the settings.</figcaption><img src="diagrams/soldering.svg" alt="Your first solder joints"></figure>
+
+<!-- ============================== PART 5 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 5</span>Prepare the main board</h2>
+  <p class="lede">The only soldering on the real parts: two rows of pins on the FireBeetle. Then one knife cut that decides the battery life.</p>
+  <div class="warn"><b>The battery stays unplugged for this whole part.</b> Never solder with the battery connected.</div>
+  <ol class="steps">
+    <li><strong>Fit the pins.</strong> Snap two strips of header pins to the length of the board's two rows of holes. Push the short ends up through the holes from underneath, so the <b>long ends stick out of the top face</b> (the side with the chips). The 8-wire cable will push onto those long ends. Hold pins and board square in the printed jig.</li>
+    <li><strong>Solder one corner pin, then check.</strong> The board should sit flat on the strips. If it is tilted, reheat that joint and press the board down. Then solder the opposite corner.</li>
+    <li><strong>Solder every remaining pin in both rows.</strong> Clean the tip in the brass wool every few joints. Check each joint against Drawing 3 and fix any bridges.</li>
+    <li><strong>Cut the low-power pad.</strong> <span class="later">next edition: a photo of the exact spot</span><br>The board has a small solder-jumper pad labelled for low power: two halves joined by a thin copper neck. It is marked on the board diagram on DFRobot's page for this board (search "DFR0654 wiki"). With the craft knife, cut through the neck between the two halves, two or three firm strokes, then check with the multimeter on its continuity (beep) setting that the two halves no longer connect.
+      <div class="warn"><b>This cut matters more than any other step.</b> With it, the board sleeps at about 12 µA and a charge lasts about a year or more. Without it, the board sleeps at about 520 µA and a charge lasts about four months.</div>
+    </li>
+  </ol>
+  <div class="gate"><b>Check before part 6</b>Both rows of pins soldered with no bridges; the low-power pad cut and tested open.</div>
+</section>
+
+<!-- ============================== PART 6 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 6</span>Bench build</h2>
+  <p class="lede">Everything wired up loose on the desk, no truck yet. At the end of this part the bare screen shows today's trucks. Use Drawings 4 and 5.</p>
+  <ol class="steps">
+    <li><strong>Lay the parts out</strong> on a clean, soft surface: screen face up with its <b>protective film left on</b>, adapter board, main board, battery (unplugged), the 8-wire cable. Never press on the screen's glass or lean anything on it.</li>
+    <li><strong>Plug the screen's ribbon into the adapter board.</strong> Power off and battery unplugged. Lift the little latch on the adapter's socket with a fingernail or tweezers, slide the ribbon in square and fully home with its contacts facing the way the adapter's instructions show, then press the latch closed. The ribbon may only bend in the 5 mm nearest the glass; never crease it.</li>
+    <li><strong>Plug the 8-wire cable into the adapter board.</strong></li>
+    <li><strong>Push the cable's eight loose ends onto the main board's pins.</strong> Go by the <b>names printed on the adapter board</b>, not by wire colours. Tick each as you connect it.
+      <table>
+        <tr><th></th><th>Adapter pin</th><th>What it carries</th><th>Goes to the FireBeetle pin labelled</th></tr>
+        <tr><td class="box"></td><td><b>VCC</b></td><td>3.3 V power to the screen</td><td><b>3V3</b></td></tr>
+        <tr><td class="box"></td><td><b>GND</b></td><td>ground</td><td><b>GND</b></td></tr>
+        <tr><td class="box"></td><td><b>DIN</b></td><td>picture data</td><td><b>23</b> (MOSI)</td></tr>
+        <tr><td class="box"></td><td><b>CLK</b></td><td>data clock</td><td><b>18</b> (SCK)</td></tr>
+        <tr><td class="box"></td><td><b>CS</b></td><td>"listen to me" select</td><td><b>13</b></td></tr>
+        <tr><td class="box"></td><td><b>DC</b></td><td>data or command</td><td><b>22</b></td></tr>
+        <tr><td class="box"></td><td><b>RST</b></td><td>reset the screen</td><td><b>21</b></td></tr>
+        <tr><td class="box"></td><td><b>BUSY</b></td><td>screen says "still redrawing"</td><td><b>14</b></td></tr>
+      </table>
+      <div class="note">These pins are the program's planned choice. If the finished program uses different ones, the new edition of this guide says so here.</div>
+    </li>
+    <li><strong>Check the battery's polarity before it ever touches the board.</strong> Multimeter on DC volts (the 20 V range or auto). Red probe on the metal contact inside the battery plug that the <b>red</b> wire goes to, black probe on the other: it should read about <b>+3.7 to +4.2 V</b>. Now look at the board's battery socket: it has a <b>+</b> and a <b>−</b> printed beside it. Hold the plug the way it will go in. The red wire must line up with the <b>+</b>.
+      <div class="warn"><b>If red lines up with −, do not plug it in.</b> Tell me: the fix is to swap the two metal contacts in the plug with a pin, which takes a minute, but it must be done first.</div>
+    </li>
+    <li><strong>Plug in the USB-C data lead</strong> from the board to your Mac. Leave the battery unplugged for now.</li>
+    <li><strong>Load the program.</strong> <span class="later">next edition: the exact command</span><br>One command in Terminal copies the program onto the board. It takes about a minute.</li>
+    <li><strong>Give it the Wi-Fi name and password.</strong> <span class="later">next edition: exactly how</span><br>You type the network name and password from step 2 once; the board remembers them. They are stored only on the board, never on the internet.</li>
+    <li><strong>Watch it work.</strong> The screen flashes through its colours for about 25 seconds, then shows today's trucks. Unplug the USB-C lead, plug in the battery, press the board's reset button: it should do the same again from the battery alone.</li>
+  </ol>
+  <div class="gate"><b>Check before part 7</b>The bare screen shows today's trucks, running from the battery alone.</div>
+</section>
+
+<figure class="drawing"><figcaption><b>What plugs into what.</b> Yours is the middle row, route B. The other two rows are the routes you did not choose.</figcaption><img src="diagrams/routes-wiring.svg" alt="Three ways to wire it"></figure>
+<figure class="drawing"><figcaption><b>The eight wires.</b> Yours is the left half: the adapter board to the FireBeetle.</figcaption><img src="diagrams/pin-map.svg" alt="The eight wires: which pin goes where"></figure>
+
+<!-- ============================== PART 7 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 7</span>Power check</h2>
+  <p class="lede">This is where you find out the battery will last a year, while everything is still on the bench and easy to fix.</p>
+  <ol class="steps">
+    <li><strong>Make the test lead.</strong> Take the JST extension lead and cut its <b>red</b> wire in the middle. Strip about 5 mm of insulation from each cut end. Leave the black wire whole.</li>
+    <li><strong>Put the meter in the gap, with a bypass.</strong>
+      <ul>
+        <li>Plug the extension lead between the battery and the board.</li>
+        <li>Multimeter: black probe in <b>COM</b>, red probe in the <b>µA / mA</b> socket, dial on <b>µA DC</b>.</li>
+        <li>Clip one probe to each stripped end of the red wire, using the crocodile leads.</li>
+        <li>Clip a spare crocodile lead straight across the two stripped ends as well. This is the <b>bypass</b>.</li>
+      </ul>
+      <div class="note"><b>Why the bypass.</b> On its µA range the meter can only pass a trickle. While the board is awake it needs a thousand times more, so the bypass carries the current until the board is asleep.</div>
+    </li>
+    <li><strong>Read the sleep current.</strong> Press reset. Let the truck wake, redraw and go quiet; wait a full minute more. Now unclip the bypass. The meter shows the sleep current. Write it here: <b>__________ µA</b>.
+      <ul>
+        <li><b>About 15 µA (anything under 50):</b> good. That is a year or more per charge.</li>
+        <li><b>About 500 µA:</b> the low-power pad is not fully cut. Redo step 19.</li>
+        <li><b>Anything else in the hundreds or thousands:</b> stop and tell me the number. The usual cause is the screen's adapter board, and there is a known fix.</li>
+      </ul>
+      Clip the bypass back on <b>before</b> you press reset or unplug anything.
+    </li>
+    <li><strong>Remove the test lead</strong> and plug the battery straight into the board again.</li>
+    <li><strong>Leave it running on the bench for a week.</strong> It should redraw by itself each market morning (Monday to Thursday). Tick the mornings it was right: &nbsp; ☐ &nbsp; ☐ &nbsp; ☐ &nbsp; ☐ &nbsp; and the next week &nbsp; ☐ &nbsp; ☐ &nbsp; ☐</li>
+  </ol>
+  <div class="gate"><b>Check before part 8</b>Asleep it draws under 50 µA, and it has shown the right trucks on seven market mornings.</div>
+</section>
+
+<!-- ============================== PART 8 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 8</span>Measure and model</h2>
+  <p class="lede">Now, with the real parts in your hands, you model. The sled first, then the truck around it. Drawings 6 to 11 give the target numbers; your calipers have the last word.</p>
+  <ol class="steps">
+    <li><strong>Measure the real parts with the calipers</strong> and write them down. Where yours differs from the drawing, use yours.
+      <table>
+        <tr><th>Measure</th><th>The drawings assume</th><th>Yours</th></tr>
+        <tr><td>Screen glass, width x height</td><td>170.2 x 111.2 mm</td><td class="fill"></td></tr>
+        <tr><td>Screen glass, thickness</td><td>0.91 mm</td><td class="fill"></td></tr>
+        <tr><td>Picture area, width x height (the part that changes colour)</td><td>160.0 x 96.0 mm</td><td class="fill"></td></tr>
+        <tr><td>Dead border: top / bottom (ribbon edge) / each side</td><td>4.7 / 10.5 / 5.1 mm</td><td class="fill"></td></tr>
+        <tr><td>Ribbon: width, and distance from the glass's left edge</td><td>25.5 mm, 72.2 mm</td><td class="fill"></td></tr>
+        <tr><td>Adapter board, length x width, and where its socket sits</td><td>47 x 32 mm (a guess)</td><td class="fill"></td></tr>
+        <tr><td>Main board, length x width x thickness</td><td>60 x 25.4 x 1.6 mm</td><td class="fill"></td></tr>
+        <tr><td>Main board: which way its battery socket faces</td><td>not known</td><td class="fill"></td></tr>
+        <tr><td>Main board: height of the USB-C port's centre above the board</td><td>1.6 mm</td><td class="fill"></td></tr>
+        <tr><td>Battery, length x width x thickness</td><td>60 x 50 x 7.3 mm</td><td class="fill"></td></tr>
+      </table>
+    </li>
+    <li><strong>Model the sled</strong> (Drawing 6). A flat plate, 179 x 115 x 3 mm.
+      <ul>
+        <li><b>Front face:</b> a rim all round the glass, 1 mm high, 1.5 mm wide, 0.3 mm clear of the glass. Break the rim at the ribbon.</li>
+        <li><b>Bottom centre:</b> a cut-out 30 x 6 mm for the ribbon to fold back through.</li>
+        <li><b>Each end:</b> 2.5 mm of bare plate outside the rim. These slide in the truck's channels.</li>
+        <li><b>Back face:</b> 4 mm standoffs and printed clips for the main board, with its USB-C port at the plate's rear end; a place for the adapter board at bottom centre; a pocket and a soft strap for the battery with 1 mm clear all round.</li>
+      </ul>
+    </li>
+    <li><strong>Print the sled</strong> flat, rear face down, in PETG or PLA. Also print a simple stand so it can sit upright on the bench without resting on the ribbon.</li>
+    <li><strong>Mount the electronics on the sled.</strong> Two strips of thin double-sided tape on the plate, then lay the glass inside the rim and press only at its edges, lightly. Fold the ribbon back through the cut-out in one relaxed U and plug it into the adapter. Clip the boards on. Battery in its pocket. It should work exactly as it did loose on the bench: press reset and check.
+      <div class="warn"><b>Never clamp or press the glass,</b> and never stand the sled on its ribbon.</div>
+    </li>
+    <li><strong>Model the truck's must-hit parts first</strong> (Drawings 7 to 10). These are the numbers that make the sled fit; everything else about the truck's look is yours.
+      <table>
+        <tr><th>Must hit</th><th>Number</th></tr>
+        <tr><td>Overall size</td><td>229 long x 127 wide x 155 tall mm</td></tr>
+        <tr><td>Walls, floor and roof thickness</td><td>2.4 mm</td></tr>
+        <tr><td>Window in the serving wall, at the inside face</td><td>161 x 97 mm, starting 16.6 mm from the rear and 47.8 mm above the desk</td></tr>
+        <tr><td>Window chamfer</td><td>45° through the whole wall, opening outward (165.8 x 101.8 mm outside)</td></tr>
+        <tr><td>Ledge the sled stands on (the tops of the two serving-side wheel wells)</td><td>36 mm above the desk</td></tr>
+        <tr><td>Two upright U-channels inside the serving wall</td><td>slot 3.4 mm wide, 179 mm apart outside to outside, starting 7.6 mm from the rear</td></tr>
+        <tr><td>Air gap between the wall's inside face and the glass</td><td>0.5 mm</td></tr>
+        <tr><td>Charging slot in the rear wall</td><td>7.5 mm across x 13 mm tall, centred 14 mm from the serving face and 67.7 mm above the desk</td></tr>
+        <tr><td>Space kept clear behind the serving wall for the electronics</td><td>38 mm deep</td></tr>
+        <tr><td>Roof lid</td><td>2.4 mm thick, lifts off; underside 152.6 mm above the desk</td></tr>
+        <tr><td>Magnet posts, four</td><td>tops 151.1 mm above the desk; a 6 x 3 mm magnet in each top and one above it in a 1.5 mm boss under the lid</td></tr>
+        <tr><td>Wheels, four (they do not turn)</td><td>32 mm across, 12 mm wide; body 9 mm off the desk</td></tr>
+      </table>
+    </li>
+    <li><strong>Model the rest of the truck around those:</strong> the cab and windscreen (from 188 mm forward), the wheel wells, bumpers, awning, counter, lettering and stripes.</li>
+    <li><strong>Plan the colour for the AMS</strong> (Drawing 12). Make the two long side walls separate flat parts that print face down, with lettering and stripes set into the first two or three layers. Join them to the rest with a tongue and groove.</li>
+    <li><strong>Print a test slice and try the sled in it:</strong> just 20 mm of the serving wall's height, with the window's bottom edge and both channels. The sled should slide down freely and the glass should sit just behind the wall without touching it. Adjust the model until it does.</li>
+  </ol>
+  <div class="gate"><b>Check before part 9</b>The working sled slides into the test slice, and the glass sits 0.5 mm behind the wall.</div>
+</section>
+
+<figure class="drawing"><figcaption><b>The electronics sled, front and back.</b> Step 35.</figcaption><img src="diagrams/sled.svg" alt="The electronics sled: front and back"></figure>
+<figure class="drawing"><figcaption><b>Side view: where the screen sits.</b> Step 38.</figcaption><img src="diagrams/side-view.svg" alt="Side view"></figure>
+<figure class="drawing"><figcaption><b>Top view, roof off.</b> Step 38.</figcaption><img src="diagrams/top-view.svg" alt="Top view"></figure>
+<figure class="drawing"><figcaption><b>Cross-section at the window.</b> Step 38.</figcaption><img src="diagrams/cross-section.svg" alt="Cross-section"></figure>
+<figure class="drawing"><figcaption><b>Close-up: how the screen sits behind the window.</b> Steps 37 and 38.</figcaption><img src="diagrams/screen-mount-detail.svg" alt="Close-up of the screen mount"></figure>
+<figure class="drawing"><figcaption><b>The printed parts and how they go together.</b> Steps 39 and 46 to 49.</figcaption><img src="diagrams/exploded.svg" alt="Exploded view"></figure>
+<figure class="drawing"><figcaption><b>Printing the truck in colour with the AMS.</b> Steps 40 and 42.</figcaption><img src="diagrams/print-colour.svg" alt="Printing in colour with the AMS"></figure>
+
+<!-- ============================== PART 9 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 9</span>Print and assemble</h2>
+  <p class="lede">The truck is plain plastic: no electronics are fixed to it. Use Drawings 11 and 12.</p>
+  <ol class="steps">
+    <li><strong>Print the two long side walls,</strong> flat and face down, with their inlaid colour.</li>
+    <li><strong>Print the rest:</strong> chassis, the remaining body, roof lid, four wheels, awning and details. The 229 mm body fits your 256 mm bed in one piece.</li>
+    <li><strong>Dry-fit everything before any glue.</strong> Walls into their grooves, lid on, sled in and out.</li>
+    <li><strong>Glue the magnets.</strong> Let two magnets snap together and mark the two outer faces with a pen. Glue one into a post top and its partner into the lid boss above it, marked faces away from each other, so they attract. Do one pair, test that the lid pulls down, then do the other three.</li>
+    <li><strong>Glue the body together</strong> and fix the wheels to the chassis. A few drops of superglue in each groove; hold until set.</li>
+    <li><strong>Stick a strip of the 2 mm foam tape along the top edge of the sled.</strong></li>
+    <li><strong>Peel the protective film off the screen.</strong> Last thing before it goes in. Hold the sled by its edges.</li>
+    <li><strong>Lower the sled into the two channels</strong> until it stands on the ledge. Look through the rear slot: the USB-C port should be in the middle of it. Put the roof on.</li>
+    <li><strong>Put it on your desk and press reset once before closing</strong> (lift the lid to reach the button). It should redraw. From tomorrow it wakes by itself.</li>
+  </ol>
+  <div class="gate"><b>Check before part 10</b>It updates by itself from inside the closed truck, on the desk where it will live.</div>
+</section>
+
+<!-- ============================== PART 10 ============================== -->
+<section class="part">
+  <h2><span class="part">Part 10</span>Live with it</h2>
+  <ol class="steps">
+    <li><strong>Give it two weeks.</strong> Note anything that annoys you: the wake time, the layout, a truck name that is cut off. The page's design gets real work now that the hardware runs; tell me what you want.</li>
+    <li><strong>Keep it out of direct sun.</strong> The screen fades in it and PLA softens.</li>
+  </ol>
+
+  <h3>Charging (about once a year)</h3>
+  <ul class="plain">
+    <li>When the battery is nearly empty, the screen shows a red <b>CHARGE ME</b> card and the truck stops updating.</li>
+    <li>Plug a USB-C lead into the slot at the back and leave it overnight. Charge it while you are around the first time.</li>
+    <li>It carries on by itself the next market morning. Lift the lid and press reset if you want it sooner.</li>
+  </ul>
+
+  <h3>If something goes wrong</h3>
+  <table>
+    <tr><th>What you see</th><th>What it means</th><th>What to do</th></tr>
+    <tr><td>Yesterday's date and trucks</td><td>It could not get on Wi-Fi this morning. It tried three times and will try again tomorrow.</td><td>Lift the lid and press reset. If it still does not update, check the Wi-Fi password has not changed.</td></tr>
+    <tr><td>"Couldn't read the truck list today"</td><td>Off the Grid's page changed or was down. The truck itself is fine.</td><td>Tell me. Nothing to do on the truck.</td></tr>
+    <tr><td>"No market today"</td><td>Off the Grid has nothing at Levi's Plaza today. The market runs Monday to Thursday, with holiday breaks.</td><td>Nothing.</td></tr>
+    <tr><td>CHARGE ME</td><td>The battery is nearly empty.</td><td>Charge it (above).</td></tr>
+    <tr><td>Faint ghost of an old picture</td><td>The screen went too long without a redraw.</td><td>Press reset once or twice. If it keeps happening after weekends, tell me and the truck will redraw at weekends too.</td></tr>
+    <tr><td>Needs charging after a few months, not a year</td><td>Something is not sleeping.</td><td>Redo the sleep-current reading in part 7 and tell me the number.</td></tr>
+    <tr><td>Nothing at all after pressing reset</td><td>Battery flat or unplugged, or the ribbon has come loose.</td><td>Charge it; then check the battery plug and the ribbon's latch.</td></tr>
+  </table>
+</section>
+
+<!-- ============================== REFERENCE ============================== -->
+<section class="part">
+  <h2><span class="part">Reference</span>How it works, in five drawings</h2>
+  <p class="lede">You do not need these to build it. They explain what the truck and the cloud are doing, and why the battery lasts.</p>
+  <ul class="plain">
+    <li><b>The morning job</b> runs in the cloud at about 6:30 AM. It reads Off the Grid's list for Levi's Plaza, lays it out as a web page, takes a picture of the page in the screen's six colours, and publishes it.</li>
+    <li><b>The truck</b> wakes at about 7:00 AM, checks whether the picture changed, downloads and redraws only if it did, then sleeps. It is awake for about 40 seconds a day.</li>
+    <li><b>The screen</b> holds its picture with no power at all.</li>
+    <li><b>The battery</b> mostly drains by itself. The estimate is 13 to 19 months per charge; part 7 is where you confirm it.</li>
+  </ul>
+  <h3>Words used in this guide</h3>
+  <table>
+    <tr><th>Word</th><th>Meaning</th></tr>
+    <tr><td>Sled</td><td>The printed plate that carries the screen, the two boards and the battery. It lifts out of the truck in one piece.</td></tr>
+    <tr><td>Ribbon</td><td>The screen's flat, flexible cable. Fragile: one gentle bend, near the glass only.</td></tr>
+    <tr><td>Adapter board</td><td>The small board from the screen set. The ribbon plugs into it; eight wires leave it.</td></tr>
+    <tr><td>Main board</td><td>The FireBeetle: Wi-Fi, charger, battery plug, USB-C.</td></tr>
+    <tr><td>Header pins</td><td>Rows of metal pins in a plastic strip, soldered to the main board so wires can push on.</td></tr>
+    <tr><td>Deep sleep</td><td>The board all but switched off, with only a timer running. Measured in µA.</td></tr>
+    <tr><td>µA (microamp)</td><td>A millionth of an amp. 15 µA for a year uses about 130 mAh, a twentieth of the battery.</td></tr>
+    <tr><td>E-paper</td><td>A screen like an e-reader's. It only uses power while it changes.</td></tr>
+  </table>
+</section>
+
+<figure class="drawing"><figcaption><b>The morning job, step by step.</b></figcaption><img src="diagrams/data-pipeline.svg" alt="The morning job"></figure>
+<figure class="drawing"><figcaption><b>A day and a week in the truck's life.</b> The market runs Monday to Thursday, so Friday is a sleeping day too.</figcaption><img src="diagrams/day-timeline.svg" alt="A day and a week in the truck's life"></figure>
+<figure class="drawing"><figcaption><b>What the truck does each time it wakes.</b></figcaption><img src="diagrams/firmware-flow.svg" alt="What the truck does each time it wakes"></figure>
+<figure class="drawing"><figcaption><b>What the screen shows.</b> A first sketch; the design gets real work once the hardware runs.</figcaption><img src="diagrams/screen-layout.svg" alt="What the screen shows"></figure>
+<figure class="drawing"><figcaption><b>Where the battery goes, and how long a charge lasts.</b></figcaption><img src="diagrams/power-budget.svg" alt="Where the battery goes"></figure>
+
+</body>
+</html>

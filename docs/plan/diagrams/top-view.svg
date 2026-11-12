@@ -37,7 +37,7 @@
     <path d="M5.6 2.4 H10.1 V3.7 H7.6 V7.1 H10.1 V9.1 H5.6 Z" fill="#FFE8CC" stroke="#1F2933" stroke-width="0.3472"/>
     <path d="M188.6 2.4 H184.1 V3.7 H186.6 V7.1 H184.1 V9.1 H188.6 Z" fill="#FFE8CC" stroke="#1F2933" stroke-width="0.3472"/>
     <!-- four magnet posts, 9 square, magnets 6 diameter: two in the far-side corners, one in the serving-side front corner,
-         one on the rear wall centred at y = 42 -->
+         one on the rear wall centred at y = 43 -->
     <g fill="#FFE8CC" stroke="#1F2933" stroke-width="0.3472">
       <rect x="2.4" y="115.6" width="9" height="9"/>
       <rect x="217.6" y="115.6" width="9" height="9"/>
@@ -140,7 +140,7 @@
 
   <text x="470" y="462.4" font-size="13" font-weight="600" fill="#E8590C">Keep-out for the sled's electronics: x 4 to 187, out to y = 38</text>
 
-  <text x="248.6" y="440.4" font-size="13" fill="#5F6B7A">Fourth magnet post, centred at y = 42:</text>
+  <text x="248.6" y="440.4" font-size="13" fill="#5F6B7A">Fourth magnet post, centred at y = 43:</text>
   <text x="248.6" y="456.4" font-size="13" fill="#5F6B7A">the sled drops in at the corner</text>
 
   <text x="365.6" y="175.2" font-size="15" text-anchor="middle" fill="#1F2933">Wheel well</text>

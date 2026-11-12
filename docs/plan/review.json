@@ -1,108 +1,13 @@
 {
   "title": "Desk food truck: the build plan",
   "kind": "doc",
-  "intro": "The plan for the battery-powered desk food truck, with 19 diagrams. Each section has its own Approve / Change and a note box: say anything you want different, in any section. The last block has five short questions; your answers decide which parts to order and unblock the software.",
+  "intro": "The plan for the battery-powered desk food truck, with 18 diagrams, as decided on 12 November: route B, the 7.3 inch screen, 155 mm tall.",
   "blocks": [
     {
       "type": "doc",
       "id": "plan",
       "file": "PLAN.md",
       "split": 2
-    },
-    {
-      "type": "questions",
-      "id": "open",
-      "title": "Five questions that decide what to order",
-      "questions": [
-        {
-          "id": "route",
-          "q": "Which way do you want to build the electronics?",
-          "detail": "Section 5 compares them. The screen and battery are the same in all three, so changing your mind later costs about $10.",
-          "options": [
-            {
-              "id": "b",
-              "label": "B: a little soldering (recommended)",
-              "text": "Solder two rows of header pins: the classic first job. Proven low sleep current."
-            },
-            {
-              "id": "a",
-              "label": "A: plug together",
-              "text": "No soldering. Cheapest. Battery life is unproven until measured."
-            },
-            {
-              "id": "c",
-              "label": "C: solder everything",
-              "text": "Smallest and neatest. Fine soldering on small pads; better as a second build."
-            }
-          ]
-        },
-        {
-          "id": "size",
-          "q": "Which screen size?",
-          "detail": "Section 3 draws both on the truck. The plan's dimensions assume 7.3 inch; the 4 inch would get its own set.",
-          "options": [
-            {
-              "id": "big",
-              "label": "7.3 inch (recommended)",
-              "text": "Fills the side, reads from across a desk, shows up to four trucks."
-            },
-            {
-              "id": "small",
-              "label": "4 inch",
-              "text": "In scale with a real serving window, room for detail round it, smaller text."
-            }
-          ]
-        },
-        {
-          "id": "height",
-          "q": "How tall should the truck be?",
-          "detail": "The 7.3 inch screen's glass is 111 mm tall. 152 mm fits with only about 1 mm to spare above and below it; 155 mm gives room for a rim and for error.",
-          "options": [
-            {
-              "id": "h155",
-              "label": "155 mm (6.1 in), a little slack (recommended)"
-            },
-            {
-              "id": "h152",
-              "label": "152 mm (6.0 in) exactly"
-            }
-          ]
-        },
-        {
-          "id": "repo",
-          "q": "May I create a GitHub repo for this project, to run the morning job and host the page for free?",
-          "detail": "Free hosting needs the page to be public: anyone with the address could see today's trucks. Nothing secret goes in the repo; the Wi-Fi password lives only on the truck.",
-          "options": [
-            {
-              "id": "yes",
-              "label": "Yes, create it"
-            },
-            {
-              "id": "wait",
-              "label": "Not yet: build the software locally first"
-            },
-            {
-              "id": "other",
-              "label": "Host it somewhere else (say where below)"
-            }
-          ]
-        },
-        {
-          "id": "link",
-          "q": "What is the link to the public page that lists the trucks?",
-          "detail": "Paste it in the box. The software starts from this page.",
-          "options": [
-            {
-              "id": "here",
-              "label": "Pasted in the box below"
-            },
-            {
-              "id": "later",
-              "label": "I'll send it in chat later"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
